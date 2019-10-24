@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="SUPER TEST  home page + signup" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="site" elementType="Argument">
+            <stringProp name="Argument.name">site</stringProp>
+            <stringProp name="Argument.value">172.29.90.61</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="port" elementType="Argument">
+            <stringProp name="Argument.name">port</stringProp>
+            <stringProp name="Argument.value">80</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="organizationId" elementType="Argument">
+            <stringProp name="Argument.name">organizationId</stringProp>
+            <stringProp name="Argument.value">38</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="protocol" elementType="Argument">
+            <stringProp name="Argument.name">protocol</stringProp>
+            <stringProp name="Argument.value">http</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery"></stringProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="dataSource">test</stringProp>
+        <stringProp name="dbUrl">jdbc:sqlserver://172.29.45.45\sql2005;DatabaseName=NofshonitClub</stringProp>
+        <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
+        <stringProp name="initQuery"></stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">Erg0110$</stringProp>
+        <stringProp name="poolMax">0</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">sqladmin</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="utility class checker" enabled="true">
+        <stringProp name="scriptLanguage">groovy</stringProp>
+        <stringProp name="parameters"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="cacheKey">true</stringProp>
+        <stringProp name="script">import groovy.json.JsonSlurper;
+import org.apache.jmeter.assertions.AssertionResult;
+class ResponseChecker{
+	String failureMessage = &apos;&apos;;
+	JsonSlurper JSON = new JsonSlurper();
+
+
+	public def getJsonResponse(org.apache.jmeter.protocol.http.sampler.HTTPSampleResult prev){
+		def jsonResponse = null;
+		try {
+	    jsonResponse = this.JSON.parseText(prev.getResponseDataAsString());
+	    org.apache.log4j.Logger.error(jsonResponse);
+	    } catch (Exception e) {
+	    this.failureMessage += &quot; Invalid JSON.\n&quot;   
+	}
+	
+	return this.failureMessage == &apos;&apos;? jsonResponse: failureMessage;
+	}
+	
+	public void getStatusCode(org.apache.jmeter.protocol.http.sampler.HTTPSampleResult prev, String requiredStatus){
+		 if(prev == null || requiredStatus == null) {
+		 	this.failureMessage += &quot; jsonConfig got null collection\n&quot;;
+		 	return;
+		 }
+		if(!requiredStatus.equals(prev.getResponseCode())){
+			this.failureMessage = &quot; Expected &lt;response code&gt; &quot;+ requiredStatus+&quot; but we got instead [&quot; + prev.getResponseCode() + &quot;]\n\n&quot; ;
+	    }
+	}
+
+	public void jsonConfig(AbstractCollection collection){
+		 if(collection == null){
+		 	this.failureMessage += &quot; jsonConfig got null collection\n&quot;;
+		 	return;
+		 }
+		if (!collection.keyset().containsAll([&quot;data&quot;,&quot;status&quot;] )) {
+	          this.failureMessage += &quot; the response Json dosnet contain the right structure.\n\n&quot;;
+		}
+	}
+
+	public void ConfigStatusAndData(groovy.json.internal.LazyMap jsonResponse){
+		     if(jsonResponse == null){
+		 	this.failureMessage += &quot;jsonConfigMap got null map\n&quot;;
+		 	return;
+		 }
+		if (!jsonResponse.keySet().containsAll([&quot;data&quot;,&quot;status&quot;] )) {
+	          this.failureMessage += &quot; the response Json returned without status and data key fields(expecting data and status fields to return from a request.\n\n&quot;;
+	     }
+	}
+
+	public void getStatusHeader(Boolean status){
+		if(status== null){
+		 	this.failureMessage += &quot; statusHeader got null status\n&quot;;
+		 	return;
+		 }
+		if(status.equals(false)){
+			this.failureMessage += &quot; The request returned with a false status \n\n&quot;;
+		}
+	}
+
+	public void dataIsCollection(AbstractCollection map, String fields, String returnedMessage){
+		if(map == null || fields == null || returnedMessage == null){
+		 	this.failureMessage += &quot; data Collection got null values\n&quot;;
+		 	return;
+		 }
+		if(!map.containsAll(fields.split())){
+			 this.failureMessage += returnedMessage;
+		}
+		//org.apache.log4j.Logger.error(map.containsAll(fields.split()))
+	}
+	
+
+	public void dataIsLazyMap(groovy.json.internal.LazyMap map, String fields, String returnedMessage){
+		if(map == null || fields == null || returnedMessage == null){
+		 	this.failureMessage += &quot; dataIsLazyMap got null values\n&quot;;
+		 	return;
+		 }
+		if(!map.keySet().containsAll(fields.split())){
+			 this.failureMessage += returnedMessage;
+		}
+	}
+	public void dataIsLazyMapArray(List Arr, String fields, String returnedMessage){
+		if(Arr == null || fields == null || returnedMessage == null){
+		 	this.failureMessage += &quot; dataIsLazyMapArray got null values\n&quot;;
+		 	return;
+		 }
+		String [] ary = fields.split();
+		
+		for(String field : ary){
+			if(!Arr.every{it.containsKey(field)}){
+				this.failureMessage +=  returnedMessage;
+			}
+		}
+	}
+
+	public void dataIsLazyKeySet(groovy.json.internal.LazyMap map, String fields, String returnedMessage){
+		if(map == null || fields == null || returnedMessage == null){
+		 	this.failureMessage += &quot; dataIsLazyKeySet got null values\n&quot;;
+		 	return;
+		 }
+		String fieldsToCheck = fields.split(&quot;/&quot;);
+		if(!map.containsAll(fieldsToCheck)){
+			 this.failureMessage += returnedMessage;
+		}
+	}
+
+	public void dataIsString(String data, String fields, String msg){
+		if(data == null || fields == null || msg == null){
+		 	this.failureMessage += &quot; dataIsString got null values\n&quot;;
+		 	return;
+		 }
+		String [] ary = fields.split();
+		for(String field : ary){
+			if(!data.contains(field)){
+		 	this.failureMessage += msg +&quot;\n\n&quot;;
+			}
+		}
+		
+//		if(!data.contains(toCheck)){
+//		 	this.failureMessage += &quot;The request returned without a valid fields (String data) \n\n&quot;;
+//		}
+	}
+	
+	public void databaseNotEquals(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(oldValue.equals(newValue)){
+			this.failureMessage += msg;
+		}
+	}
+
+	public void databaseEquals(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!oldValue.equals(newValue)){
+			this.failureMessage += msg;
+		}
+	}
+
+	public String getFailureMassage(){
+		return this.failureMessage;
+	}
+
+	}
+
+	ResponseChecker JsonChecker = new ResponseChecker();
+	vars.putObject(&apos;JsonChecker&apos;,JsonChecker);
+	props.put(&apos;JsonChecker&apos;,JsonChecker);
+
+</stringProp>
+      </JSR223PreProcessor>
+      <hashTree/>
+      <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="DB checker" enabled="true">
+        <stringProp name="scriptLanguage">groovy</stringProp>
+        <stringProp name="parameters"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="cacheKey">true</stringProp>
+        <stringProp name="script">import groovy.json.JsonSlurper;
+import org.apache.jmeter.assertions.AssertionResult;
+import groovy.util.logging.Log;
+class DBChecker{
+	String failureMessage = &apos;&apos;;
+
+	public void DBContainsRequiredFields(ArrayList results,List variantNames,String msg){
+	String resultmsg;
+	results.each{resultArray -&gt; 
+			variantNames.each{var -&gt;
+				if(!(resultArray.keySet().contains(var))){
+					this.failureMessage+=&quot; - ${var} - &quot;
+				}
+
+			}
+		}
+		if(failureMessage?.trim()){
+			this.failureMessage = msg + failureMessage;
+		}
+			
+	}
+	//*****************************************DB methods**********************************************
+	
+	public void databaseNotEqualsStrings(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(oldValue.equals(newValue)){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public void databaseEqualsStrings(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!(oldValue.equals(newValue))){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public void databaseEquals(long oldValue,long newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!(oldValue==newValue)){
+	//	 groovy.util.logging.Log.info(oldValue);
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public void databaseNotEquals(long oldValue,long newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(oldValue==newValue){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+public void databaseEquals(long oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+ 			return;
+	 }
+		if(!(oldValue==newValue)){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	
+	public void databaseEqualsWithResultArray(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!(oldValue.equals(newValue))){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public String getFailureMassage(){
+		//groovy.util.logging.Log.info(failureMessage);
+		return this.failureMessage;
+	}
+
+	}
+
+	DBChecker Checker = new DBChecker();
+	vars.putObject(&apos;DBChecker&apos;,Checker);
+	props.put(&apos;DBChecker&apos;,Checker);
+
+</stringProp>
+      </JSR223PreProcessor>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="Accept" elementType="Header">
+            <stringProp name="Header.name">Accept</stringProp>
+            <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+          </elementProp>
+          <elementProp name="Content-Type" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+          </elementProp>
+          <elementProp name="Referer" elementType="Header">
+            <stringProp name="Header.name">Referer</stringProp>
+            <stringProp name="Header.value">http://172.29.90.62/</stringProp>
+          </elementProp>
+          <elementProp name="Sec-Fetch-Mode" elementType="Header">
+            <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+            <stringProp name="Header.value">cors</stringProp>
+          </elementProp>
+          <elementProp name="User-Agent" elementType="Header">
+            <stringProp name="Header.name">User-Agent</stringProp>
+            <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">organizationId</stringProp>
+            <stringProp name="Header.value">${organizationId}</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data getcurrentPassword" enabled="true">
+        <stringProp name="filename">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/currentPassword.csv</stringProp>
+        <stringProp name="fileEncoding"></stringProp>
+        <stringProp name="variableNames"></stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <stringProp name="delimiter">,</stringProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="create new  Email" enabled="true">
+        <stringProp name="variableName">newEmail</stringProp>
+        <stringProp name="outputFormat">orir_00000000@dts-4u</stringProp>
+        <stringProp name="minimumValue">1</stringProp>
+        <stringProp name="maximumValue">999999999</stringProp>
+        <stringProp name="randomSeed"></stringProp>
+        <boolProp name="perThread">false</boolProp>
+      </RandomVariableConfig>
+      <hashTree/>
+      <JSR223Listener guiclass="TestBeanGUI" testclass="JSR223Listener" testname="assertion gatherer" enabled="true">
+        <stringProp name="scriptLanguage">groovy</stringProp>
+        <stringProp name="parameters"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="cacheKey">true</stringProp>
+        <stringProp name="script">def assertionResults = props.get(&apos;assertionResults&apos;)
+def resultBuilder = new StringBuilder()
+if (assertionResults == null) {
+    props.put(&apos;assertionResults&apos;, &apos;&apos;)
+}
+else {
+    resultBuilder.append(assertionResults)
+}
+
+if (!prev.isSuccessful()) {
+    prev.getAssertionResults().each { assertionResult -&gt;
+        resultBuilder.append(assertionResult.getFailureMessage()).append(System.getProperty(&apos;line.separator&apos;))
+    }
+}
+props.put(&apos;assertionResults&apos;, resultBuilder.toString())
+</stringProp>
+        <boolProp name="com.blazemeter.jmeter.debugger.engine.Debugger">false</boolProp>
+      </JSR223Listener>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>false</message>
+            <threadName>true</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>false</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="true">
+        <collectionProp name="ultimatethreadgroupdata">
+          <collectionProp name="1202527914">
+            <stringProp name="55">7</stringProp>
+            <stringProp name="48">0</stringProp>
+            <stringProp name="1629">30</stringProp>
+            <stringProp name="1509345">1200</stringProp>
+            <stringProp name="48625">100</stringProp>
+          </collectionProp>
+        </collectionProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      </kg.apc.jmeter.threads.UltimateThreadGroup>
+      <hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="סכהכול" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="דך הבית" enabled="true">
+            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\frontend\test fragments\bait.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="הטבה + הרשמה" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
+          <hashTree>
+            <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="הטבה" enabled="true">
+              <intProp name="ThroughputController.style">1</intProp>
+              <boolProp name="ThroughputController.perThread">false</boolProp>
+              <intProp name="ThroughputController.maxThroughput">1</intProp>
+              <FloatProperty>
+                <name>ThroughputController.percentThroughput</name>
+                <value>100.0</value>
+                <savedValue>0.0</savedValue>
+              </FloatProperty>
+            </ThroughputController>
+            <hashTree>
+              <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Include Controller" enabled="true">
+                <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\frontend\test fragments\hatava.jmx</stringProp>
+              </IncludeController>
+              <hashTree/>
+            </hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">3000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+            <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="שלט הרשמה" enabled="true">
+              <intProp name="ThroughputController.style">1</intProp>
+              <boolProp name="ThroughputController.perThread">false</boolProp>
+              <intProp name="ThroughputController.maxThroughput">1</intProp>
+              <FloatProperty>
+                <name>ThroughputController.percentThroughput</name>
+                <value>70.0</value>
+                <savedValue>0.0</savedValue>
+              </FloatProperty>
+            </ThroughputController>
+            <hashTree>
+              <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="הרשמה לאתר נופשונית + ולידציה" enabled="true">
+                <intProp name="ThroughputController.style">1</intProp>
+                <boolProp name="ThroughputController.perThread">false</boolProp>
+                <intProp name="ThroughputController.maxThroughput">1</intProp>
+                <FloatProperty>
+                  <name>ThroughputController.percentThroughput</name>
+                  <value>100.0</value>
+                  <savedValue>0.0</savedValue>
+                </FloatProperty>
+              </ThroughputController>
+              <hashTree>
+                <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Include Controller" enabled="true">
+                  <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\register+validate.jmx</stringProp>
+                </IncludeController>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </PostThreadGroup>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<sample t="7" it="0" lt="0" ct="0" ts="1570714727863" s="true" lb="replace old email in csv files" rc="200" tn="Registeration 1-1" by="0" sby="0" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<httpSample t="1160" it="0" lt="1160" ct="3" ts="1570714727880" s="true" lb="Register" rc="200" tn="Registeration 1-1" by="1111" sby="570" sc="1" ec="0" ng="1" na="1" hn="spare">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/users/Register</java.net.URL>
+</httpSample>
+<sample t="148" it="0" lt="148" ct="106" ts="1570714729058" s="true" lb="extractLastSignIn" rc="200" tn="Registeration 1-1" by="40" sby="0" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<sample t="9" it="0" lt="0" ct="0" ts="1570714729212" s="true" lb="replace old id in csv files" rc="200" tn="Registeration 1-1" by="0" sby="0" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<sample t="1324" it="102" lt="1308" ct="109" ts="1570714727796" s="true" lb="Transaction Controller" rc="200" tn="Registeration 1-1" by="1151" sby="570" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<sample t="171" it="0" lt="171" ct="84" ts="1570714729231" s="true" lb="extractValidateToken" rc="200" tn="Validation 2-1" by="1360" sby="0" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<httpSample t="1182" it="0" lt="1182" ct="3" ts="1570714729414" s="true" lb="ValidateUser" rc="200" tn="Validation 2-1" by="1739" sby="1547" sc="1" ec="0" ng="1" na="1" hn="spare">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/users/ValidateToken</java.net.URL>
+</httpSample>
+<httpSample t="1086" it="0" lt="1086" ct="0" ts="1570714730607" s="true" lb="ValidateEmail" rc="200" tn="Validation 2-1" by="1733" sby="512" sc="1" ec="0" ng="1" na="1" hn="spare">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/users/Authenticate</java.net.URL>
+</httpSample>
+<sample t="42" it="0" lt="42" ct="0" ts="1570714731708" s="true" lb="validate that user sign in was sucsessful" rc="200" tn="Validation 2-1" by="42" sby="0" sc="1" ec="0" ng="1" na="1" hn="spare">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="2481" it="51" lt="2481" ct="87" ts="1570714729226" s="true" lb="Transaction Controller" rc="200" tn="Validation 2-1" by="4874" sby="2059" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+</testResults>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="false"/>
+    <hashTree>
+      <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="DB checker" enabled="true">
+        <stringProp name="scriptLanguage">groovy</stringProp>
+        <stringProp name="parameters"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="cacheKey">true</stringProp>
+        <stringProp name="script">import groovy.json.JsonSlurper;
+import org.apache.jmeter.assertions.AssertionResult;
+import groovy.util.logging.Log;
+class DBChecker{
+	String failureMessage = &apos;&apos;;
+
+	public void DBContainsRequiredFields(ArrayList results,List variantNames,String msg){
+	String resultmsg;
+	results.each{resultArray -&gt; 
+			variantNames.each{var -&gt;
+				if(!(resultArray.keySet().contains(var))){
+					this.failureMessage+=&quot; - ${var} - &quot;
+				}
+
+			}
+		}
+		if(failureMessage?.trim()){
+			this.failureMessage = msg + failureMessage;
+		}
+			
+	}
+	//*****************************************DB methods**********************************************
+	
+	public void databaseNotEqualsStrings(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(oldValue.equals(newValue)){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public void databaseEqualsStrings(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!(oldValue.equals(newValue))){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public void databaseEquals(long oldValue,long newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!(oldValue==newValue)){
+	//	 groovy.util.logging.Log.info(oldValue);
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public void databaseNotEquals(long oldValue,long newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(oldValue==newValue){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+public void databaseEquals(long oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+ 			return;
+	 }
+		if(!(oldValue==newValue)){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	
+	public void databaseEqualsWithResultArray(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!(oldValue.equals(newValue))){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public String getFailureMassage(){
+		//groovy.util.logging.Log.info(failureMessage);
+		return this.failureMessage;
+	}
+
+	}
+
+	DBChecker Checker = new DBChecker();
+	vars.putObject(&apos;DBChecker&apos;,Checker);
+	props.put(&apos;DBChecker&apos;,Checker);
+
+</stringProp>
+      </JSR223PreProcessor>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

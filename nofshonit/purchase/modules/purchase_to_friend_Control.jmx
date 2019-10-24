@@ -1,0 +1,1391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="false"/>
+      <hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV getId" enabled="true">
+          <stringProp name="filename">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/id.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">
+vars.putObject(&apos;body&apos;,&apos;&apos;);</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="link checker" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.io.FileWriter;
+import java.util.Arrays;
+import java.io.Writer;
+import java.util.List;
+import java.nio.charset.StandardCharsets;
+import java.io.*; 
+class LineChanger{
+	String pathToFile;
+	String CSVFile;
+	
+	LineChanger(String pathToFile, String CSVFile){
+		this.pathToFile = pathToFile;
+		this.CSVFile = CSVFile;
+	}
+	public void changeLine(int lineNumber, String data) throws IOException {
+    Path path = Paths.get(pathToFile,CSVFile);
+    List&lt;String&gt; lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+    lines.set(lineNumber - 1, data);
+    Files.write(path, lines, StandardCharsets.UTF_8);
+		}
+	}
+
+LineChanger LineChangerId = new LineChanger(&quot;C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files&quot;, &quot;id.csv&quot;);
+LineChanger LineChangerEmail = new LineChanger(&quot;C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files&quot;,&quot;toEmail.csv&quot;);;
+vars.putObject(&apos;LineChangerId&apos;,LineChangerId);
+props.put(&apos;LineChangerEmail&apos;,LineChangerEmail);
+
+vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
+props.put(&apos;LineChangerId&apos;,LineChangerId);
+
+
+</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV getcurrentPassword" enabled="true">
+          <stringProp name="filename">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/currentPassword.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="create new  Email" enabled="true">
+          <stringProp name="variableName">newEmail</stringProp>
+          <stringProp name="outputFormat">talll_0000@dts-4u</stringProp>
+          <stringProp name="minimumValue">1</stringProp>
+          <stringProp name="maximumValue">9999</stringProp>
+          <stringProp name="randomSeed"></stringProp>
+          <boolProp name="perThread">false</boolProp>
+        </RandomVariableConfig>
+        <hashTree/>
+        <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
+          <boolProp name="clearEachIteration">true</boolProp>
+          <boolProp name="useExpires">true</boolProp>
+        </CacheManager>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV getIdentityCArd" enabled="true">
+          <stringProp name="filename">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/identitiyCard.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="Accept" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+            </elementProp>
+            <elementProp name="Content-Type" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+            </elementProp>
+            <elementProp name="Referer" elementType="Header">
+              <stringProp name="Header.name">Referer</stringProp>
+              <stringProp name="Header.value">http://172.29.90.62/</stringProp>
+            </elementProp>
+            <elementProp name="Sec-Fetch-Mode" elementType="Header">
+              <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+              <stringProp name="Header.value">cors</stringProp>
+            </elementProp>
+            <elementProp name="User-Agent" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">organizationId</stringProp>
+              <stringProp name="Header.value">${organizationId}</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="false">
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="checkQuery"></stringProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="dataSource">test</stringProp>
+          <stringProp name="dbUrl">jdbc:sqlserver://172.29.45.45\sql2005;DatabaseName=NofshonitClub</stringProp>
+          <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
+          <stringProp name="initQuery"></stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="password">Erg0110$</stringProp>
+          <stringProp name="poolMax">0</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <stringProp name="username">sqladmin</stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV get Friend Member Email" enabled="true">
+          <stringProp name="filename">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/toEmail.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV getEmail" enabled="true">
+          <stringProp name="filename">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/email.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV getCreditcard" enabled="true">
+          <stringProp name="filename">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/creditCard.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <JSR223Listener guiclass="TestBeanGUI" testclass="JSR223Listener" testname="assertion gatherer" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">def assertionResults = props.get(&apos;assertionResults&apos;)
+def resultBuilder = new StringBuilder()
+if (assertionResults == null) {
+    props.put(&apos;assertionResults&apos;, &apos;&apos;)
+}
+else {
+    resultBuilder.append(assertionResults)
+}
+
+if (!prev.isSuccessful()) {
+    prev.getAssertionResults().each { assertionResult -&gt;
+        resultBuilder.append(assertionResult.getFailureMessage()).append(System.getProperty(&apos;line.separator&apos;))
+    }
+}
+props.put(&apos;assertionResults&apos;, resultBuilder.toString())
+</stringProp>
+          <boolProp name="com.blazemeter.jmeter.debugger.engine.Debugger">false</boolProp>
+        </JSR223Listener>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="ביצוע רכישה" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="replace old ToEmail in csv files" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">
+def LineChangerEmail = props.get(&apos;LineChangerEmail&apos;);
+String newEmail = vars.get(&apos;newEmail&apos;)+&quot;.com&quot;;
+LineChangerEmail.changeLine(2,newEmail);
+vars.put(&apos;toEmail&apos;, newEmail);
+
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Token And LastPasswordChange JDBC" enabled="true">
+            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\JDBC TestFragments\ExtractUserTokenJDBCWithEmail.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header adds UserToken" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">organizationId</stringProp>
+                <stringProp name="Header.value">${organizationId}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Token</stringProp>
+                <stringProp name="Header.value">${Token}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="get catagory from variant" enabled="true">
+            <stringProp name="dataSource">test</stringProp>
+            <stringProp name="query">--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()--
+SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 43204
+</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="variableNames">catagoryId</stringProp>
+            <boolProp name="com.blazemeter.jmeter.debugger.engine.Debugger">true</boolProp>
+          </JDBCSampler>
+          <hashTree>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">
+vars.put(&apos;catagoryId&apos;,vars.get(&apos;catagoryId_1&apos;));</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <boolProp name="ResultCollector.error_logging">false</boolProp>
+              <objProp>
+                <name>saveConfig</name>
+                <value class="SampleSaveConfiguration">
+                  <time>true</time>
+                  <latency>true</latency>
+                  <timestamp>true</timestamp>
+                  <success>true</success>
+                  <label>true</label>
+                  <code>true</code>
+                  <message>true</message>
+                  <threadName>true</threadName>
+                  <dataType>true</dataType>
+                  <encoding>false</encoding>
+                  <assertions>true</assertions>
+                  <subresults>true</subresults>
+                  <responseData>false</responseData>
+                  <samplerData>false</samplerData>
+                  <xml>true</xml>
+                  <fieldNames>true</fieldNames>
+                  <responseHeaders>false</responseHeaders>
+                  <requestHeaders>false</requestHeaders>
+                  <responseDataOnError>false</responseDataOnError>
+                  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                  <assertionsResultsToSave>0</assertionsResultsToSave>
+                  <bytes>true</bytes>
+                  <sentBytes>true</sentBytes>
+                  <url>true</url>
+                  <threadCounts>true</threadCounts>
+                  <idleTime>true</idleTime>
+                  <connectTime>true</connectTime>
+                </value>
+              </objProp>
+              <stringProp name="filename"></stringProp>
+            </ResultCollector>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getCatagories" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="categoryId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${catagoryId}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">categoryId</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${site}</stringProp>
+            <stringProp name="HTTPSampler.port">${site}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/category/GetCategoryPage</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonSlurper;
+
+def failureMessage = &quot;&quot;;
+def jsonResponse = null;
+String message = null;
+def catagoryLevel = null;
+
+JsonSlurper JSON = new JsonSlurper ();
+def checker = props.get(&apos;JsonChecker&apos;);
+	try {
+      jsonResponse = JSON.parseText(prev.getResponseDataAsString());
+      } catch (Exception e) {
+	    failureMessage += &quot;Invalid JSON.\n&quot;
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);  
+	}
+	//jsonResponse = checker.getJsonResponse(prev);
+	checker.getStatusCode(prev,&quot;200&quot;);
+	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
+	checker.ConfigStatusAndData(jsonResponse);
+	catagoryLevel = jsonResponse.get(&apos;data&apos;);
+	//checker.dataIsLazyMapArray(catagoryLevel,&quot;tagName tagId tagCategoryInfo&quot;, &quot;the top catagory has a wrong response properties&quot;);
+//	catagoryLevel = catagoryLevel.first().get(&apos;categories&apos;);
+     checker.dataIsLazyMap(catagoryLevel,&quot;categoryId categoryType mustKnow variants&quot;,&quot;the catagories filter dosent contain the required key values\n\n&quot; + &quot;expecting categoryId, categoryType, variants...&quot;);
+	catagoryLevel = catagoryLevel.get(&apos;variants&apos;).first();
+	checker.dataIsLazyMap(catagoryLevel,&quot;name barCode expireDate&quot;,	    &quot;the varient within the requested catagory fails to contain the right keys\n\n&quot; + &quot;expecting name barCode expireDate...&quot;);
+
+	failureMessage = checker.getFailureMassage();	
+	// Print error messages if any
+		if (failureMessage?.trim()) {
+	    failureMessage += &quot;at URL \n: &quot; + SampleResult.getURL() + &quot;\n\n&quot;;     
+	    //failureMessage += &quot;JSON RESPONSE: &quot; + jsonResponse + &quot;\n\n&quot;;
+	    failureMessage += &quot;REQUEST HEADERS \n: &quot; + SampleResult.getRequestHeaders() + &quot;\n\n&quot;;
+	    failureMessage += &quot;THE SENT REQUEST \n&quot; + (sampler.getArguments().getArgument(0));
+	    vars.putObject(&apos;error&apos;,true);
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);    
+	}
+	else{
+		vars.put(&quot;barCode&quot;, catagoryLevel.get(&apos;barCode&apos;));
+		vars.put(&quot;variantName&quot;,catagoryLevel.get(&apos;name&apos;));
+	}
+	</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+          <CriticalSectionController guiclass="CriticalSectionControllerGui" testclass="CriticalSectionController" testname="Critical Section Controller" enabled="true">
+            <stringProp name="CriticalSectionController.lockName">global_lock</stringProp>
+          </CriticalSectionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="purchase request for friend" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+	&quot;numOfPayments&quot;:1,&#xd;
+	&quot;pinCode&quot;:&quot;&quot;,&#xd;
+	&quot;email&quot;:&quot;${Email}&quot;,&#xd;
+	&quot;creditCard16Digits&quot;:&quot;4580458045804580&quot;,&#xd;
+	&quot;creditCardExpirey&quot;:&quot;0421&quot;,&#xd;
+	&quot;cvv&quot;:&quot;123&quot;,&#xd;
+	&quot;identity&quot;:&quot;311321590&quot;,&#xd;
+	&#xd;
+	&quot;cart&quot;:[{&#xd;
+		&quot;categoryId&quot;:&quot;${catagoryId}&quot;,&#xd;
+		&quot;categoryName&quot;:&quot;${variantName}&quot;,&#xd;
+		&quot;variant&quot;:{&quot;quantity&quot;:1,&quot;barCode&quot;:&quot;${barCode}&quot;,&quot;loadingAmount&quot;:0,&#xd;
+		&quot;toMemberName&quot;:&quot;טלי&quot;,&#xd;
+		&quot;toMemberEmail&quot;:&quot;${toEmail}&quot;,&#xd;
+		&quot;toMemberMobile&quot;:&quot;&quot;,&#xd;
+		&quot;sendTime&quot;:&quot;2019-09-12 17:00&quot;,&#xd;
+		&quot;blessing&quot;:&quot;&quot;,&quot;mediaUrl&quot;:&quot;&quot;,&#xd;
+		&quot;price&quot;:1&#xd;
+		}}],&#xd;
+		&quot;totalPayment&quot;:1&#xd;
+	}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${site}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/api/order/purchase</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>false</xml>
+                    <fieldNames>true</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <sentBytes>true</sentBytes>
+                    <url>true</url>
+                    <threadCounts>true</threadCounts>
+                    <idleTime>true</idleTime>
+                    <connectTime>true</connectTime>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+              <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">import groovy.json.JsonSlurper;
+
+def failureMessage = &quot;&quot;;
+def jsonResponse = null;
+String message = null;
+def catagoryLevel = null;
+
+JsonSlurper JSON = new JsonSlurper ();
+def checker = props.get(&apos;JsonChecker&apos;);
+	try {
+      jsonResponse = JSON.parseText(prev.getResponseDataAsString());
+      } catch (Exception e) {
+	    failureMessage += &quot;Invalid JSON.\n&quot;
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);  
+	}
+	checker.getStatusCode(prev,&quot;200&quot;);
+	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
+	checker.ConfigStatusAndData(jsonResponse);
+	catagoryLevel = jsonResponse.get(&apos;data&apos;);
+     checker.dataIsLazyMap(catagoryLevel,&quot;email dtsOrderId totalPayments numOfPayments orderConfirmation variants&quot;,&quot;the catagories filter dosent contain the required key values\n\n&quot; + &quot;email ,dtsOrderId ,totalPayments ,numOfPayments ,orderConfirmation ,variants&quot;);
+     def orderConf = catagoryLevel.get(&apos;orderConfirmation&apos;);
+	catagoryLevel = catagoryLevel.get(&apos;variants&apos;).first();
+	checker.dataIsLazyMap(catagoryLevel,&quot;variantName variantBarCode expiredDate orderedVariantGuid transferGuid&quot;,	    &quot;the varient within the requested catagory fails to contain the right keys\n\n&quot; + &quot;variantName, variantBarCode, expiredDate, orderedVariantGuid, transferGuid...&quot;);
+
+	failureMessage = checker.getFailureMassage();	
+		if (failureMessage?.trim()) {
+	    failureMessage += &quot;at URL \n: &quot; + SampleResult.getURL() + &quot;\n\n&quot;;     
+	    failureMessage += &quot;REQUEST HEADERS \n: &quot; + SampleResult.getRequestHeaders() + &quot;\n\n&quot;;
+	    failureMessage += &quot;THE SENT REQUEST \n&quot; + (sampler.getArguments().getArgument(0));
+	
+		vars.putObject(&apos;error&apos;,true);
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);    
+	}
+	else{
+		vars.put(&apos;orderConfirmation&apos;,orderConf);
+	}
+	
+	</stringProp>
+              </JSR223Assertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="extract memberid from the gift sender" enabled="true">
+            <stringProp name="dataSource">test</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select top 1 MemberId from NofshonitClub..AllMembers where Email like &apos;${Email}&apos; order by RegistrationDate desc</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">MemberId</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <boolProp name="ResultCollector.error_logging">false</boolProp>
+              <objProp>
+                <name>saveConfig</name>
+                <value class="SampleSaveConfiguration">
+                  <time>true</time>
+                  <latency>true</latency>
+                  <timestamp>true</timestamp>
+                  <success>true</success>
+                  <label>true</label>
+                  <code>true</code>
+                  <message>true</message>
+                  <threadName>true</threadName>
+                  <dataType>true</dataType>
+                  <encoding>false</encoding>
+                  <assertions>true</assertions>
+                  <subresults>true</subresults>
+                  <responseData>false</responseData>
+                  <samplerData>false</samplerData>
+                  <xml>true</xml>
+                  <fieldNames>true</fieldNames>
+                  <responseHeaders>false</responseHeaders>
+                  <requestHeaders>false</requestHeaders>
+                  <responseDataOnError>false</responseDataOnError>
+                  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                  <assertionsResultsToSave>0</assertionsResultsToSave>
+                  <bytes>true</bytes>
+                  <sentBytes>true</sentBytes>
+                  <url>true</url>
+                  <threadCounts>true</threadCounts>
+                  <idleTime>true</idleTime>
+                  <connectTime>true</connectTime>
+                </value>
+              </objProp>
+              <stringProp name="filename"></stringProp>
+            </ResultCollector>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="extract memberid from the user the gift reciver" enabled="true">
+            <stringProp name="dataSource">test</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select top 1 MemberId from NofshonitClub..AllMembers where Email like &apos;${toEmail}&apos; order by RegistrationDate desc</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">toMemberId</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <boolProp name="ResultCollector.error_logging">false</boolProp>
+              <objProp>
+                <name>saveConfig</name>
+                <value class="SampleSaveConfiguration">
+                  <time>true</time>
+                  <latency>true</latency>
+                  <timestamp>true</timestamp>
+                  <success>true</success>
+                  <label>true</label>
+                  <code>true</code>
+                  <message>true</message>
+                  <threadName>true</threadName>
+                  <dataType>true</dataType>
+                  <encoding>false</encoding>
+                  <assertions>true</assertions>
+                  <subresults>true</subresults>
+                  <responseData>false</responseData>
+                  <samplerData>false</samplerData>
+                  <xml>true</xml>
+                  <fieldNames>true</fieldNames>
+                  <responseHeaders>false</responseHeaders>
+                  <requestHeaders>false</requestHeaders>
+                  <responseDataOnError>false</responseDataOnError>
+                  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                  <assertionsResultsToSave>0</assertionsResultsToSave>
+                  <bytes>true</bytes>
+                  <sentBytes>true</sentBytes>
+                  <url>true</url>
+                  <threadCounts>true</threadCounts>
+                  <idleTime>true</idleTime>
+                  <connectTime>true</connectTime>
+                </value>
+              </objProp>
+              <stringProp name="filename"></stringProp>
+            </ResultCollector>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 1, check that in Payments Table that the sender is charged as required,with the extracted orderConfirmation" enabled="true">
+            <stringProp name="dataSource">test</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select top 1 * from Payments where ConfirmationNumber = &apos;${orderConfirmation}&apos; order by TimeStamp desc  </stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable">paymentResult</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <JDBCPreProcessor guiclass="TestBeanGUI" testclass="JDBCPreProcessor" testname="recive the variants details form the DB" enabled="true">
+              <stringProp name="dataSource">test</stringProp>
+              <stringProp name="query">
+select SerieId,* from  ProductsVars where SerieId in (select SerieId from CardsSkeleton where HRID is null group by SerieId) and FullBarCode =&apos;${barCode}&apos;
+</stringProp>
+              <stringProp name="queryArguments"></stringProp>
+              <stringProp name="queryArgumentsTypes"></stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Select Statement</stringProp>
+              <stringProp name="resultSetHandler">Store as String</stringProp>
+              <stringProp name="resultVariable">variantResult</stringProp>
+              <stringProp name="variableNames"></stringProp>
+            </JDBCPreProcessor>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="check in database that the sender is charged with the amount of admition cost" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonSlurper;
+def failureMessage = &quot;&quot;;
+def checker = vars.getObject(&apos;DBChecker&apos;);
+String variantPrice = &quot;5&quot;;
+String BarCode;
+String paymentId;
+String VariantName;
+String serieId;
+
+List&lt;String&gt; paymentList = new ArrayList&lt;String&gt;([&apos;PaymentID&apos;,&apos;MemberID&apos;, &apos;CardOwnerID&apos;, &apos;Last4Digits&apos;, &apos;ConfirmationNumber&apos;,&apos;Charged&apos;]);
+List&lt;String&gt; variantList = new ArrayList&lt;String&gt;([&apos;SerieId&apos;,&apos;FullBarCode&apos;, &apos;shortNameVar&apos;, &apos;IrgunPriceFormula&apos;]);
+
+def variantInformation = vars.getObject(&apos;variantResult&apos;);
+def paymentInformation = vars.getObject(&apos;paymentResult&apos;);
+
+checker.DBContainsRequiredFields(variantInformation,variantList,&quot;when checking in the database NofshonitClub ,under table ProductsVars ,the fields \n\n &quot;+ variantList.join(&apos;-&apos;) +&quot;  were expected to be found found \n\n from the table extraction the following value was not found \n\n -------------------------\n\n&quot;)
+
+checker.DBContainsRequiredFields(paymentInformation ,paymentList,&quot;when checking in the database NofshonitClub ,under table ProductsVars ,the fields \n\n &quot;+ paymentList.join(&apos;-&apos;) +&quot;were expected to be found found \n\n from the table extraction the following value was not found \n\n -------------------------\n\n&quot;)
+
+variantInformation.each{resultArray -&gt;
+	variantPrice = resultArray.get(&apos;IrgunPriceFormula&apos;);
+	BarCode = resultArray.get(&apos;FullBarCode&apos;);
+	VariantName = resultArray.get(&apos;shortNameVar&apos;);
+     serieId = resultArray.get(&apos;serieId&apos;);
+}
+paymentInformation.each{resultArray -&gt; 
+	def senderId = resultArray.get(&apos;MemberID&apos;);
+	paymentId = resultArray.get(&apos;PaymentID&apos;);
+	String amountCharged = resultArray.get(&apos;Charged&apos;);
+	String fourDigits = resultArray.get(&apos;Last4Digits&apos;);
+
+//log.info(senderId.equals(vars.getObject(&apos;MemberId_1&apos;)));
+//log.info(senderId.getClass());
+//log.info(vars.getObject(&apos;MemberId_1&apos;).getClass());
+log.info(vars.getObject(&apos;MemberId_1&apos;));
+
+checker.databaseEqualsStrings(senderId.trim(),vars.get(&apos;MemberId_1&apos;).trim(),&quot;in the database, the MEMBERID of the sender inside the payments table, is diffrent then the value that was sent at the purchase request, the id value in the purchase request is &quot; +vars.get(&apos;MemberId_1&apos;) + &quot;\n\n while the MEMBERID inside payments Table is  &quot; + senderId);
+
+//checker.databaseEqualsStrings(amountCharged,variantPrice,&quot;MAJOR PROBLEM! in the database, the price charged from the buyer with the id of &quot; + vars.get(&apos;MemberId_1&apos;) +&quot; was &quot;+ amountCharged +&quot;\n\nis diffrent from the price specified by the irgun is &quot; +variantPrice);
+//vars.put(&apos;PaymentID&apos;,paymentId.trim());
+}
+
+failureMessage += checker.getFailureMassage();	
+if (failureMessage?.trim()) {
+	failureMessage += &quot;\n at OrderTransfer Table from NofshonitClub\n&quot;
+	vars.putObject(&apos;error&apos;,true);
+	AssertionResult.setFailureMessage(failureMessage);
+	AssertionResult.setFailure(true);    
+}
+	vars.put(&apos;PaymentID&apos;,paymentId.trim());	
+	vars.put(&apos;PaymentID&apos;,paymentId.trim());	
+
+
+
+</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <boolProp name="ResultCollector.error_logging">false</boolProp>
+              <objProp>
+                <name>saveConfig</name>
+                <value class="SampleSaveConfiguration">
+                  <time>true</time>
+                  <latency>true</latency>
+                  <timestamp>true</timestamp>
+                  <success>true</success>
+                  <label>true</label>
+                  <code>true</code>
+                  <message>true</message>
+                  <threadName>true</threadName>
+                  <dataType>true</dataType>
+                  <encoding>false</encoding>
+                  <assertions>true</assertions>
+                  <subresults>true</subresults>
+                  <responseData>false</responseData>
+                  <samplerData>false</samplerData>
+                  <xml>true</xml>
+                  <fieldNames>true</fieldNames>
+                  <responseHeaders>false</responseHeaders>
+                  <requestHeaders>false</requestHeaders>
+                  <responseDataOnError>false</responseDataOnError>
+                  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                  <assertionsResultsToSave>0</assertionsResultsToSave>
+                  <bytes>true</bytes>
+                  <sentBytes>true</sentBytes>
+                  <url>true</url>
+                  <threadCounts>true</threadCounts>
+                  <idleTime>true</idleTime>
+                  <connectTime>true</connectTime>
+                </value>
+              </objProp>
+              <stringProp name="filename"></stringProp>
+            </ResultCollector>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 2 , check that in OrderTransfer Table that the required fields are updated" enabled="true">
+            <stringProp name="dataSource">test</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select OrderId,TransferGuid,FromMemberId,ToMemberId,ToMemberEmail from OrderTransfer where ToMemberId = &apos;${toMemberId_1}&apos;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">OrderId,TransferGuid,FromMemberId,ToMemberId,ToMemberEmail</stringProp>
+            <stringProp name="resultVariable">results</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="check that in OrderTransfer Table that the required fields are updated" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonSlurper;
+def failureMessage = &quot;&quot;;
+def checker = vars.getObject(&apos;DBChecker&apos;);
+List&lt;String&gt; list = new ArrayList&lt;String&gt;([&apos;ToMemberId&apos;,&apos;OrderId&apos;, &apos;ToMemberEmail&apos;, &apos;FromMemberId&apos;, &apos;TransferGuid&apos;]);
+def OrderTransferInformation = vars.getObject(&apos;results&apos;);
+
+checker.DBContainsRequiredFields(OrderTransferInformation,list,&quot;when checking in the database NofshonitClub ,under table OrderTransfer ,the fields \n\n &quot;+ list.join(&apos;-&apos;) +&quot; were expected to be found \n\n from the table extraction the following values were not found:&quot;)
+OrderTransferInformation.each{resultArray -&gt; 
+String OrderId = resultArray.get(&apos;OrderId&apos;);
+String reciverId = resultArray.get(&apos;ToMemberId&apos;);
+String senderId = resultArray.get(&apos;FromMemberId&apos;);
+checker.databaseEqualsStrings(reciverId.trim(),vars.get(&apos;ToMemberId_1&apos;).trim(),&quot;in the database, to RECIVER id is diffrent then the value that was sent at the purchase request,the id value in the purchase request is &quot; +vars.get(&apos;ToMemberId_1&apos;));
+
+checker.databaseEqualsStrings(senderId.trim(),vars.get(&apos;MemberId_1&apos;).trim(),&quot;in the database, to SENDER id is diffrent then the value of the memberid that sent the purchase request,the id value in the purchase request is  ${vars.get(&apos;MemberId_1&apos;)} vs  the id in the ordertransfer table ${senderId}&quot;);
+vars.put(&apos;OrderId&apos;,OrderId)
+
+failureMessage += checker.getFailureMassage();	
+	// Print error messages if any
+	if (failureMessage?.trim()) {
+		failureMessage += &quot;\n at OrderTransfer Table from NofshonitClub&quot;
+		vars.putObject(&apos;error&apos;,true);
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);    
+	}
+}
+</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <boolProp name="ResultCollector.error_logging">false</boolProp>
+              <objProp>
+                <name>saveConfig</name>
+                <value class="SampleSaveConfiguration">
+                  <time>true</time>
+                  <latency>true</latency>
+                  <timestamp>true</timestamp>
+                  <success>true</success>
+                  <label>true</label>
+                  <code>true</code>
+                  <message>true</message>
+                  <threadName>true</threadName>
+                  <dataType>true</dataType>
+                  <encoding>false</encoding>
+                  <assertions>true</assertions>
+                  <subresults>true</subresults>
+                  <responseData>false</responseData>
+                  <samplerData>false</samplerData>
+                  <xml>true</xml>
+                  <fieldNames>true</fieldNames>
+                  <responseHeaders>false</responseHeaders>
+                  <requestHeaders>false</requestHeaders>
+                  <responseDataOnError>false</responseDataOnError>
+                  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                  <assertionsResultsToSave>0</assertionsResultsToSave>
+                  <bytes>true</bytes>
+                  <sentBytes>true</sentBytes>
+                  <url>true</url>
+                  <threadCounts>true</threadCounts>
+                  <idleTime>true</idleTime>
+                  <connectTime>true</connectTime>
+                </value>
+              </objProp>
+              <stringProp name="filename"></stringProp>
+            </ResultCollector>
+            <hashTree/>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If previous sampler succceded" enabled="true">
+            <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">true</boolProp>
+          </IfController>
+          <hashTree>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="check that the OrderId is Unique for the transfer" enabled="true">
+              <stringProp name="dataSource">test</stringProp>
+              <stringProp name="queryType">Select Statement</stringProp>
+              <stringProp name="query">SELECT orderId,COUNT(*) as Total from OrderTransfer where TransferGuid = &apos;${TransferGuid_1}&apos; GROUP BY orderId having COUNT(*) &gt; 0</stringProp>
+              <stringProp name="queryArguments"></stringProp>
+              <stringProp name="queryArgumentsTypes"></stringProp>
+              <stringProp name="variableNames">orderIdFromTransfer,Total</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="resultSetHandler">Store as String</stringProp>
+            </JDBCSampler>
+            <hashTree>
+              <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="test 2 addition,check database that trasfergui has only order id as expected" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">import groovy.json.JsonSlurper;
+def failureMessage = &quot;&quot;;
+def checker = vars.getObject(&apos;DBChecker&apos;);
+List&lt;String&gt; list = new ArrayList&lt;String&gt;([&apos;ToMemberId&apos;,&apos;OrderId&apos;, &apos;ToMemberEmail&apos;, &apos;FromMemberId&apos;, &apos;TransferGuid&apos;]);
+def OrderTransferInformation = vars.getObject(&apos;results&apos;);
+OrderTransferInformation.each{resultArray -&gt; 
+		String OrderId = resultArray.get(&apos;OrderId&apos;);
+//		checker.databaseEqualsStrings(OrderId,vars.get(&apos;orderIdFromTransfer_1&apos;),&quot;in the database, the OrderId that is stored in OrderTransfer for the following TransferGuid\n\n&quot; + vars.get(&apos;TransferGuid_1&apos;) +  &quot; is &quot;+vars.get(&apos;orderIdFromTransfer_1&apos;)+&quot;\n\nthis means that perhaps there is more then one value of OrderId assaigned to the TransferGuid value\n\nthe expected orderId  for this TransferGuid was &quot; + OrderId);
+		
+		checker.databaseEqualsStrings(&quot;1&quot;,vars.get(&apos;Total_1&apos;),&quot;in the database, the amount of orders assigined to the TransferGuid &quot; +vars.get(&apos;TransferGuid_1&apos;) +&quot;is more then 1! this means that the assginment of the order is not Unique,it is important that every request will have a unique orderId&quot;)
+	}
+	failureMessage += checker.getFailureMassage();	
+	// Print error messages if any
+		if (failureMessage?.trim()) {
+		log.info(failureMessage);
+		vars.putObject(&apos;error&apos;,true);
+		AssertionResult.setFailureMessage(failureMessage);
+		AssertionResult.setFailure(true);    
+	}	
+	//vars.put(&apos;OrderId&apos;, OrderId);
+//checker. databaseEqualsFromDataArray();</stringProp>
+              </JSR223Assertion>
+              <hashTree/>
+              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <boolProp name="ResultCollector.error_logging">false</boolProp>
+                <objProp>
+                  <name>saveConfig</name>
+                  <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>true</xml>
+                    <fieldNames>true</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <sentBytes>true</sentBytes>
+                    <url>true</url>
+                    <threadCounts>true</threadCounts>
+                    <idleTime>true</idleTime>
+                    <connectTime>true</connectTime>
+                  </value>
+                </objProp>
+                <stringProp name="filename"></stringProp>
+              </ResultCollector>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 3, check that in Orders Table that the required fields are updated" enabled="true">
+            <stringProp name="dataSource">test</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select * from Orders where OrderId = &apos;${OrderId}&apos;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable">orderResults</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="check database for Orders table Requirements" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonSlurper;
+def failureMessage = &quot;&quot;;
+def checker = vars.getObject(&apos;DBChecker&apos;);
+List&lt;String&gt; list = new ArrayList&lt;String&gt;([&apos;OrderId&apos;,&apos;MemberId&apos;, &apos;InsertDate&apos;, &apos;ExternalGuid&apos;, &apos;CreditCard16Digits&apos;,&apos;CreditCardExpirey&apos;]);
+def OrdersInformation = vars.getObject(&apos;orderResults&apos;);
+
+checker.DBContainsRequiredFields(OrdersInformation,list,&quot;when checking in the database NofshonitClub ,under table Orders ,the fields \n\n &quot;+ list.join(&apos;-&apos;) +&quot; were expected to be found \n\n from the table extraction the following  values were not found:&quot;)
+OrdersInformation.each{resultArray -&gt; 
+	
+String OrderMemberId = resultArray.get(&apos;MemberId&apos;);
+failureMessage += checker.getFailureMassage();	
+	// Print error messages if any
+	if (failureMessage?.trim()) {
+		failureMessage += &quot;\n at OrderTransfer Table from NofshonitClub&quot;
+		vars.putObject(&apos;error&apos;,true);
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);    
+	}
+	vars.put(&apos;OrderMemberId&apos;,OrderMemberId);	
+}
+</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <boolProp name="ResultCollector.error_logging">false</boolProp>
+              <objProp>
+                <name>saveConfig</name>
+                <value class="SampleSaveConfiguration">
+                  <time>true</time>
+                  <latency>true</latency>
+                  <timestamp>true</timestamp>
+                  <success>true</success>
+                  <label>true</label>
+                  <code>true</code>
+                  <message>true</message>
+                  <threadName>true</threadName>
+                  <dataType>true</dataType>
+                  <encoding>false</encoding>
+                  <assertions>true</assertions>
+                  <subresults>true</subresults>
+                  <responseData>false</responseData>
+                  <samplerData>false</samplerData>
+                  <xml>true</xml>
+                  <fieldNames>true</fieldNames>
+                  <responseHeaders>false</responseHeaders>
+                  <requestHeaders>false</requestHeaders>
+                  <responseDataOnError>false</responseDataOnError>
+                  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                  <assertionsResultsToSave>0</assertionsResultsToSave>
+                  <bytes>true</bytes>
+                  <sentBytes>true</sentBytes>
+                  <url>true</url>
+                  <threadCounts>true</threadCounts>
+                  <idleTime>true</idleTime>
+                  <connectTime>true</connectTime>
+                </value>
+              </objProp>
+              <stringProp name="filename"></stringProp>
+            </ResultCollector>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 4, check that in ATRACTIONSOrders Table that the required fields are updated" enabled="true">
+            <stringProp name="dataSource">test</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select * from ATRACTIONSOrders where MemberId = &apos;${OrderMemberId}&apos;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable">AttractionResults</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="check database for AtractionOrders Requirements" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonSlurper;
+def failureMessage = &quot;&quot;;
+String asmachta;
+def checker = vars.getObject(&apos;DBChecker&apos;);
+List&lt;String&gt; list = new ArrayList&lt;String&gt;([&apos;MemberID&apos;, &apos;BarCode&apos;, &apos;MemberOrderDateEXE&apos;,&apos;MemberOrderQuntity&apos;,&apos;MemberOrderAsmchta&apos;,&apos;OrderDate&apos;,&apos;OrderId&apos;]);
+def AttractionResultsInformation = vars.getObject(&apos;AttractionResults&apos;);
+
+checker.DBContainsRequiredFields(AttractionResultsInformation,list,&quot;when checking in the database NofshonitClub ,under table ATRACTIONSOrders ,the fields \n\n &quot;+ list.join(&apos;-&apos;) +&quot; were expected to be found \n\n from the table extraction the following values were not found:&quot;)
+AttractionResultsInformation.each{resultArray -&gt; 
+
+String OrderMemberId = resultArray.get(&apos;MemberID&apos;);
+asmachta=resultArray.get(&apos;MemberOrderAsmchta&apos;);
+failureMessage += checker.getFailureMassage();	
+	// Print error messages if any
+	if (failureMessage?.trim()) {
+		failureMessage += &quot;\n at OrderTransfer Table from NofshonitClub&quot;		
+		vars.putObject(&apos;error&apos;,true);
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);    
+	}
+	vars.put(&apos;MemberOrderAsmchta&apos;,asmachta);
+}
+</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>true</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 5, check that inWebServiceTransaction Table that the required fields are updated" enabled="true">
+            <stringProp name="dataSource">test</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select * from WebServiceTransaction where TTransactionMemberID = &apos;${OrderMemberId}&apos;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable">webserviceResults</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="check database for Webservice Requirements" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonSlurper;
+def failureMessage = &quot;&quot;;
+def checker = vars.getObject(&apos;DBChecker&apos;);
+List&lt;String&gt; list = new ArrayList&lt;String&gt;([&apos;TTransactionID&apos;, &apos;TTransactionDateTime&apos;, &apos;TTransactionProductID&apos;,&apos;TTransactionquantity&apos;,&apos;TTransactionOrder&apos;,&apos;TTransactionMetaData&apos;,&apos;OrderId&apos;,&apos;PaymentID&apos;]);
+def WebServiceTransactionInformation = vars.getObject(&apos;webserviceResults&apos;);
+checker.DBContainsRequiredFields(WebServiceTransactionInformation,list,&quot;when checking in the database NofshonitClub ,under table WebServiceOrders ,the fields \n\n &quot;+ list.join(&apos;-&apos;) +&quot; were expected to be found \n\n from the table extraction the following values were not found:&quot;)
+
+WebServiceTransactionInformation.each{resultArray -&gt; 
+	Long payID = resultArray.get(&apos;PaymentID&apos;);
+	long oldID = Long.valueOf(vars.get(&apos;PaymentID&apos;));
+	checker.databaseEquals(payID,oldID,&quot;the payment Id in Webservice table does not watch the payment Id in the Payment Id table&quot;  +&quot; \n\n we recived &apos;${payID} while expecting ${oldID}&quot;)
+	 
+
+	checker.databaseEqualsStrings(resultArray.get(&apos;TTransactionProductID&apos;),vars.get(&apos;barCode&apos;),&quot; under WebService table,the barcode known as TTransactionProductID is diffrent then the barcode saved in AtractionOrders..\n\n in webservice we recived: &quot; +resultArray.get(&apos;TTransactionProductID&apos;) +&quot; vs  in AttractionOrders &quot; +  vars.get(&apos;barCode&apos;))
+
+	
+	checker.databaseEquals(resultArray.get(&apos;OrderId&apos;),Long.valueOf(vars.get(&apos;OrderId&apos;)),&quot; under WebService table,the OrderId is diffrent then the barcode saved in AtractionOrders..\n\n in webservice we recived: &quot; +resultArray.get(&apos;OrderId&apos;) +&quot; vs in AttractionOrders &quot;+  vars.get(&apos;OrderId&apos;))
+
+
+	checker.databaseEquals(resultArray.get(&apos;TTransactionOrder&apos;),Long.valueOf(vars.get(&apos;MemberOrderAsmchta&apos;)),&quot;under WebService table,the TransactionOrder is diffrent then the memberOrderasmachata saved in AtractionOrders..\n\n in webservice we recived: &quot; +resultArray.get(&apos;TTransactionOrder&apos;) +&quot; vs in AttractionOrders &quot;+  vars.get(&apos;MemberOrderAsmchta&apos;))
+
+}
+
+	failureMessage += checker.getFailureMassage();
+	log.info(failureMessage);
+	if (failureMessage?.trim()) {
+		failureMessage += &quot;\n at OrderTransfer Table from NofshonitClub&quot;
+		vars.putObject(&apos;error&apos;,true);
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);    
+	}
+</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <boolProp name="ResultCollector.error_logging">false</boolProp>
+              <objProp>
+                <name>saveConfig</name>
+                <value class="SampleSaveConfiguration">
+                  <time>true</time>
+                  <latency>true</latency>
+                  <timestamp>true</timestamp>
+                  <success>true</success>
+                  <label>true</label>
+                  <code>true</code>
+                  <message>true</message>
+                  <threadName>true</threadName>
+                  <dataType>true</dataType>
+                  <encoding>false</encoding>
+                  <assertions>true</assertions>
+                  <subresults>true</subresults>
+                  <responseData>false</responseData>
+                  <samplerData>false</samplerData>
+                  <xml>true</xml>
+                  <fieldNames>true</fieldNames>
+                  <responseHeaders>false</responseHeaders>
+                  <requestHeaders>false</requestHeaders>
+                  <responseDataOnError>false</responseDataOnError>
+                  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                  <assertionsResultsToSave>0</assertionsResultsToSave>
+                  <bytes>true</bytes>
+                  <sentBytes>true</sentBytes>
+                  <url>true</url>
+                  <threadCounts>true</threadCounts>
+                  <idleTime>true</idleTime>
+                  <connectTime>true</connectTime>
+                </value>
+              </objProp>
+              <stringProp name="filename"></stringProp>
+            </ResultCollector>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 6, check that in Cards Table the reqested fective credit card exists" enabled="true">
+            <stringProp name="dataSource">test</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select * from Cards where IDMember = &apos;${OrderMemberId}&apos;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable">cardResults</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="check database for Cards table" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonSlurper;
+def failureMessage = &quot;&quot;;
+def checker = vars.getObject(&apos;DBChecker&apos;);
+String cardNumber;
+String skeletonID;
+List&lt;String&gt; list = new ArrayList&lt;String&gt;([&apos;ID&apos;, &apos;CardNumber&apos;, &apos;EncryptedCard&apos;,&apos;IDMember&apos;,&apos;CardStatus&apos;,&apos;LeumiCardStatus&apos;,&apos;CardType&apos;,&apos;AddedTime&apos;]);
+def cardInformation = vars.getObject(&apos;cardResults&apos;);
+checker.DBContainsRequiredFields(cardInformation,list,&quot;when checking in the database NofshonitClub ,under table Cards ,the fields \n\n &quot;+ list.join(&apos;-&apos;) +&quot; were expected to be found \n\n from the table extraction the following values were not found:&quot;)
+
+cardInformation.each{resultArray -&gt; 
+     cardNumber = resultArray.get(&apos;CardNumber&apos;);
+     skeletonID =  resultArray.get(&apos;ID&apos;);
+	checker.databaseNotEquals(Long.valueOf(cardNumber),4580458045804580,&quot;the cardnumber in Cards table does match the cardnumber that was sent in the purchase request \n\n the card number inside Cards table for the purchase is  ${cardNumber} while the card number purchased with is 4580458045804580 , this should not happen as we are not suppose to save cards&quot;)
+	
+
+	checker.databaseNotEqualsStrings(resultArray.get(&apos;IDMember&apos;),vars.get(&apos;toMemberId_1&apos;),&quot;the fective MemberId saved in Cards table is similar to the memberId that sent the purchase request..\n\n in Cards we recived: &quot; +resultArray.get(&apos;IDMember&apos;) +&quot; vs  in  the real MemeberId in  AttractionOrders table&quot; +  vars.get(&apos;toMemberId_1&apos;))
+
+
+	failureMessage += checker.getFailureMassage();
+	
+	if (failureMessage?.trim()) {
+		failureMessage += &quot;\n at OrderTransfer Table from NofshonitClub&quot;
+		vars.putObject(&apos;error&apos;,true);
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);    
+	}
+	
+}
+vars.put(&apos;CardID&apos;,cardNumber);
+vars.put(&apos;SkeletonCardID&apos;,skeletonID);
+</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <boolProp name="ResultCollector.error_logging">false</boolProp>
+              <objProp>
+                <name>saveConfig</name>
+                <value class="SampleSaveConfiguration">
+                  <time>true</time>
+                  <latency>true</latency>
+                  <timestamp>true</timestamp>
+                  <success>true</success>
+                  <label>true</label>
+                  <code>true</code>
+                  <message>true</message>
+                  <threadName>true</threadName>
+                  <dataType>true</dataType>
+                  <encoding>false</encoding>
+                  <assertions>true</assertions>
+                  <subresults>true</subresults>
+                  <responseData>false</responseData>
+                  <samplerData>false</samplerData>
+                  <xml>true</xml>
+                  <fieldNames>true</fieldNames>
+                  <responseHeaders>false</responseHeaders>
+                  <requestHeaders>false</requestHeaders>
+                  <responseDataOnError>false</responseDataOnError>
+                  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                  <assertionsResultsToSave>0</assertionsResultsToSave>
+                  <bytes>true</bytes>
+                  <sentBytes>true</sentBytes>
+                  <url>true</url>
+                  <threadCounts>true</threadCounts>
+                  <idleTime>true</idleTime>
+                  <connectTime>true</connectTime>
+                </value>
+              </objProp>
+              <stringProp name="filename"></stringProp>
+            </ResultCollector>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 7, check that in CardSkeleton Table the reqested  fective credit card exists" enabled="true">
+            <stringProp name="dataSource">test</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select * from CardsSkeleton where CardNumber =&apos;${CardID}&apos;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable">SkeletonResults</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="check database for Cards table" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonSlurper;
+def failureMessage = &quot;&quot;;
+def checker = vars.getObject(&apos;DBChecker&apos;);
+List&lt;String&gt; list = new ArrayList&lt;String&gt;([&apos;CSkeletonID&apos;, &apos;RcnID&apos;, &apos;CardNumber&apos;,&apos;SequentialNum&apos;,&apos;CVV&apos;,&apos;Track2CVV&apos;,&apos;HRID&apos;,&apos;CardID&apos;]);
+def skeletonInformation = vars.getObject(&apos;SkeletonResults&apos;);
+checker.DBContainsRequiredFields(skeletonInformation,list,&quot;when checking in the database NofshonitClub ,under table CardsSekleton ,the fields \n\n &quot;+ list.join(&apos;-&apos;) +&quot; were expected to be found \n\n from the table extraction the following values were not found:&quot;)
+
+skeletonInformation.each{resultArray -&gt; 
+	Long cardID = Long.valueOf(resultArray.get(&apos;CardID&apos;));
+	Long skeleton = Long.valueOf(vars.get(&apos;SkeletonCardID&apos;));
+	checker.databaseEquals(cardID,Long.valueOf(vars.get(&apos;SkeletonCardID&apos;)),&quot;the cardID in Cards table does not match the cardnumber that was saved in CardsSkeleton table \n\n the cardID inside Cards table for the purchase is  ${cardID} while the card ID in CArdsSkeleton is  is &apos;${skeleton}&apos;&quot;)
+
+	failureMessage += checker.getFailureMassage();
+	
+	if (failureMessage?.trim()) {
+		failureMessage += &quot;\n at OrderTransfer Table from NofshonitClub&quot;
+		vars.putObject(&apos;error&apos;,true);	
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);    
+	}
+}
+</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <boolProp name="ResultCollector.error_logging">false</boolProp>
+              <objProp>
+                <name>saveConfig</name>
+                <value class="SampleSaveConfiguration">
+                  <time>true</time>
+                  <latency>true</latency>
+                  <timestamp>true</timestamp>
+                  <success>true</success>
+                  <label>true</label>
+                  <code>true</code>
+                  <message>true</message>
+                  <threadName>true</threadName>
+                  <dataType>true</dataType>
+                  <encoding>false</encoding>
+                  <assertions>true</assertions>
+                  <subresults>true</subresults>
+                  <responseData>false</responseData>
+                  <samplerData>false</samplerData>
+                  <xml>true</xml>
+                  <fieldNames>true</fieldNames>
+                  <responseHeaders>false</responseHeaders>
+                  <requestHeaders>false</requestHeaders>
+                  <responseDataOnError>false</responseDataOnError>
+                  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                  <assertionsResultsToSave>0</assertionsResultsToSave>
+                  <bytes>true</bytes>
+                  <sentBytes>true</sentBytes>
+                  <url>true</url>
+                  <threadCounts>true</threadCounts>
+                  <idleTime>true</idleTime>
+                  <connectTime>true</connectTime>
+                </value>
+              </objProp>
+              <stringProp name="filename"></stringProp>
+            </ResultCollector>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
