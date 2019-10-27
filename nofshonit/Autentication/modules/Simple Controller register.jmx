@@ -71,11 +71,15 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
             <boolProp name="useExpires">true</boolProp>
           </CacheManager>
           <hashTree/>
-          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="replace old email in csv files" enabled="true">
-            <stringProp name="cacheKey">true</stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="script">
+          <CriticalSectionController guiclass="CriticalSectionControllerGui" testclass="CriticalSectionController" testname="Critical Section Controller" enabled="true">
+            <stringProp name="CriticalSectionController.lockName">global_lock_one</stringProp>
+          </CriticalSectionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="replace old email in csv files" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">
 def checker = props.get(&apos;JsonChecker&apos;);
 def LineChangerEmail = vars.getObject(&apos;LineChangerEmail&apos;);
 String newEmail = vars.get(&apos;newEmail&apos;);
@@ -84,13 +88,9 @@ vars.put(&apos;newEmail&apos;, newEmail);
 LineChangerEmail.changeLine(2,newEmail);
 
 </stringProp>
-            <stringProp name="scriptLanguage">groovy</stringProp>
-          </JSR223Sampler>
-          <hashTree/>
-          <CriticalSectionController guiclass="CriticalSectionControllerGui" testclass="CriticalSectionController" testname="Critical Section Controller" enabled="true">
-            <stringProp name="CriticalSectionController.lockName">global_lock_one</stringProp>
-          </CriticalSectionController>
-          <hashTree>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Register" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">

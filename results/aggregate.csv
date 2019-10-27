@@ -1,41 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testResults version="1.2">
-<sample t="7" it="0" lt="0" ct="0" ts="1570714727863" s="true" lb="replace old email in csv files" rc="200" tn="Registeration 1-1" by="0" sby="0" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-<httpSample t="1160" it="0" lt="1160" ct="3" ts="1570714727880" s="true" lb="Register" rc="200" tn="Registeration 1-1" by="1111" sby="570" sc="1" ec="0" ng="1" na="1" hn="spare">
-  <assertionResult>
-    <name>JSR223 Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <java.net.URL>http://172.29.90.61/api/users/Register</java.net.URL>
-</httpSample>
-<sample t="148" it="0" lt="148" ct="106" ts="1570714729058" s="true" lb="extractLastSignIn" rc="200" tn="Registeration 1-1" by="40" sby="0" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-<sample t="9" it="0" lt="0" ct="0" ts="1570714729212" s="true" lb="replace old id in csv files" rc="200" tn="Registeration 1-1" by="0" sby="0" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-<sample t="1324" it="102" lt="1308" ct="109" ts="1570714727796" s="true" lb="Transaction Controller" rc="200" tn="Registeration 1-1" by="1151" sby="570" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-<sample t="171" it="0" lt="171" ct="84" ts="1570714729231" s="true" lb="extractValidateToken" rc="200" tn="Validation 2-1" by="1360" sby="0" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-<httpSample t="1182" it="0" lt="1182" ct="3" ts="1570714729414" s="true" lb="ValidateUser" rc="200" tn="Validation 2-1" by="1739" sby="1547" sc="1" ec="0" ng="1" na="1" hn="spare">
-  <assertionResult>
-    <name>JSR223 Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <java.net.URL>http://172.29.90.61/api/users/ValidateToken</java.net.URL>
-</httpSample>
-<httpSample t="1086" it="0" lt="1086" ct="0" ts="1570714730607" s="true" lb="ValidateEmail" rc="200" tn="Validation 2-1" by="1733" sby="512" sc="1" ec="0" ng="1" na="1" hn="spare">
-  <assertionResult>
-    <name>JSR223 Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <java.net.URL>http://172.29.90.61/api/users/Authenticate</java.net.URL>
-</httpSample>
-<sample t="42" it="0" lt="42" ct="0" ts="1570714731708" s="true" lb="validate that user sign in was sucsessful" rc="200" tn="Validation 2-1" by="42" sby="0" sc="1" ec="0" ng="1" na="1" hn="spare">
-  <assertionResult>
-    <name>JSR223 Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-</sample>
-<sample t="2481" it="51" lt="2481" ct="87" ts="1570714729226" s="true" lb="Transaction Controller" rc="200" tn="Validation 2-1" by="4874" sby="2059" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-
-</testResults>
+Label,# Samples,Average,Median,90% Line,95% Line,99% Line,Min,Max,Error %,Throughput,Received KB/sec,Sent KB/sec
+כניסה לדף הבית שלט,399,46691,26176,142423,157645,171224,57,177337,9.023%,1.35279,23.91,7.63
+Transaction Controller,49,2527,1557,5947,7997,11356,205,11356,2.041%,.17417,0.21,0.10
+הרשמה שלט,150,139851,125879,178064,181275,183281,124868,183380,0.000%,.81661,0.63,0.15
+רכישה שלט,50,141148,140653,156549,158111,160205,122819,160205,0.000%,.31020,0.01,0.00
+שלט הרשמה של מקבל המתנה,1,1394,1394,1394,1394,1394,1394,1394,100.000%,.41237,2.15,1.06
+extracToken,1,8,8,8,8,8,8,8,0.000%,125.00000,84.84,0.00
+HTTP Request,1,10473,10473,10473,10473,10473,10473,10473,0.000%,.09548,19.34,0.10
+TOTAL,651,71890,47276,158076,172697,181370,8,183380,5.837%,2.08307,23.79,7.39
