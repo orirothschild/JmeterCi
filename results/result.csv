@@ -2935,4 +2935,1679 @@ Possible solutions: getStatusHeader(java.lang.Boolean)</failureMessage>
 <sample t="1" it="0" lt="0" ct="0" ts="1572178092797" s="true" lb="Debug Sampler" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="25989" sby="0" ng="1" na="1"/>
 <sample t="2" it="0" lt="0" ct="0" ts="1572178092809" s="true" lb="JSR223 Sampler" rc="200" rm="OK" tn="tearDown Thread Group 1-1" dt="text" by="0" sby="0" ng="1" na="1"/>
 
+<sample t="9" it="0" lt="0" ct="0" ts="1572178768443" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="0" sby="0" ng="1" na="1"/>
+<sample t="92" it="0" lt="92" ct="83" ts="1572178768458" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="695" sby="0" ng="1" na="1"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178768554" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="21" sby="0" ng="1" na="1"/>
+<httpSample t="240" it="0" lt="239" ct="4" ts="1572178768561" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="1914" sby="1091" ng="1" na="1">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="3806" it="0" lt="3806" ct="0" ts="1572178768821" s="true" lb="purchase request for friend" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="1179" sby="1628" ng="1" na="1">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/order/purchase</java.net.URL>
+</httpSample>
+<sample t="42" it="0" lt="42" ct="0" ts="1572178772648" s="true" lb="extract memberid from the gift sender" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="21" sby="0" ng="1" na="1"/>
+<sample t="39" it="0" lt="39" ct="0" ts="1572178772691" s="true" lb="extract memberid from the user the gift reciver" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="21" sby="0" ng="1" na="1"/>
+<sample t="9" it="0" lt="9" ct="0" ts="1572178772786" s="true" lb="test number 1, check that in Payments Table that the sender is charged as required,with the extracted orderConfirmation" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="575" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check in database that the sender is charged with the amount of admition cost</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178772808" s="true" lb="test number 2 , check that in OrderTransfer Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="147" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check that in OrderTransfer Table that the required fields are updated</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="6" it="0" lt="6" ct="0" ts="1572178772820" s="true" lb="check that the OrderId is Unique for the transfer" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="21" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>test 2 addition,check database that trasfergui has only order id as expected</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="2" ct="0" ts="1572178772834" s="true" lb="test number 3, check that in Orders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="404" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Orders table Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="2" ct="0" ts="1572178772846" s="true" lb="test number 4, check that in ATRACTIONSOrders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="576" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for AtractionOrders Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="6" it="0" lt="6" ct="0" ts="1572178772858" s="true" lb="test number 5, check that inWebServiceTransaction Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="809" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Webservice Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178772875" s="true" lb="test number 6, check that in Cards Table the reqested fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="300" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="87" it="0" lt="87" ct="0" ts="1572178772891" s="true" lb="test number 7, check that in CardSkeleton Table the reqested  fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="162" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4353" it="251" lt="4341" ct="87" ts="1572178768398" s="true" lb="Transaction Controller" rc="200" rm="Number of samples in transaction : 18, number of failing samples : 0" tn="purchase to friend 1-1" dt="" by="6845" sby="2719" ng="1" na="1"/>
+<sample t="1" it="0" lt="0" ct="0" ts="1572178773004" s="true" lb="Debug Sampler" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="25987" sby="0" ng="1" na="1"/>
+<sample t="3" it="0" lt="0" ct="0" ts="1572178773016" s="true" lb="JSR223 Sampler" rc="200" rm="OK" tn="tearDown Thread Group 1-1" dt="text" by="0" sby="0" ng="1" na="1"/>
+
+<sample t="11" it="0" lt="0" ct="0" ts="1572178781195" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="0" sby="0" ng="6" na="6"/>
+<sample t="11" it="0" lt="0" ct="0" ts="1572178781195" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="0" sby="0" ng="6" na="6"/>
+<sample t="11" it="0" lt="0" ct="0" ts="1572178781195" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="0" sby="0" ng="6" na="6"/>
+<sample t="11" it="0" lt="0" ct="0" ts="1572178781195" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="0" sby="0" ng="6" na="6"/>
+<sample t="11" it="0" lt="0" ct="0" ts="1572178781195" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-5" dt="text" by="0" sby="0" ng="6" na="6"/>
+<sample t="8" it="0" lt="0" ct="0" ts="1572178781210" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-6" dt="text" by="0" sby="0" ng="7" na="7"/>
+<sample t="8" it="0" lt="0" ct="0" ts="1572178781220" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="0" sby="0" ng="7" na="7"/>
+<sample t="17" it="0" lt="0" ct="0" ts="1572178781233" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="0" sby="0" ng="8" na="8"/>
+<sample t="6" it="0" lt="0" ct="0" ts="1572178781255" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-9" dt="text" by="0" sby="0" ng="9" na="9"/>
+<sample t="6" it="0" lt="0" ct="0" ts="1572178781270" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-10" dt="text" by="0" sby="0" ng="10" na="10"/>
+<sample t="13" it="0" lt="0" ct="0" ts="1572178781285" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="0" sby="0" ng="11" na="11"/>
+<sample t="7" it="0" lt="0" ct="0" ts="1572178781303" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-12" dt="text" by="0" sby="0" ng="13" na="13"/>
+<sample t="7" it="0" lt="0" ct="0" ts="1572178781311" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-13" dt="text" by="0" sby="0" ng="13" na="13"/>
+<sample t="5" it="0" lt="0" ct="0" ts="1572178781322" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="0" sby="0" ng="14" na="14"/>
+<sample t="120" it="0" lt="120" ct="112" ts="1572178781214" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="695" sby="0" ng="15" na="15"/>
+<sample t="119" it="0" lt="119" ct="111" ts="1572178781215" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="695" sby="0" ng="15" na="15"/>
+<sample t="116" it="0" lt="116" ct="105" ts="1572178781214" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="695" sby="0" ng="14" na="14"/>
+<sample t="7" it="0" lt="0" ct="0" ts="1572178781334" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-15" dt="text" by="0" sby="0" ng="15" na="15"/>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178781335" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="21" sby="0" ng="15" na="15"/>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178781335" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="21" sby="0" ng="15" na="15"/>
+<sample t="126" it="0" lt="126" ct="116" ts="1572178781229" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="695" sby="0" ng="16" na="16"/>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178781335" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="21" sby="0" ng="15" na="15"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178781356" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="21" sby="0" ng="16" na="16"/>
+<sample t="14" it="0" lt="0" ct="0" ts="1572178781346" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-16" dt="text" by="0" sby="0" ng="16" na="16"/>
+<sample t="11" it="0" lt="0" ct="0" ts="1572178781370" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-17" dt="text" by="0" sby="0" ng="18" na="18"/>
+<sample t="5" it="0" lt="0" ct="0" ts="1572178781384" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-18" dt="text" by="0" sby="0" ng="18" na="18"/>
+<sample t="136" it="0" lt="136" ct="126" ts="1572178781254" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="695" sby="0" ng="18" na="18"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178781391" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="21" sby="0" ng="18" na="18"/>
+<sample t="6" it="0" lt="0" ct="0" ts="1572178781397" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-19" dt="text" by="0" sby="0" ng="19" na="19"/>
+<sample t="125" it="0" lt="124" ct="105" ts="1572178781299" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="695" sby="0" ng="20" na="20"/>
+<sample t="4" it="0" lt="4" ct="1" ts="1572178781425" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="21" sby="0" ng="21" na="21"/>
+<sample t="117" it="0" lt="117" ct="109" ts="1572178781328" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="695" sby="0" ng="21" na="21"/>
+<sample t="130" it="0" lt="130" ct="120" ts="1572178781319" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-13" dt="text" by="695" sby="0" ng="21" na="21"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178781446" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="21" sby="0" ng="21" na="21"/>
+<sample t="22" it="0" lt="0" ct="0" ts="1572178781422" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-20" dt="text" by="0" sby="0" ng="21" na="21"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178781450" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-13" dt="text" by="21" sby="0" ng="22" na="22"/>
+<sample t="11" it="0" lt="0" ct="0" ts="1572178781451" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-21" dt="text" by="0" sby="0" ng="22" na="22"/>
+<sample t="15" it="0" lt="0" ct="0" ts="1572178781462" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-22" dt="text" by="0" sby="0" ng="24" na="24"/>
+<sample t="26" it="0" lt="0" ct="0" ts="1572178781478" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-23" dt="text" by="0" sby="0" ng="25" na="25"/>
+<sample t="40" it="0" lt="0" ct="0" ts="1572178781480" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-24" dt="text" by="0" sby="0" ng="27" na="27"/>
+<sample t="117" it="0" lt="117" ct="108" ts="1572178781408" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-19" dt="text" by="695" sby="0" ng="27" na="27"/>
+<sample t="21" it="0" lt="0" ct="0" ts="1572178781507" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-25" dt="text" by="0" sby="0" ng="27" na="27"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178781526" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-19" dt="text" by="21" sby="0" ng="27" na="27"/>
+<sample t="17" it="0" lt="0" ct="0" ts="1572178781522" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-26" dt="text" by="0" sby="0" ng="27" na="27"/>
+<sample t="18" it="0" lt="0" ct="0" ts="1572178781532" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-27" dt="text" by="0" sby="0" ng="29" na="29"/>
+<sample t="115" it="0" lt="115" ct="106" ts="1572178781452" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-20" dt="text" by="695" sby="0" ng="29" na="29"/>
+<sample t="3" it="0" lt="2" ct="0" ts="1572178781570" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-20" dt="text" by="21" sby="0" ng="30" na="30"/>
+<sample t="25" it="0" lt="0" ct="0" ts="1572178781554" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-29" dt="text" by="0" sby="0" ng="30" na="30"/>
+<sample t="115" it="0" lt="115" ct="106" ts="1572178781479" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-22" dt="text" by="695" sby="0" ng="31" na="31"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178781595" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-22" dt="text" by="21" sby="0" ng="31" na="31"/>
+<sample t="413" it="0" lt="413" ct="405" ts="1572178781215" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="695" sby="0" ng="31" na="31"/>
+<sample t="76" it="0" lt="0" ct="0" ts="1572178781554" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-28" dt="text" by="0" sby="0" ng="31" na="31"/>
+<sample t="32" it="0" lt="0" ct="0" ts="1572178781598" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-30" dt="text" by="0" sby="0" ng="31" na="31"/>
+<sample t="30" it="0" lt="0" ct="0" ts="1572178781600" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-31" dt="text" by="0" sby="0" ng="31" na="31"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178781629" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="21" sby="0" ng="31" na="31"/>
+<sample t="420" it="0" lt="420" ct="411" ts="1572178781220" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-6" dt="text" by="695" sby="0" ng="33" na="33"/>
+<sample t="123" it="0" lt="123" ct="113" ts="1572178781522" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-24" dt="text" by="695" sby="0" ng="34" na="34"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178781641" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-6" dt="text" by="21" sby="0" ng="34" na="34"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178781646" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-24" dt="text" by="21" sby="0" ng="34" na="34"/>
+<sample t="14" it="0" lt="0" ct="0" ts="1572178781638" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-32" dt="text" by="0" sby="0" ng="34" na="34"/>
+<sample t="120" it="0" lt="120" ct="111" ts="1572178781540" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-26" dt="text" by="695" sby="0" ng="34" na="34"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178781661" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-26" dt="text" by="21" sby="0" ng="34" na="34"/>
+<sample t="17" it="0" lt="0" ct="0" ts="1572178781655" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-34" dt="text" by="0" sby="0" ng="34" na="34"/>
+<sample t="17" it="0" lt="0" ct="0" ts="1572178781655" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-33" dt="text" by="0" sby="0" ng="34" na="34"/>
+<sample t="10" it="0" lt="0" ct="0" ts="1572178781681" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-37" dt="text" by="0" sby="0" ng="35" na="35"/>
+<sample t="429" it="0" lt="429" ct="422" ts="1572178781262" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-9" dt="text" by="695" sby="0" ng="35" na="35"/>
+<sample t="420" it="0" lt="420" ct="412" ts="1572178781277" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-10" dt="text" by="695" sby="0" ng="36" na="36"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178781697" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-9" dt="text" by="21" sby="0" ng="38" na="38"/>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178781697" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-10" dt="text" by="21" sby="0" ng="38" na="38"/>
+<sample t="14" it="0" lt="0" ct="0" ts="1572178781705" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-36" dt="text" by="0" sby="0" ng="40" na="40"/>
+<sample t="13" it="0" lt="0" ct="0" ts="1572178781721" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-38" dt="text" by="0" sby="0" ng="41" na="41"/>
+<sample t="19" it="0" lt="0" ct="0" ts="1572178781726" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-35" dt="text" by="0" sby="0" ng="42" na="42"/>
+<sample t="420" it="0" lt="420" ct="121" ts="1572178781343" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-15" dt="text" by="695" sby="0" ng="43" na="43"/>
+<sample t="130" it="0" lt="130" ct="117" ts="1572178781637" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-30" dt="text" by="695" sby="0" ng="44" na="44"/>
+<sample t="115" it="0" lt="115" ct="103" ts="1572178781653" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-32" dt="text" by="695" sby="0" ng="44" na="44"/>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178781764" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-15" dt="text" by="21" sby="0" ng="44" na="44"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178781768" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-30" dt="text" by="21" sby="0" ng="44" na="44"/>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178781768" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-32" dt="text" by="21" sby="0" ng="44" na="44"/>
+<sample t="39" it="0" lt="0" ct="0" ts="1572178781737" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-41" dt="text" by="0" sby="0" ng="44" na="44"/>
+<sample t="424" it="0" lt="424" ct="416" ts="1572178781362" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-16" dt="text" by="695" sby="0" ng="45" na="45"/>
+<sample t="114" it="0" lt="114" ct="102" ts="1572178781674" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-34" dt="text" by="695" sby="0" ng="45" na="45"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178781787" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-16" dt="text" by="21" sby="0" ng="45" na="45"/>
+<sample t="6" it="0" lt="6" ct="0" ts="1572178781789" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-34" dt="text" by="21" sby="0" ng="45" na="45"/>
+<sample t="62" it="0" lt="0" ct="0" ts="1572178781746" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-39" dt="text" by="0" sby="0" ng="48" na="48"/>
+<sample t="427" it="0" lt="427" ct="112" ts="1572178781382" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-17" dt="text" by="695" sby="0" ng="48" na="48"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178781810" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-17" dt="text" by="21" sby="0" ng="48" na="48"/>
+<sample t="45" it="0" lt="0" ct="0" ts="1572178781778" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-40" dt="text" by="0" sby="0" ng="48" na="48"/>
+<sample t="439" it="0" lt="439" ct="431" ts="1572178781390" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-18" dt="text" by="695" sby="0" ng="50" na="50"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178781831" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-18" dt="text" by="21" sby="0" ng="50" na="50"/>
+<sample t="14" it="0" lt="0" ct="0" ts="1572178781825" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-45" dt="text" by="0" sby="0" ng="50" na="50"/>
+<sample t="111" it="0" lt="111" ct="103" ts="1572178781730" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-36" dt="text" by="695" sby="0" ng="51" na="51"/>
+<sample t="19" it="0" lt="0" ct="0" ts="1572178781826" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-50" dt="text" by="0" sby="0" ng="52" na="52"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178781842" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-36" dt="text" by="21" sby="0" ng="52" na="52"/>
+<sample t="8" it="0" lt="0" ct="0" ts="1572178781848" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-42" dt="text" by="0" sby="0" ng="53" na="53"/>
+<sample t="7" it="0" lt="0" ct="0" ts="1572178781849" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-49" dt="text" by="0" sby="0" ng="53" na="53"/>
+<sample t="31" it="0" lt="0" ct="0" ts="1572178781850" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-43" dt="text" by="0" sby="0" ng="55" na="55"/>
+<sample t="427" it="0" lt="427" ct="410" ts="1572178781464" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-21" dt="text" by="695" sby="0" ng="55" na="55"/>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178781892" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-21" dt="text" by="21" sby="0" ng="55" na="55"/>
+<sample t="25" it="0" lt="0" ct="0" ts="1572178781883" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-51" dt="text" by="0" sby="0" ng="57" na="57"/>
+<sample t="407" it="0" lt="407" ct="396" ts="1572178781506" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-23" dt="text" by="695" sby="0" ng="57" na="57"/>
+<sample t="6" it="0" lt="6" ct="0" ts="1572178781917" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-23" dt="text" by="21" sby="0" ng="57" na="57"/>
+<sample t="67" it="0" lt="0" ct="0" ts="1572178781860" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-47" dt="text" by="0" sby="0" ng="57" na="57"/>
+<sample t="130" it="0" lt="130" ct="122" ts="1572178781810" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-41" dt="text" by="695" sby="0" ng="57" na="57"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178781941" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-41" dt="text" by="21" sby="0" ng="57" na="57"/>
+<sample t="429" it="0" lt="429" ct="421" ts="1572178781529" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-25" dt="text" by="695" sby="0" ng="57" na="57"/>
+<sample t="47" it="0" lt="0" ct="0" ts="1572178781913" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-46" dt="text" by="0" sby="0" ng="57" na="57"/>
+<sample t="50" it="0" lt="0" ct="0" ts="1572178781910" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-44" dt="text" by="0" sby="0" ng="57" na="57"/>
+<sample t="119" it="0" lt="119" ct="109" ts="1572178781848" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-40" dt="text" by="695" sby="0" ng="57" na="57"/>
+<sample t="119" it="0" lt="119" ct="111" ts="1572178781850" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-45" dt="text" by="695" sby="0" ng="58" na="58"/>
+<sample t="8" it="0" lt="0" ct="0" ts="1572178781962" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-53" dt="text" by="0" sby="0" ng="58" na="58"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178781968" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-40" dt="text" by="21" sby="0" ng="59" na="59"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178781970" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-45" dt="text" by="21" sby="0" ng="59" na="59"/>
+<sample t="136" it="0" lt="136" ct="127" ts="1572178781858" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-49" dt="text" by="695" sby="0" ng="62" na="62"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178781995" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-49" dt="text" by="21" sby="0" ng="62" na="62"/>
+<sample t="47" it="0" lt="0" ct="0" ts="1572178781965" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-52" dt="text" by="0" sby="0" ng="62" na="62"/>
+<sample t="439" it="0" lt="438" ct="429" ts="1572178781582" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-29" dt="text" by="695" sby="0" ng="62" na="62"/>
+<sample t="48" it="0" lt="0" ct="0" ts="1572178781975" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-48" dt="text" by="0" sby="0" ng="62" na="62"/>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178782021" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-29" dt="text" by="21" sby="0" ng="63" na="63"/>
+<sample t="119" it="0" lt="119" ct="112" ts="1572178781910" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-51" dt="text" by="695" sby="0" ng="63" na="63"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782030" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-51" dt="text" by="21" sby="0" ng="63" na="63"/>
+<sample t="125" it="0" lt="125" ct="117" ts="1572178781912" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-42" dt="text" by="695" sby="0" ng="63" na="63"/>
+<sample t="26" it="0" lt="0" ct="0" ts="1572178782015" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-54" dt="text" by="0" sby="0" ng="63" na="63"/>
+<sample t="60" it="0" lt="0" ct="0" ts="1572178781981" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-59" dt="text" by="0" sby="0" ng="63" na="63"/>
+<sample t="26" it="0" lt="0" ct="0" ts="1572178782015" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-58" dt="text" by="0" sby="0" ng="63" na="63"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178782040" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-42" dt="text" by="21" sby="0" ng="63" na="63"/>
+<sample t="130" it="0" lt="129" ct="120" ts="1572178781919" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-43" dt="text" by="695" sby="0" ng="63" na="63"/>
+<sample t="4" it="0" lt="3" ct="0" ts="1572178782049" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-43" dt="text" by="21" sby="0" ng="63" na="63"/>
+<sample t="405" it="0" lt="405" ct="390" ts="1572178781674" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-33" dt="text" by="695" sby="0" ng="64" na="64"/>
+<sample t="451" it="0" lt="451" ct="435" ts="1572178781631" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-28" dt="text" by="695" sby="0" ng="64" na="64"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782082" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-33" dt="text" by="21" sby="0" ng="64" na="64"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178782083" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-28" dt="text" by="21" sby="0" ng="64" na="64"/>
+<sample t="130" it="0" lt="130" ct="121" ts="1572178781965" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-44" dt="text" by="695" sby="0" ng="64" na="64"/>
+<sample t="71" it="0" lt="0" ct="0" ts="1572178782026" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-57" dt="text" by="0" sby="0" ng="64" na="64"/>
+<sample t="70" it="0" lt="0" ct="0" ts="1572178782027" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-61" dt="text" by="0" sby="0" ng="64" na="64"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782096" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-44" dt="text" by="21" sby="0" ng="64" na="64"/>
+<sample t="118" it="0" lt="118" ct="110" ts="1572178781984" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-53" dt="text" by="695" sby="0" ng="64" na="64"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782103" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-53" dt="text" by="21" sby="0" ng="66" na="66"/>
+<sample t="70" it="0" lt="0" ct="0" ts="1572178782046" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-55" dt="text" by="0" sby="0" ng="71" na="71"/>
+<sample t="417" it="0" lt="417" ct="107" ts="1572178781705" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-37" dt="text" by="695" sby="0" ng="72" na="72"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178782123" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-37" dt="text" by="21" sby="0" ng="72" na="72"/>
+<sample t="126" it="0" lt="126" ct="117" ts="1572178782026" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-52" dt="text" by="695" sby="0" ng="75" na="75"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178782153" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-52" dt="text" by="21" sby="0" ng="75" na="75"/>
+<sample t="63" it="0" lt="0" ct="0" ts="1572178782098" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-62" dt="text" by="0" sby="0" ng="75" na="75"/>
+<sample t="415" it="0" lt="415" ct="407" ts="1572178781746" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-35" dt="text" by="695" sby="0" ng="75" na="75"/>
+<sample t="118" it="0" lt="0" ct="0" ts="1572178782045" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-56" dt="text" by="0" sby="0" ng="75" na="75"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178782163" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-35" dt="text" by="21" sby="0" ng="75" na="75"/>
+<sample t="123" it="0" lt="123" ct="114" ts="1572178782043" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-58" dt="text" by="695" sby="0" ng="75" na="75"/>
+<sample t="121" it="0" lt="121" ct="113" ts="1572178782047" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-59" dt="text" by="695" sby="0" ng="75" na="75"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178782167" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-58" dt="text" by="21" sby="0" ng="75" na="75"/>
+<sample t="4" it="0" lt="3" ct="0" ts="1572178782169" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-59" dt="text" by="21" sby="0" ng="75" na="75"/>
+<sample t="429" it="0" lt="429" ct="419" ts="1572178781747" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-38" dt="text" by="695" sby="0" ng="76" na="76"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782177" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-38" dt="text" by="21" sby="0" ng="76" na="76"/>
+<sample t="25" it="0" lt="0" ct="0" ts="1572178782164" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-63" dt="text" by="0" sby="0" ng="76" na="76"/>
+<sample t="139" it="0" lt="139" ct="130" ts="1572178782050" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-54" dt="text" by="695" sby="0" ng="76" na="76"/>
+<sample t="3" it="0" lt="2" ct="0" ts="1572178782190" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-54" dt="text" by="21" sby="0" ng="77" na="77"/>
+<sample t="21" it="0" lt="0" ct="0" ts="1572178782191" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-60" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="2" it="0" lt="0" ct="0" ts="1572178782215" s="false" lb="replace old ToEmail in csv files" rc="500" rm="javax.script.ScriptException: java.lang.IndexOutOfBoundsException: Index: 1, Size: 0" tn="purchase to friend 1-68" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="14" it="0" lt="0" ct="0" ts="1572178782213" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-90" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="297" it="0" lt="297" ct="0" ts="1572178781959" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-25" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="427" it="0" lt="427" ct="419" ts="1572178781840" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-39" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="51" it="0" lt="0" ct="0" ts="1572178782217" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-69" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178782268" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-39" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="719" it="0" lt="719" ct="712" ts="1572178781554" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-27" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="423" it="0" lt="423" ct="416" ts="1572178781850" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-50" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178782274" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-50" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178782274" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-27" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="10" it="0" lt="0" ct="0" ts="1572178782270" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-96" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="9" it="0" lt="0" ct="0" ts="1572178782282" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-99" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="122" it="0" lt="122" ct="114" ts="1572178782170" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-57" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178782292" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-57" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="16" it="0" lt="0" ct="0" ts="1572178782284" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-83" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="136" it="0" lt="136" ct="128" ts="1572178782172" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-61" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="17" it="0" lt="0" ct="0" ts="1572178782292" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-86" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178782309" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-61" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="13" it="0" lt="0" ct="0" ts="1572178782305" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-64" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="13" it="0" lt="0" ct="0" ts="1572178782311" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-88" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="111" it="0" lt="111" ct="103" ts="1572178782214" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-55" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178782326" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-55" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="7" it="0" lt="0" ct="0" ts="1572178782332" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-65" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="19" it="0" lt="0" ct="0" ts="1572178782320" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-76" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="13" it="0" lt="0" ct="0" ts="1572178782340" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-72" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="21" it="0" lt="0" ct="0" ts="1572178782342" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-71" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="17" it="0" lt="0" ct="0" ts="1572178782355" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-75" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="415" it="0" lt="415" ct="406" ts="1572178781961" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-47" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="6" it="0" lt="0" ct="0" ts="1572178782374" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-81" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="8" it="0" lt="8" ct="0" ts="1572178782377" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-47" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="21" it="0" lt="0" ct="0" ts="1572178782374" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-84" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="104" it="0" lt="104" ct="96" ts="1572178782292" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-99" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="6" it="0" lt="6" ct="0" ts="1572178782397" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-99" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="14" it="0" lt="0" ct="0" ts="1572178782397" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-95" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="117" it="0" lt="117" ct="108" ts="1572178782306" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-68" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="12" it="0" lt="12" ct="0" ts="1572178782424" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-68" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="41" it="0" lt="0" ct="0" ts="1572178782399" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-92" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="32" it="0" lt="0" ct="0" ts="1572178782415" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-100" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="110" it="0" lt="110" ct="102" ts="1572178782341" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-88" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="6" it="0" lt="5" ct="0" ts="1572178782452" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-88" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="14" it="0" lt="0" ct="0" ts="1572178782449" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-85" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="13" it="0" lt="0" ct="0" ts="1572178782450" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-82" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="14" it="0" lt="0" ct="0" ts="1572178782449" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-89" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="116" it="0" lt="116" ct="107" ts="1572178782355" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-64" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178782472" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-64" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="39" it="0" lt="0" ct="0" ts="1572178782469" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-74" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="112" it="0" lt="112" ct="103" ts="1572178782400" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-69" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="5" it="0" lt="4" ct="0" ts="1572178782513" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-69" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="128" it="0" lt="128" ct="118" ts="1572178782396" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-90" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782525" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-90" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="129" it="0" lt="129" ct="120" ts="1572178782399" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-96" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="8" it="0" lt="8" ct="0" ts="1572178782529" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-96" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="91" it="0" lt="0" ct="0" ts="1572178782469" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-70" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="115" it="0" lt="115" ct="105" ts="1572178782451" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-81" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782567" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-81" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="84" it="0" lt="0" ct="0" ts="1572178782491" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-78" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="74" it="0" lt="0" ct="0" ts="1572178782513" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-80" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="68" it="0" lt="0" ct="0" ts="1572178782519" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-73" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="114" it="0" lt="0" ct="0" ts="1572178782474" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-79" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="122" it="0" lt="121" ct="112" ts="1572178782473" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-71" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="4" it="0" lt="3" ct="0" ts="1572178782597" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-71" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="131" it="0" lt="130" ct="120" ts="1572178782470" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-65" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178782609" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-65" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="101" it="0" lt="0" ct="0" ts="1572178782523" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-87" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="44" it="0" lt="0" ct="0" ts="1572178782589" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-67" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="160" it="0" lt="160" ct="147" ts="1572178782473" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-76" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="418" it="0" lt="418" ct="402" ts="1572178782219" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-62" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="129" it="0" lt="129" ct="121" ts="1572178782509" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-74" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178782634" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-76" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178782638" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-62" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178782639" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-74" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="16" it="0" lt="0" ct="0" ts="1572178782629" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-91" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="435" it="0" lt="435" ct="116" ts="1572178782219" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-56" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="143" it="0" lt="143" ct="135" ts="1572178782512" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-75" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="0" ct="0" ts="1572178782654" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-94" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782655" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-56" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178782656" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-75" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="1033" it="0" lt="1033" ct="1021" ts="1572178781637" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-31" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="20" it="0" lt="0" ct="0" ts="1572178782654" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-77" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782671" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-31" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="20" it="0" lt="0" ct="0" ts="1572178782656" s="false" lb="replace old ToEmail in csv files" rc="500" rm="javax.script.ScriptException: java.lang.IndexOutOfBoundsException: Index: 1, Size: 0" tn="purchase to friend 1-98" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="53" it="0" lt="0" ct="0" ts="1572178782664" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-66" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="60" it="0" lt="0" ct="0" ts="1572178782658" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-97" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="68" it="0" lt="0" ct="0" ts="1572178782662" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-93" dt="text" by="0" sby="0" ng="100" na="100"/>
+<sample t="416" it="0" lt="416" ct="408" ts="1572178782325" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-60" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="6" it="0" lt="6" ct="0" ts="1572178782742" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-60" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="789" it="0" lt="789" ct="779" ts="1572178781965" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-46" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="127" it="0" lt="127" ct="117" ts="1572178782630" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-92" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178782755" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-46" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178782759" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-92" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="109" it="0" lt="109" ct="100" ts="1572178782661" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-70" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782771" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-70" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="118" it="0" lt="118" ct="110" ts="1572178782658" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-73" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="113" it="0" lt="112" ct="105" ts="1572178782666" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-91" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782777" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-73" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="122" it="0" lt="121" ct="112" ts="1572178782659" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-78" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782780" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-91" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178782781" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-78" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="120" it="0" lt="119" ct="111" ts="1572178782666" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-80" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178782791" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-80" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="132" it="0" lt="131" ct="123" ts="1572178782666" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-67" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="121" it="0" lt="121" ct="114" ts="1572178782678" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-98" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178782799" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-67" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178782800" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-98" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="126" it="0" lt="126" ct="118" ts="1572178782678" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-77" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178782805" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-77" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="109" it="0" lt="109" ct="101" ts="1572178782720" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-66" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178782830" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-66" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="104" it="0" lt="104" ct="96" ts="1572178782732" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-93" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178782837" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-93" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="426" it="0" lt="426" ct="418" ts="1572178782449" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-83" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="6" it="0" lt="5" ct="0" ts="1572178782876" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-83" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="471" it="0" lt="471" ct="156" ts="1572178782416" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-63" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782888" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-63" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="399" it="0" lt="399" ct="391" ts="1572178782493" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-89" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782893" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-89" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="430" it="0" lt="430" ct="422" ts="1572178782470" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-72" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782901" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-72" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="417" it="0" lt="416" ct="409" ts="1572178782522" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-85" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178782939" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-85" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="430" it="0" lt="430" ct="122" ts="1572178782519" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-82" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782950" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-82" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="420" it="0" lt="420" ct="412" ts="1572178782544" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-84" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178782965" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-84" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="421" it="0" lt="421" ct="122" ts="1572178782591" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-79" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178783013" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-79" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="397" it="0" lt="397" ct="389" ts="1572178782658" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-100" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="398" it="0" lt="398" ct="392" ts="1572178782659" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-94" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="413" it="0" lt="413" ct="117" ts="1572178782646" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-95" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178783056" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-100" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178783058" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-94" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="406" it="0" lt="406" ct="397" ts="1572178782655" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-87" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178783062" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-87" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178783060" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-95" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="405" it="0" lt="405" ct="398" ts="1572178782720" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-97" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178783126" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-97" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="1195" it="0" lt="1195" ct="1187" ts="1572178782099" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-48" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178783295" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-48" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="2223" it="0" lt="2222" ct="2214" ts="1572178781311" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-12" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="7" it="0" lt="7" ct="0" ts="1572178783534" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-12" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="1216" it="0" lt="1215" ct="1205" ts="1572178782355" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-86" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178783571" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-86" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="2411" it="0" lt="2411" ct="2403" ts="1572178781214" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-5" dt="text" by="695" sby="0" ng="100" na="100"/>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178783626" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-5" dt="text" by="21" sby="0" ng="100" na="100"/>
+<httpSample t="3634" it="0" lt="3634" ct="6" ts="1572178781346" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="5168" it="0" lt="5168" ct="4" ts="1572178781350" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="6463" it="0" lt="6463" ct="6" ts="1572178781358" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="8582" it="0" lt="8582" ct="6" ts="1572178781361" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="10864" it="0" lt="10864" ct="5" ts="1572178781395" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="13485" it="0" lt="13485" ct="6" ts="1572178781430" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="16961" it="0" lt="16961" ct="6" ts="1572178781451" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18339" it="0" lt="18339" ct="4" ts="1572178781456" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-13" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18486" it="0" lt="18486" ct="5" ts="1572178781531" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-19" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18621" it="0" lt="18621" ct="6" ts="1572178781634" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19001" it="0" lt="19001" ct="7" ts="1572178781704" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-10" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19054" it="0" lt="19054" ct="6" ts="1572178781651" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-24" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19131" it="0" lt="19131" ct="5" ts="1572178781574" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-20" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19106" it="0" lt="19106" ct="5" ts="1572178781599" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-22" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19059" it="0" lt="19059" ct="5" ts="1572178781646" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-6" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19004" it="0" lt="19004" ct="5" ts="1572178781701" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-9" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19039" it="0" lt="19039" ct="5" ts="1572178781666" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-26" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18874" it="0" lt="18874" ct="6" ts="1572178781835" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-18" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18914" it="0" lt="18914" ct="6" ts="1572178781796" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-34" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18711" it="0" lt="18710" ct="15" ts="1572178782000" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-49" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18937" it="0" lt="18937" ct="5" ts="1572178781771" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-15" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18934" it="0" lt="18934" ct="5" ts="1572178781775" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-32" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18863" it="0" lt="18863" ct="6" ts="1572178781846" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-36" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18812" it="0" lt="18812" ct="6" ts="1572178781898" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-21" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18935" it="0" lt="18935" ct="4" ts="1572178781773" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-30" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18917" it="0" lt="18917" ct="5" ts="1572178781792" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-16" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18737" it="0" lt="18737" ct="7" ts="1572178781975" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-40" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18680" it="0" lt="18680" ct="8" ts="1572178782035" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-51" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18662" it="0" lt="18662" ct="10" ts="1572178782054" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-43" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18671" it="0" lt="18671" ct="15" ts="1572178782045" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-42" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18627" it="0" lt="18627" ct="5" ts="1572178782089" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-33" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18630" it="0" lt="18630" ct="7" ts="1572178782087" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-28" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18609" it="0" lt="18609" ct="6" ts="1572178782108" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-53" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18560" it="0" lt="18560" ct="5" ts="1572178782157" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-52" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18589" it="0" lt="18589" ct="8" ts="1572178782128" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-37" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18547" it="0" lt="18546" ct="5" ts="1572178782171" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-58" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18524" it="0" lt="18524" ct="17" ts="1572178782194" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-54" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18544" it="0" lt="18544" ct="5" ts="1572178782174" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-59" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18448" it="0" lt="18448" ct="4" ts="1572178782272" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-39" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18537" it="0" lt="18537" ct="6" ts="1572178782183" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-38" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18441" it="0" lt="18441" ct="6" ts="1572178782279" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-50" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18406" it="0" lt="18406" ct="4" ts="1572178782314" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-61" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18554" it="0" lt="18554" ct="6" ts="1572178782166" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-35" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18389" it="0" lt="18389" ct="5" ts="1572178782332" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-55" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18317" it="0" lt="18317" ct="8" ts="1572178782405" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-99" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18108" it="0" lt="18108" ct="8" ts="1572178782614" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-65" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18192" it="0" lt="18192" ct="17" ts="1572178782531" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-90" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18075" it="0" lt="18075" ct="7" ts="1572178782648" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-74" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18077" it="0" lt="18077" ct="7" ts="1572178782646" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-62" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18426" it="0" lt="18426" ct="5" ts="1572178782298" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-57" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18065" it="0" lt="18065" ct="9" ts="1572178782660" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-56" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18265" it="0" lt="18264" ct="4" ts="1572178782461" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-88" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18206" it="0" lt="18206" ct="5" ts="1572178782519" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-69" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="17965" it="0" lt="17965" ct="6" ts="1572178782761" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-46" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="17937" it="0" lt="17937" ct="4" ts="1572178782789" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-78" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="17922" it="0" lt="17922" ct="4" ts="1572178782804" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-98" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="17945" it="0" lt="17945" ct="5" ts="1572178782782" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-73" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="17893" it="0" lt="17893" ct="4" ts="1572178782834" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-66" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="17886" it="0" lt="17886" ct="5" ts="1572178782841" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-93" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18153" it="0" lt="18153" ct="6" ts="1572178782572" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-81" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="17978" it="0" lt="17978" ct="7" ts="1572178782750" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-60" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="17791" it="0" lt="17791" ct="5" ts="1572178782943" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-85" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18697" it="0" lt="18697" ct="5" ts="1572178782387" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-47" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18647" it="0" lt="18647" ct="6" ts="1572178782437" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-68" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18288" it="0" lt="18287" ct="4" ts="1572178782798" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-80" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18827" it="0" lt="18827" ct="4" ts="1572178782257" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-25" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18194" it="0" lt="18194" ct="5" ts="1572178782893" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-63" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18183" it="0" lt="18183" ct="4" ts="1572178782905" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-72" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19165" it="0" lt="19165" ct="5" ts="1572178781924" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-23" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18321" it="0" lt="18321" ct="3" ts="1572178782763" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-92" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18028" it="0" lt="18028" ct="6" ts="1572178783061" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-100" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18205" it="0" lt="18205" ct="7" ts="1572178782883" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-83" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19272" it="0" lt="19271" ct="4" ts="1572178781816" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-17" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18190" it="0" lt="18190" ct="5" ts="1572178782897" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-89" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18301" it="0" lt="18300" ct="7" ts="1572178782785" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-91" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18308" it="0" lt="18308" ct="5" ts="1572178782777" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-70" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19057" it="0" lt="19057" ct="4" ts="1572178782027" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-29" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18423" it="0" lt="18423" ct="6" ts="1572178782662" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-75" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18991" it="0" lt="18991" ct="5" ts="1572178782100" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-44" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18811" it="0" lt="18811" ct="6" ts="1572178782279" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-27" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18450" it="0" lt="18450" ct="5" ts="1572178782640" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-76" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18286" it="0" lt="18286" ct="4" ts="1572178782803" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-67" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18550" it="0" lt="18550" ct="3" ts="1572178782539" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-96" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="17584" it="0" lt="17584" ct="16" ts="1572178783543" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-12" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18110" it="0" lt="18110" ct="4" ts="1572178783017" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-79" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18158" it="0" lt="18158" ct="8" ts="1572178782969" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-84" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18065" it="0" lt="18065" ct="5" ts="1572178783062" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-94" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18062" it="0" lt="18062" ct="6" ts="1572178783066" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-95" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="17500" it="0" lt="17500" ct="4" ts="1572178783629" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-5" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18000" it="0" lt="18000" ct="9" ts="1572178783129" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-97" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18516" it="0" lt="18516" ct="4" ts="1572178782955" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-82" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19299" it="0" lt="19298" ct="3" ts="1572178782478" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-64" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19175" it="0" lt="19175" ct="4" ts="1572178782602" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-71" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19802" it="0" lt="19235" ct="8" ts="1572178781975" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-45" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19098" it="0" lt="19098" ct="8" ts="1572178782680" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-31" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18754" it="0" lt="18754" ct="4" ts="1572178783066" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-87" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18246" it="0" lt="18246" ct="6" ts="1572178783575" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-86" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="18522" it="0" lt="18522" ct="5" ts="1572178783300" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-48" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="20173" it="0" lt="20173" ct="3" ts="1572178782809" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-77" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="21035" it="0" lt="19262" ct="5" ts="1572178781947" s="true" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-41" dt="text" by="1914" sby="1091" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43204</java.net.URL>
+</httpSample>
+<httpSample t="19063" it="0" lt="19063" ct="5" ts="1572178784994" s="true" lb="purchase request for friend" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="1179" sby="1628" ng="100" na="100">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/order/purchase</java.net.URL>
+</httpSample>
+<sample t="43" it="0" lt="42" ct="0" ts="1572178804070" s="true" lb="extract memberid from the gift sender" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="40" it="0" lt="39" ct="0" ts="1572178804113" s="true" lb="extract memberid from the user the gift reciver" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="21" sby="0" ng="100" na="100"/>
+<sample t="9" it="0" lt="9" ct="0" ts="1572178804212" s="true" lb="test number 1, check that in Payments Table that the sender is charged as required,with the extracted orderConfirmation" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="575" sby="0" ng="100" na="100">
+  <assertionResult>
+    <name>check in database that the sender is charged with the amount of admition cost</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178804236" s="true" lb="test number 2 , check that in OrderTransfer Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="147" sby="0" ng="100" na="100">
+  <assertionResult>
+    <name>check that in OrderTransfer Table that the required fields are updated</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178804250" s="true" lb="check that the OrderId is Unique for the transfer" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="21" sby="0" ng="100" na="100">
+  <assertionResult>
+    <name>test 2 addition,check database that trasfergui has only order id as expected</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178804264" s="true" lb="test number 3, check that in Orders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="406" sby="0" ng="100" na="100">
+  <assertionResult>
+    <name>check database for Orders table Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178804279" s="true" lb="test number 4, check that in ATRACTIONSOrders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="576" sby="0" ng="100" na="100">
+  <assertionResult>
+    <name>check database for AtractionOrders Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178804294" s="true" lb="test number 5, check that inWebServiceTransaction Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="809" sby="0" ng="100" na="100">
+  <assertionResult>
+    <name>check database for Webservice Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178804314" s="true" lb="test number 6, check that in Cards Table the reqested fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="299" sby="0" ng="100" na="100">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="68" it="0" lt="68" ct="0" ts="1572178804331" s="true" lb="test number 7, check that in CardSkeleton Table the reqested  fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="162" sby="0" ng="100" na="100">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="23018" it="227" lt="23005" ct="122" ts="1572178781164" s="true" lb="Transaction Controller" rc="200" rm="Number of samples in transaction : 18, number of failing samples : 0" tn="purchase to friend 1-3" dt="" by="6846" sby="2719" ng="100" na="100"/>
+<sample t="0" it="0" lt="0" ct="0" ts="1572178804411" s="true" lb="Debug Sampler" rc="200" rm="OK" tn="purchase to friend 1-3" dt="text" by="25988" sby="0" ng="100" na="100"/>
+<httpSample t="2494" it="0" lt="2494" ct="4" ts="1572178804071" s="true" lb="purchase request for friend" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="1179" sby="1628" ng="99" na="99">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/order/purchase</java.net.URL>
+</httpSample>
+<sample t="42" it="0" lt="42" ct="0" ts="1572178806566" s="true" lb="extract memberid from the gift sender" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="21" sby="0" ng="99" na="99"/>
+<sample t="38" it="0" lt="38" ct="0" ts="1572178806609" s="true" lb="extract memberid from the user the gift reciver" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="21" sby="0" ng="99" na="99"/>
+<sample t="8" it="0" lt="8" ct="0" ts="1572178806703" s="true" lb="test number 1, check that in Payments Table that the sender is charged as required,with the extracted orderConfirmation" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="575" sby="0" ng="99" na="99">
+  <assertionResult>
+    <name>check in database that the sender is charged with the amount of admition cost</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178806712" s="true" lb="test number 2 , check that in OrderTransfer Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="147" sby="0" ng="99" na="99">
+  <assertionResult>
+    <name>check that in OrderTransfer Table that the required fields are updated</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178806716" s="true" lb="check that the OrderId is Unique for the transfer" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="21" sby="0" ng="99" na="99">
+  <assertionResult>
+    <name>test 2 addition,check database that trasfergui has only order id as expected</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178806721" s="true" lb="test number 3, check that in Orders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="405" sby="0" ng="99" na="99">
+  <assertionResult>
+    <name>check database for Orders table Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178806724" s="true" lb="test number 4, check that in ATRACTIONSOrders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="576" sby="0" ng="99" na="99">
+  <assertionResult>
+    <name>check database for AtractionOrders Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178806728" s="true" lb="test number 5, check that inWebServiceTransaction Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="809" sby="0" ng="99" na="99">
+  <assertionResult>
+    <name>check database for Webservice Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178806733" s="true" lb="test number 6, check that in Cards Table the reqested fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="299" sby="0" ng="99" na="99">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="70" it="0" lt="70" ct="0" ts="1572178806737" s="true" lb="test number 7, check that in CardSkeleton Table the reqested  fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="162" sby="0" ng="99" na="99">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="7975" it="17681" lt="7964" ct="120" ts="1572178781151" s="true" lb="Transaction Controller" rc="200" rm="Number of samples in transaction : 18, number of failing samples : 0" tn="purchase to friend 1-2" dt="" by="6845" sby="2719" ng="99" na="99"/>
+<sample t="0" it="0" lt="0" ct="0" ts="1572178806808" s="true" lb="Debug Sampler" rc="200" rm="OK" tn="purchase to friend 1-2" dt="text" by="25987" sby="0" ng="99" na="99"/>
+<httpSample t="2269" it="0" lt="2269" ct="3" ts="1572178806567" s="true" lb="purchase request for friend" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="1179" sby="1628" ng="98" na="98">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/order/purchase</java.net.URL>
+</httpSample>
+<sample t="40" it="0" lt="40" ct="0" ts="1572178808837" s="true" lb="extract memberid from the gift sender" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="21" sby="0" ng="98" na="98"/>
+<sample t="41" it="0" lt="41" ct="0" ts="1572178808878" s="true" lb="extract memberid from the user the gift reciver" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="21" sby="0" ng="98" na="98"/>
+<sample t="9" it="0" lt="8" ct="0" ts="1572178808978" s="true" lb="test number 1, check that in Payments Table that the sender is charged as required,with the extracted orderConfirmation" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="575" sby="0" ng="98" na="98">
+  <assertionResult>
+    <name>check in database that the sender is charged with the amount of admition cost</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="3" ct="0" ts="1572178808988" s="false" lb="test number 2 , check that in OrderTransfer Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="235" sby="0" ng="98" na="98">
+  <assertionResult>
+    <name>check that in OrderTransfer Table that the required fields are updated</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>in the database, to SENDER id is diffrent then the value of the memberid that sent the purchase request,the id value in the purchase request is  10000056840 vs  the id in the ordertransfer table 10000046495
+
+
+ at OrderTransfer Table from NofshonitClub</failureMessage>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178808994" s="true" lb="test number 3, check that in Orders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="406" sby="0" ng="98" na="98">
+  <assertionResult>
+    <name>check database for Orders table Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178808998" s="true" lb="test number 4, check that in ATRACTIONSOrders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="576" sby="0" ng="98" na="98">
+  <assertionResult>
+    <name>check database for AtractionOrders Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="18" it="0" lt="18" ct="0" ts="1572178809002" s="false" lb="test number 5, check that inWebServiceTransaction Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="809" sby="0" ng="98" na="98">
+  <assertionResult>
+    <name>check database for Webservice Requirements</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>the payment Id in Webservice table does not watch the payment Id in the Payment Id table 
+
+ we recived &apos;5128 while expecting 6481
+
+ under WebService table,the barcode known as TTransactionProductID is diffrent then the barcode saved in AtractionOrders..
+
+ in webservice we recived: 1002477-3113 vs  in AttractionOrders 1002477-3114
+
+
+ at OrderTransfer Table from NofshonitClub</failureMessage>
+  </assertionResult>
+</sample>
+<sample t="9" it="0" lt="9" ct="0" ts="1572178809022" s="true" lb="test number 6, check that in Cards Table the reqested fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="299" sby="0" ng="98" na="98">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="78" it="0" lt="78" ct="0" ts="1572178809032" s="true" lb="test number 7, check that in CardSkeleton Table the reqested  fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="164" sby="0" ng="98" na="98">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="9069" it="18864" lt="9056" ct="114" ts="1572178781178" s="false" lb="Transaction Controller" rc="" rm="Number of samples in transaction : 17, number of failing samples : 2" tn="purchase to friend 1-4" dt="" by="6915" sby="2719" ng="98" na="98"/>
+<sample t="1" it="0" lt="0" ct="0" ts="1572178809111" s="true" lb="Debug Sampler" rc="200" rm="OK" tn="purchase to friend 1-4" dt="text" by="26870" sby="0" ng="98" na="98"/>
+<httpSample t="2230" it="0" lt="2230" ct="5" ts="1572178808838" s="true" lb="purchase request for friend" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="1179" sby="1628" ng="97" na="97">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/order/purchase</java.net.URL>
+</httpSample>
+<sample t="44" it="0" lt="43" ct="0" ts="1572178811068" s="true" lb="extract memberid from the gift sender" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="21" sby="0" ng="97" na="97"/>
+<sample t="44" it="0" lt="44" ct="0" ts="1572178811112" s="true" lb="extract memberid from the user the gift reciver" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="21" sby="0" ng="97" na="97"/>
+<sample t="10" it="0" lt="9" ct="0" ts="1572178811574" s="true" lb="test number 1, check that in Payments Table that the sender is charged as required,with the extracted orderConfirmation" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="575" sby="0" ng="97" na="97">
+  <assertionResult>
+    <name>check in database that the sender is charged with the amount of admition cost</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="3" ct="0" ts="1572178811585" s="true" lb="test number 2 , check that in OrderTransfer Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="147" sby="0" ng="97" na="97">
+  <assertionResult>
+    <name>check that in OrderTransfer Table that the required fields are updated</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178811590" s="true" lb="check that the OrderId is Unique for the transfer" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="21" sby="0" ng="97" na="97">
+  <assertionResult>
+    <name>test 2 addition,check database that trasfergui has only order id as expected</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178811595" s="true" lb="test number 3, check that in Orders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="406" sby="0" ng="97" na="97">
+  <assertionResult>
+    <name>check database for Orders table Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="0" ts="1572178811599" s="true" lb="test number 4, check that in ATRACTIONSOrders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="576" sby="0" ng="97" na="97">
+  <assertionResult>
+    <name>check database for AtractionOrders Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178811603" s="true" lb="test number 5, check that inWebServiceTransaction Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="809" sby="0" ng="97" na="97">
+  <assertionResult>
+    <name>check database for Webservice Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178811608" s="true" lb="test number 6, check that in Cards Table the reqested fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="300" sby="0" ng="97" na="97">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="92" it="0" lt="91" ct="0" ts="1572178811612" s="true" lb="test number 7, check that in CardSkeleton Table the reqested  fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="162" sby="0" ng="97" na="97">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="11161" it="19323" lt="11149" ct="127" ts="1572178781220" s="true" lb="Transaction Controller" rc="200" rm="Number of samples in transaction : 18, number of failing samples : 0" tn="purchase to friend 1-7" dt="" by="6847" sby="2719" ng="97" na="97"/>
+<sample t="1" it="0" lt="0" ct="0" ts="1572178811704" s="true" lb="Debug Sampler" rc="200" rm="OK" tn="purchase to friend 1-7" dt="text" by="26618" sby="0" ng="97" na="97"/>
+<httpSample t="2584" it="0" lt="2584" ct="5" ts="1572178811069" s="true" lb="purchase request for friend" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="1179" sby="1628" ng="96" na="96">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/order/purchase</java.net.URL>
+</httpSample>
+<sample t="47" it="0" lt="47" ct="0" ts="1572178813655" s="true" lb="extract memberid from the gift sender" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="21" sby="0" ng="96" na="96"/>
+<sample t="41" it="0" lt="41" ct="0" ts="1572178813703" s="true" lb="extract memberid from the user the gift reciver" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="21" sby="0" ng="96" na="96"/>
+<sample t="10" it="0" lt="9" ct="0" ts="1572178813806" s="true" lb="test number 1, check that in Payments Table that the sender is charged as required,with the extracted orderConfirmation" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="575" sby="0" ng="96" na="96">
+  <assertionResult>
+    <name>check in database that the sender is charged with the amount of admition cost</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178813817" s="true" lb="test number 2 , check that in OrderTransfer Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="147" sby="0" ng="96" na="96">
+  <assertionResult>
+    <name>check that in OrderTransfer Table that the required fields are updated</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="6" it="0" lt="6" ct="0" ts="1572178813822" s="true" lb="check that the OrderId is Unique for the transfer" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="21" sby="0" ng="96" na="96">
+  <assertionResult>
+    <name>test 2 addition,check database that trasfergui has only order id as expected</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="2" ct="0" ts="1572178813830" s="true" lb="test number 3, check that in Orders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="406" sby="0" ng="96" na="96">
+  <assertionResult>
+    <name>check database for Orders table Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="2" ct="0" ts="1572178813834" s="true" lb="test number 4, check that in ATRACTIONSOrders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="576" sby="0" ng="96" na="96">
+  <assertionResult>
+    <name>check database for AtractionOrders Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="6" it="0" lt="5" ct="0" ts="1572178813838" s="true" lb="test number 5, check that inWebServiceTransaction Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="809" sby="0" ng="96" na="96">
+  <assertionResult>
+    <name>check database for Webservice Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178813845" s="true" lb="test number 6, check that in Cards Table the reqested fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="300" sby="0" ng="96" na="96">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="76" it="0" lt="76" ct="0" ts="1572178813850" s="true" lb="test number 7, check that in CardSkeleton Table the reqested  fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="162" sby="0" ng="96" na="96">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="13804" it="18891" lt="13783" ct="136" ts="1572178781232" s="true" lb="Transaction Controller" rc="200" rm="Number of samples in transaction : 18, number of failing samples : 0" tn="purchase to friend 1-8" dt="" by="6847" sby="2719" ng="96" na="96"/>
+<sample t="0" it="0" lt="0" ct="0" ts="1572178813928" s="true" lb="Debug Sampler" rc="200" rm="OK" tn="purchase to friend 1-8" dt="text" by="26622" sby="0" ng="96" na="96"/>
+<httpSample t="2370" it="0" lt="2370" ct="5" ts="1572178813656" s="true" lb="purchase request for friend" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="1179" sby="1628" ng="95" na="95">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/order/purchase</java.net.URL>
+</httpSample>
+<sample t="40" it="0" lt="40" ct="0" ts="1572178816027" s="true" lb="extract memberid from the gift sender" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="21" sby="0" ng="95" na="95"/>
+<sample t="41" it="0" lt="40" ct="0" ts="1572178816068" s="true" lb="extract memberid from the user the gift reciver" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="21" sby="0" ng="95" na="95"/>
+<sample t="11" it="0" lt="11" ct="0" ts="1572178816171" s="true" lb="test number 1, check that in Payments Table that the sender is charged as required,with the extracted orderConfirmation" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="575" sby="0" ng="95" na="95">
+  <assertionResult>
+    <name>check in database that the sender is charged with the amount of admition cost</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178816185" s="true" lb="test number 2 , check that in OrderTransfer Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="147" sby="0" ng="95" na="95">
+  <assertionResult>
+    <name>check that in OrderTransfer Table that the required fields are updated</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178816190" s="true" lb="check that the OrderId is Unique for the transfer" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="21" sby="0" ng="95" na="95">
+  <assertionResult>
+    <name>test 2 addition,check database that trasfergui has only order id as expected</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="1" ts="1572178816196" s="true" lb="test number 3, check that in Orders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="406" sby="0" ng="95" na="95">
+  <assertionResult>
+    <name>check database for Orders table Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178816200" s="true" lb="test number 4, check that in ATRACTIONSOrders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="576" sby="0" ng="95" na="95">
+  <assertionResult>
+    <name>check database for AtractionOrders Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="5" it="0" lt="5" ct="0" ts="1572178816203" s="true" lb="test number 5, check that inWebServiceTransaction Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="809" sby="0" ng="95" na="95">
+  <assertionResult>
+    <name>check database for Webservice Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="3" ct="0" ts="1572178816209" s="true" lb="test number 6, check that in Cards Table the reqested fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="300" sby="0" ng="95" na="95">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="77" it="0" lt="77" ct="0" ts="1572178816213" s="true" lb="test number 7, check that in CardSkeleton Table the reqested  fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="162" sby="0" ng="95" na="95">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="16188" it="18819" lt="16172" ct="118" ts="1572178781284" s="true" lb="Transaction Controller" rc="200" rm="Number of samples in transaction : 18, number of failing samples : 0" tn="purchase to friend 1-11" dt="" by="6847" sby="2719" ng="95" na="95"/>
+<sample t="1" it="0" lt="0" ct="0" ts="1572178816291" s="true" lb="Debug Sampler" rc="200" rm="OK" tn="purchase to friend 1-11" dt="text" by="26623" sby="0" ng="95" na="95"/>
+<httpSample t="2371" it="0" lt="2371" ct="5" ts="1572178816027" s="true" lb="purchase request for friend" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="1179" sby="1628" ng="94" na="94">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/order/purchase</java.net.URL>
+</httpSample>
+<sample t="43" it="0" lt="43" ct="0" ts="1572178818401" s="true" lb="extract memberid from the gift sender" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="21" sby="0" ng="94" na="94"/>
+<sample t="41" it="0" lt="41" ct="0" ts="1572178818445" s="true" lb="extract memberid from the user the gift reciver" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="21" sby="0" ng="94" na="94"/>
+<sample t="11" it="0" lt="11" ct="0" ts="1572178818545" s="true" lb="test number 1, check that in Payments Table that the sender is charged as required,with the extracted orderConfirmation" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="575" sby="0" ng="94" na="94">
+  <assertionResult>
+    <name>check in database that the sender is charged with the amount of admition cost</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178818557" s="true" lb="test number 2 , check that in OrderTransfer Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="147" sby="0" ng="94" na="94">
+  <assertionResult>
+    <name>check that in OrderTransfer Table that the required fields are updated</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="6" it="0" lt="6" ct="0" ts="1572178818562" s="true" lb="check that the OrderId is Unique for the transfer" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="21" sby="0" ng="94" na="94">
+  <assertionResult>
+    <name>test 2 addition,check database that trasfergui has only order id as expected</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="2" it="0" lt="2" ct="0" ts="1572178818569" s="true" lb="test number 3, check that in Orders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="406" sby="0" ng="94" na="94">
+  <assertionResult>
+    <name>check database for Orders table Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="2" ct="0" ts="1572178818572" s="true" lb="test number 4, check that in ATRACTIONSOrders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="576" sby="0" ng="94" na="94">
+  <assertionResult>
+    <name>check database for AtractionOrders Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178818576" s="true" lb="test number 5, check that inWebServiceTransaction Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="809" sby="0" ng="94" na="94">
+  <assertionResult>
+    <name>check database for Webservice Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1572178818581" s="true" lb="test number 6, check that in Cards Table the reqested fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="299" sby="0" ng="94" na="94">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="73" it="0" lt="73" ct="0" ts="1572178818586" s="true" lb="test number 7, check that in CardSkeleton Table the reqested  fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="162" sby="0" ng="94" na="94">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="19649" it="17689" lt="19643" ct="120" ts="1572178781321" s="true" lb="Transaction Controller" rc="200" rm="Number of samples in transaction : 18, number of failing samples : 0" tn="purchase to friend 1-14" dt="" by="6846" sby="2719" ng="94" na="94"/>
+<sample t="0" it="0" lt="0" ct="0" ts="1572178818660" s="true" lb="Debug Sampler" rc="200" rm="OK" tn="purchase to friend 1-14" dt="text" by="26622" sby="0" ng="94" na="94"/>
+<httpSample t="403" it="0" lt="0" ct="7" ts="1572178818401" s="false" lb="purchase request for friend" rc="Non HTTP response code: java.net.SocketException" rm="Non HTTP response message: Socket closed" tn="purchase to friend 1-13" dt="text" by="2556" sby="0" ng="93" na="93">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>true</failure>
+    <error>true</error>
+    <failureMessage>javax.script.ScriptException: java.lang.NullPointerException: Cannot invoke method get() on null object</failureMessage>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/order/purchase</java.net.URL>
+</httpSample>
+<sample t="3" it="0" lt="0" ct="0" ts="1572178818839" s="true" lb="JSR223 Sampler" rc="200" rm="OK" tn="tearDown Thread Group 1-1" dt="text" by="736" sby="0" ng="1" na="1"/>
+
 </testResults>
