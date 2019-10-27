@@ -49,12 +49,6 @@ props.put(&apos;Token&apos;,vars.get(&apos;UserToken_1&apos;));
           </JSR223PostProcessor>
           <hashTree/>
         </hashTree>
-        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
-          <boolProp name="displayJMeterProperties">false</boolProp>
-          <boolProp name="displayJMeterVariables">true</boolProp>
-          <boolProp name="displaySystemProperties">false</boolProp>
-        </DebugSampler>
-        <hashTree/>
       </hashTree>
     </hashTree>
   </hashTree>

@@ -1134,16 +1134,26 @@ def failureMessage = &quot;&quot;;
 def checker = vars.getObject(&apos;DBChecker&apos;);
 List&lt;String&gt; list = new ArrayList&lt;String&gt;([&apos;ToMemberId&apos;,&apos;OrderId&apos;, &apos;ToMemberEmail&apos;, &apos;FromMemberId&apos;, &apos;TransferGuid&apos;]);
 def OrderTransferInformation = vars.getObject(&apos;results&apos;);
-
+def recentOrder = OrderTransferInformation[0];
 checker.DBContainsRequiredFields(OrderTransferInformation,list,&quot;when checking in the database NofshonitClub ,under table OrderTransfer ,the fields \n\n &quot;+ list.join(&apos;-&apos;) +&quot; were expected to be found \n\n from the table extraction the following values were not found:&quot;)
-OrderTransferInformation.each{resultArray -&gt; 
-String OrderId = resultArray.get(&apos;OrderId&apos;);
-String reciverId = resultArray.get(&apos;ToMemberId&apos;);
-String senderId = resultArray.get(&apos;FromMemberId&apos;);
-checker.databaseEqualsStrings(reciverId,vars.get(&apos;ToMemberId_1&apos;),&quot;in the database, to RECIVER id is diffrent then the value that was sent at the purchase request,the id value in the purchase request is &quot; +vars.get(&apos;ToMemberId_1&apos;));
 
-checker.databaseEqualsStrings(senderId,vars.get(&apos;MemberId_1&apos;),&quot;in the database, to SENDER id is diffrent then the value that was sent at the purchase request,the id value in the purchase request is &quot; +vars.get(&apos;FromMemberId_1&apos;));
-vars.put(&apos;OrderId&apos;,OrderId)
+String OrderId = recentOrder.get(&apos;OrderId&apos;);
+String reciverId = recentOrder.get(&apos;ToMemberId&apos;);
+String senderId = recentOrder.get(&apos;FromMemberId&apos;);
+checker.databaseEqualsStrings(reciverId.trim(),vars.get(&apos;ToMemberId_1&apos;).trim(),&quot;in the database, to RECIVER id is diffrent then the value that was sent at the purchase request,the id value in the purchase request is &quot; +vars.get(&apos;ToMemberId_1&apos;));
+
+checker.databaseEqualsStrings(senderId.trim(),vars.get(&apos;MemberId_1&apos;).trim(),&quot;in the database, to SENDER id is diffrent then the value of the memberid that sent the purchase request,the id value in the purchase request is  ${vars.get(&apos;MemberId_1&apos;)} vs  the id in the ordertransfer table ${senderId}&quot;);
+vars.put(&apos;OrderId&apos;,OrderId);
+
+//OrderTransferInformation.each{it -&gt; log.info(&quot;${it}&quot;)}
+//OrderTransferInformation.each{resultArray -&gt; 
+//String OrderId = resultArray.get(&apos;OrderId&apos;);
+//String reciverId = resultArray.get(&apos;ToMemberId&apos;);
+//String senderId = resultArray.get(&apos;FromMemberId&apos;);
+//checker.databaseEqualsStrings(reciverId.trim(),vars.get(&apos;ToMemberId_1&apos;).trim(),&quot;in the database, to RECIVER id is diffrent then the value that was sent at the purchase request,the id value in the purchase request is &quot; +vars.get(&apos;ToMemberId_1&apos;));
+
+//checker.databaseEqualsStrings(senderId.trim(),vars.get(&apos;MemberId_1&apos;).trim(),&quot;in the database, to SENDER id is diffrent then the value of the memberid that sent the purchase request,the id value in the purchase request is  ${vars.get(&apos;MemberId_1&apos;)} vs  the id in the ordertransfer table ${senderId}&quot;);
+//vars.put(&apos;OrderId&apos;,OrderId)
 
 failureMessage += checker.getFailureMassage();	
 	// Print error messages if any
@@ -1153,7 +1163,7 @@ failureMessage += checker.getFailureMassage();
 	    AssertionResult.setFailureMessage(failureMessage);
 	    AssertionResult.setFailure(true);    
 	}
-}
+//}
 </stringProp>
             </JSR223Assertion>
             <hashTree/>
