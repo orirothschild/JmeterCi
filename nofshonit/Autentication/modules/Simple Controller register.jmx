@@ -61,16 +61,6 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           <boolProp name="TransactionController.parent">false</boolProp>
         </TransactionController>
         <hashTree>
-          <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
-            <collectionProp name="CookieManager.cookies"/>
-            <boolProp name="CookieManager.clearEachIteration">true</boolProp>
-          </CookieManager>
-          <hashTree/>
-          <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
-            <boolProp name="clearEachIteration">true</boolProp>
-            <boolProp name="useExpires">true</boolProp>
-          </CacheManager>
-          <hashTree/>
           <CriticalSectionController guiclass="CriticalSectionControllerGui" testclass="CriticalSectionController" testname="Critical Section Controller" enabled="true">
             <stringProp name="CriticalSectionController.lockName">global_lock_one</stringProp>
           </CriticalSectionController>
@@ -80,7 +70,6 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
               <stringProp name="filename"></stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="script">
-def checker = props.get(&apos;JsonChecker&apos;);
 def LineChangerEmail = vars.getObject(&apos;LineChangerEmail&apos;);
 String newEmail = vars.get(&apos;newEmail&apos;);
 newEmail = newEmail.endsWith(&quot;.com&quot;)? newEmail: newEmail + &apos;.com&apos;;
@@ -174,43 +163,6 @@ def checker = props.get(&apos;JsonChecker&apos;);
 	vars.put(&apos;id&apos;,jsonResponse.get(&apos;data&apos;).get(&apos;id&apos;));</stringProp>
                 <stringProp name="scriptLanguage">groovy</stringProp>
               </JSR223Assertion>
-              <hashTree/>
-              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-                <boolProp name="ResultCollector.error_logging">false</boolProp>
-                <objProp>
-                  <name>saveConfig</name>
-                  <value class="SampleSaveConfiguration">
-                    <time>true</time>
-                    <latency>true</latency>
-                    <timestamp>true</timestamp>
-                    <success>true</success>
-                    <label>true</label>
-                    <code>true</code>
-                    <message>true</message>
-                    <threadName>true</threadName>
-                    <dataType>true</dataType>
-                    <encoding>false</encoding>
-                    <assertions>true</assertions>
-                    <subresults>true</subresults>
-                    <responseData>false</responseData>
-                    <samplerData>false</samplerData>
-                    <xml>false</xml>
-                    <fieldNames>true</fieldNames>
-                    <responseHeaders>false</responseHeaders>
-                    <requestHeaders>false</requestHeaders>
-                    <responseDataOnError>false</responseDataOnError>
-                    <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-                    <assertionsResultsToSave>0</assertionsResultsToSave>
-                    <bytes>true</bytes>
-                    <sentBytes>true</sentBytes>
-                    <url>true</url>
-                    <threadCounts>true</threadCounts>
-                    <idleTime>true</idleTime>
-                    <connectTime>true</connectTime>
-                  </value>
-                </objProp>
-                <stringProp name="filename"></stringProp>
-              </ResultCollector>
               <hashTree/>
             </hashTree>
           </hashTree>

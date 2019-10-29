@@ -29,7 +29,7 @@
             <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\JDBC TestFragments\ExtractUserTokenJDBCWithreciverEmail.jmx</stringProp>
           </IncludeController>
           <hashTree/>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header adds UserToken" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header adds UserToken" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">organizationId</stringProp>
@@ -42,7 +42,7 @@
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="מבט על המתנה" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -60,7 +60,81 @@
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree/>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="בדיקת מתנה תקינה" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonSlurper;
+def jsonResponse = null;
+def failureMessage = &quot;&quot;;
+def checker =props.get(&apos;JsonChecker&apos;);
+def DBchecker = vars.getObject(&apos;DBChecker&apos;);
+def jsonData = null;
+
+JsonSlurper JSON = new JsonSlurper ();
+	try {
+      jsonResponse = JSON.parseText(prev.getResponseDataAsString());
+      } catch (Exception e) {
+	    failureMessage += &quot;Invalid JSON.\n&quot;
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);  
+	}
+	checker.getStatusCode(prev,&quot;200&quot;);
+	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
+	checker.ConfigStatusAndData(jsonResponse);
+	jsonData = jsonResponse.get(&apos;data&apos;);
+
+List&lt;String&gt; dataDetails = new ArrayList&lt;String&gt;([&apos;categoryDetails&apos;,&apos;transferDetails&apos;, &apos;categoryNumber&apos;, &apos;timeAdded&apos;]);
+List&lt;String&gt; catagoryDetails = new ArrayList&lt;String&gt;([&apos;categoryId&apos;,&apos;category&apos;, &apos;categoryName&apos;, &apos;isSelfPrint&apos;, &apos;businessId&apos;,&apos;supplierName&apos;,&apos;images&apos;]);
+List&lt;String&gt; giftDetails = new ArrayList&lt;String&gt;([&apos;sendFrom&apos;,&apos;expiredDate&apos;, &apos;sentDate&apos;, &apos;transferGuid&apos;]);
+
+
+//ArrayList informationLevel = jsonData[0].get(&apos;categoryDetails&apos;);
+//informationLevel.each{it -&gt; log.info(it)}
+DBchecker.DBContainsRequiredFields(jsonData,dataDetails,&apos;msg1&apos;);
+//log.info(informationLevel);
+//DBchecker.DBContainsRequiredFields(informationLevel,catagoryDetails,&apos;msg2&apos;);
+//checker.DBContainsRequiredFields(paymentInformation ,giftDetails,&quot;when checking in the database NofshonitClub ,under table ProductsVars ,the fields \n\n &quot;+ paymentList.join(&apos;-&apos;) +&quot;were expected to be found found \n\n from the table extraction the following value was not found \n\n -------------------------\n\n&quot;)
+//
+//variantInformation.each{resultArray -&gt;
+//	variantPrice = resultArray.get(&apos;IrgunPriceFormula&apos;);
+//	BarCode = resultArray.get(&apos;FullBarCode&apos;);
+//	VariantName = resultArray.get(&apos;shortNameVar&apos;);
+//     serieId = resultArray.get(&apos;serieId&apos;);
+//}
+//paymentInformation.each{resultArray -&gt; 
+//	def senderId = resultArray.get(&apos;MemberID&apos;);
+//	paymentId = resultArray.get(&apos;PaymentID&apos;);
+//	String amountCharged = resultArray.get(&apos;Charged&apos;);
+//	String fourDigits = resultArray.get(&apos;Last4Digits&apos;);
+//
+////log.info(senderId.equals(vars.getObject(&apos;MemberId_1&apos;)));
+////log.info(senderId.getClass());
+////log.info(vars.getObject(&apos;MemberId_1&apos;).getClass());
+//log.info(vars.getObject(&apos;MemberId_1&apos;));
+//
+//checker.databaseEqualsStrings(senderId.trim(),vars.get(&apos;MemberId_1&apos;).trim(),&quot;in the database, the MEMBERID of the sender inside the payments table, is diffrent then the value that was sent at the purchase request, the id value in the purchase request is &quot; +vars.get(&apos;MemberId_1&apos;) + &quot;\n\n while the MEMBERID inside payments Table is  &quot; + senderId);
+//
+////checker.databaseEqualsStrings(amountCharged,variantPrice,&quot;MAJOR PROBLEM! in the database, the price charged from the buyer with the id of &quot; + vars.get(&apos;MemberId_1&apos;) +&quot; was &quot;+ amountCharged +&quot;\n\nis diffrent from the price specified by the irgun is &quot; +variantPrice);
+////vars.put(&apos;PaymentID&apos;,paymentId.trim());
+//}
+
+failureMessage += DBchecker.getFailureMassage();	
+if (failureMessage?.trim()) {
+	failureMessage += &quot;\n at OrderTransfer Table from NofshonitClub\n&quot;
+	vars.putObject(&apos;error&apos;,true);
+	AssertionResult.setFailureMessage(failureMessage);
+	AssertionResult.setFailure(true);    
+}
+
+
+
+</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
         </hashTree>
       </hashTree>
     </hashTree>

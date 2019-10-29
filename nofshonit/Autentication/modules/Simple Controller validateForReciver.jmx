@@ -270,7 +270,7 @@ def checker = props.get(&apos;JsonChecker&apos;);
 def failureMessage = &quot;&quot;;
 def checker = vars.getObject(&apos;DBChecker&apos;);
 
-checker.databaseNotEqualsStrings(props.get(&apos;First_login&apos;).trim(),vars.getObject(&apos;Last_login_1&apos;).trim(),&quot;no yayyy &quot;);
+checker.databaseNotEqualsStrings(vars.getObject(&apos;First_login&apos;).trim(),vars.getObject(&apos;Last_login_1&apos;).trim(),&quot;user login after validation hasnt changed &quot;);
 failureMessage += checker.getFailureMassage();	
 if (failureMessage?.trim()) {
 	failureMessage += &quot;\n at OrderTransfer Table from NofshonitClub\n&quot;
