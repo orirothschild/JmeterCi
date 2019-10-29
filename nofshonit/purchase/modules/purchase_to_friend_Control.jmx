@@ -149,23 +149,6 @@ props.put(&apos;LineChangerId&apos;,LineChangerId);
           <boolProp name="CookieManager.clearEachIteration">true</boolProp>
         </CookieManager>
         <hashTree/>
-        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="false">
-          <boolProp name="autocommit">true</boolProp>
-          <stringProp name="checkQuery"></stringProp>
-          <stringProp name="connectionAge">5000</stringProp>
-          <stringProp name="dataSource">test</stringProp>
-          <stringProp name="dbUrl">jdbc:sqlserver://172.29.45.45\sql2005;DatabaseName=NofshonitClub</stringProp>
-          <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
-          <stringProp name="initQuery"></stringProp>
-          <boolProp name="keepAlive">true</boolProp>
-          <stringProp name="password">Erg0110$</stringProp>
-          <stringProp name="poolMax">0</stringProp>
-          <stringProp name="timeout">10000</stringProp>
-          <stringProp name="transactionIsolation">DEFAULT</stringProp>
-          <stringProp name="trimInterval">60000</stringProp>
-          <stringProp name="username">sqladmin</stringProp>
-        </JDBCDataSource>
-        <hashTree/>
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV get Friend Member Email" enabled="true">
           <stringProp name="filename">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/toEmail.csv</stringProp>
           <stringProp name="fileEncoding"></stringProp>
@@ -268,6 +251,15 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
           <boolProp name="TransactionController.parent">false</boolProp>
         </TransactionController>
         <hashTree>
+          <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="create random amout" enabled="false">
+            <stringProp name="variableName">quantity</stringProp>
+            <stringProp name="outputFormat">0</stringProp>
+            <stringProp name="minimumValue">1</stringProp>
+            <stringProp name="maximumValue">9</stringProp>
+            <stringProp name="randomSeed"></stringProp>
+            <boolProp name="perThread">false</boolProp>
+          </RandomVariableConfig>
+          <hashTree/>
           <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="replace old ToEmail in csv files" enabled="false">
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="filename"></stringProp>
@@ -301,8 +293,8 @@ vars.put(&apos;toEmail&apos;, newEmail);
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="get catagory from variant" enabled="true">
             <stringProp name="dataSource">test</stringProp>
-            <stringProp name="query">--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()--
-SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 43204
+            <stringProp name="query">SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()
+--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 43204--
 </stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
@@ -364,7 +356,8 @@ String message = null;
 def catagoryLevel = null;
 
 JsonSlurper JSON = new JsonSlurper ();
-def checker = props.get(&apos;JsonChecker&apos;);
+def checker = vars.getObject(&apos;JsonChecker&apos;);
+//def checker = props.get(&apos;JsonChecker&apos;);
 	try {
       jsonResponse = JSON.parseText(prev.getResponseDataAsString());
       } catch (Exception e) {
@@ -395,8 +388,12 @@ def checker = props.get(&apos;JsonChecker&apos;);
 	    AssertionResult.setFailure(true);    
 	}
 	else{
+		long quantity = Math.abs(new Random().nextInt() % [10]) + 1;
 		vars.put(&quot;barCode&quot;, catagoryLevel.get(&apos;barCode&apos;));
 		vars.put(&quot;variantName&quot;,catagoryLevel.get(&apos;name&apos;));
+		vars.putObject(&quot;price&quot;,catagoryLevel.get(&apos;price&apos;));
+		vars.putObject(&quot;quantity&quot;,quantity)
+		vars.putObject(&quot;totalPayment&quot;,(catagoryLevel.get(&apos;price&apos;) * quantity));
 	}
 	</stringProp>
             </JSR223Assertion>
@@ -432,19 +429,26 @@ def checker = props.get(&apos;JsonChecker&apos;);
 	&quot;creditCardExpirey&quot;:&quot;0421&quot;,&#xd;
 	&quot;cvv&quot;:&quot;123&quot;,&#xd;
 	&quot;identity&quot;:&quot;311321590&quot;,&#xd;
-	&#xd;
-	&quot;cart&quot;:[{&#xd;
+	&quot;cart&quot;:[&#xd;
+		{&#xd;
 		&quot;categoryId&quot;:&quot;${catagoryId}&quot;,&#xd;
 		&quot;categoryName&quot;:&quot;${variantName}&quot;,&#xd;
-		&quot;variant&quot;:{&quot;quantity&quot;:1,&quot;barCode&quot;:&quot;${barCode}&quot;,&quot;loadingAmount&quot;:0,&#xd;
-		&quot;toMemberName&quot;:&quot;טלי&quot;,&#xd;
-		&quot;toMemberEmail&quot;:&quot;${toEmail}&quot;,&#xd;
-		&quot;toMemberMobile&quot;:&quot;&quot;,&#xd;
-		&quot;sendTime&quot;:&quot;2019-09-12 17:00&quot;,&#xd;
-		&quot;blessing&quot;:&quot;&quot;,&quot;mediaUrl&quot;:&quot;&quot;,&#xd;
-		&quot;price&quot;:1&#xd;
-		}}],&#xd;
-		&quot;totalPayment&quot;:1&#xd;
+		&quot;variant&quot;:{&#xd;
+			&quot;quantity&quot;:&quot;${quantity}&quot;,&#xd;
+			&quot;barCode&quot;:&quot;${barCode}&quot;,&#xd;
+			&quot;loadingAmount&quot;:0,&#xd;
+			&quot;toMemberName&quot;:&quot;טלי&quot;,&#xd;
+			&quot;toMemberEmail&quot;:&quot;${toEmail}&quot;,&#xd;
+			&quot;toMemberMobile&quot;:&quot;&quot;,&#xd;
+			&quot;sendTime&quot;:&quot;2019-09-12 17:00&quot;,&#xd;
+			&quot;blessing&quot;:&quot;&quot;,&#xd;
+			&quot;mediaUrl&quot;:&quot;&quot;,&#xd;
+			&quot;price&quot;:&quot;${price}&quot;,&#xd;
+			&quot;immediateSend&quot;: true&#xd;
+			}&#xd;
+		}&#xd;
+		],&#xd;
+		&quot;totalPayment&quot;:&quot;${totalPayment}&quot;&#xd;
 	}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
@@ -478,7 +482,7 @@ String message = null;
 def catagoryLevel = null;
 
 JsonSlurper JSON = new JsonSlurper ();
-def checker = props.get(&apos;JsonChecker&apos;);
+def checker = vars.getObject(&apos;JsonChecker&apos;);
 	try {
       jsonResponse = JSON.parseText(prev.getResponseDataAsString());
       } catch (Exception e) {
@@ -728,43 +732,6 @@ OrderTransferInformation.each{resultArray -&gt;
 	//vars.put(&apos;OrderId&apos;, OrderId);
 //checker. databaseEqualsFromDataArray();</stringProp>
               </JSR223Assertion>
-              <hashTree/>
-              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-                <boolProp name="ResultCollector.error_logging">false</boolProp>
-                <objProp>
-                  <name>saveConfig</name>
-                  <value class="SampleSaveConfiguration">
-                    <time>true</time>
-                    <latency>true</latency>
-                    <timestamp>true</timestamp>
-                    <success>true</success>
-                    <label>true</label>
-                    <code>true</code>
-                    <message>true</message>
-                    <threadName>true</threadName>
-                    <dataType>true</dataType>
-                    <encoding>false</encoding>
-                    <assertions>true</assertions>
-                    <subresults>true</subresults>
-                    <responseData>false</responseData>
-                    <samplerData>false</samplerData>
-                    <xml>true</xml>
-                    <fieldNames>true</fieldNames>
-                    <responseHeaders>false</responseHeaders>
-                    <requestHeaders>false</requestHeaders>
-                    <responseDataOnError>false</responseDataOnError>
-                    <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-                    <assertionsResultsToSave>0</assertionsResultsToSave>
-                    <bytes>true</bytes>
-                    <sentBytes>true</sentBytes>
-                    <url>true</url>
-                    <threadCounts>true</threadCounts>
-                    <idleTime>true</idleTime>
-                    <connectTime>true</connectTime>
-                  </value>
-                </objProp>
-                <stringProp name="filename"></stringProp>
-              </ResultCollector>
               <hashTree/>
             </hashTree>
           </hashTree>
