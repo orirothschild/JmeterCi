@@ -4,7 +4,6 @@
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="SUPER TEST  home page + signup" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
-      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
@@ -517,13 +516,13 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="מטיילים בצד הלקוח" enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="מטיילים בצד הלקוח" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-441116029">
-            <stringProp name="49">1</stringProp>
+          <collectionProp name="241574537">
+            <stringProp name="1691">50</stringProp>
             <stringProp name="0">0</stringProp>
             <stringProp name="48">0</stringProp>
-            <stringProp name="1660">40</stringProp>
+            <stringProp name="54391">700</stringProp>
             <stringProp name="48">0</stringProp>
           </collectionProp>
         </collectionProp>
@@ -569,11 +568,11 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת הרשמה + רכישה" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-391971481">
+          <collectionProp name="-391970520">
             <stringProp name="49">1</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="49">1</stringProp>
-            <stringProp name="1598">20</stringProp>
+            <stringProp name="1629">30</stringProp>
             <stringProp name="48">0</stringProp>
           </collectionProp>
         </collectionProp>
@@ -645,19 +644,19 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           </IncludeController>
           <hashTree/>
         </hashTree>
-        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
           <intProp name="ActionProcessor.action">1</intProp>
           <intProp name="ActionProcessor.target">0</intProp>
           <stringProp name="ActionProcessor.duration">3000</stringProp>
         </TestAction>
         <hashTree>
-          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="false">
             <stringProp name="ConstantTimer.delay">1000</stringProp>
             <stringProp name="RandomTimer.range">100</stringProp>
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="50 אחוז רוכשים מוצרים " enabled="true">
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="50 אחוז רוכשים מוצרים " enabled="false">
           <intProp name="ThroughputController.style">1</intProp>
           <boolProp name="ThroughputController.perThread">false</boolProp>
           <intProp name="ThroughputController.maxThroughput">1</intProp>
@@ -680,9 +679,9 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           </hashTree>
         </hashTree>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה לפולסים" enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה לפולסים" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="126553310">
+          <collectionProp name="-991451218">
             <stringProp name="1567">10</stringProp>
             <stringProp name="1598">20</stringProp>
             <stringProp name="48">0</stringProp>
@@ -716,11 +715,11 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת  רכישה" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-453619312">
-            <stringProp name="1629">30</stringProp>
-            <stringProp name="1722">60</stringProp>
+          <collectionProp name="-699724699">
+            <stringProp name="50547">300</stringProp>
+            <stringProp name="1630">31</stringProp>
             <stringProp name="49">1</stringProp>
-            <stringProp name="1598">20</stringProp>
+            <stringProp name="54391">700</stringProp>
             <stringProp name="49">1</stringProp>
           </collectionProp>
         </collectionProp>
@@ -731,7 +730,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
       </kg.apc.jmeter.threads.UltimateThreadGroup>
       <hashTree>
-        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="50 אחוז רוכשים מוצרים " enabled="true">
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="רכישת מוצר רנדומלי מהאתר" enabled="true">
           <intProp name="ThroughputController.style">1</intProp>
           <boolProp name="ThroughputController.perThread">false</boolProp>
           <intProp name="ThroughputController.maxThroughput">1</intProp>
@@ -772,13 +771,13 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         <stringProp name="shareMode">shareMode.all</stringProp>
       </CSVDataSet>
       <hashTree/>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="קבלת מתנה" enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="קבלת מתנה" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="1365120744">
+          <collectionProp name="394200759">
             <stringProp name="49">1</stringProp>
-            <stringProp name="1784">80</stringProp>
+            <stringProp name="48">0</stringProp>
             <stringProp name="0"></stringProp>
-            <stringProp name="1598">20</stringProp>
+            <stringProp name="1507423">1000</stringProp>
             <stringProp name="49">1</stringProp>
           </collectionProp>
         </collectionProp>
@@ -856,13 +855,13 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         </IncludeController>
         <hashTree/>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה של מקבל מתנה חדש(דינמי) " enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה של מקבל מתנה חדש(דינמי) " enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-807817947">
+          <collectionProp name="1549646785">
             <stringProp name="49">1</stringProp>
-            <stringProp name="48625">100</stringProp>
+            <stringProp name="49586">200</stringProp>
             <stringProp name="0"></stringProp>
-            <stringProp name="1598">20</stringProp>
+            <stringProp name="54391">700</stringProp>
             <stringProp name="49">1</stringProp>
           </collectionProp>
         </collectionProp>

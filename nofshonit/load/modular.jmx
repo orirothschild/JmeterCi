@@ -220,7 +220,7 @@ class ResponseChecker{
 
 	ResponseChecker JsonChecker = new ResponseChecker();
 	vars.putObject(&apos;JsonChecker&apos;,JsonChecker);
-	props.put(&apos;JsonChecker&apos;,JsonChecker);
+	//props.put(&apos;JsonChecker&apos;,JsonChecker);
 
 </stringProp>
       </JSR223PreProcessor>
@@ -714,10 +714,10 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         </IncludeController>
         <hashTree/>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת  רכישה" enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת  רכישה" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-1284864904">
-            <stringProp name="1629">30</stringProp>
+          <collectionProp name="1344460201">
+            <stringProp name="49">1</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="49">1</stringProp>
             <stringProp name="1629">30</stringProp>
@@ -772,7 +772,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         <stringProp name="shareMode">shareMode.all</stringProp>
       </CSVDataSet>
       <hashTree/>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="קבלת מתנה" enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="קבלת מתנה" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
           <collectionProp name="-541587830">
             <stringProp name="49">1</stringProp>
@@ -856,7 +856,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         </IncludeController>
         <hashTree/>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה של מקבל מתנה חדש(דינמי) " enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה של מקבל מתנה חדש(דינמי) " enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
           <collectionProp name="-541587830">
             <stringProp name="49">1</stringProp>

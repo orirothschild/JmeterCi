@@ -106,7 +106,7 @@ String message = null;
 
 JsonSlurper JSON = new JsonSlurper ();
 
-def checker = props.get(&apos;JsonChecker&apos;);
+def checker = vars.getObject(&apos;JsonChecker&apos;);
 
 	try {
 	    jsonResponse = JSON.parseText(prev.getResponseDataAsString());
@@ -181,7 +181,7 @@ def jsonResponse = null;
 String message = null;
 
 JsonSlurper JSON = new JsonSlurper ();
-def checker = props.get(&apos;JsonChecker&apos;);
+def checker = vars.getObject(&apos;JsonChecker&apos;);
 
 	try {
 	    jsonResponse = JSON.parseText(prev.getResponseDataAsString());

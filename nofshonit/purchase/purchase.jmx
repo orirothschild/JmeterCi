@@ -574,8 +574,8 @@ vars.put(&apos;toEmail&apos;, newEmail);
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="get catagory from variant" enabled="true">
             <stringProp name="dataSource">test</stringProp>
-            <stringProp name="query">--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()--
-SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 43204
+            <stringProp name="query">SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()
+--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 43204--
 </stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
@@ -687,6 +687,7 @@ def checker = props.get(&apos;JsonChecker&apos;);
 	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
 	checker.ConfigStatusAndData(jsonResponse);
 	catagoryLevel = jsonResponse.get(&apos;data&apos;);
+	Objects.requireNonNull(catagoryLevel, &quot;jsonData returned with null value&quot;);
 	//checker.dataIsLazyMapArray(catagoryLevel,&quot;tagName tagId tagCategoryInfo&quot;, &quot;the top catagory has a wrong response properties&quot;);
 //	catagoryLevel = catagoryLevel.first().get(&apos;categories&apos;);
      checker.dataIsLazyMap(catagoryLevel,&quot;categoryId categoryType mustKnow variants&quot;,&quot;the catagories filter dosent contain the required key values\n\n&quot; + &quot;expecting categoryId, categoryType, variants...&quot;);
@@ -705,8 +706,12 @@ def checker = props.get(&apos;JsonChecker&apos;);
 	    AssertionResult.setFailure(true);    
 	}
 	else{
+		long quantity = Math.abs(new Random().nextInt() % [10]) + 1;
 		vars.put(&quot;barCode&quot;, catagoryLevel.get(&apos;barCode&apos;));
 		vars.put(&quot;variantName&quot;,catagoryLevel.get(&apos;name&apos;));
+		vars.putObject(&quot;price&quot;,catagoryLevel.get(&apos;price&apos;));
+		vars.putObject(&quot;quantity&quot;,quantity)
+		vars.putObject(&quot;totalPayment&quot;,(catagoryLevel.get(&apos;price&apos;) * quantity));
 	}
 	</stringProp>
             </JSR223Assertion>
@@ -730,19 +735,26 @@ def checker = props.get(&apos;JsonChecker&apos;);
 	&quot;creditCardExpirey&quot;:&quot;0421&quot;,&#xd;
 	&quot;cvv&quot;:&quot;123&quot;,&#xd;
 	&quot;identity&quot;:&quot;311321590&quot;,&#xd;
-	&#xd;
-	&quot;cart&quot;:[{&#xd;
+	&quot;cart&quot;:[&#xd;
+		{&#xd;
 		&quot;categoryId&quot;:&quot;${catagoryId}&quot;,&#xd;
 		&quot;categoryName&quot;:&quot;${variantName}&quot;,&#xd;
-		&quot;variant&quot;:{&quot;quantity&quot;:1,&quot;barCode&quot;:&quot;${barCode}&quot;,&quot;loadingAmount&quot;:0,&#xd;
-		&quot;toMemberName&quot;:&quot;טלי&quot;,&#xd;
-		&quot;toMemberEmail&quot;:&quot;${toEmail}&quot;,&#xd;
-		&quot;toMemberMobile&quot;:&quot;&quot;,&#xd;
-		&quot;sendTime&quot;:&quot;2019-09-12 17:00&quot;,&#xd;
-		&quot;blessing&quot;:&quot;&quot;,&quot;mediaUrl&quot;:&quot;&quot;,&#xd;
-		&quot;price&quot;:1&#xd;
-		}}],&#xd;
-		&quot;totalPayment&quot;:1&#xd;
+		&quot;variant&quot;:{&#xd;
+			&quot;quantity&quot;:&quot;${quantity}&quot;,&#xd;
+			&quot;barCode&quot;:&quot;${barCode}&quot;,&#xd;
+			&quot;loadingAmount&quot;:0,&#xd;
+			&quot;toMemberName&quot;:&quot;טלי&quot;,&#xd;
+			&quot;toMemberEmail&quot;:&quot;${toEmail}&quot;,&#xd;
+			&quot;toMemberMobile&quot;:&quot;&quot;,&#xd;
+			&quot;sendTime&quot;:&quot;2019-09-12 17:00&quot;,&#xd;
+			&quot;blessing&quot;:&quot;&quot;,&#xd;
+			&quot;mediaUrl&quot;:&quot;&quot;,&#xd;
+			&quot;price&quot;:&quot;${price}&quot;,&#xd;
+			&quot;immediateSend&quot;: true&#xd;
+			}&#xd;
+		}&#xd;
+		],&#xd;
+		&quot;totalPayment&quot;:&quot;${totalPayment}&quot;&#xd;
 	}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>

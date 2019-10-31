@@ -293,8 +293,8 @@ vars.put(&apos;toEmail&apos;, newEmail);
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="get catagory from variant" enabled="true">
             <stringProp name="dataSource">test</stringProp>
-            <stringProp name="query">SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()
---SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 43204--
+            <stringProp name="query">--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()--
+SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 43204
 </stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
@@ -465,7 +465,7 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
               <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout">200</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
             </HTTPSamplerProxy>
             <hashTree>
@@ -494,11 +494,12 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
 	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
 	checker.ConfigStatusAndData(jsonResponse);
 	catagoryLevel = jsonResponse.get(&apos;data&apos;);
+	Objects.requireNonNull(catagoryLevel, &quot;jsonData returned with null value&quot;);
      checker.dataIsLazyMap(catagoryLevel,&quot;email dtsOrderId totalPayments numOfPayments orderConfirmation variants&quot;,&quot;the catagories filter dosent contain the required key values\n\n&quot; + &quot;email ,dtsOrderId ,totalPayments ,numOfPayments ,orderConfirmation ,variants&quot;);
      def orderConf = catagoryLevel.get(&apos;orderConfirmation&apos;);
 	catagoryLevel = catagoryLevel.get(&apos;variants&apos;).first();
 	checker.dataIsLazyMap(catagoryLevel,&quot;variantName variantBarCode expiredDate orderedVariantGuid transferGuid&quot;,	    &quot;the varient within the requested catagory fails to contain the right keys\n\n&quot; + &quot;variantName, variantBarCode, expiredDate, orderedVariantGuid, transferGuid...&quot;);
-
+	
 	failureMessage = checker.getFailureMassage();	
 		if (failureMessage?.trim()) {
 	    failureMessage += &quot;at URL \n: &quot; + SampleResult.getURL() + &quot;\n\n&quot;;     
