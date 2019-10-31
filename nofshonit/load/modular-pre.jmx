@@ -68,7 +68,7 @@
         <stringProp name="scriptLanguage">groovy</stringProp>
         <stringProp name="parameters"></stringProp>
         <stringProp name="filename"></stringProp>
-        <stringProp name="cacheKey">true</stringProp>
+        <stringProp name="cacheKey">false</stringProp>
         <stringProp name="script">import groovy.json.JsonSlurper;
 import org.apache.jmeter.assertions.AssertionResult;
 class ResponseChecker{
@@ -219,7 +219,7 @@ class ResponseChecker{
 
 	ResponseChecker JsonChecker = new ResponseChecker();
 	vars.putObject(&apos;JsonChecker&apos;,JsonChecker);
-	props.put(&apos;JsonChecker&apos;,JsonChecker);
+	//props.put(&apos;JsonChecker&apos;,JsonChecker);
 
 </stringProp>
       </JSR223PreProcessor>
@@ -566,9 +566,9 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
           </hashTree>
         </hashTree>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת הרשמה + רכישה" enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת הרשמה + רכישה" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-391970520">
+          <collectionProp name="1344460163">
             <stringProp name="49">1</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="49">1</stringProp>
@@ -715,11 +715,11 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת  רכישה" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-699724699">
-            <stringProp name="50547">300</stringProp>
-            <stringProp name="1630">31</stringProp>
+          <collectionProp name="20000583">
+            <stringProp name="48625">100</stringProp>
+            <stringProp name="1567">10</stringProp>
             <stringProp name="49">1</stringProp>
-            <stringProp name="54391">700</stringProp>
+            <stringProp name="52469">500</stringProp>
             <stringProp name="49">1</stringProp>
           </collectionProp>
         </collectionProp>
@@ -741,13 +741,13 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           </FloatProperty>
         </ThroughputController>
         <hashTree>
-          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
             <intProp name="ActionProcessor.action">1</intProp>
             <intProp name="ActionProcessor.target">0</intProp>
             <stringProp name="ActionProcessor.duration">5000</stringProp>
           </TestAction>
           <hashTree/>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="רכישה שלט" enabled="true">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="הכנה לרכישה" enabled="true">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
             <boolProp name="TransactionController.parent">true</boolProp>
           </TransactionController>
@@ -756,6 +756,120 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
               <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\purchase\modules\purchase_to_friend_Control.jmx</stringProp>
             </IncludeController>
             <hashTree/>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="הרכישה עצמה" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <CriticalSectionController guiclass="CriticalSectionControllerGui" testclass="CriticalSectionController" testname="רכישה" enabled="true">
+              <stringProp name="CriticalSectionController.lockName">global_lock</stringProp>
+            </CriticalSectionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="purchase request for friend" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+	&quot;numOfPayments&quot;:1,&#xd;
+	&quot;pinCode&quot;:&quot;&quot;,&#xd;
+	&quot;email&quot;:&quot;${Email}&quot;,&#xd;
+	&quot;creditCard16Digits&quot;:&quot;4580458045804580&quot;,&#xd;
+	&quot;creditCardExpirey&quot;:&quot;0421&quot;,&#xd;
+	&quot;cvv&quot;:&quot;123&quot;,&#xd;
+	&quot;identity&quot;:&quot;311321590&quot;,&#xd;
+	&quot;cart&quot;:[&#xd;
+		{&#xd;
+		&quot;categoryId&quot;:&quot;${catagoryId}&quot;,&#xd;
+		&quot;categoryName&quot;:&quot;${variantName}&quot;,&#xd;
+		&quot;variant&quot;:{&#xd;
+			&quot;quantity&quot;:&quot;${quantity}&quot;,&#xd;
+			&quot;barCode&quot;:&quot;${barCode}&quot;,&#xd;
+			&quot;loadingAmount&quot;:0,&#xd;
+			&quot;toMemberName&quot;:&quot;טלי&quot;,&#xd;
+			&quot;toMemberEmail&quot;:&quot;${toEmail}&quot;,&#xd;
+			&quot;toMemberMobile&quot;:&quot;&quot;,&#xd;
+			&quot;sendTime&quot;:&quot;2019-09-12 17:00&quot;,&#xd;
+			&quot;blessing&quot;:&quot;&quot;,&#xd;
+			&quot;mediaUrl&quot;:&quot;&quot;,&#xd;
+			&quot;price&quot;:&quot;${price}&quot;,&#xd;
+			&quot;immediateSend&quot;: true&#xd;
+			}&#xd;
+		}&#xd;
+		],&#xd;
+		&quot;totalPayment&quot;:&quot;${totalPayment}&quot;&#xd;
+	}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">${site}</stringProp>
+                <stringProp name="HTTPSampler.port">${port}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">/api/order/purchase</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">import groovy.json.JsonSlurper;
+
+def failureMessage = &quot;&quot;;
+def jsonResponse = null;
+String message = null;
+def catagoryLevel = null;
+
+JsonSlurper JSON = new JsonSlurper ();
+def checker = vars.getObject(&apos;JsonChecker&apos;);
+	try {
+      jsonResponse = JSON.parseText(prev.getResponseDataAsString());
+      } catch (Exception e) {
+	    failureMessage += &quot;Invalid JSON.\n&quot;
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);  
+	}
+	checker.getStatusCode(prev,&quot;200&quot;);
+	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
+	checker.ConfigStatusAndData(jsonResponse);
+	catagoryLevel = jsonResponse.get(&apos;data&apos;);
+	Objects.requireNonNull(catagoryLevel, &quot;jsonData returned with null value&quot;);
+     checker.dataIsLazyMap(catagoryLevel,&quot;email dtsOrderId totalPayments numOfPayments orderConfirmation variants&quot;,&quot;the catagories filter dosent contain the required key values\n\n&quot; + &quot;email ,dtsOrderId ,totalPayments ,numOfPayments ,orderConfirmation ,variants&quot;);
+     def orderConf = catagoryLevel.get(&apos;orderConfirmation&apos;);
+	catagoryLevel = catagoryLevel.get(&apos;variants&apos;).first();
+	checker.dataIsLazyMap(catagoryLevel,&quot;variantName variantBarCode expiredDate orderedVariantGuid transferGuid&quot;,	    &quot;the varient within the requested catagory fails to contain the right keys\n\n&quot; + &quot;variantName, variantBarCode, expiredDate, orderedVariantGuid, transferGuid...&quot;);
+	
+	failureMessage = checker.getFailureMassage();	
+		if (failureMessage?.trim()) {
+	    failureMessage += &quot;at URL \n: &quot; + SampleResult.getURL() + &quot;\n\n&quot;;     
+	    failureMessage += &quot;REQUEST HEADERS \n: &quot; + SampleResult.getRequestHeaders() + &quot;\n\n&quot;;
+	    failureMessage += &quot;THE SENT REQUEST \n&quot; + (sampler.getArguments().getArgument(0));
+	
+		vars.putObject(&apos;error&apos;,true);
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);    
+	}
+	else{
+		vars.put(&apos;orderConfirmation&apos;,orderConf);
+	}
+	
+	</stringProp>
+                </JSR223Assertion>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
           </hashTree>
         </hashTree>
       </hashTree>

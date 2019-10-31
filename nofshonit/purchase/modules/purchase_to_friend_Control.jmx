@@ -293,8 +293,8 @@ vars.put(&apos;toEmail&apos;, newEmail);
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="get catagory from variant" enabled="true">
             <stringProp name="dataSource">test</stringProp>
-            <stringProp name="query">--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()--
-SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 43204
+            <stringProp name="query">SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()
+--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 43204--
 </stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
@@ -411,7 +411,7 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
             <stringProp name="shareMode">shareMode.all</stringProp>
           </CSVDataSet>
           <hashTree/>
-          <CriticalSectionController guiclass="CriticalSectionControllerGui" testclass="CriticalSectionController" testname="Critical Section Controller" enabled="true">
+          <CriticalSectionController guiclass="CriticalSectionControllerGui" testclass="CriticalSectionController" testname="Critical Section Controller" enabled="false">
             <stringProp name="CriticalSectionController.lockName">global_lock</stringProp>
           </CriticalSectionController>
           <hashTree>
@@ -519,7 +519,7 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
               <hashTree/>
             </hashTree>
           </hashTree>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="extract memberid from the gift sender" enabled="true">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="extract memberid from the gift sender" enabled="false">
             <stringProp name="dataSource">test</stringProp>
             <stringProp name="queryType">Select Statement</stringProp>
             <stringProp name="query">select top 1 MemberId from NofshonitClub..AllMembers where Email like &apos;${Email}&apos; order by RegistrationDate desc</stringProp>
@@ -531,7 +531,7 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
             <stringProp name="resultSetHandler">Store as String</stringProp>
           </JDBCSampler>
           <hashTree/>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="extract memberid from the user the gift reciver" enabled="true">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="extract memberid from the user the gift reciver" enabled="false">
             <stringProp name="dataSource">test</stringProp>
             <stringProp name="queryType">Select Statement</stringProp>
             <stringProp name="query">select top 1 MemberId from NofshonitClub..AllMembers where Email like &apos;${toEmail}&apos; order by RegistrationDate desc</stringProp>
@@ -543,7 +543,7 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
             <stringProp name="resultSetHandler">Store as String</stringProp>
           </JDBCSampler>
           <hashTree/>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 1, check that in Payments Table that the sender is charged as required,with the extracted orderConfirmation" enabled="true">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 1, check that in Payments Table that the sender is charged as required,with the extracted orderConfirmation" enabled="false">
             <stringProp name="dataSource">test</stringProp>
             <stringProp name="queryType">Select Statement</stringProp>
             <stringProp name="query">select top 1 * from Payments where ConfirmationNumber = &apos;${orderConfirmation}&apos; order by TimeStamp desc  </stringProp>
@@ -632,7 +632,7 @@ if (failureMessage?.trim()) {
             </JSR223Assertion>
             <hashTree/>
           </hashTree>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 2 , check that in OrderTransfer Table that the required fields are updated" enabled="true">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 2 , check that in OrderTransfer Table that the required fields are updated" enabled="false">
             <stringProp name="dataSource">test</stringProp>
             <stringProp name="queryType">Select Statement</stringProp>
             <stringProp name="query">select OrderId,TransferGuid,FromMemberId,ToMemberId,ToMemberEmail from OrderTransfer where ToMemberId = &apos;${toMemberId_1}&apos; order by DateAdded desc</stringProp>
@@ -688,7 +688,7 @@ failureMessage += checker.getFailureMassage();
             </JSR223Assertion>
             <hashTree/>
           </hashTree>
-          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If previous sampler succceded" enabled="true">
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If previous sampler succceded" enabled="false">
             <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
             <boolProp name="IfController.evaluateAll">false</boolProp>
             <boolProp name="IfController.useExpression">true</boolProp>
@@ -736,7 +736,7 @@ OrderTransferInformation.each{resultArray -&gt;
               <hashTree/>
             </hashTree>
           </hashTree>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 3, check that in Orders Table that the required fields are updated" enabled="true">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 3, check that in Orders Table that the required fields are updated" enabled="false">
             <stringProp name="dataSource">test</stringProp>
             <stringProp name="queryType">Select Statement</stringProp>
             <stringProp name="query">select * from Orders where OrderId = &apos;${OrderId}&apos;</stringProp>
@@ -777,7 +777,7 @@ failureMessage += checker.getFailureMassage();
             </JSR223Assertion>
             <hashTree/>
           </hashTree>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 4, check that in ATRACTIONSOrders Table that the required fields are updated" enabled="true">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 4, check that in ATRACTIONSOrders Table that the required fields are updated" enabled="false">
             <stringProp name="dataSource">test</stringProp>
             <stringProp name="queryType">Select Statement</stringProp>
             <stringProp name="query">select * from ATRACTIONSOrders where MemberId = &apos;${OrderMemberId}&apos;</stringProp>
@@ -820,7 +820,7 @@ failureMessage += checker.getFailureMassage();
             </JSR223Assertion>
             <hashTree/>
           </hashTree>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 5, check that inWebServiceTransaction Table that the required fields are updated" enabled="true">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 5, check that inWebServiceTransaction Table that the required fields are updated" enabled="false">
             <stringProp name="dataSource">test</stringProp>
             <stringProp name="queryType">Select Statement</stringProp>
             <stringProp name="query">select * from WebServiceTransaction where TTransactionMemberID = &apos;${OrderMemberId}&apos;</stringProp>
@@ -872,7 +872,7 @@ WebServiceTransactionInformation.each{resultArray -&gt;
             </JSR223Assertion>
             <hashTree/>
           </hashTree>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 6, check that in Cards Table the reqested fective credit card exists" enabled="true">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 6, check that in Cards Table the reqested fective credit card exists" enabled="false">
             <stringProp name="dataSource">test</stringProp>
             <stringProp name="queryType">Select Statement</stringProp>
             <stringProp name="query">select * from Cards where IDMember = &apos;${OrderMemberId}&apos;</stringProp>
@@ -923,7 +923,7 @@ vars.put(&apos;SkeletonCardID&apos;,skeletonID);
             </JSR223Assertion>
             <hashTree/>
           </hashTree>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 7, check that in CardSkeleton Table the reqested  fective credit card exists" enabled="true">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="test number 7, check that in CardSkeleton Table the reqested  fective credit card exists" enabled="false">
             <stringProp name="dataSource">test</stringProp>
             <stringProp name="queryType">Select Statement</stringProp>
             <stringProp name="query">select * from CardsSkeleton where CardNumber =&apos;${CardID}&apos;</stringProp>
