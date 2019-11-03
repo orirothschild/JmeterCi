@@ -251,15 +251,6 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
-          <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="create random amout" enabled="false">
-            <stringProp name="variableName">quantity</stringProp>
-            <stringProp name="outputFormat">0</stringProp>
-            <stringProp name="minimumValue">1</stringProp>
-            <stringProp name="maximumValue">9</stringProp>
-            <stringProp name="randomSeed"></stringProp>
-            <boolProp name="perThread">false</boolProp>
-          </RandomVariableConfig>
-          <hashTree/>
           <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="replace old ToEmail in csv files" enabled="false">
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="filename"></stringProp>
@@ -294,7 +285,7 @@ vars.put(&apos;toEmail&apos;, newEmail);
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="get catagory from variant" enabled="true">
             <stringProp name="dataSource">test</stringProp>
             <stringProp name="query">SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()
---SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 43204--
+--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 45680--
 </stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
@@ -369,7 +360,9 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
 	checker.getStatusCode(prev,&quot;200&quot;);
 	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
 	checker.ConfigStatusAndData(jsonResponse);
+	
 	catagoryLevel = jsonResponse.get(&apos;data&apos;);
+	Objects.requireNonNull(catagoryLevel, &quot;jsonData returned with null value&quot;);
 	//checker.dataIsLazyMapArray(catagoryLevel,&quot;tagName tagId tagCategoryInfo&quot;, &quot;the top catagory has a wrong response properties&quot;);
 //	catagoryLevel = catagoryLevel.first().get(&apos;categories&apos;);
      checker.dataIsLazyMap(catagoryLevel,&quot;categoryId categoryType mustKnow variants&quot;,&quot;the catagories filter dosent contain the required key values\n\n&quot; + &quot;expecting categoryId, categoryType, variants...&quot;);
@@ -388,7 +381,7 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
 	    AssertionResult.setFailure(true);    
 	}
 	else{
-		long quantity = Math.abs(new Random().nextInt() % [10]) + 1;
+		long quantity = Math.abs(new Random().nextInt() % [1]) + 1;
 		vars.put(&quot;barCode&quot;, catagoryLevel.get(&apos;barCode&apos;));
 		vars.put(&quot;variantName&quot;,catagoryLevel.get(&apos;name&apos;));
 		vars.putObject(&quot;price&quot;,catagoryLevel.get(&apos;price&apos;));
@@ -416,6 +409,10 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
             <boolProp name="stopThread">false</boolProp>
             <stringProp name="shareMode">shareMode.all</stringProp>
           </CSVDataSet>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="הרכישה" enabled="false">
+            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\just_purchase.jmx</stringProp>
+          </IncludeController>
           <hashTree/>
           <CriticalSectionController guiclass="CriticalSectionControllerGui" testclass="CriticalSectionController" testname="Critical Section Controller" enabled="false">
             <stringProp name="CriticalSectionController.lockName">global_lock</stringProp>
@@ -700,7 +697,7 @@ failureMessage += checker.getFailureMassage();
             <boolProp name="IfController.useExpression">true</boolProp>
           </IfController>
           <hashTree>
-            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="check that the OrderId is Unique for the transfer" enabled="true">
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="check that the OrderId is Unique for the transfer" enabled="false">
               <stringProp name="dataSource">test</stringProp>
               <stringProp name="queryType">Select Statement</stringProp>
               <stringProp name="query">SELECT orderId,COUNT(*) as Total from OrderTransfer where TransferGuid = &apos;${TransferGuid_1}&apos; GROUP BY orderId having COUNT(*) &gt; 0</stringProp>
