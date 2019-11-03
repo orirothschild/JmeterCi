@@ -80,10 +80,10 @@ def checker = props.get(&apos;JsonChecker&apos;);
 	    AssertionResult.setFailureMessage(failureMessage);
 	    AssertionResult.setFailure(true);  
 	}
-	
-	checker.getStatusCode(prev,&quot;200&quot;);
-	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
-	checker.ConfigStatusAndData(jsonResponse);
+	log.info(prev.getResponseDataAsString());
+	//checker.getStatusCode(prev,&quot;200&quot;);
+	//checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
+	//checker.ConfigStatusAndData(jsonResponse);
 	boolean isSuccsess = jsonResponse.get(&apos;data&apos;);
 
      checker.databaseEquals(isSuccsess.toString(),&quot;true&quot;,&quot;the user ${Email}&apos;&quot; + &quot;failed to sign up to pulsim\n\n&quot;);

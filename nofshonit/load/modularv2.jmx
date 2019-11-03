@@ -4,7 +4,6 @@
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="SUPER TEST  home page + signup" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
-      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
@@ -53,7 +52,7 @@
         <stringProp name="checkQuery"></stringProp>
         <stringProp name="connectionAge">5000</stringProp>
         <stringProp name="dataSource">test</stringProp>
-        <stringProp name="dbUrl">jdbc:sqlserver://172.29.45.45\sql2005;DatabaseName=NofshonitClub</stringProp>
+        <stringProp name="dbUrl">jdbc:sqlserver://172.29.92.20\sql2005;DatabaseName=NofshonitClub</stringProp>
         <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
         <stringProp name="initQuery"></stringProp>
         <boolProp name="keepAlive">true</boolProp>
@@ -69,7 +68,7 @@
         <stringProp name="scriptLanguage">groovy</stringProp>
         <stringProp name="parameters"></stringProp>
         <stringProp name="filename"></stringProp>
-        <stringProp name="cacheKey">true</stringProp>
+        <stringProp name="cacheKey">false</stringProp>
         <stringProp name="script">import groovy.json.JsonSlurper;
 import org.apache.jmeter.assertions.AssertionResult;
 class ResponseChecker{
@@ -99,22 +98,6 @@ class ResponseChecker{
 	    }
 	}
 
-	public void ArrayRequiredFields(ArrayList results,List variantNames,String msg){
-	String resultmsg;
-	results.each{resultArray -&gt; 
-			variantNames.each{var -&gt;
-				if(!(resultArray.keySet().contains(var))){
-					this.failureMessage+=&quot; - ${var} - &quot;
-				}
-
-			}
-		}
-		if(failureMessage?.trim()){
-			this.failureMessage = msg + failureMessage;
-		}
-			
-	}
-	
 	public void jsonConfig(AbstractCollection collection){
 		 if(collection == null){
 		 	this.failureMessage += &quot; jsonConfig got null collection\n&quot;;
@@ -535,11 +518,11 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
       <hashTree/>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="מטיילים בצד הלקוח" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-441248895">
-            <stringProp name="49">1</stringProp>
+          <collectionProp name="241574537">
+            <stringProp name="1691">50</stringProp>
             <stringProp name="0">0</stringProp>
             <stringProp name="48">0</stringProp>
-            <stringProp name="1629">30</stringProp>
+            <stringProp name="54391">700</stringProp>
             <stringProp name="48">0</stringProp>
           </collectionProp>
         </collectionProp>
@@ -556,7 +539,7 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
         </TransactionController>
         <hashTree>
           <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="בית" enabled="true">
-            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\frontend\test fragments\bait.jmx</stringProp>
+            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\frontend\preproduction\modules\bait-pre.jmx</stringProp>
           </IncludeController>
           <hashTree/>
           <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
@@ -577,20 +560,20 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
           </ThroughputController>
           <hashTree>
             <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="דף הטבה" enabled="true">
-              <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\frontend\test fragments\hatava.jmx</stringProp>
+              <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\frontend\preproduction\modules\bokerOfFun-pre.jmx</stringProp>
             </IncludeController>
             <hashTree/>
           </hashTree>
         </hashTree>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת הרשמה + רכישה" enabled="false">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת הרשמה + רכישה" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="52929949">
-            <stringProp name="1567">10</stringProp>
+          <collectionProp name="709095377">
+            <stringProp name="48625">100</stringProp>
             <stringProp name="48">0</stringProp>
-            <stringProp name="49">1</stringProp>
-            <stringProp name="1598">20</stringProp>
-            <stringProp name="48">0</stringProp>
+            <stringProp name="49586">200</stringProp>
+            <stringProp name="1572771">3600</stringProp>
+            <stringProp name="49586">200</stringProp>
           </collectionProp>
         </collectionProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -661,19 +644,19 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           </IncludeController>
           <hashTree/>
         </hashTree>
-        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
           <intProp name="ActionProcessor.action">1</intProp>
           <intProp name="ActionProcessor.target">0</intProp>
           <stringProp name="ActionProcessor.duration">3000</stringProp>
         </TestAction>
         <hashTree>
-          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="false">
             <stringProp name="ConstantTimer.delay">1000</stringProp>
             <stringProp name="RandomTimer.range">100</stringProp>
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="50 אחוז רוכשים מוצרים " enabled="true">
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="50 אחוז רוכשים מוצרים " enabled="false">
           <intProp name="ThroughputController.style">1</intProp>
           <boolProp name="ThroughputController.perThread">false</boolProp>
           <intProp name="ThroughputController.maxThroughput">1</intProp>
@@ -684,7 +667,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           </FloatProperty>
         </ThroughputController>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="רכישה שלט" enabled="true">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="רכישה שלט" enabled="false">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
             <boolProp name="TransactionController.parent">true</boolProp>
           </TransactionController>
@@ -698,12 +681,12 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה לפולסים" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="52893431">
-            <stringProp name="1567">10</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="1598">20</stringProp>
-            <stringProp name="48">0</stringProp>
+          <collectionProp name="-280982082">
+            <stringProp name="1691">50</stringProp>
+            <stringProp name="1507423">1000</stringProp>
+            <stringProp name="48625">100</stringProp>
+            <stringProp name="51508">400</stringProp>
+            <stringProp name="48625">100</stringProp>
           </collectionProp>
         </collectionProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -715,8 +698,8 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
       <hashTree>
         <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
           <intProp name="ActionProcessor.action">1</intProp>
-          <intProp name="ActionProcessor.target">0</intProp>
-          <stringProp name="ActionProcessor.duration">7000</stringProp>
+          <intProp name="ActionProcessor.target">2</intProp>
+          <stringProp name="ActionProcessor.duration">3000</stringProp>
         </TestAction>
         <hashTree>
           <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -799,97 +782,13 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         <stringProp name="shareMode">shareMode.all</stringProp>
       </CSVDataSet>
       <hashTree/>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="קבלת מתנה" enabled="false">
-        <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-541587830">
-            <stringProp name="49">1</stringProp>
-            <stringProp name="1660">40</stringProp>
-            <stringProp name="0"></stringProp>
-            <stringProp name="53">5</stringProp>
-            <stringProp name="49">1</stringProp>
-          </collectionProp>
-        </collectionProp>
-        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
-          <boolProp name="LoopController.continue_forever">false</boolProp>
-          <intProp name="LoopController.loops">-1</intProp>
-        </elementProp>
-        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-      </kg.apc.jmeter.threads.UltimateThreadGroup>
-      <hashTree>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="pathToCSV" elementType="Argument">
-              <stringProp name="Argument.name">pathToCSV</stringProp>
-              <stringProp name="Argument.value">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="finalCSV" elementType="Argument">
-              <stringProp name="Argument.name">finalCSV</stringProp>
-              <stringProp name="Argument.value">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/toEmail.csv</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="destination" elementType="Argument">
-              <stringProp name="Argument.name">destination</stringProp>
-              <stringProp name="Argument.value">toEmail.csv</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </Arguments>
-        <hashTree/>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="link checker" enabled="true">
-          <stringProp name="scriptLanguage">groovy</stringProp>
-          <stringProp name="parameters"></stringProp>
-          <stringProp name="filename"></stringProp>
-          <stringProp name="cacheKey">true</stringProp>
-          <stringProp name="script">import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.Files;
-import java.io.FileWriter;
-import java.util.Arrays;
-import java.io.Writer;
-import java.util.List;
-import java.nio.charset.StandardCharsets;
-import java.io.*; 
-class LineChanger{
-	String pathToFile;
-	String CSVFile;
-	
-	LineChanger(String pathToFile, String CSVFile){
-		this.pathToFile = pathToFile;
-		this.CSVFile = CSVFile;
-	}
-	public void changeLine(int lineNumber, String data) throws IOException {
-    Path path = Paths.get(pathToFile,CSVFile);
-    List&lt;String&gt; lines = Files.readAllLines(path, StandardCharsets.UTF_8);
-    lines.set(lineNumber - 1, data);
-    Files.write(path, lines, StandardCharsets.UTF_8);
-		}
-	}
-
-LineChanger LineChangerId = new LineChanger(&quot;C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files&quot;, &quot;to-id.csv&quot;);
-LineChanger LineChangerEmail = new LineChanger(&quot;${pathToCSV}&quot;,&quot;${destination}&quot;);;
-vars.putObject(&apos;LineChangerId&apos;,LineChangerId);
-//props.put(&apos;LineChangerEmail&apos;,&apos;&apos;);
-
-vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
-//props.put(&apos;LineChangerId&apos;,LineChangerId);
-
-
-</stringProp>
-        </JSR223PreProcessor>
-        <hashTree/>
-        <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="צפיה במתנה" enabled="true">
-          <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\watchgift.jmx</stringProp>
-        </IncludeController>
-        <hashTree/>
-      </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה של מקבל מתנה חדש(דינמי) " enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-541587830">
-            <stringProp name="49">1</stringProp>
-            <stringProp name="1660">40</stringProp>
-            <stringProp name="0"></stringProp>
-            <stringProp name="53">5</stringProp>
+          <collectionProp name="869698246">
+            <stringProp name="49586">200</stringProp>
+            <stringProp name="1572771">3600</stringProp>
+            <stringProp name="1691">50</stringProp>
+            <stringProp name="54391">700</stringProp>
             <stringProp name="49">1</stringProp>
           </collectionProp>
         </collectionProp>
@@ -1002,13 +901,97 @@ vars.put(&apos;toEmail&apos;, toEmail);
           </hashTree>
         </hashTree>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="סינונים " enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="קבלת מתנה" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-389391413">
+          <collectionProp name="-2002570501">
             <stringProp name="49">1</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="48">0</stringProp>
-            <stringProp name="53">5</stringProp>
+            <stringProp name="1507423">1000</stringProp>
+            <stringProp name="48625">100</stringProp>
+          </collectionProp>
+        </collectionProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      </kg.apc.jmeter.threads.UltimateThreadGroup>
+      <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="pathToCSV" elementType="Argument">
+              <stringProp name="Argument.name">pathToCSV</stringProp>
+              <stringProp name="Argument.value">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="finalCSV" elementType="Argument">
+              <stringProp name="Argument.name">finalCSV</stringProp>
+              <stringProp name="Argument.value">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/toEmail.csv</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="destination" elementType="Argument">
+              <stringProp name="Argument.name">destination</stringProp>
+              <stringProp name="Argument.value">toEmail.csv</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="link checker" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.io.FileWriter;
+import java.util.Arrays;
+import java.io.Writer;
+import java.util.List;
+import java.nio.charset.StandardCharsets;
+import java.io.*; 
+class LineChanger{
+	String pathToFile;
+	String CSVFile;
+	
+	LineChanger(String pathToFile, String CSVFile){
+		this.pathToFile = pathToFile;
+		this.CSVFile = CSVFile;
+	}
+	public void changeLine(int lineNumber, String data) throws IOException {
+    Path path = Paths.get(pathToFile,CSVFile);
+    List&lt;String&gt; lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+    lines.set(lineNumber - 1, data);
+    Files.write(path, lines, StandardCharsets.UTF_8);
+		}
+	}
+
+LineChanger LineChangerId = new LineChanger(&quot;C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files&quot;, &quot;to-id.csv&quot;);
+LineChanger LineChangerEmail = new LineChanger(&quot;${pathToCSV}&quot;,&quot;${destination}&quot;);;
+vars.putObject(&apos;LineChangerId&apos;,LineChangerId);
+//props.put(&apos;LineChangerEmail&apos;,&apos;&apos;);
+
+vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
+//props.put(&apos;LineChangerId&apos;,LineChangerId);
+
+
+</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="צפיה במתנה" enabled="true">
+          <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\watchgift.jmx</stringProp>
+        </IncludeController>
+        <hashTree/>
+      </hashTree>
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="סינונים " enabled="false">
+        <collectionProp name="ultimatethreadgroupdata">
+          <collectionProp name="-389420212">
+            <stringProp name="49">1</stringProp>
+            <stringProp name="48">0</stringProp>
+            <stringProp name="48">0</stringProp>
+            <stringProp name="49">1</stringProp>
             <stringProp name="48">0</stringProp>
           </collectionProp>
         </collectionProp>
@@ -1019,45 +1002,36 @@ vars.put(&apos;toEmail&apos;, toEmail);
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
       </kg.apc.jmeter.threads.UltimateThreadGroup>
       <hashTree>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="יצירת משתנה חיפוש גייסון" enabled="true">
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
           <stringProp name="cacheKey">true</stringProp>
-          <stringProp name="script">import groovy.json.*
-import groovy.json.JsonBuilder
+          <stringProp name="script">def jsonBuilder = new groovy.json.JsonBuilder()
 
-int [] catbuilder = [0];
-def builder = new groovy.json.JsonBuilder();
-	builder{
-		     amountPerPage 21
-		     pageNumber  1
-		     priceSort 0
-		     categoryTagIDs  catbuilder
-	}
-vars.put(&quot;builder&quot;,builder.toPrettyString());</stringProp>
-        </JSR223PreProcessor>
-        <hashTree/>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת טווח מחירים" enabled="true">
-          <stringProp name="scriptLanguage">groovy</stringProp>
-          <stringProp name="parameters"></stringProp>
-          <stringProp name="filename"></stringProp>
-          <stringProp name="cacheKey">true</stringProp>
-          <stringProp name="script">import groovy.json.*
-import groovy.json.JsonBuilder
+jsonBuilder(
 
-def extendedBuilder = vars.get(&apos;builder&apos;);
-extendedBuilder.priceMax =100;
+amountPerPage:&apos;21&apos;,
+pageNumber:&apos;1&apos;,
+priceSort:&apos;0&apos;,
+categoryTagIDs:&apos;[0]&apos;
+
+)
+
+vars.putObject(&apos;jsonBuilder&apos;,jsonBuilder);
+println(&quot;Using just named arguments&quot;)
+
+println(jsonBuilder.toPrettyString())
 </stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="שליפת כול הווריאנטים" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getCatagories" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${builder}</stringProp>
+                <stringProp name="Argument.value">&quot;${jsonBuilder}&quot;</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -1066,7 +1040,7 @@ extendedBuilder.priceMax =100;
           <stringProp name="HTTPSampler.port">${site}</stringProp>
           <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/category/getCategoryFilterPage</stringProp>
+          <stringProp name="HTTPSampler.path">/api/category/GetCategoryPage</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1103,16 +1077,14 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
 	checker.getStatusCode(prev,&quot;200&quot;);
 	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
 	checker.ConfigStatusAndData(jsonResponse);
+	
 	catagoryLevel = jsonResponse.get(&apos;data&apos;);
 	Objects.requireNonNull(catagoryLevel, &quot;jsonData returned with null value&quot;);
-	log.info(catagoryLevel[0].toString());
 	//checker.dataIsLazyMapArray(catagoryLevel,&quot;tagName tagId tagCategoryInfo&quot;, &quot;the top catagory has a wrong response properties&quot;);
 //	catagoryLevel = catagoryLevel.first().get(&apos;categories&apos;);
-     checker.ArrayRequiredFields(catagoryLevel,[&quot;categoriesCount&quot;,&quot;categories&quot;,&quot;isFavorite&quot;,&quot;businessesCount&quot;,&quot;stripName&quot;],&quot;the catagories filter dosent contain the required key values\n\n&quot;);
-	catagoryLevel = catagoryLevel[0].get(&apos;categories&apos;)[0];
-
-     checker.dataIsLazyMap(catagoryLevel,&quot; categoryId category images minPrice maxPrice businessesCount&quot;,&quot;displayed catagories fail to contain the following values\n\n&quot;);
-     checker.dataIsLazyMap(catagoryLevel.get(&apos;category&apos;),&quot; categoryId categoryName images&quot;,&quot;displayed catagories fail to contain the following values\n\n&quot;);
+     checker.dataIsLazyMap(catagoryLevel,&quot;categoryId categoryType mustKnow variants&quot;,&quot;the catagories filter dosent contain the required key values\n\n&quot; + &quot;expecting categoryId, categoryType, variants...&quot;);
+	catagoryLevel = catagoryLevel.get(&apos;variants&apos;).first();
+	checker.dataIsLazyMap(catagoryLevel,&quot;name barCode expireDate&quot;,	    &quot;the varient within the requested catagory fails to contain the right keys\n\n&quot; + &quot;expecting name barCode expireDate...&quot;);
 
 	failureMessage = checker.getFailureMassage();	
 	// Print error messages if any
@@ -1125,6 +1097,20 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
 	    AssertionResult.setFailureMessage(failureMessage);
 	    AssertionResult.setFailure(true);    
 	}
+	else{
+		long quantity = Math.abs(new Random().nextInt() % [1]) + 1;
+		vars.put(&quot;barCode&quot;, catagoryLevel.get(&apos;barCode&apos;));
+		vars.put(&quot;variantName&quot;,catagoryLevel.get(&apos;name&apos;));
+		vars.putObject(&quot;price&quot;,catagoryLevel.get(&apos;price&apos;));
+		vars.putObject(&quot;quantity&quot;,quantity)
+		vars.putObject(&quot;totalPayment&quot;,(catagoryLevel.get(&apos;price&apos;) * quantity));
+//
+//		vars.put(&quot;barCode&quot;, catagoryLevel.get(&apos;barCode&apos;));
+//		vars.put(&quot;variantName&quot;,catagoryLevel.get(&apos;name&apos;));
+//		vars.putObject(&quot;price&quot;,catagoryLevel.get(&apos;price&apos;));
+//		vars.putObject(&quot;quantity&quot;,quantity)
+//		vars.putObject(&quot;totalPayment&quot;,(catagoryLevel.get(&apos;price&apos;) * quantity));
+	}
 	</stringProp>
           </JSR223Assertion>
           <hashTree/>
@@ -1136,6 +1122,45 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
         </DebugSampler>
         <hashTree/>
       </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>false</message>
+            <threadName>true</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
       <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">

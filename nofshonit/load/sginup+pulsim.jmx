@@ -166,6 +166,7 @@ class ResponseChecker{
 		 	this.failureMessage += &quot; jsonConfig got null collection\n&quot;;
 		 	return;
 		 }
+
 		if(!requiredStatus.equals(prev.getResponseCode())){
 			this.failureMessage = &quot; Expected &lt;response code&gt; &quot;+ requiredStatus+&quot; but we got instead [&quot; + prev.getResponseCode() + &quot;]\n\n&quot; ;
 	    }
@@ -499,7 +500,7 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">C:\GitHub\nofshonitjmeterci\output\output.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה + כניסה למערכת פולסים" enabled="true">
@@ -563,28 +564,22 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         <hashTree/>
         <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="create new  Email" enabled="true">
           <stringProp name="variableName">newEmail</stringProp>
-          <stringProp name="outputFormat">testinguser_00000000@dts-4u</stringProp>
+          <stringProp name="outputFormat">superuser_00000000@dts-4u</stringProp>
           <stringProp name="minimumValue">1</stringProp>
           <stringProp name="maximumValue">999999999</stringProp>
           <stringProp name="randomSeed"></stringProp>
           <boolProp name="perThread">false</boolProp>
         </RandomVariableConfig>
         <hashTree/>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="הרשמה + ולידציה" enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="תזמון הרשמה" enabled="false">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="תזמון הרשמה" enabled="true">
-            <boolProp name="TransactionController.includeTimers">false</boolProp>
-            <boolProp name="TransactionController.parent">false</boolProp>
-          </TransactionController>
-          <hashTree>
-            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="הרשמה למערכת" enabled="true">
-              <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\register+validate.jmx</stringProp>
-            </IncludeController>
-            <hashTree/>
-          </hashTree>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="הרשמה למערכת" enabled="true">
+            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\register+validate.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
         </hashTree>
         <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="40% מערכת" enabled="true">
           <intProp name="ThroughputController.style">1</intProp>
@@ -599,7 +594,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         <hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="כניסה למערכת פולסים" enabled="true">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
-            <boolProp name="TransactionController.parent">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
           </TransactionController>
           <hashTree>
             <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Include Controller" enabled="true">
@@ -607,6 +602,52 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
             </IncludeController>
             <hashTree/>
           </hashTree>
+        </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>false</message>
+                <threadName>true</threadName>
+                <dataType>false</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>false</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>true</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <hostname>true</hostname>
+                <threadCounts>true</threadCounts>
+                <sampleCount>true</sampleCount>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
         </hashTree>
       </hashTree>
     </hashTree>
