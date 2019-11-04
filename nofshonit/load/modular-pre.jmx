@@ -108,6 +108,22 @@ class ResponseChecker{
 		}
 	}
 
+	public void ArrayRequiredFields(ArrayList results,List variantNames,String msg){
+	String resultmsg;
+	results.each{resultArray -&gt; 
+			variantNames.each{var -&gt;
+				if(!(resultArray.keySet().contains(var))){
+					this.failureMessage+=&quot; - ${var} - &quot;
+				}
+
+			}
+		}
+		if(failureMessage?.trim()){
+			this.failureMessage = msg + failureMessage;
+		}
+			
+	}
+
 	public void ConfigStatusAndData(groovy.json.internal.LazyMap jsonResponse){
 		     if(jsonResponse == null){
 		 	this.failureMessage += &quot;jsonConfigMap got null map\n&quot;;
@@ -566,13 +582,122 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
           </hashTree>
         </hashTree>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת הרשמה + רכישה" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="בדידה הרשמה + ולידציה" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">100</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="link checker" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.io.FileWriter;
+import java.util.Arrays;
+import java.io.Writer;
+import java.util.List;
+import java.nio.charset.StandardCharsets;
+import java.io.*; 
+class LineChanger{
+	String pathToFile;
+	String CSVFile;
+	
+	LineChanger(String pathToFile, String CSVFile){
+		this.pathToFile = pathToFile;
+		this.CSVFile = CSVFile;
+	}
+	public void changeLine(int lineNumber, String data) throws IOException {
+    Path path = Paths.get(pathToFile,CSVFile);
+    List&lt;String&gt; lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+    lines.set(lineNumber - 1, data);
+    Files.write(path, lines, StandardCharsets.UTF_8);
+		}
+	}
+
+LineChanger LineChangerId = new LineChanger(&quot;C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files&quot;, &quot;id.csv&quot;);
+LineChanger LineChangerEmail = new LineChanger(&quot;C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files&quot;,&quot;email.csv&quot;);;
+vars.putObject(&apos;LineChangerId&apos;,LineChangerId);
+//props.put(&apos;LineChangerEmail&apos;,LineChangerEmail);
+
+vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
+//props.put(&apos;LineChangerId&apos;,LineChangerId);
+
+
+</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="create new  Email" enabled="true">
+          <stringProp name="variableName">newEmail</stringProp>
+          <stringProp name="outputFormat">testinguser_00000000@dts-4u</stringProp>
+          <stringProp name="minimumValue">1</stringProp>
+          <stringProp name="maximumValue">999999999</stringProp>
+          <stringProp name="randomSeed"></stringProp>
+          <boolProp name="perThread">false</boolProp>
+        </RandomVariableConfig>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="הרשמה שלט" enabled="true">
+          <boolProp name="TransactionController.parent">true</boolProp>
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="הרשמה של שולח המתנה" enabled="true">
+            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\register+validate.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">3000</stringProp>
+        </TestAction>
+        <hashTree>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="false">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+            <stringProp name="RandomTimer.range">100</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="50 אחוז רוכשים מוצרים " enabled="false">
+          <intProp name="ThroughputController.style">1</intProp>
+          <boolProp name="ThroughputController.perThread">false</boolProp>
+          <intProp name="ThroughputController.maxThroughput">1</intProp>
+          <FloatProperty>
+            <name>ThroughputController.percentThroughput</name>
+            <value>50.0</value>
+            <savedValue>0.0</savedValue>
+          </FloatProperty>
+        </ThroughputController>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="רכישה שלט" enabled="false">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="ביצוע רכישה ושליחת מתנה" enabled="true">
+              <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\purchase\modules\purchase_to_friend_Control.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת הרשמה + רכישה" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-388222799">
+          <collectionProp name="1136701619">
+            <stringProp name="48625">100</stringProp>
             <stringProp name="49">1</stringProp>
             <stringProp name="49">1</stringProp>
-            <stringProp name="49">1</stringProp>
-            <stringProp name="53">5</stringProp>
+            <stringProp name="51508">400</stringProp>
             <stringProp name="49">1</stringProp>
           </collectionProp>
         </collectionProp>
@@ -903,9 +1028,9 @@ vars.put(&apos;toEmail&apos;, toEmail);
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="קבלת מתנה" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-201140456">
+          <collectionProp name="314208164">
             <stringProp name="50547">300</stringProp>
-            <stringProp name="1688091">7200</stringProp>
+            <stringProp name="46763796">11400</stringProp>
             <stringProp name="1629">30</stringProp>
             <stringProp name="1572771">3600</stringProp>
             <stringProp name="48625">100</stringProp>
@@ -985,11 +1110,11 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         </IncludeController>
         <hashTree/>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="סינונים " enabled="false">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="חיפוש עם סינונים" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-213802986">
+          <collectionProp name="1123961721">
             <stringProp name="50547">300</stringProp>
-            <stringProp name="46737849">10800</stringProp>
+            <stringProp name="1688091">7200</stringProp>
             <stringProp name="48625">100</stringProp>
             <stringProp name="1572771">3600</stringProp>
             <stringProp name="48625">100</stringProp>
@@ -1027,10 +1152,69 @@ vars.put(&quot;builder&quot;,builder.toPrettyString());</stringProp>
           <stringProp name="filename"></stringProp>
           <stringProp name="cacheKey">true</stringProp>
           <stringProp name="script">import groovy.json.*
-import groovy.json.JsonBuilder
+import groovy.json.JsonBuilder;
+import groovy.json.JsonSlurper;
 
-def extendedBuilder = vars.get(&apos;builder&apos;);
-extendedBuilder.priceMax =100;
+long maxPrice = (Math.abs(new Random().nextInt() % 5) + 1)*100;
+maxPrice = maxPrice == 500? -1:maxPrice;
+long minPrice = maxPrice ==-1? 500:maxPrice -100;
+if(minPrice &gt; maxPrice &amp;&amp; maxPrice != -1){
+	minPrice = maxPrice -100;
+}
+
+def json = new JsonSlurper().parseText(vars.get(&apos;builder&apos;));
+
+json &lt;&lt; [priceMax:maxPrice,PriceMin:minPrice] // json.put(&apos;sig&apos;, &apos;&lt;value&gt;&apos;)
+//log.info(JsonOutput.toJson(json))
+vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
+</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת אזור" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import groovy.json.*
+import groovy.json.JsonBuilder;
+import groovy.json.JsonSlurper;
+int areas = (Math.abs(new Random().nextInt() % 5));
+if(areas == 0){return;}
+ArrayList&lt;Integer&gt; a = new ArrayList&lt;&gt;(areas);
+for (int i = 1; i &lt;= areas; ++i){ //to generate from 0-10 inclusive. 
+                               //For 0-9 inclusive, remove the = on the &lt;=
+    a.add(i);
+}
+Collections.shuffle(a);
+
+def json = new JsonSlurper().parseText(vars.get(&apos;builder&apos;));
+json &lt;&lt; [regions:a] 
+log.info(JsonOutput.toJson(json))
+vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
+</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת כשרות" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import groovy.json.*
+import groovy.json.JsonBuilder;
+import groovy.json.JsonSlurper;
+int areas = (Math.abs(new Random().nextInt() % 3));
+if(areas == 0){return;}
+ArrayList&lt;Integer&gt; a = new ArrayList&lt;&gt;(areas);
+for (int i = 0; i &lt;= areas; ++i){ //to generate from 0-10 inclusive. 
+                               //For 0-9 inclusive, remove the = on the &lt;=
+    a.add(i);
+}
+Collections.shuffle(a);
+
+def json = new JsonSlurper().parseText(vars.get(&apos;builder&apos;));
+json &lt;&lt; [kosherTypes:a] 
+log.info(JsonOutput.toJson(json))
+vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
 </stringProp>
         </JSR223PreProcessor>
         <hashTree/>
@@ -1088,7 +1272,7 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
 	checker.ConfigStatusAndData(jsonResponse);
 	catagoryLevel = jsonResponse.get(&apos;data&apos;);
 	Objects.requireNonNull(catagoryLevel, &quot;jsonData returned with null value&quot;);
-	log.info(catagoryLevel[0].toString());
+	//log.info(catagoryLevel[0].toString());
 	//checker.dataIsLazyMapArray(catagoryLevel,&quot;tagName tagId tagCategoryInfo&quot;, &quot;the top catagory has a wrong response properties&quot;);
 //	catagoryLevel = catagoryLevel.first().get(&apos;categories&apos;);
      checker.ArrayRequiredFields(catagoryLevel,[&quot;categoriesCount&quot;,&quot;categories&quot;,&quot;isFavorite&quot;,&quot;businessesCount&quot;,&quot;stripName&quot;],&quot;the catagories filter dosent contain the required key values\n\n&quot;);
@@ -1119,45 +1303,6 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
         </DebugSampler>
         <hashTree/>
       </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>false</message>
-            <threadName>true</threadName>
-            <dataType>false</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>false</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <sentBytes>true</sentBytes>
-            <url>true</url>
-            <hostname>true</hostname>
-            <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
-      </ResultCollector>
-      <hashTree/>
       <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
