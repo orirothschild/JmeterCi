@@ -449,6 +449,45 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>false</message>
+            <threadName>true</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
       <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseTimesOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Times Over Time" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
@@ -495,43 +534,6 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
         <boolProp name="include_checkbox_state">false</boolProp>
         <boolProp name="exclude_checkbox_state">false</boolProp>
       </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
-      <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <sentBytes>true</sentBytes>
-            <url>true</url>
-            <threadCounts>true</threadCounts>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
-      </ResultCollector>
       <hashTree/>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="מטיילים בצד הלקוח" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
@@ -1050,43 +1052,39 @@ import groovy.json.JsonSlurper;
 long maxPrice = (Math.abs(new Random().nextInt() % 5) + 1)*100;
 maxPrice = maxPrice == 500? -1:maxPrice;
 long minPrice = maxPrice ==-1? 500:maxPrice -100;
-//long minPrice =Math.abs(maxPrice - ((Math.abs(new Random().nextInt() % 5) + 1)*100));
 if(minPrice &gt; maxPrice &amp;&amp; maxPrice != -1){
 	minPrice = maxPrice -100;
 }
 
 def json = new JsonSlurper().parseText(vars.get(&apos;builder&apos;));
-//log.info(json);
-//println json.getClass().getName()
+
 json &lt;&lt; [priceMax:maxPrice,PriceMin:minPrice] // json.put(&apos;sig&apos;, &apos;&lt;value&gt;&apos;)
 log.info(JsonOutput.toJson(json))
 vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
+</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת אזור" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import groovy.json.*
+import groovy.json.JsonBuilder;
+import groovy.json.JsonSlurper;
+int areas = (Math.abs(new Random().nextInt() % 5));
+if(areas == 0){return;}
+ArrayList&lt;Integer&gt; a = new ArrayList&lt;&gt;(areas);
+for (int i = 1; i &lt;= areas; ++i){ //to generate from 0-10 inclusive. 
+                               //For 0-9 inclusive, remove the = on the &lt;=
+    a.add(i);
+}
+Collections.shuffle(a);
 
-//def json2 = &quot;&quot;&quot;
-//  {
-//    &quot;priceMax&quot;: 100,
-//    &quot;priceMin&quot;: 0
-//  }
-//  &quot;&quot;&quot;
-//
-// def duties = new JsonSlurper().parseText(vars.get(&apos;builder&apos;));
-// def certs = new JsonSlurper().parseText(json2);  
-//log.info(JsonOutput.prettyPrint(JsonOutput.toJson([ duties, certs])))
-//def map = [priceMax:100,priceMin:0]
-//int [] l = [0,1,2];
-//def extendedJson = vars.get(&apos;builder&apos;);
-//def result = extendedJson(l)
-//vars.put(&apos;builder&apos;,extendedJson);
-//def json = new JsonSlurper().parseText(vars.get(&apos;builder&apos;));
-//
-//extendedBuilder.priceMax =100;
-//extendedBuilder.priceMin =0;
-//
-//json.priceMax = root.priceMax;
-//json.priceMin = root.priceMin;
-//log.info(root);
-//
-//log.info(new JsonBuilder(json).toPrettyString());
+def json = new JsonSlurper().parseText(vars.get(&apos;builder&apos;));
+json &lt;&lt; [regions:a] 
+log.info(JsonOutput.toJson(json))
+vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
 </stringProp>
         </JSR223PreProcessor>
         <hashTree/>
@@ -1116,7 +1114,7 @@ vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="false">
             <stringProp name="scriptLanguage">groovy</stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
