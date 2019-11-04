@@ -566,14 +566,14 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
           </hashTree>
         </hashTree>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת הרשמה + רכישה" enabled="false">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת הרשמה + רכישה" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="709095377">
-            <stringProp name="48625">100</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="49586">200</stringProp>
-            <stringProp name="1572771">3600</stringProp>
-            <stringProp name="49586">200</stringProp>
+          <collectionProp name="-388222799">
+            <stringProp name="49">1</stringProp>
+            <stringProp name="49">1</stringProp>
+            <stringProp name="49">1</stringProp>
+            <stringProp name="53">5</stringProp>
+            <stringProp name="49">1</stringProp>
           </collectionProp>
         </collectionProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -784,12 +784,12 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
       <hashTree/>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה של מקבל מתנה חדש(דינמי) " enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="869698246">
-            <stringProp name="49586">200</stringProp>
+          <collectionProp name="-620350266">
+            <stringProp name="50547">300</stringProp>
             <stringProp name="1572771">3600</stringProp>
-            <stringProp name="1691">50</stringProp>
-            <stringProp name="54391">700</stringProp>
-            <stringProp name="49">1</stringProp>
+            <stringProp name="48625">100</stringProp>
+            <stringProp name="1572771">3600</stringProp>
+            <stringProp name="48625">100</stringProp>
           </collectionProp>
         </collectionProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -903,11 +903,11 @@ vars.put(&apos;toEmail&apos;, toEmail);
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="קבלת מתנה" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="207018032">
-            <stringProp name="49">1</stringProp>
-            <stringProp name="48">0</stringProp>
+          <collectionProp name="-201140456">
+            <stringProp name="50547">300</stringProp>
+            <stringProp name="1688091">7200</stringProp>
             <stringProp name="1629">30</stringProp>
-            <stringProp name="1507423">1000</stringProp>
+            <stringProp name="1572771">3600</stringProp>
             <stringProp name="48625">100</stringProp>
           </collectionProp>
         </collectionProp>
@@ -985,14 +985,14 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         </IncludeController>
         <hashTree/>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="סינונים " enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="סינונים " enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-389391413">
-            <stringProp name="49">1</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="53">5</stringProp>
-            <stringProp name="48">0</stringProp>
+          <collectionProp name="-213802986">
+            <stringProp name="50547">300</stringProp>
+            <stringProp name="46737849">10800</stringProp>
+            <stringProp name="48625">100</stringProp>
+            <stringProp name="1572771">3600</stringProp>
+            <stringProp name="48625">100</stringProp>
           </collectionProp>
         </collectionProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -1002,54 +1002,45 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
       </kg.apc.jmeter.threads.UltimateThreadGroup>
       <hashTree>
-        <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Token And LastPasswordChange JDBC" enabled="false">
-          <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\JDBC TestFragments\ExtractUserTokenJDBCWithEmail.jmx</stringProp>
-        </IncludeController>
-        <hashTree/>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="יצירת משתנה חיפוש גייסון" enabled="true">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
           <stringProp name="cacheKey">true</stringProp>
-          <stringProp name="script">def builder = new groovy.json.JsonBuilder()
-       def root = builder.people {
-           person {
-               firstName &apos;Guillame&apos;
-               lastName &apos;Laforge&apos;
-               // Named arguments are valid values for objects too
-               address(
-                       city: &apos;Paris&apos;,
-                       country: &apos;France&apos;,
-                       zip: 12345,
-               )
-               married true
-               // a list of values
-               conferences &apos;JavaOne&apos;, &apos;Gr8conf&apos;
-           }
-       }
-log.info(builder)</stringProp>
+          <stringProp name="script">import groovy.json.*
+import groovy.json.JsonBuilder
+
+int [] catbuilder = [0];
+def builder = new groovy.json.JsonBuilder();
+	builder{
+		     amountPerPage 21
+		     pageNumber  1
+		     priceSort 0
+		     categoryTagIDs  catbuilder
+	}
+vars.put(&quot;builder&quot;,builder.toPrettyString());</stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header adds UserToken" enabled="false">
-          <collectionProp name="HeaderManager.headers">
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">organizationId</stringProp>
-              <stringProp name="Header.value">${organizationId}</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Token</stringProp>
-              <stringProp name="Header.value">${Token}</stringProp>
-            </elementProp>
-          </collectionProp>
-        </HeaderManager>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת טווח מחירים" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import groovy.json.*
+import groovy.json.JsonBuilder
+
+def extendedBuilder = vars.get(&apos;builder&apos;);
+extendedBuilder.priceMax =100;
+</stringProp>
+        </JSR223PreProcessor>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getCatagories" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="שליפת כול הווריאנטים" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&quot;${builder}&quot;</stringProp>
+                <stringProp name="Argument.value">${builder}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -1095,14 +1086,16 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
 	checker.getStatusCode(prev,&quot;200&quot;);
 	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
 	checker.ConfigStatusAndData(jsonResponse);
-	
 	catagoryLevel = jsonResponse.get(&apos;data&apos;);
 	Objects.requireNonNull(catagoryLevel, &quot;jsonData returned with null value&quot;);
+	log.info(catagoryLevel[0].toString());
 	//checker.dataIsLazyMapArray(catagoryLevel,&quot;tagName tagId tagCategoryInfo&quot;, &quot;the top catagory has a wrong response properties&quot;);
 //	catagoryLevel = catagoryLevel.first().get(&apos;categories&apos;);
-     checker.dataIsLazyMap(catagoryLevel,&quot;categoryId categoryType mustKnow variants&quot;,&quot;the catagories filter dosent contain the required key values\n\n&quot; + &quot;expecting categoryId, categoryType, variants...&quot;);
-	catagoryLevel = catagoryLevel.get(&apos;variants&apos;).first();
-	checker.dataIsLazyMap(catagoryLevel,&quot;name barCode expireDate&quot;,	    &quot;the varient within the requested catagory fails to contain the right keys\n\n&quot; + &quot;expecting name barCode expireDate...&quot;);
+     checker.ArrayRequiredFields(catagoryLevel,[&quot;categoriesCount&quot;,&quot;categories&quot;,&quot;isFavorite&quot;,&quot;businessesCount&quot;,&quot;stripName&quot;],&quot;the catagories filter dosent contain the required key values\n\n&quot;);
+	catagoryLevel = catagoryLevel[0].get(&apos;categories&apos;)[0];
+
+     checker.dataIsLazyMap(catagoryLevel,&quot; categoryId category images minPrice maxPrice businessesCount&quot;,&quot;displayed catagories fail to contain the following values\n\n&quot;);
+     checker.dataIsLazyMap(catagoryLevel.get(&apos;category&apos;),&quot; categoryId categoryName images&quot;,&quot;displayed catagories fail to contain the following values\n\n&quot;);
 
 	failureMessage = checker.getFailureMassage();	
 	// Print error messages if any
@@ -1114,20 +1107,6 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
 	    vars.putObject(&apos;error&apos;,true);
 	    AssertionResult.setFailureMessage(failureMessage);
 	    AssertionResult.setFailure(true);    
-	}
-	else{
-		long quantity = Math.abs(new Random().nextInt() % [1]) + 1;
-		vars.put(&quot;barCode&quot;, catagoryLevel.get(&apos;barCode&apos;));
-		vars.put(&quot;variantName&quot;,catagoryLevel.get(&apos;name&apos;));
-		vars.putObject(&quot;price&quot;,catagoryLevel.get(&apos;price&apos;));
-		vars.putObject(&quot;quantity&quot;,quantity)
-		vars.putObject(&quot;totalPayment&quot;,(catagoryLevel.get(&apos;price&apos;) * quantity));
-//
-//		vars.put(&quot;barCode&quot;, catagoryLevel.get(&apos;barCode&apos;));
-//		vars.put(&quot;variantName&quot;,catagoryLevel.get(&apos;name&apos;));
-//		vars.putObject(&quot;price&quot;,catagoryLevel.get(&apos;price&apos;));
-//		vars.putObject(&quot;quantity&quot;,quantity)
-//		vars.putObject(&quot;totalPayment&quot;,(catagoryLevel.get(&apos;price&apos;) * quantity));
 	}
 	</stringProp>
           </JSR223Assertion>

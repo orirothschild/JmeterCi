@@ -1004,11 +1004,11 @@ vars.put(&apos;toEmail&apos;, toEmail);
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="סינונים " enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-389391413">
+          <collectionProp name="-389420212">
             <stringProp name="49">1</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="48">0</stringProp>
-            <stringProp name="53">5</stringProp>
+            <stringProp name="49">1</stringProp>
             <stringProp name="48">0</stringProp>
           </collectionProp>
         </collectionProp>
@@ -1044,10 +1044,49 @@ vars.put(&quot;builder&quot;,builder.toPrettyString());</stringProp>
           <stringProp name="filename"></stringProp>
           <stringProp name="cacheKey">true</stringProp>
           <stringProp name="script">import groovy.json.*
-import groovy.json.JsonBuilder
+import groovy.json.JsonBuilder;
+import groovy.json.JsonSlurper;
 
-def extendedBuilder = vars.get(&apos;builder&apos;);
-extendedBuilder.priceMax =100;
+long maxPrice = (Math.abs(new Random().nextInt() % 5) + 1)*100;
+maxPrice = maxPrice == 500? -1:maxPrice;
+long minPrice = maxPrice ==-1? 500:maxPrice -100;
+//long minPrice =Math.abs(maxPrice - ((Math.abs(new Random().nextInt() % 5) + 1)*100));
+if(minPrice &gt; maxPrice &amp;&amp; maxPrice != -1){
+	minPrice = maxPrice -100;
+}
+
+def json = new JsonSlurper().parseText(vars.get(&apos;builder&apos;));
+//log.info(json);
+//println json.getClass().getName()
+json &lt;&lt; [priceMax:maxPrice,PriceMin:minPrice] // json.put(&apos;sig&apos;, &apos;&lt;value&gt;&apos;)
+log.info(JsonOutput.toJson(json))
+vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
+
+//def json2 = &quot;&quot;&quot;
+//  {
+//    &quot;priceMax&quot;: 100,
+//    &quot;priceMin&quot;: 0
+//  }
+//  &quot;&quot;&quot;
+//
+// def duties = new JsonSlurper().parseText(vars.get(&apos;builder&apos;));
+// def certs = new JsonSlurper().parseText(json2);  
+//log.info(JsonOutput.prettyPrint(JsonOutput.toJson([ duties, certs])))
+//def map = [priceMax:100,priceMin:0]
+//int [] l = [0,1,2];
+//def extendedJson = vars.get(&apos;builder&apos;);
+//def result = extendedJson(l)
+//vars.put(&apos;builder&apos;,extendedJson);
+//def json = new JsonSlurper().parseText(vars.get(&apos;builder&apos;));
+//
+//extendedBuilder.priceMax =100;
+//extendedBuilder.priceMin =0;
+//
+//json.priceMax = root.priceMax;
+//json.priceMin = root.priceMin;
+//log.info(root);
+//
+//log.info(new JsonBuilder(json).toPrettyString());
 </stringProp>
         </JSR223PreProcessor>
         <hashTree/>
@@ -1105,7 +1144,7 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
 	checker.ConfigStatusAndData(jsonResponse);
 	catagoryLevel = jsonResponse.get(&apos;data&apos;);
 	Objects.requireNonNull(catagoryLevel, &quot;jsonData returned with null value&quot;);
-	log.info(catagoryLevel[0].toString());
+	//log.info(catagoryLevel[0].toString());
 	//checker.dataIsLazyMapArray(catagoryLevel,&quot;tagName tagId tagCategoryInfo&quot;, &quot;the top catagory has a wrong response properties&quot;);
 //	catagoryLevel = catagoryLevel.first().get(&apos;categories&apos;);
      checker.ArrayRequiredFields(catagoryLevel,[&quot;categoriesCount&quot;,&quot;categories&quot;,&quot;isFavorite&quot;,&quot;businessesCount&quot;,&quot;stripName&quot;],&quot;the catagories filter dosent contain the required key values\n\n&quot;);
