@@ -9,4 +9,8 @@
   <java.net.URL>https://performancenofshonitbackapihist04.hist.org.il/api/category/getCategoryFilterPage</java.net.URL>
 </httpSample>
 
+<sample t="2906" it="0" lt="0" ct="0" ts="1572876248543" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="28438" sby="6991" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="2868" it="0" lt="0" ct="0" ts="1572879848607" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="28438" sby="6991" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
 </testResults>
