@@ -381,7 +381,7 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
 	    AssertionResult.setFailure(true);    
 	}
 	else{
-		long quantity = Math.abs(new Random().nextInt() % [1]) + 1;
+		long quantity = Math.abs(new Random().nextInt() % [5]) + 1;
 		vars.put(&quot;barCode&quot;, catagoryLevel.get(&apos;barCode&apos;));
 		vars.put(&quot;variantName&quot;,catagoryLevel.get(&apos;name&apos;));
 		vars.putObject(&quot;price&quot;,catagoryLevel.get(&apos;price&apos;));
@@ -970,6 +970,45 @@ skeletonInformation.each{resultArray -&gt;
           </hashTree>
         </hashTree>
       </hashTree>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>false</message>
+            <threadName>true</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">C:\jenkins\logs\tasks\output.jtl</stringProp>
+      </ResultCollector>
+      <hashTree/>
     </hashTree>
   </hashTree>
 </jmeterTestPlan>

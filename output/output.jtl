@@ -1,16 +1,198 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testResults version="1.2">
-<httpSample t="2113" it="0" lt="2076" ct="432" ts="1572868874216" s="true" lb="שליפת כול הווריאנטים" rc="200" tn="חיפוש עם סינונים 1-1" by="1334" sby="591" sc="1" ec="0" ng="1" na="1" hn="spare">
-  <assertionResult>
-    <name>JSR223 Assertion</name>
-    <failure>false</failure>
-    <error>false</error>
-  </assertionResult>
-  <java.net.URL>https://performancenofshonitbackapihist04.hist.org.il/api/category/getCategoryFilterPage</java.net.URL>
-</httpSample>
-
-<sample t="2906" it="0" lt="0" ct="0" ts="1572876248543" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="28438" sby="6991" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-
-<sample t="2868" it="0" lt="0" ct="0" ts="1572879848607" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="28438" sby="6991" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<sample t="2623" it="0" lt="0" ct="0" ts="1573398307164" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="17649" sby="4544" sc="1" ec="0" ng="1" na="1" hn="spare"/>
 
 </testResults>
+1573399014597;6630;הרשמה שלט;Non HTTP response code: java.net.SocketException;;שרת הרשמה + רכישה 1-1;;false;;2859;0;1;1;null;0;0;0
+1573399014665;10;replace old email in csv files;200;OK;שרת הרשמה + רכישה 1-1;text;true;;0;0;1;1;null;0;0;0
+1573399014698;6529;Register;Non HTTP response code: java.net.SocketException;Non HTTP response message: Socket closed;שרת הרשמה + רכישה 1-1;text;false;javax.script.ScriptException: java.lang.NullPointerException: Cannot invoke method get() on null object;2859;0;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;0;0;37
+1573399043298;3;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399043302;836;Transaction Controller;200;Number of samples in transaction : 3, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1196;602;1;1;null;836;49;109
+1573399044188;862;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;5004;2124;1;1;null;837;190;0
+1573399043301;1698;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 7, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;6200;2726;1;1;null;0;241;0
+1573399043317;623;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1155;602;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;623;0;23
+1573399043971;213;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;41;0;1;1;null;213;0;86
+1573399044211;317;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;1;1;null;317;0;0
+1573399044567;74;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1801;1580;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;68;0;0
+1573399044682;45;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1795;544;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;41;0;0
+1573399044765;411;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;411;0;0
+1573399045225;15;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399045268;1;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399045269;794;Transaction Controller;200;Number of samples in transaction : 3, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1216;602;1;1;null;749;47;25
+1573399046110;614;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;5003;2124;1;1;null;599;124;0
+1573399045269;1408;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 7, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;6219;2726;1;1;null;0;255;0
+1573399045290;674;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1174;602;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;630;0;25
+1573399045990;120;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;119;0;0
+1573399046132;401;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;1;1;null;401;0;0
+1573399046554;46;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1801;1580;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;42;0;0
+1573399046628;41;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1795;544;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;37;0;0
+1573399046697;119;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;41;0;1;1;null;119;0;0
+1573399046840;7;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399046954;1;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399046955;1178;Transaction Controller;200;Number of samples in transaction : 3, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1216;602;1;1;null;1133;58;25
+1573399048191;532;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;5004;2124;1;1;null;514;147;0
+1573399046955;1710;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 7, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;6220;2726;1;1;null;0;205;0
+1573399046976;1055;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1174;602;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;1010;0;25
+1573399048067;123;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;123;0;0
+1573399048214;323;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;1;1;null;322;0;0
+1573399048560;44;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1801;1580;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;40;0;0
+1573399048629;43;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1795;544;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;39;0;0
+1573399048696;113;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;113;0;0
+1573399048859;9;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399048903;0;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399048904;840;Transaction Controller;200;Number of samples in transaction : 3, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1216;602;1;1;null;796;50;30
+1573399049794;508;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;5004;2124;1;1;null;497;82;0
+1573399048904;1348;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 7, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;6220;2726;1;1;null;0;133;0
+1573399048928;707;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1174;602;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;663;0;30
+1573399049660;133;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;133;0;0
+1573399049807;308;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;1;1;null;308;0;0
+1573399050132;40;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1801;1580;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;37;0;0
+1573399050191;39;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1795;544;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;35;0;0
+1573399050250;117;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;117;0;0
+1573399050380;4;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399050399;0;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399050399;797;Transaction Controller;200;Number of samples in transaction : 3, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1216;602;1;1;null;752;29;19
+1573399051226;513;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;5004;2124;1;1;null;502;78;0
+1573399050399;1310;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 7, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;6220;2726;1;1;null;0;108;0
+1573399050412;671;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1174;602;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;627;0;19
+1573399051099;126;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;125;0;0
+1573399051241;320;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;1;1;null;320;0;0
+1573399051576;41;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1801;1580;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;37;0;0
+1573399051632;40;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1795;544;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;36;0;0
+1573399051687;109;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;109;0;0
+1573399051813;3;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399051829;1;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399051830;798;Transaction Controller;200;Number of samples in transaction : 3, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1196;602;1;1;null;798;30;20
+1573399053229;0;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;0;0;2;2;null;0;0;0
+1573399052659;528;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;5004;2124;2;2;null;516;76;0
+1573399051830;1326;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 7, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;6200;2726;2;2;null;0;110;0
+1573399051842;680;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1155;602;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;680;0;20
+1573399052540;118;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;41;0;1;1;null;118;0;0
+1573399052671;308;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;1;1;null;308;0;0
+1573399052992;62;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1801;1580;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;58;0;0
+1573399053071;48;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1795;544;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;44;0;0
+1573399053134;106;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;2;2;null;106;0;0
+1573399053259;4;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;2;2;null;0;0;0
+1573399053285;0;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;2;2;null;0;0;0
+1573399053232;851;Transaction Controller;200;Number of samples in transaction : 3, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-9;;true;;1196;602;2;2;null;851;101;111
+1573399053286;873;Transaction Controller;200;Number of samples in transaction : 3, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1215;602;2;2;null;827;772;22
+1573399054185;635;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-9;;true;;5004;2124;2;2;null;619;858;14
+1573399053232;1486;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 7, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-9;;true;;6200;2726;2;2;null;0;959;0
+1573399053251;646;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;1155;602;2;2;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;646;0;26
+1573399053978;205;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;41;0;2;2;null;205;0;85
+1573399054779;386;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;1366;0;2;2;null;385;0;0
+1573399055229;43;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;1801;1580;2;2;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;38;0;0
+1573399055328;60;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;1795;544;2;2;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;57;0;14
+1573399055471;140;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;42;0;2;2;null;139;0;0
+1573399055672;6;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;0;0;2;2;null;0;0;0
+1573399055723;0;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;0;0;2;2;null;0;0;0
+1573399053286;2661;שלט הרשמה של מקבל המתנה דינמי;200;;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;4382;2182;2;2;null;0;0;0
+1573399053977;724;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1174;602;2;2;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;679;0;22
+1573399054781;149;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;41;0;2;2;null;148;0;0
+1573399055464;377;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;2;2;null;377;0;0
+1573399055905;43;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1801;1580;2;2;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;40;0;0
+1573399102850;866;Transaction Controller;200;Number of samples in transaction : 4, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1216;602;1;1;null;819;98;106
+1573399103815;515;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;5004;2124;1;1;null;500;126;0
+1573399102849;1381;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 8, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;6220;2726;1;1;null;0;227;0
+1573399102903;2;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399102918;643;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1174;602;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;598;0;24
+1573399103591;221;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;221;0;82
+1573399103829;321;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;1;1;null;320;0;0
+1573399104183;38;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1801;1580;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;34;0;0
+1573399104243;39;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1795;544;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;35;0;0
+1573399104306;111;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;111;0;0
+1573399104450;6;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399104457;766;Transaction Controller;200;Number of samples in transaction : 4, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1215;602;1;1;null;721;59;26
+1573399105282;520;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;5003;2124;1;1;null;505;94;0
+1573399104457;1286;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 8, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;6218;2726;1;1;null;0;154;0
+1573399104470;0;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399104483;649;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1174;602;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;604;0;26
+1573399105164;117;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;41;0;1;1;null;117;0;0
+1573399105296;326;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;1;1;null;326;0;0
+1573399105638;39;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1801;1580;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;34;0;0
+1573399105698;41;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1795;544;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;36;0;0
+1573399105754;110;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;41;0;1;1;null;109;0;0
+1573399105892;4;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399105897;755;Transaction Controller;200;Number of samples in transaction : 4, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1216;602;1;1;null;710;60;26
+1573399106713;501;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;5004;2124;1;1;null;488;95;0
+1573399105897;1256;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 8, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;6220;2726;1;1;null;0;157;0
+1573399105910;0;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399105922;643;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1174;602;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;598;0;26
+1573399106599;112;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;112;0;0
+1573399106726;313;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;1;1;null;313;0;0
+1573399107062;38;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1801;1580;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;33;0;0
+1573399107118;37;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1795;544;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;33;0;0
+1573399107177;109;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;109;0;0
+1573399107305;4;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399107310;859;Transaction Controller;200;Number of samples in transaction : 4, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1213;600;1;1;null;814;58;32
+1573399108227;543;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;4980;2122;1;1;null;533;86;0
+1573399107310;1402;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 8, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;6193;2722;1;1;null;0;144;0
+1573399107330;0;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399107345;728;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1172;600;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;683;0;32
+1573399108095;131;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;41;0;1;1;null;131;0;0
+1573399108256;330;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;1;1;null;329;0;0
+1573399108601;35;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1781;1580;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;35;0;0
+1573399108651;40;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1793;542;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;35;0;0
+1573399108704;134;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;40;0;1;1;null;134;0;0
+1573399108852;4;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399108857;834;Transaction Controller;200;Number of samples in transaction : 4, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1197;602;1;1;null;832;45;24
+1573399109736;551;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;4986;2124;1;1;null;542;86;0
+1573399108857;1385;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 8, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;6183;2726;1;1;null;0;131;0
+1573399108871;1;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399108885;710;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1155;602;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;710;0;24
+1573399109613;123;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;122;0;0
+1573399109753;326;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;1;1;null;326;0;0
+1573399110094;41;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1801;1580;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;37;0;0
+1573399110151;40;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1777;544;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;40;0;0
+1573399110209;139;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;139;0;0
+1573399110368;5;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399110373;802;Transaction Controller;200;Number of samples in transaction : 4, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1197;602;1;1;null;802;46;23
+1573399111221;605;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;4985;2124;1;1;null;597;96;0
+1573399110373;1407;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 8, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;6182;2726;1;1;null;0;142;0
+1573399110388;0;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399110403;671;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1155;602;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;671;0;23
+1573399111089;131;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;1;1;null;131;0;0
+1573399111246;365;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;1;1;null;365;0;0
+1573399111624;68;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1783;1580;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;68;0;0
+1573399111721;37;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1795;544;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;33;0;0
+1573399111772;131;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;41;0;1;1;null;131;0;0
+1573399111918;4;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399111923;867;Transaction Controller;200;Number of samples in transaction : 4, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1215;602;2;2;null;822;70;24
+1573399112849;1039;Transaction Controller;200;Number of samples in transaction : 4, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-9;;true;;1215;602;2;2;null;995;71;118
+1573399112860;682;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;4985;2124;2;2;null;676;947;10
+1573399111923;1549;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 8, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;6200;2726;2;2;null;0;1017;0
+1573399111938;0;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;1;1;null;0;0;0
+1573399111954;730;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1174;602;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;685;0;24
+1573399112723;137;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;41;0;2;2;null;137;0;0
+1573399113722;459;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;2;2;null;459;0;0
+1573399114198;44;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1783;1580;2;2;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;44;0;10
+1573399114260;39;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1795;544;2;2;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;36;0;0
+1573399114333;137;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;41;0;2;2;null;137;0;0
+1573399114484;3;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;2;2;null;0;0;0
+1573399113961;755;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-9;;true;;4986;2124;2;2;null;742;465;13
+1573399112849;1794;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 8, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-9;;true;;6201;2726;2;2;null;0;539;0
+1573399112870;0;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;0;0;2;2;null;0;0;0
+1573399112883;803;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;1174;602;2;2;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;759;0;33
+1573399113721;236;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;41;0;2;2;null;236;0;85
+1573399114333;466;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;1366;0;2;2;null;466;0;0
+1573399114831;65;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;1783;1580;2;2;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;65;0;0
+1573399114913;95;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;1795;544;2;2;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;86;0;13
+1573399115034;125;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;42;0;2;2;null;125;0;0
+1573399115177;4;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;0;0;2;2;null;0;0;0
+1573399114488;861;Transaction Controller;200;Number of samples in transaction : 4, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;1197;602;2;2;null;861;586;23
+1573399115182;809;Transaction Controller;200;Number of samples in transaction : 4, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-9;;true;;1216;602;2;2;null;764;685;24
+1573399115936;599;Transaction Controller;200;Number of samples in transaction : 6, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;5004;2124;2;2;null;583;713;0
+1573399114488;1460;שלט הרשמה של מקבל המתנה דינמי;200;Number of samples in transaction : 8, number of failing samples : 0;הרשמה של מקבל מתנה חדש(דינמי)  1-10;;true;;6201;2726;2;2;null;0;1300;0
+1573399115035;0;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;2;2;null;0;0;0
+1573399115049;749;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1155;602;2;2;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;749;0;23
+1573399115823;112;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;2;2;null;112;0;0
+1573399116548;381;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1366;0;2;2;null;381;0;0
+1573399116948;40;ValidateUser;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1801;1580;2;2;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;35;0;0
+1573399117011;44;ValidateEmail;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;1795;544;2;2;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;40;0;0
+1573399117079;128;validate that user sign in was sucsessful;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;42;0;2;2;null;127;0;0
+1573399117242;6;replace old id in csv files;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-10;text;true;;0;0;2;2;null;0;0;0
+1573399115182;2278;שלט הרשמה של מקבל המתנה דינמי;200;;הרשמה של מקבל מתנה חדש(דינמי)  1-9;;true;;2582;602;2;2;null;0;0;0
+1573399115822;0;הספת סיומת קום;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;0;0;2;2;null;0;0;0
+1573399115836;684;Register;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;1174;602;2;2;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;639;0;24
+1573399116551;125;extractLastSignIn;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;42;0;2;2;null;125;0;0
+1573399117080;380;extractValidateToken;200;OK;הרשמה של מקבל מתנה חדש(דינמי)  1-9;text;true;;1366;0;2;2;null;380;0;0

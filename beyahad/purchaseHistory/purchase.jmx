@@ -369,6 +369,43 @@ public void databaseEquals(long oldValue,String newValue, String msg){
 </stringProp>
       </JSR223PreProcessor>
       <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="purchase to friend" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -388,44 +425,72 @@ public void databaseEquals(long oldValue,String newValue, String msg){
           <boolProp name="TransactionController.parent">false</boolProp>
         </TransactionController>
         <hashTree>
-          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-            <boolProp name="ResultCollector.error_logging">false</boolProp>
-            <objProp>
-              <name>saveConfig</name>
-              <value class="SampleSaveConfiguration">
-                <time>true</time>
-                <latency>true</latency>
-                <timestamp>true</timestamp>
-                <success>true</success>
-                <label>true</label>
-                <code>true</code>
-                <message>true</message>
-                <threadName>true</threadName>
-                <dataType>true</dataType>
-                <encoding>false</encoding>
-                <assertions>true</assertions>
-                <subresults>true</subresults>
-                <responseData>false</responseData>
-                <samplerData>false</samplerData>
-                <xml>false</xml>
-                <fieldNames>true</fieldNames>
-                <responseHeaders>false</responseHeaders>
-                <requestHeaders>false</requestHeaders>
-                <responseDataOnError>false</responseDataOnError>
-                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-                <assertionsResultsToSave>0</assertionsResultsToSave>
-                <bytes>true</bytes>
-                <sentBytes>true</sentBytes>
-                <url>true</url>
-                <threadCounts>true</threadCounts>
-                <idleTime>true</idleTime>
-                <connectTime>true</connectTime>
-              </value>
-            </objProp>
-            <stringProp name="filename"></stringProp>
-          </ResultCollector>
-          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header adds UserToken" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">973</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Cookie" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">_gcl_au=1.1.1298526103.1572957057; _ga=GA1.1.906057895.1572957057; _gid=GA1.1.1603480171.1572957057; seevolution.hasVisited=true; glassix-visitor-id-30a9ea05-a63d-4c83-9d61-5e35b883c3de=83d178e2-e4e5-45ac-bf96-aef611d44407; SL_C_23361dd035530_KEY=e043cb43a91ea8b92785cdc15ca17086607ef1de; _gat_UA-16603491-16=1</stringProp>
+              </elementProp>
+              <elementProp name="Host" elementType="Header">
+                <stringProp name="Header.name">Host</stringProp>
+                <stringProp name="Header.value">172.29.46.10:3005</stringProp>
+              </elementProp>
+              <elementProp name="OrganizationId" elementType="Header">
+                <stringProp name="Header.name">OrganizationId</stringProp>
+                <stringProp name="Header.value">48</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">http://172.29.46.10:3004</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">http://172.29.46.10:3004/cart/payment</stringProp>
+              </elementProp>
+              <elementProp name="token" elementType="Header">
+                <stringProp name="Header.name">token</stringProp>
+                <stringProp name="Header.value">elUWUr6cin9svwE4fDLSkyAiemcvJ72LOn0QHCbbPygCItzTQoxhnnaGzipwvlJbAmrMIROtOt3dJwVL1fLhViu/9AiW3WTddkhvFCMD+ffn27p60j7OrPHbnBFInaD6t4dqaV9oygxxiWqgRkbqrVf/6dHUCqi5D+ePBuilDGoVeQHwqfe5vhBw4f7/POX1ecr5LIpeaLXkrPcjOI75wLUJvqQR7KUUSl1OUceEFogo2BH3FdForqvV0gQHwI+tjJckl3X2kdL/81yDyU5QjPxDUaCZHbYKEN8b2nXBCLALHeOE4dnPhW4gaZJ2QJCncs7bJ5ahQvA7gwYrqITbkPDXfincIKrpNJVfKKtpnjmRQbku90u8qvsmcUfT3g5U1/91+94CqqRjsIHndJjhymfpGo/chRgMw64N/ebJduVrUPit2bdWJqa4dauTMQAsTFEiHV0qVF3Pc7QZ500VEQ4xqoS3aXZvNaD72eF2kn/CZEZqmsMcp8Tp8wnelaIP1ajKCPLmEFkC1h0shkAeccWYDXfjZGFH0aooYGbYKTkkNM1gncyu5mrSJCdskkaIVovOzCk4FgQ0H/ydfB/fbiKBuiKP2RxNPJZfIBaSv9eZBapXDQ+AI1e12wxsoJ/361A+1o3RP9JGdPT8gAtWAJvI2EuOd564zDgmWZoe96E=</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header adds UserToken" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Accept" elementType="Header">
                 <stringProp name="Header.name">Accept</stringProp>
@@ -449,7 +514,7 @@ public void databaseEquals(long oldValue,String newValue, String msg){
               </elementProp>
               <elementProp name="token" elementType="Header">
                 <stringProp name="Header.name">token</stringProp>
-                <stringProp name="Header.value">elUWUr6cin9svwE4fDLSkyAiemcvJ72LOn0QHCbbPygCItzTQoxhnnaGzipwvlJbAmrMIROtOt3dJwVL1fLhViu/9AiW3WTddkhvFCMD+ffn27p60j7OrPHbnBFInaD65NxM4UGOf97nMRwrG4fuyNZnCi/MvfHwSdVpw0mXEQzL1W0FboB4oUAAuLOlo9iP0dPbmdg2WtN2tsw2SfDSwjh1okjUMckbtWjf9dkoB/Hc4RosefRTW3FGL9rrxga3+K+WRDBZDODR8eZivg/26muav8D+j1HoLNuuaEKOPEUxQJ11lDgkT8CuMH46dhYBk7n3iV0Eci3Nbr1Nl3Umq5YMDApdcLNEfs7dcHGb6mdmAGOvvMFYr56/qR15AHYDUZjnkwcLsvfewlhZ8IuVXuLfVHTzw21SCsa7/wbOGP95Rc50+zp0+gCM8NqUl+KlvG/r/mOto9qOR7QprLZjCTUmf77QCXyYzAhN4uei9bSvhNCUvme5rEA28SvlZz6v9MhQ0xyx3I+34ijcWBndDYYLIKBRq3pKSMutmy1OdW/ktS1xblrFWj/9mWU5rlZZkmZY62iM61Qjoob8A7aft+SMYtkf5OdFDSdqCk8uLeLZ6DmyNAwxxWPOdp5iBOt/BSVjQ6nfLV8hFcypmWFlMw+gWeSBFgZgTG7Bawlnjus=</stringProp>
+                <stringProp name="Header.value">elUWUr6cin9svwE4fDLSkyAiemcvJ72LOn0QHCbbPygCItzTQoxhnnaGzipwvlJbAmrMIROtOt3dJwVL1fLhViu/9AiW3WTddkhvFCMD+ffn27p60j7OrPHbnBFInaD6t4dqaV9oygxxiWqgRkbqrVf/6dHUCqi5D+ePBuilDGoVeQHwqfe5vhBw4f7/POX1ecr5LIpeaLXkrPcjOI75wLUJvqQR7KUUSl1OUceEFogo2BH3FdForqvV0gQHwI+tjJckl3X2kdL/81yDyU5QjPxDUaCZHbYKEN8b2nXBCLALHeOE4dnPhW4gaZJ2QJCncs7bJ5ahQvA7gwYrqITbkPDXfincIKrpNJVfKKtpnjmRQbku90u8qvsmcUfT3g5U1/91+94CqqRjsIHndJjhymfpGo/chRgMw64N/ebJduVrUPit2bdWJqa4dauTMQAsTFEiHV0qVF3Pc7QZ500VEQ4xqoS3aXZvNaD72eF2kn/CZEZqmsMcp8Tp8wnelaIP1ajKCPLmEFkC1h0shkAeccWYDXfjZGFH0aooYGbYKTkkNM1gncyu5mrSJCdskkaIVovOzCk4FgQ0H/ydfB/fbiKBuiKP2RxNPJZfIBaSv9eZBapXDQ+AI1e12wxsoJ/361A+1o3RP9JGdPT8gAtWAJvI2EuOd564zDgmWZoe96E=/9AiW3WTddkhvFCMD+ffn27p60j7OrPHbnBFInaD6t4dqaV9oygxxiWqgRkbqrVf/6dHUCqi5D+ePBuilDGoVeQHwqfe5vhBw4f7/POX1ecr5LIpeaLXkrPcjOI75wLUJvqQR7KUUSl1OUceEFogo2BH3FdForqvV0gQHwI+tjJckl3X2kdL/81yDyU5QjPxDUaCZHbYKEN8b2nXBCLALHeOE4dnPhW4gaZJ2QJCncs7bJ5ahQvA7gwYrqITbkPDXfincIKrpNJVfKKtpnjmRQbku90u8qvsmcUfT3g5U1/91+94CqqRjsIHndJjhymfpGo/chRgMw64N/ebJduVrUPit2bdWJqa4dauTMQAsTFEiHV0qVF3Pc7QZ500VEQ4xqoS3aXZvNaD72eF2kn/CZEZqmsMcp8Tp8wnelaIP1ajKCPLmEFkC1h0shkAeccWYDXfjZGFH0aooYGbYKTkkNM1gncyu5mrSJCdskkaIVovOzCk4FgQ0H/ydfB/fbiKBuiKP2RxNPJZfIBaSv9eZBapXDQ+AI1e12wxsoJ/361A+1o3RP9JGdPT8gAtWAJvI2EuOd564zDgmWZoe96E=/9AiW3WTddkhvFCMD+ffn27p60j7OrPHbnBFInaD65NxM4UGOf97nMRwrG4fuyNZnCi/MvfHwSdVpw0mXEQzL1W0FboB4oUAAuLOlo9iP0dPbmdg2WtN2tsw2SfDSwjh1okjUMckbtWjf9dkoB/Hc4RosefRTW3FGL9rrxga3+K+WRDBZDODR8eZivg/26muav8D+j1HoLNuuaEKOPEUxQJ11lDgkT8CuMH46dhYBk7n3iV0Eci3Nbr1Nl3Umq5YMDApdcLNEfs7dcHGb6mdmAGOvvMFYr56/qR15AHYDUZjnkwcLsvfewlhZ8IuVXuLfVHTzw21SCsa7/wbOGP95Rc50+zp0+gCM8NqUl+KlvG/r/mOto9qOR7QprLZjCTUmf77QCXyYzAhN4uei9bSvhNCUvme5rEA28SvlZz6v9MhQ0xyx3I+34ijcWBndDYYLIKBRq3pKSMutmy1OdW/ktS1xblrFWj/9mWU5rlZZkmZY62iM61Qjoob8A7aft+SMYtkf5OdFDSdqCk8uLeLZ6DmyNAwxxWPOdp5iBOt/BSVjQ6nfLV8hFcypmWFlMw+gWeSBFgZgTG7Bawlnjus=</stringProp>
               </elementProp>
               <elementProp name="User-Agent" elementType="Header">
                 <stringProp name="Header.name">User-Agent</stringProp>
@@ -469,61 +534,59 @@ public void databaseEquals(long oldValue,String newValue, String msg){
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.value">{&#xd;
-  &quot;firstName&quot;: &quot;Alex&quot;,&#xd;
-  &quot;lastName&quot;: &quot;Shapira&quot;,&#xd;
-  &quot;identity&quot;: &quot;312005739&quot;,&#xd;
-  &quot;mobile&quot;: &quot;0521234567&quot;,&#xd;
-  &quot;email&quot;: &quot;alexs@dts-4u.com&quot;,&#xd;
-  &quot;creditCardExpirey&quot;: &quot;0321&quot;,&#xd;
+  &quot;firstName&quot;: &quot;ישראלfhff&quot;,&#xd;
+  &quot;lastName&quot;: &quot;ישראלי&quot;,&#xd;
+  &quot;identity&quot;: &quot;000000000&quot;,&#xd;
+  &quot;mobile&quot;: &quot;0549713844&quot;,&#xd;
+  &quot;email&quot;: &quot;nisima1@dts-4u.com&quot;,&#xd;
+  &quot;creditCardExpirey&quot;: &quot;0320&quot;,&#xd;
   &quot;creditCard16Digits&quot;: &quot;4580458045804580&quot;,&#xd;
-  &quot;cvv&quot;: &quot;419&quot;,&#xd;
-  &quot;totalPayment&quot;: 44,&#xd;
+  &quot;cvv&quot;: &quot;486&quot;,&#xd;
+  &quot;totalPayment&quot;: 38,&#xd;
   &quot;numOfPayments&quot;: 1,&#xd;
   &quot;pinCode&quot;: &quot;&quot;,&#xd;
   &quot;shoppingBasketCart&quot;: [&#xd;
     {&#xd;
-      &quot;categoryId&quot;: &quot;43209&quot;,&#xd;
-      &quot;categoryName&quot;: &quot;נתן גושן בהופעה חי באמפי פארק ראשון&quot;,&#xd;
-      &quot;supplierName&quot;: &quot;איוונטים&quot;,&#xd;
+      &quot;categoryId&quot;: &quot;227&quot;,&#xd;
+      &quot;categoryName&quot;: &quot;גן גורו&quot;,&#xd;
+      &quot;supplierName&quot;: &quot;גן גורו&quot;,&#xd;
       &quot;quantity&quot;: 1,&#xd;
-      &quot;finalPrice&quot;: 44,&#xd;
-      &quot;eventDate&quot;: &quot;2020-04-02T00:00:00&quot;,&#xd;
-      &quot;expireDate&quot;: &quot;2019-10-23T16:50:37.16&quot;,&#xd;
-      &quot;shortDescription&quot;: &quot;8 שנים בדיוק עברו מאז פרץ בסערה לחיינו עם הלהיט \&quot;כל מה שיש לי\&quot;. מאז ועד היום שיריו מככבים בפסקול המקומי: \&quot;איפה את\&quot;, \&quot;גבולות הגיון\&quot;, \&quot;יודע\&quot;, \&quot;עוד\&quot;, \&quot;דברי איתי יותר\&quot;, \&quot;סערה\&quot;, \&quot;זה שלנו\&quot;, \&quot;חיכיתי\&quot;, \&quot;26\&quot;, \&quot;דור הסתלבט\&quot;, \&quot;את באה אליי\&quot;, \&quot;סיפור אחר\&quot; והלהיט החדש – \&quot;באתי לחלום\&quot;.&quot;,&#xd;
-      &quot;variant&quot;: null,&#xd;
-      &quot;tickets&quot;: [&#xd;
-        {&#xd;
-          &quot;orderGuid&quot;: &quot;cfc7d5ef-41b7-4382-8f8b-c3c6af5c9002&quot;,&#xd;
-          &quot;eventDate&quot;: &quot;2020-04-02T00:00:00&quot;,&#xd;
-          &quot;eventTime&quot;: &quot;13:00&quot;,&#xd;
-          &quot;eventimTicketTypeName&quot;: &quot;מחיר רגיל&quot;,&#xd;
-          &quot;isSelfPrint&quot;: true,&#xd;
-          &quot;orderTicketId&quot;: 35307,&#xd;
-          &quot;ticketTypeName&quot;: &quot;רמה 3&quot;,&#xd;
-          &quot;priceLevelName&quot;: &quot;מחיר רגיל&quot;,&#xd;
-          &quot;price&quot;: 44,&#xd;
-          &quot;coins&quot;: null,&#xd;
-          &quot;row&quot;: &quot;24&quot;,&#xd;
-          &quot;seat&quot;: &quot;3&quot;,&#xd;
-          &quot;area&quot;: &quot;אולם- גוש א&quot;,&#xd;
-          &quot;variantFullBarcode&quot;: &quot;1001504-10273&quot;,&#xd;
-          &quot;priceID&quot;: 97606,&#xd;
-          &quot;ticketTypeId&quot;: 45497,&#xd;
-          &quot;priceLevelId&quot;: 18874,&#xd;
-          &quot;venuName&quot;: &quot;היכל התרבות תל אביב&quot;,&#xd;
-          &quot;orderLimit&quot;: 1&#xd;
-        }&#xd;
-      ]&#xd;
+      &quot;finalPrice&quot;: 38,&#xd;
+      &quot;eventDate&quot;: &quot;2030-01-01T00:00:00&quot;,&#xd;
+      &quot;expireDate&quot;: &quot;2019-11-08T15:40:54.98&quot;,&#xd;
+      &quot;shortDescription&quot;: &quot;&lt;typing-node&gt;פארק אוסטרלי ייחודי מסוגו &lt;br /&gt;&lt;/typing-node&gt;&quot;,&#xd;
+      &quot;variant&quot;: {&#xd;
+        &quot;name&quot;: &quot;כניסה&quot;,&#xd;
+        &quot;barCode&quot;: &quot;100157-53&quot;,&#xd;
+        &quot;expireDate&quot;: &quot;2021-03-31T00:00:00&quot;,&#xd;
+        &quot;isEmpty&quot;: false,&#xd;
+        &quot;isSendToFriend&quot;: false,&#xd;
+        &quot;orderLimit&quot;: 12,&#xd;
+        &quot;monthlyLimit&quot;: -1,&#xd;
+        &quot;yearlyLimit&quot;: -1,&#xd;
+        &quot;generalLimit&quot;: -1,&#xd;
+        &quot;irgunPrice&quot;: 42.92,&#xd;
+        &quot;price&quot;: 38,&#xd;
+        &quot;benefitTypeId&quot;: 0,&#xd;
+        &quot;giftCardValue&quot;: null,&#xd;
+        &quot;redimTypeId&quot;: 0,&#xd;
+        &quot;redimTypeName&quot;: null,&#xd;
+        &quot;kupaPrice&quot;: 0,&#xd;
+        &quot;business&quot;: null,&#xd;
+        &quot;isCampaign&quot;: false,&#xd;
+        &quot;businessSubTypeId&quot;: 3&#xd;
+      },&#xd;
+      &quot;tickets&quot;: null&#xd;
     }&#xd;
   ],&#xd;
-  &quot;eventsGuid&quot;: &quot;cfc7d5ef-41b7-4382-8f8b-c3c6af5c9002&quot;&#xd;
+  &quot;eventsGuid&quot;: &quot;&quot;&#xd;
 }</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
                 </collectionProp>
               </elementProp>
-              <stringProp name="HTTPSampler.domain">199.203.131.14</stringProp>
-              <stringProp name="HTTPSampler.port">80</stringProp>
+              <stringProp name="HTTPSampler.domain">172.29.46.10</stringProp>
+              <stringProp name="HTTPSampler.port">3005</stringProp>
               <stringProp name="HTTPSampler.protocol">http</stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
               <stringProp name="HTTPSampler.path">/api/order/purchase</stringProp>
@@ -536,83 +599,8 @@ public void databaseEquals(long oldValue,String newValue, String msg){
               <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
             </HTTPSamplerProxy>
-            <hashTree>
-              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-                <boolProp name="ResultCollector.error_logging">false</boolProp>
-                <objProp>
-                  <name>saveConfig</name>
-                  <value class="SampleSaveConfiguration">
-                    <time>true</time>
-                    <latency>true</latency>
-                    <timestamp>true</timestamp>
-                    <success>true</success>
-                    <label>true</label>
-                    <code>true</code>
-                    <message>true</message>
-                    <threadName>true</threadName>
-                    <dataType>true</dataType>
-                    <encoding>false</encoding>
-                    <assertions>true</assertions>
-                    <subresults>true</subresults>
-                    <responseData>false</responseData>
-                    <samplerData>false</samplerData>
-                    <xml>false</xml>
-                    <fieldNames>true</fieldNames>
-                    <responseHeaders>false</responseHeaders>
-                    <requestHeaders>false</requestHeaders>
-                    <responseDataOnError>false</responseDataOnError>
-                    <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-                    <assertionsResultsToSave>0</assertionsResultsToSave>
-                    <bytes>true</bytes>
-                    <sentBytes>true</sentBytes>
-                    <url>true</url>
-                    <threadCounts>true</threadCounts>
-                    <idleTime>true</idleTime>
-                    <connectTime>true</connectTime>
-                  </value>
-                </objProp>
-                <stringProp name="filename"></stringProp>
-              </ResultCollector>
-              <hashTree/>
-            </hashTree>
+            <hashTree/>
           </hashTree>
-          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-            <boolProp name="ResultCollector.error_logging">false</boolProp>
-            <objProp>
-              <name>saveConfig</name>
-              <value class="SampleSaveConfiguration">
-                <time>true</time>
-                <latency>true</latency>
-                <timestamp>true</timestamp>
-                <success>true</success>
-                <label>true</label>
-                <code>true</code>
-                <message>true</message>
-                <threadName>true</threadName>
-                <dataType>true</dataType>
-                <encoding>false</encoding>
-                <assertions>true</assertions>
-                <subresults>true</subresults>
-                <responseData>false</responseData>
-                <samplerData>false</samplerData>
-                <xml>true</xml>
-                <fieldNames>true</fieldNames>
-                <responseHeaders>false</responseHeaders>
-                <requestHeaders>false</requestHeaders>
-                <responseDataOnError>false</responseDataOnError>
-                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-                <assertionsResultsToSave>0</assertionsResultsToSave>
-                <bytes>true</bytes>
-                <sentBytes>true</sentBytes>
-                <url>true</url>
-                <threadCounts>true</threadCounts>
-                <idleTime>true</idleTime>
-                <connectTime>true</connectTime>
-              </value>
-            </objProp>
-            <stringProp name="filename"></stringProp>
-          </ResultCollector>
-          <hashTree/>
         </hashTree>
         <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
           <boolProp name="displayJMeterProperties">true</boolProp>
@@ -3145,43 +3133,6 @@ skeletonInformation.each{resultArray -&gt;
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <sentBytes>true</sentBytes>
-            <url>true</url>
-            <threadCounts>true</threadCounts>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
-          </value>
-        </objProp>
-        <stringProp name="filename">C:\GitHub\nofshonitjmeterci\results\result.csv</stringProp>
-      </ResultCollector>
-      <hashTree/>
     </hashTree>
   </hashTree>
 </jmeterTestPlan>

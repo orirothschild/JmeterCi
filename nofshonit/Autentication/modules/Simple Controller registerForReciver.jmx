@@ -23,6 +23,19 @@
             <stringProp name="CriticalSectionController.lockName">global_lock_two</stringProp>
           </CriticalSectionController>
           <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="הספת סיומת קום" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">
+String toEmail = vars.get(&apos;toEmail&apos;);
+toEmail = toEmail.endsWith(&quot;.com&quot;)? toEmail: toEmail + &apos;.com&apos;;
+vars.put(&apos;toEmail&apos;, toEmail);
+
+</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Register" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">

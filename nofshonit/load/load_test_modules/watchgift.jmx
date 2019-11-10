@@ -25,7 +25,7 @@
           </FloatProperty>
         </ThroughputController>
         <hashTree>
-          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Token And LastPasswordChange JDBC" enabled="true">
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="טוקן עבור מתנה שהתקבלה" enabled="true">
             <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\JDBC TestFragments\ExtractUserTokenJDBCWithreciverEmail.jmx</stringProp>
           </IncludeController>
           <hashTree/>
