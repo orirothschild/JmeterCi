@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="false"/>
+      <hashTree>
+        <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="הוצאת טוקן" enabled="true">
+          <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\JDBC TestFragments\ExtractUserTokenJDBCWithEmail.jmx</stringProp>
+        </IncludeController>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header adds UserToken" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">organizationId</stringProp>
+              <stringProp name="Header.value">${organizationId}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Token</stringProp>
+              <stringProp name="Header.value">${Token}</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="הוספת טלפון ותאריך לידה" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#xd;
+{&#xd;
+	&quot;BirthDate&quot;:&quot;${birthdate}&quot;,&#xd;
+	&quot;MemberName&quot;:&quot;${newEmail}&quot;,&#xd;
+     &quot;email&quot;:&quot;${newEmail}&quot;,&#xd;
+     &quot;phoneNumber&quot;:&quot;${phonenumber}&quot;,&#xd;
+     &quot;AllowSmsAndMail&quot;:&quot;${sms}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${site}</stringProp>
+          <stringProp name="HTTPSampler.port">${port}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/users/UpdateMember</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="תאריך לידה + מספר טלפון רנדומאלי" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">def dateA = Date.parse(&quot;dd-MM-yyyy&quot;, &quot;01-06-1988&quot;)
+int range = 365 * 25
+def randomInterval = new Random().nextInt(range)
+def dateB = dateA.plus(randomInterval)
+
+vars.putObject(&apos;birthdate&apos;,dateB);
+boolean isSms = (Math.abs(new Random().nextInt() % 2));
+
+vars.putObject(&apos;sms&apos;,isSms);
+long phonenumber = 0;
+int loopcounter = 9;
+for(int i = 0; i&lt;loopcounter ; ++i){
+	phonenumber = phonenumber + (((Math.abs(new Random().nextInt() % 9)) + 1) * Math.pow(loopcounter - i, 10))
+}
+vars.putObject(&apos;phonenumber&apos;,phonenumber);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="false">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import groovy.json.JsonSlurper;
+
+def failureMessage = &quot;&quot;;
+def jsonResponse = null;
+def customer = null;
+Set customerKeys = null;
+
+JsonSlurper JSON = new JsonSlurper ();
+def checker = vars.getObject(&apos;JsonChecker&apos;);
+
+	try {
+	    jsonResponse = JSON.parseText(prev.getResponseDataAsString());
+	    } catch (Exception e) {
+	    failureMessage += &quot;Invalid JSON.\n&quot;
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);  
+	}
+	checker.getStatusCode(prev,&quot;200&quot;);
+	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
+	vars.putObject(&apos;statusResult&apos;,jsonResponse.get(&apos;status&apos;));
+	props.put(&apos;statusResult&apos;,jsonResponse.get(&apos;status&apos;));
+	checker.ConfigStatusAndData(jsonResponse);
+
+	if(jsonResponse == null ||  jsonResponse.get(&apos;data&apos;)== null){ 
+		AssertionResult.setFailureMessage(failureMessage + &apos;resposne returned with null in the field reserved for data\n the reason could be that the user is already signed in&apos;);
+	    	AssertionResult.setFailure(true);
+	    	return;
+	}
+	
+	checker.dataIsCollection(jsonResponse.get(&apos;data&apos;).keySet(),&quot;id firstName lastName token premiumType&quot;,&quot;the required request dont contain the right keys for the autentication request  \n\n&quot;);
+	failureMessage = checker.getFailureMassage();
+
+	if (failureMessage?.trim()) {
+	    failureMessage += &quot;at URL : \n &quot; + SampleResult.getURL() + &quot;\n\n&quot;;     
+	    //failureMessage += &quot;JSON RESPONSE: &quot; + jsonResponse + &quot;\n\n&quot;;
+	    failureMessage += &quot;REQUEST HEADERS \n: &quot; + SampleResult.getRequestHeaders() + &quot;\n\n&quot;;
+	    failureMessage += &quot;THE SENT REQUEST \n&quot; + (sampler.getArguments().getArgument(0));
+	
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);    
+	}
+	
+	vars.put(&apos;email&apos;,jsonResponse.get(&apos;data&apos;).get(&apos;email&apos;));
+	vars.put(&apos;id&apos;,jsonResponse.get(&apos;data&apos;).get(&apos;id&apos;));</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223PreProcessor reference="../hashTree[3]/JSR223PreProcessor"/>
+        <hashTree/>
+        <JSR223Assertion reference="../hashTree[3]/JSR223Assertion"/>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

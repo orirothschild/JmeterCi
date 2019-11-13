@@ -48,7 +48,8 @@ vars.put(&apos;toEmail&apos;, toEmail);
 	&quot;PasswordConfirmation&quot;:&quot;${currentPassword}&quot;,&#xd;
 	&quot;LoginType&quot;:1,&#xd;
 	&quot;PrivateOrBusiness&quot;:1,&#xd;
-	&quot;AllowSmsAndMail&quot;:false&#xd;
+	&quot;AllowSmsAndMail&quot;:false,&#xd;
+	&quot;registrationType&quot;: 1&#xd;
 }</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
