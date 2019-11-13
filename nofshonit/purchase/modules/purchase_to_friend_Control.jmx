@@ -362,7 +362,7 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
 		long cardNumber = ${__P(cardNumber,4580458045804580)};
 		long cardCvv = ${__P(cardCvv,123)};
 		long cardId = ${__P(cardId,311321590)};
-		long creditCardExpirey = ${__P(creditCardExpirey,0421)};
+		String creditCardExpirey = ${__P(creditCardExpirey,&quot;0421&quot;)};
 		vars.put(&quot;barCode&quot;, catagoryLevel.get(&apos;barCode&apos;));
 		vars.put(&quot;variantName&quot;,catagoryLevel.get(&apos;name&apos;));
 		vars.putObject(&quot;cardNumber&quot;,cardNumber);
