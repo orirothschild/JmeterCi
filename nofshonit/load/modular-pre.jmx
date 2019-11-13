@@ -845,11 +845,11 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת רכישה" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-2128505360">
-            <stringProp name="52">4</stringProp>
+          <collectionProp name="828249222">
+            <stringProp name="48625">100</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="49">1</stringProp>
-            <stringProp name="1598">20</stringProp>
+            <stringProp name="1691">50</stringProp>
             <stringProp name="49">1</stringProp>
           </collectionProp>
         </collectionProp>
@@ -996,16 +996,16 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="הרשמה של מקבל המתנה" enabled="true">
             <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\register+validateforReciver.jmx</stringProp>
           </IncludeController>
+          <hashTree/>
+          <CriticalSectionController guiclass="CriticalSectionControllerGui" testclass="CriticalSectionController" testname="Critical Section Controller" enabled="true">
+            <stringProp name="CriticalSectionController.lockName">global_lock_one</stringProp>
+          </CriticalSectionController>
           <hashTree>
-            <CriticalSectionController guiclass="CriticalSectionControllerGui" testclass="CriticalSectionController" testname="Critical Section Controller" enabled="true">
-              <stringProp name="CriticalSectionController.lockName">global_lock_one</stringProp>
-            </CriticalSectionController>
-            <hashTree>
-              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="replace old ToEmail in csv files" enabled="true">
-                <stringProp name="cacheKey">true</stringProp>
-                <stringProp name="filename"></stringProp>
-                <stringProp name="parameters"></stringProp>
-                <stringProp name="script">
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="replace old ToEmail in csv files" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">
 def LineChangerEmail = vars.getObject(&apos;LineChangerEmail&apos;);
 String toEmail = vars.get(&apos;toEmail&apos;);
 toEmail = toEmail.endsWith(&quot;.com&quot;)? toEmail: toEmail + &apos;.com&apos;;
@@ -1013,10 +1013,9 @@ LineChangerEmail.changeLine(2,toEmail);
 vars.put(&apos;toEmail&apos;, toEmail);
 
 </stringProp>
-                <stringProp name="scriptLanguage">groovy</stringProp>
-              </JSR223Sampler>
-              <hashTree/>
-            </hashTree>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
           </hashTree>
         </hashTree>
       </hashTree>

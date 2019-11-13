@@ -39,19 +39,20 @@
 		&quot;variant&quot;:{&#xd;
 			&quot;quantity&quot;:&quot;${quantity}&quot;,&#xd;
 			&quot;barCode&quot;:&quot;${barCode}&quot;,&#xd;
-			&quot;loadingAmount&quot;:&quot;${price}&quot;,&#xd;
+			&quot;loadingAmount&quot;:${price},&#xd;
+			&quot;fromMemberName&quot;: &quot;shabtaiuser&quot;,&#xd;
 			&quot;toMemberName&quot;:&quot;טלי&quot;,&#xd;
 			&quot;toMemberEmail&quot;:&quot;${toEmail}&quot;,&#xd;
 			&quot;toMemberMobile&quot;:&quot;&quot;,&#xd;
 			&quot;sendTime&quot;:&quot;2019-09-12 17:00&quot;,&#xd;
 			&quot;blessing&quot;:&quot;&quot;,&#xd;
 			&quot;mediaUrl&quot;:&quot;&quot;,&#xd;
-			&quot;price&quot;:&quot;${price}&quot;,&#xd;
+			&quot;price&quot;:${price},&#xd;
 			&quot;immediateSend&quot;: true&#xd;
 			}&#xd;
 		}&#xd;
 		],&#xd;
-		&quot;totalPayment&quot;:&quot;${totalPayment}&quot;&#xd;
+		&quot;totalPayment&quot;:${totalPayment}&#xd;
 	}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
