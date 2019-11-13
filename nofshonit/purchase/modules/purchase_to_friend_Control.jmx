@@ -359,8 +359,16 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
 		int price = catagoryLevel.get(&apos;price&apos;);
 		price = catagoryLevel.get(&apos;name&apos;) == &quot;המלצת השף - כרטיס&quot; || catagoryLevel.get(&apos;name&apos;) == &quot;נופשונית קארד דיגיטלי - ללא טעינה אישית&quot;? 300:price;
 		long quantity = Math.abs(new Random().nextInt() % [1]) + 1;
+		long cardNumber = ${__P(cardNumber,4580458045804580)};
+		long cardCvv = ${__P(cardCvv,123)};
+		long cardId = ${__P(cardId,311321590)};
+		long creditCardExpirey = ${__P(creditCardExpirey,0421)};
 		vars.put(&quot;barCode&quot;, catagoryLevel.get(&apos;barCode&apos;));
 		vars.put(&quot;variantName&quot;,catagoryLevel.get(&apos;name&apos;));
+		vars.putObject(&quot;cardNumber&quot;,cardNumber);
+		vars.putObject(&quot;cardCvv&quot;,cardCvv);
+		vars.putObject(&quot;cardId&quot;,cardId);
+		vars.putObject(&quot;creditCardExpirey&quot;,creditCardExpirey);
 		vars.putObject(&quot;price&quot;,price);
 		vars.putObject(&quot;quantity&quot;,quantity)
 		vars.putObject(&quot;totalPayment&quot;,(price * quantity));
