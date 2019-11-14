@@ -1,0 +1,31 @@
+#!/bin/bash -e
+##Coguration
+
+JENKINS="http://localhost:8080"
+
+JENKINS_USER="orirothschild"
+JENKINS_USER_TOKEN="11e0d5591f3058ff250a15074c7006f66e"
+
+# nested path to job
+JOB="purchase"
+cardNumber="4580458045804580"	
+cardCvv="123"
+cardId="311321590"
+creditCardExpirey="0421"
+## Script
+
+JENKINS_AUTH="$JENKINS_USER:$JENKINS_USER_TOKEN"
+
+CRUMB=$(curl --user "$JENKINS_AUTH" "$JENKINS"'/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
+
+CONTAINS_ERROR=$(echo "$CRUMB" | grep "<html>" || true)
+
+if [ -n "$CONTAINS_ERROR" ]; then
+  echo "$CRUMB"
+  exit 1
+fi
+
+curl -X POST \
+  "$JENKINS"/job/"$JOB"/buildWithParameters?delay=0sec \
+  --user "$JENKINS_AUTH" \
+-H "$CRUMB"
