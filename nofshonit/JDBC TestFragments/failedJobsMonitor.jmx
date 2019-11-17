@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery"></stringProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="dataSource">test</stringProp>
+        <stringProp name="dbUrl">jdbc:sqlserver://172.29.92.20\sql2005;DatabaseName=NofshonitClub</stringProp>
+        <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
+        <stringProp name="initQuery"></stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">Erg0110$</stringProp>
+        <stringProp name="poolMax">0</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">sqladmin</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="utility class checker" enabled="true">
+        <stringProp name="scriptLanguage">groovy</stringProp>
+        <stringProp name="parameters"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="cacheKey">false</stringProp>
+        <stringProp name="script">import groovy.json.JsonSlurper;
+import org.apache.jmeter.assertions.AssertionResult;
+class ResponseChecker{
+	String failureMessage = &apos;&apos;;
+	JsonSlurper JSON = new JsonSlurper();
+
+
+	public def getJsonResponse(org.apache.jmeter.protocol.http.sampler.HTTPSampleResult prev){
+		def jsonResponse = null;
+		try {
+	    jsonResponse = this.JSON.parseText(prev.getResponseDataAsString());
+	    org.apache.log4j.Logger.error(jsonResponse);
+	    } catch (Exception e) {
+	    this.failureMessage += &quot; Invalid JSON.\n&quot;   
+	}
+	
+	return this.failureMessage == &apos;&apos;? jsonResponse: failureMessage;
+	}
+	
+	public void getStatusCode(org.apache.jmeter.protocol.http.sampler.HTTPSampleResult prev, String requiredStatus){
+		 if(prev == null || requiredStatus == null) {
+		 	this.failureMessage += &quot; jsonConfig got null collection\n&quot;;
+		 	return;
+		 }
+		if(!requiredStatus.equals(prev.getResponseCode())){
+			this.failureMessage = &quot; Expected &lt;response code&gt; &quot;+ requiredStatus+&quot; but we got instead [&quot; + prev.getResponseCode() + &quot;]\n\n&quot; ;
+	    }
+	}
+
+	public void jsonConfig(AbstractCollection collection){
+		 if(collection == null){
+		 	this.failureMessage += &quot; jsonConfig got null collection\n&quot;;
+		 	return;
+		 }
+		if (!collection.keyset().containsAll([&quot;data&quot;,&quot;status&quot;] )) {
+	          this.failureMessage += &quot; the response Json dosnet contain the right structure.\n\n&quot;;
+		}
+	}
+
+	public void ArrayRequiredFields(ArrayList results,List variantNames,String msg){
+	String resultmsg;
+	results.each{resultArray -&gt; 
+			variantNames.each{var -&gt;
+				if(!(resultArray.keySet().contains(var))){
+					this.failureMessage+=&quot; - ${var} - &quot;
+				}
+
+			}
+		}
+		if(failureMessage?.trim()){
+			this.failureMessage = msg + failureMessage;
+		}
+			
+	}
+
+	public void ConfigStatusAndData(groovy.json.internal.LazyMap jsonResponse){
+		     if(jsonResponse == null){
+		 	this.failureMessage += &quot;jsonConfigMap got null map\n&quot;;
+		 	return;
+		 }
+		if (!jsonResponse.keySet().containsAll([&quot;data&quot;,&quot;status&quot;] )) {
+	          this.failureMessage += &quot; the response Json returned without status and data key fields(expecting data and status fields to return from a request.\n\n&quot;;
+	     }
+	}
+
+	public void getStatusHeader(Boolean status){
+		if(status== null){
+		 	this.failureMessage += &quot; statusHeader got null status\n&quot;;
+		 	return;
+		 }
+		if(status.equals(false)){
+			this.failureMessage += &quot; The request returned with a false status \n\n&quot;;
+		}
+	}
+
+	public void dataIsCollection(AbstractCollection map, String fields, String returnedMessage){
+		if(map == null || fields == null || returnedMessage == null){
+		 	this.failureMessage += &quot; data Collection got null values\n&quot;;
+		 	return;
+		 }
+		if(!map.containsAll(fields.split())){
+			 this.failureMessage += returnedMessage;
+		}
+		//org.apache.log4j.Logger.error(map.containsAll(fields.split()))
+	}
+	
+
+	public void dataIsLazyMap(groovy.json.internal.LazyMap map, String fields, String returnedMessage){
+		if(map == null || fields == null || returnedMessage == null){
+		 	this.failureMessage += &quot; dataIsLazyMap got null values\n&quot;;
+		 	return;
+		 }
+		if(!map.keySet().containsAll(fields.split())){
+			 this.failureMessage += returnedMessage;
+		}
+	}
+	public void dataIsLazyMapArray(List Arr, String fields, String returnedMessage){
+		if(Arr == null || fields == null || returnedMessage == null){
+		 	this.failureMessage += &quot; dataIsLazyMapArray got null values\n&quot;;
+		 	return;
+		 }
+		String [] ary = fields.split();
+		
+		for(String field : ary){
+			if(!Arr.every{it.containsKey(field)}){
+				this.failureMessage +=  returnedMessage;
+			}
+		}
+	}
+
+	public void dataIsLazyKeySet(groovy.json.internal.LazyMap map, String fields, String returnedMessage){
+		if(map == null || fields == null || returnedMessage == null){
+		 	this.failureMessage += &quot; dataIsLazyKeySet got null values\n&quot;;
+		 	return;
+		 }
+		String fieldsToCheck = fields.split(&quot;/&quot;);
+		if(!map.containsAll(fieldsToCheck)){
+			 this.failureMessage += returnedMessage;
+		}
+	}
+
+	public void dataIsString(String data, String fields, String msg){
+		if(data == null || fields == null || msg == null){
+		 	this.failureMessage += &quot; dataIsString got null values\n&quot;;
+		 	return;
+		 }
+		String [] ary = fields.split();
+		for(String field : ary){
+			if(!data.contains(field)){
+		 	this.failureMessage += msg +&quot;\n\n&quot;;
+			}
+		}
+		
+//		if(!data.contains(toCheck)){
+//		 	this.failureMessage += &quot;The request returned without a valid fields (String data) \n\n&quot;;
+//		}
+	}
+	
+	public void databaseNotEquals(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(oldValue.equals(newValue)){
+			this.failureMessage += msg;
+		}
+	}
+
+	public void databaseEquals(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!oldValue.equals(newValue)){
+			this.failureMessage += msg;
+		}
+	}
+
+	public String getFailureMassage(){
+		return this.failureMessage;
+	}
+
+	}
+
+	ResponseChecker JsonChecker = new ResponseChecker();
+	vars.putObject(&apos;JsonChecker&apos;,JsonChecker);
+	//props.put(&apos;JsonChecker&apos;,JsonChecker);
+
+</stringProp>
+      </JSR223PreProcessor>
+      <hashTree/>
+      <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="DB checker" enabled="true">
+        <stringProp name="scriptLanguage">groovy</stringProp>
+        <stringProp name="parameters"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="cacheKey">true</stringProp>
+        <stringProp name="script">import groovy.json.JsonSlurper;
+import org.apache.jmeter.assertions.AssertionResult;
+import groovy.util.logging.Log;
+class DBChecker{
+	String failureMessage = &apos;&apos;;
+
+	public void DBContainsRequiredFields(ArrayList results,List variantNames,String msg){
+	String resultmsg;
+	results.each{resultArray -&gt; 
+			variantNames.each{var -&gt;
+				if(!(resultArray.keySet().contains(var))){
+					this.failureMessage+=&quot; - ${var} - &quot;
+				}
+
+			}
+		}
+		if(failureMessage?.trim()){
+			this.failureMessage = msg + failureMessage;
+		}
+			
+	}
+	//*****************************************DB methods**********************************************
+	
+	public void databaseNotEqualsStrings(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(oldValue.equals(newValue)){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public void databaseEqualsStrings(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!(oldValue.equals(newValue))){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public void databaseEquals(long oldValue,long newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!(oldValue==newValue)){
+	//	 groovy.util.logging.Log.info(oldValue);
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public void databaseNotEquals(long oldValue,long newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(oldValue==newValue){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+public void databaseEquals(long oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+ 			return;
+	 }
+		if(!(oldValue==newValue)){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	
+	public void databaseEqualsWithResultArray(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!(oldValue.equals(newValue))){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public String getFailureMassage(){
+		//groovy.util.logging.Log.info(failureMessage);
+		return this.failureMessage;
+	}
+
+	}
+
+	DBChecker Checker = new DBChecker();
+	vars.putObject(&apos;DBChecker&apos;,Checker);
+	props.put(&apos;DBChecker&apos;,Checker);
+
+</stringProp>
+      </JSR223PreProcessor>
+      <hashTree/>
+      <JSR223Listener guiclass="TestBeanGUI" testclass="JSR223Listener" testname="assertion gatherer" enabled="true">
+        <stringProp name="scriptLanguage">groovy</stringProp>
+        <stringProp name="parameters"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="cacheKey">true</stringProp>
+        <stringProp name="script">
+def assertionResults = props.get(&apos;assertionResults&apos;)
+def resultBuilder = new StringBuilder()
+if (assertionResults == null) {
+    props.put(&apos;assertionResults&apos;, &apos;&apos;)
+}
+else {
+    resultBuilder.append(assertionResults)
+}
+
+if (!prev.isSuccessful()) {
+    prev.getAssertionResults().each { assertionResult -&gt;
+        resultBuilder.append(assertionResult.getFailureMessage()).append(System.getProperty(&apos;line.separator&apos;))
+    }
+}
+props.put(&apos;assertionResults&apos;, resultBuilder.toString())
+</stringProp>
+        <boolProp name="com.blazemeter.jmeter.debugger.engine.Debugger">false</boolProp>
+      </JSR223Listener>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="extract memberid from the gift sender" enabled="true">
+          <stringProp name="dataSource">test</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">SELECT
+    [sJOB].[job_id] AS [JobID]
+    , [sJOB].[name] AS [JobName]
+    , [sJSTP].[step_uid] AS [StepID]
+    , [sJSTP].[step_id] AS [StepNo]
+    , [sJSTP].[step_name] AS [StepName]
+    , CASE [sJSTP].[last_run_outcome]
+        WHEN 0 THEN &apos;Failed&apos;
+        WHEN 1 THEN &apos;Succeeded&apos;
+        WHEN 2 THEN &apos;Retry&apos;
+        WHEN 3 THEN &apos;Canceled&apos;
+        WHEN 5 THEN &apos;Unknown&apos;
+      END AS [LastRunStatus]
+    , STUFF(
+            STUFF(RIGHT(&apos;000000&apos; + CAST([sJSTP].[last_run_duration] AS VARCHAR(6)),  6)
+                , 3, 0, &apos;:&apos;)
+            , 6, 0, &apos;:&apos;)
+      AS [LastRunDuration (HH:MM:SS)]
+    , [sJSTP].[last_run_retries] AS [LastRunRetryAttempts]
+    , CASE [sJSTP].[last_run_date]
+        WHEN 0 THEN NULL
+        ELSE 
+            CAST(
+                CAST([sJSTP].[last_run_date] AS CHAR(8))
+                + &apos; &apos; 
+                + STUFF(
+                    STUFF(RIGHT(&apos;000000&apos; + CAST([sJSTP].[last_run_time] AS VARCHAR(6)),  6)
+                        , 3, 0, &apos;:&apos;)
+                    , 6, 0, &apos;:&apos;)
+                AS DATETIME)
+      END AS [LastRunDateTime]
+FROM
+    [msdb].[dbo].[sysjobsteps] AS [sJSTP]
+    INNER JOIN [msdb].[dbo].[sysjobs] AS [sJOB]
+        ON [sJSTP].[job_id] = [sJOB].[job_id]  where last_run_outcome = 0
+ORDER BY [JobName], [StepNo]</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames">var1,var2,var3,var4,var5,var6,var7,var8,var9,var10</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="look here" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">import groovy.json.JsonSlurper;
+import java.text.SimpleDateFormat
+import java.time.*
+import java.time.format.DateTimeFormatter
+ //vars.putObject(&quot;rcount&quot;, rcount);
+//import groovy.json.*
+//import groovy.json.JsonBuilder
+def checker = vars.getObject(&apos;DBChecker&apos;);
+def failureMessage =&quot;&quot;
+def sampleMap= [:];
+long dayInMillis = 86400000;
+String requestedJob; //to edit when requested job name is given
+for(int i = 1; i&lt;6; ++i){
+	String runtime = &apos;var9_&apos;+Integer.toString(i);
+	String Time = &apos;var6_&apos;+Integer.toString(i);
+	String toGet = &apos;var2_&apos;+Integer.toString(i);
+     String myDate = vars.getObject(&quot;${runtime}&quot;);
+     Date date1;
+     if(myDate){
+        	date1=new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;).parse(myDate);  
+	   	long millis = date1.getTime();
+	   	if( dayInMillis &gt; System.currentTimeMillis() - millis){
+	    	sampleMap.put(vars.getObject(&quot;${toGet}&quot;),vars.getObject(&quot;${Time}&quot;));
+		}
+     }
+	//log.info(System.currentTimeMillis() - millis);
+}
+
+if (sampleMap.values().contains(&apos;Failed&apos;)) {
+	failureMessage += &quot;\n the following jobs have failed in the past 24 hours from the failed jobs monitor\n&quot;
+	for(entry in sampleMap){
+		failureMessage += &quot; $entry.key :$entry.value\n&quot;
+	}
+	vars.putObject(&apos;error&apos;,true);
+	AssertionResult.setFailureMessage(failureMessage);
+	AssertionResult.setFailure(true);    
+}
+
+
+</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>false</message>
+            <threadName>true</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </PostThreadGroup>
+      <hashTree>
+        <SmtpSampler guiclass="SmtpSamplerGui" testclass="SmtpSampler" testname="SMTP Sampler" enabled="true">
+          <stringProp name="SMTPSampler.server">smtp.googlemail.com</stringProp>
+          <stringProp name="SMTPSampler.serverPort">587</stringProp>
+          <stringProp name="SMTPSampler.mailFrom">rotchildorils@gmail.com</stringProp>
+          <stringProp name="SMTPSampler.replyTo"></stringProp>
+          <stringProp name="SMTPSampler.receiverTo">orir@dts-4u.com</stringProp>
+          <stringProp name="SMTPSampler.receiverCC"></stringProp>
+          <stringProp name="SMTPSampler.receiverBCC"></stringProp>
+          <stringProp name="SMTPSampler.subject">failed sql executions</stringProp>
+          <stringProp name="SMTPSampler.suppressSubject">false</stringProp>
+          <stringProp name="SMTPSampler.include_timestamp">true</stringProp>
+          <stringProp name="SMTPSampler.message">this are the results for the automated test,
+
+${__P(assertionResults,)}</stringProp>
+          <stringProp name="SMTPSampler.plainBody">false</stringProp>
+          <stringProp name="SMTPSampler.attachFile"></stringProp>
+          <stringProp name="SMTPSampler.useSSL">false</stringProp>
+          <stringProp name="SMTPSampler.useStartTLS">true</stringProp>
+          <stringProp name="SMTPSampler.trustAllCerts">false</stringProp>
+          <stringProp name="SMTPSampler.enforceStartTLS">false</stringProp>
+          <stringProp name="SMTPSampler.useLocalTrustStore">false</stringProp>
+          <stringProp name="SMTPSampler.trustStoreToUse"></stringProp>
+          <stringProp name="SMTPSampler.tlsProtocols"></stringProp>
+          <boolProp name="SMTPSampler.use_eml">false</boolProp>
+          <stringProp name="SMTPSampler.emlMessageToSend"></stringProp>
+          <stringProp name="SMTPSampler.useAuth">true</stringProp>
+          <stringProp name="SMTPSampler.password">978645312Or</stringProp>
+          <stringProp name="SMTPSampler.username">rotchildorils@gmail.com</stringProp>
+          <stringProp name="SMTPSampler.messageSizeStatistics">false</stringProp>
+          <stringProp name="SMTPSampler.enableDebug">false</stringProp>
+          <collectionProp name="SMTPSampler.headerFields"/>
+        </SmtpSampler>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">//vars.put(&apos;body&apos;,props.get(&apos;body&apos;));</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;body&quot;,null);
+
+props.put(&apos;assertionResults&apos;, &apos;&apos;)</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="false">
+          <stringProp name="IfController.condition">${__groovy(&quot;${assertionResults}&quot; !=&quot;&quot;)}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
+        <hashTree>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="email" enabled="true">
+            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\Request TestFragments\SMTP Sampler.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

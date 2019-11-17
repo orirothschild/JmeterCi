@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="false"/>
+    <hashTree>
+      <SmtpSampler guiclass="SmtpSamplerGui" testclass="SmtpSampler" testname="SMTP Sampler" enabled="true">
+        <stringProp name="SMTPSampler.server">smtp.googlemail.com</stringProp>
+        <stringProp name="SMTPSampler.serverPort">587</stringProp>
+        <stringProp name="SMTPSampler.mailFrom">rotchildorils@gmail.com</stringProp>
+        <stringProp name="SMTPSampler.replyTo"></stringProp>
+        <stringProp name="SMTPSampler.receiverTo">orir@dts-4u.com</stringProp>
+        <stringProp name="SMTPSampler.receiverCC"></stringProp>
+        <stringProp name="SMTPSampler.receiverBCC"></stringProp>
+        <stringProp name="SMTPSampler.subject">failed sql executions</stringProp>
+        <stringProp name="SMTPSampler.suppressSubject">false</stringProp>
+        <stringProp name="SMTPSampler.include_timestamp">true</stringProp>
+        <stringProp name="SMTPSampler.message">this are the results for the automated test,
+
+${__P(assertionResults,)}</stringProp>
+        <stringProp name="SMTPSampler.plainBody">false</stringProp>
+        <stringProp name="SMTPSampler.attachFile"></stringProp>
+        <stringProp name="SMTPSampler.useSSL">false</stringProp>
+        <stringProp name="SMTPSampler.useStartTLS">true</stringProp>
+        <stringProp name="SMTPSampler.trustAllCerts">false</stringProp>
+        <stringProp name="SMTPSampler.enforceStartTLS">false</stringProp>
+        <stringProp name="SMTPSampler.useLocalTrustStore">false</stringProp>
+        <stringProp name="SMTPSampler.trustStoreToUse"></stringProp>
+        <stringProp name="SMTPSampler.tlsProtocols"></stringProp>
+        <boolProp name="SMTPSampler.use_eml">false</boolProp>
+        <stringProp name="SMTPSampler.emlMessageToSend"></stringProp>
+        <stringProp name="SMTPSampler.useAuth">true</stringProp>
+        <stringProp name="SMTPSampler.password">978645312Or</stringProp>
+        <stringProp name="SMTPSampler.username">rotchildorils@gmail.com</stringProp>
+        <stringProp name="SMTPSampler.messageSizeStatistics">false</stringProp>
+        <stringProp name="SMTPSampler.enableDebug">false</stringProp>
+        <collectionProp name="SMTPSampler.headerFields"/>
+      </SmtpSampler>
+      <hashTree>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">//vars.put(&apos;body&apos;,props.get(&apos;body&apos;));</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">vars.put(&quot;body&quot;,null);
+
+props.put(&apos;assertionResults&apos;, &apos;&apos;)</stringProp>
+        </JSR223PostProcessor>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

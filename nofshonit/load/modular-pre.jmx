@@ -587,7 +587,7 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
           </hashTree>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="בדידה הרשמה + ולידציה" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="בדידה הרשמה + ולידציה" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -698,11 +698,11 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת הרשמה + רכישה" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="1399395288">
-            <stringProp name="49">1</stringProp>
+          <collectionProp name="372462822">
+            <stringProp name="48625">100</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="49">1</stringProp>
-            <stringProp name="1567">10</stringProp>
+            <stringProp name="48625">100</stringProp>
             <stringProp name="1567">10</stringProp>
           </collectionProp>
         </collectionProp>
@@ -845,11 +845,11 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת רכישה" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="54027108">
+          <collectionProp name="571315677">
+            <stringProp name="50547">300</stringProp>
+            <stringProp name="1629">30</stringProp>
             <stringProp name="1567">10</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="49">1</stringProp>
-            <stringProp name="1691">50</stringProp>
+            <stringProp name="49741">250</stringProp>
             <stringProp name="49">1</stringProp>
           </collectionProp>
         </collectionProp>
@@ -902,11 +902,11 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה של מקבל מתנה חדש(דינמי) " enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-1098882317">
-            <stringProp name="1567">10</stringProp>
-            <stringProp name="48">0</stringProp>
+          <collectionProp name="-2051933824">
             <stringProp name="48625">100</stringProp>
-            <stringProp name="1572771">3600</stringProp>
+            <stringProp name="48625">100</stringProp>
+            <stringProp name="1567">10</stringProp>
+            <stringProp name="48625">100</stringProp>
             <stringProp name="48625">100</stringProp>
           </collectionProp>
         </collectionProp>
@@ -1021,10 +1021,10 @@ vars.put(&apos;toEmail&apos;, toEmail);
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="מתנות שקיבלתי\נתתי" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="1107533380">
-            <stringProp name="1691">50</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="48">0</stringProp>
+          <collectionProp name="1488314577">
+            <stringProp name="48625">100</stringProp>
+            <stringProp name="51508">400</stringProp>
+            <stringProp name="1567">10</stringProp>
             <stringProp name="48625">100</stringProp>
             <stringProp name="49">1</stringProp>
           </collectionProp>
@@ -1097,10 +1097,10 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="חיפוש עם סינונים" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="1344628004">
-            <stringProp name="49">1</stringProp>
-            <stringProp name="49">1</stringProp>
-            <stringProp name="49">1</stringProp>
+          <collectionProp name="-347833259">
+            <stringProp name="48625">100</stringProp>
+            <stringProp name="52469">500</stringProp>
+            <stringProp name="1567">10</stringProp>
             <stringProp name="1567">10</stringProp>
             <stringProp name="49">1</stringProp>
           </collectionProp>
@@ -1125,10 +1125,10 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="מתנה למקבל - של שבטאי" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="808643408">
-            <stringProp name="49">1</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="0"></stringProp>
+          <collectionProp name="836693768">
+            <stringProp name="48625">100</stringProp>
+            <stringProp name="50702">350</stringProp>
+            <stringProp name="1567">10</stringProp>
             <stringProp name="49586">200</stringProp>
             <stringProp name="49">1</stringProp>
           </collectionProp>

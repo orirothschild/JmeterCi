@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="false"/>
+    <hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>false</message>
+            <threadName>true</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="extract memberid from the gift sender" enabled="true">
+        <stringProp name="dataSource">test</stringProp>
+        <stringProp name="queryType">Select Statement</stringProp>
+        <stringProp name="query">SELECT
+    [sJOB].[job_id] AS [JobID]
+    , [sJOB].[name] AS [JobName]
+    , [sJSTP].[step_uid] AS [StepID]
+    , [sJSTP].[step_id] AS [StepNo]
+    , [sJSTP].[step_name] AS [StepName]
+    , CASE [sJSTP].[last_run_outcome]
+        WHEN 0 THEN &apos;Failed&apos;
+        WHEN 1 THEN &apos;Succeeded&apos;
+        WHEN 2 THEN &apos;Retry&apos;
+        WHEN 3 THEN &apos;Canceled&apos;
+        WHEN 5 THEN &apos;Unknown&apos;
+      END AS [LastRunStatus]
+    , STUFF(
+            STUFF(RIGHT(&apos;000000&apos; + CAST([sJSTP].[last_run_duration] AS VARCHAR(6)),  6)
+                , 3, 0, &apos;:&apos;)
+            , 6, 0, &apos;:&apos;)
+      AS [LastRunDuration (HH:MM:SS)]
+    , [sJSTP].[last_run_retries] AS [LastRunRetryAttempts]
+    , CASE [sJSTP].[last_run_date]
+        WHEN 0 THEN NULL
+        ELSE 
+            CAST(
+                CAST([sJSTP].[last_run_date] AS CHAR(8))
+                + &apos; &apos; 
+                + STUFF(
+                    STUFF(RIGHT(&apos;000000&apos; + CAST([sJSTP].[last_run_time] AS VARCHAR(6)),  6)
+                        , 3, 0, &apos;:&apos;)
+                    , 6, 0, &apos;:&apos;)
+                AS DATETIME)
+      END AS [LastRunDateTime]
+FROM
+    [msdb].[dbo].[sysjobsteps] AS [sJSTP]
+    INNER JOIN [msdb].[dbo].[sysjobs] AS [sJOB]
+        ON [sJSTP].[job_id] = [sJOB].[job_id]  where last_run_outcome = 0
+ORDER BY [JobName], [StepNo]</stringProp>
+        <stringProp name="queryArguments"></stringProp>
+        <stringProp name="queryArgumentsTypes"></stringProp>
+        <stringProp name="variableNames">var1,var2,var3,var4,var5,var6,var7,var8,var9,var10</stringProp>
+        <stringProp name="resultVariable"></stringProp>
+        <stringProp name="queryTimeout"></stringProp>
+        <stringProp name="resultSetHandler">Store as String</stringProp>
+      </JDBCSampler>
+      <hashTree>
+        <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="look here" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import groovy.json.JsonSlurper;
+//import groovy.json.*
+//import groovy.json.JsonBuilder
+def checker = vars.getObject(&apos;DBChecker&apos;);
+def failureMessage =&quot;&quot;
+def sampleMap= [:];
+for(int i = 1; i&lt;6; ++i){
+	String Time = &apos;var6_&apos;+Integer.toString(i);
+	String toGet = &apos;var2_&apos;+Integer.toString(i);
+	sampleMap.put(vars.getObject(&quot;${toGet}&quot;),vars.getObject(&quot;${Time}&quot;));
+}
+
+if (sampleMap.values().contains(&apos;Failed&apos;)) {
+	failureMessage += &quot;\n the following errors have been issues from the failed jobs monitor\n&quot;
+	for(entry in sampleMap){
+		failureMessage += &quot; $entry.key :$entry.value\n&quot;
+	}
+	vars.putObject(&apos;error&apos;,true);
+	AssertionResult.setFailureMessage(failureMessage);
+	AssertionResult.setFailure(true);    
+}
+
+
+</stringProp>
+        </JSR223Assertion>
+        <hashTree/>
+      </hashTree>
+      <JSR223Assertion reference="../hashTree[2]/JSR223Assertion"/>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

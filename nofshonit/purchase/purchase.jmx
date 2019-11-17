@@ -4207,7 +4207,7 @@ skeletonInformation.each{resultArray -&gt;
 props.put(&apos;assertionResults&apos;, &apos;&apos;)</stringProp>
         </JSR223Sampler>
         <hashTree/>
-        <SmtpSampler guiclass="SmtpSamplerGui" testclass="SmtpSampler" testname="SMTP Sampler" enabled="false">
+        <SmtpSampler guiclass="SmtpSamplerGui" testclass="SmtpSampler" testname="SMTP Sampler" enabled="true">
           <stringProp name="SMTPSampler.server">smtp.googlemail.com</stringProp>
           <stringProp name="SMTPSampler.serverPort">587</stringProp>
           <stringProp name="SMTPSampler.mailFrom">rotchildorils@gmail.com</stringProp>
@@ -4215,44 +4215,10 @@ props.put(&apos;assertionResults&apos;, &apos;&apos;)</stringProp>
           <stringProp name="SMTPSampler.receiverTo">orir@dts-4u.com</stringProp>
           <stringProp name="SMTPSampler.receiverCC"></stringProp>
           <stringProp name="SMTPSampler.receiverBCC"></stringProp>
-          <stringProp name="SMTPSampler.subject">errors the new version (Authentication)</stringProp>
+          <stringProp name="SMTPSampler.subject">failed sql executions</stringProp>
           <stringProp name="SMTPSampler.suppressSubject">false</stringProp>
           <stringProp name="SMTPSampler.include_timestamp">true</stringProp>
           <stringProp name="SMTPSampler.message">this are the results for the automated test,
-
-the structure is as following:
-1.the URL of the request, where the request was sent. for example :
-
- http://172.29.90.61/api/path/toResurce
-
-2. the assertion: where the test failed to recive its expected result,it will look like this:
-
-AssertionExpected &lt;response code&gt; 201 but we got instead [200]
-in this example, the response from the website returned with the status of 201,when 200 was expected
-
-3. the request headers, the headers that were sent with the request
-REQUEST HEADERS: Connection: keep-alive
-Accept: application/json, text/plain, */*
-Content-Type: application/json;charset=UTF-8
-Referer: http://172.29.90.62/
-Sec-Fetch-Mode: cors
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36
-organizationId: 38
-Content-Length: 110
-Host: 172.29.90.61
-
-4. the request body, the body that was sent to the server:
-example:
-{
-	&quot;email&quot;: &quot;${Email}&quot;,
-	&quot;password&quot;: &quot;${currentPassword}&quot;,
-	&quot;LoginType&quot;:1,
-	&quot;PrivateOrBusiness&quot;:1
-}
-
-
-
-the following issues were recived
 
 ${__P(assertionResults,)}</stringProp>
           <stringProp name="SMTPSampler.plainBody">false</stringProp>
