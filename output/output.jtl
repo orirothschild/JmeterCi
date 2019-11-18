@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testResults version="1.2">
-<sample t="3108" it="0" lt="0" ct="0" ts="1573997408149" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="17784" sby="4544" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<sample t="3508" it="0" lt="0" ct="0" ts="1574037008229" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="4587" it="0" lt="0" ct="0" ts="1574040608302" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="3552" it="0" lt="0" ct="0" ts="1574044208286" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="3670" it="0" lt="0" ct="0" ts="1574047808331" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="3430" it="0" lt="0" ct="0" ts="1574051408258" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="3590" it="0" lt="0" ct="0" ts="1574055008286" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="3578" it="0" lt="0" ct="0" ts="1574058608214" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="17784" sby="4544" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="2380" it="0" lt="0" ct="0" ts="1574062208476" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="17784" sby="4544" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="3588" it="0" lt="0" ct="0" ts="1574065814156" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
 
 </testResults>
