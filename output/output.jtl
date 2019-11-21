@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testResults version="1.2">
-<sample t="3508" it="0" lt="0" ct="0" ts="1574037008229" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-
-<sample t="4587" it="0" lt="0" ct="0" ts="1574040608302" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-
-<sample t="3552" it="0" lt="0" ct="0" ts="1574044208286" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-
-<sample t="3670" it="0" lt="0" ct="0" ts="1574047808331" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-
-<sample t="3430" it="0" lt="0" ct="0" ts="1574051408258" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-
-<sample t="3590" it="0" lt="0" ct="0" ts="1574055008286" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-
-<sample t="3578" it="0" lt="0" ct="0" ts="1574058608214" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="17784" sby="4544" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-
-<sample t="2380" it="0" lt="0" ct="0" ts="1574062208476" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="17784" sby="4544" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-
-<sample t="3588" it="0" lt="0" ct="0" ts="1574065814156" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
-
-<sample t="4490" it="0" lt="0" ct="0" ts="1574069407172" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="17784" sby="4544" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<sample t="1999" it="0" lt="0" ct="0" ts="1574328610994" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="22698" sby="6483" sc="1" ec="0" ng="1" na="1" hn="spare"/>
 
 </testResults>
+.lang.NullPointerException: jsonData returned with null value;422;1080;20;20;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;1347;0;10
+1574328601066;5152;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-5;;true;;1138;1081;20;20;null;0;9209;0
+1574328610269;5152;purchase request for friend;200;OK;שרת רכישה 1-5;text;true;;1138;1081;20;20;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;5106;0;14
+1574328601277;15276;רק רכישה;Non HTTP response code: java.net.SocketException;;שרת רכישה 1-6;;false;;2859;0;20;20;null;0;0;0
+1574328615452;1100;purchase request for friend;Non HTTP response code: java.net.SocketException;Non HTTP response message: Socket closed;שרת רכישה 1-6;text;false;javax.script.ScriptException: java.lang.NullPointerException: Cannot invoke method get() on null object;2859;0;20;20;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;0;0;11

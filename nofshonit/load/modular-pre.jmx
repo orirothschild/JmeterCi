@@ -845,11 +845,11 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת רכישה" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-1716616239">
-            <stringProp name="49586">200</stringProp>
-            <stringProp name="1629">30</stringProp>
-            <stringProp name="1567">10</stringProp>
-            <stringProp name="49741">250</stringProp>
+          <collectionProp name="1061481890">
+            <stringProp name="1598">20</stringProp>
+            <stringProp name="48">0</stringProp>
+            <stringProp name="48">0</stringProp>
+            <stringProp name="1572771">3600</stringProp>
             <stringProp name="49">1</stringProp>
           </collectionProp>
         </collectionProp>

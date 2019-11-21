@@ -209,12 +209,16 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
           <boolProp name="com.blazemeter.jmeter.debugger.engine.Debugger">false</boolProp>
         </JSR223Listener>
         <hashTree/>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="false">
+          <stringProp name="WhileController.condition"></stringProp>
+        </WhileController>
+        <hashTree/>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="הכנה לרכישה" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
-          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="אם זה פועל רוכש למשתמשים רנדומאלים" enabled="false">
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="אם זה פועל רוכש למשתמשים שונים" enabled="false">
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
@@ -260,7 +264,8 @@ vars.put(&apos;toEmail&apos;, newEmail);
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="get catagory from variant" enabled="true">
             <stringProp name="dataSource">test</stringProp>
             <stringProp name="query">SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()
---SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 45680--
+--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where DisplayName like &apos;%&quot;%&apos; ORDER BY NEWID()
+--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 56469
 </stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
@@ -357,14 +362,20 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
 	}
 	else{
 		int price = catagoryLevel.get(&apos;price&apos;);
+		String variantName = catagoryLevel.get(&apos;name&apos;);
 		price = catagoryLevel.get(&apos;name&apos;) == &quot;המלצת השף - כרטיס&quot; || catagoryLevel.get(&apos;name&apos;) == &quot;נופשונית קארד דיגיטלי - ללא טעינה אישית&quot;? 300:price;
+		//if (variantName.indexOf(&apos;\&apos;&apos;) &gt;= 0 &amp;&amp; variantName.indexOf(&apos;&quot;&apos;) &gt;= 0) {
+			variantName=variantName.replaceAll(&quot;^\&quot;|\&quot;&quot;, &quot;&quot;);
+//}
+	//	 String words = catagoryLevel.get(&apos;name&apos;).replace(&quot;&apos;&quot;, &quot;&quot;);
+	//	log.info(words);
 		long quantity = Math.abs(new Random().nextInt() % [1]) + 1;
 		long cardNumber = ${__P(cardNumber,4580458045804580)};
 		long cardCvv = ${__P(cardCvv,123)};
 		long cardId = ${__P(cardId,311321590)};
 		String creditCardExpirey = ${__P(creditCardExpirey,&quot;0421&quot;)};
 		vars.put(&quot;barCode&quot;, catagoryLevel.get(&apos;barCode&apos;));
-		vars.put(&quot;variantName&quot;,catagoryLevel.get(&apos;name&apos;));
+		vars.put(&quot;variantName&quot;,variantName);
 		vars.putObject(&quot;cardNumber&quot;,cardNumber);
 		vars.putObject(&quot;cardCvv&quot;,cardCvv);
 		vars.putObject(&quot;cardId&quot;,cardId);

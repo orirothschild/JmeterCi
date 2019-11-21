@@ -316,4 +316,238 @@ Possible solutions: getStatusHeader(java.lang.Boolean)</failureMessage>
 <sample t="0" it="0" lt="0" ct="0" ts="1573639139079" s="true" lb="Debug Sampler" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="22216" sby="0" ng="1" na="1"/>
 <sample t="2" it="0" lt="0" ct="0" ts="1573639139091" s="true" lb="JSR223 Sampler" rc="200" rm="OK" tn="tearDown Thread Group 1-1" dt="text" by="563" sby="0" ng="1" na="1"/>
 
+<sample t="41" it="0" lt="0" ct="0" ts="1574326585328" s="true" lb="replace old ToEmail in csv files" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="0" sby="0" ng="1" na="1"/>
+<sample t="7093" it="0" lt="7092" ct="451" ts="1574326585405" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<sample t="7" it="0" lt="4" ct="0" ts="1574326592509" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="21" sby="0" ng="1" na="1"/>
+<httpSample t="3084" it="0" lt="3083" ct="13" ts="1574326592555" s="false" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="435" sby="415" ng="1" na="1">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>true</error>
+    <failureMessage>javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value</failureMessage>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=56278</java.net.URL>
+</httpSample>
+<httpSample t="180" it="0" lt="180" ct="4" ts="1574326595706" s="false" lb="purchase request for friend" rc="400" rm="Bad Request" tn="purchase to friend 1-1" dt="text" by="693" sby="1057" ng="1" na="1">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>true</error>
+    <failureMessage>javax.script.ScriptException: groovy.lang.MissingMethodException: No signature of method: ResponseChecker.getStatusHeader() is applicable for argument types: (java.lang.Integer) values: [400]
+Possible solutions: getStatusHeader(java.lang.Boolean)</failureMessage>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/order/purchase</java.net.URL>
+</httpSample>
+<sample t="51" it="0" lt="51" ct="0" ts="1574326595931" s="true" lb="extract memberid from the gift sender" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="9" sby="0" ng="1" na="1"/>
+<sample t="52" it="0" lt="52" ct="0" ts="1574326595984" s="true" lb="extract memberid from the user the gift reciver" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="9" sby="0" ng="1" na="1"/>
+<sample t="150" it="0" lt="150" ct="0" ts="1574326596072" s="false" lb="test number 1, check that in Payments Table that the sender is charged as required,with the extracted orderConfirmation" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="224" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check in database that the sender is charged with the amount of admition cost</name>
+    <failure>false</failure>
+    <error>true</error>
+    <failureMessage>javax.script.ScriptException: java.lang.NullPointerException: Cannot invoke method trim() on null object</failureMessage>
+  </assertionResult>
+</sample>
+<sample t="64" it="0" lt="64" ct="0" ts="1574326596248" s="false" lb="test number 2 , check that in OrderTransfer Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="59" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check that in OrderTransfer Table that the required fields are updated</name>
+    <failure>false</failure>
+    <error>true</error>
+    <failureMessage>javax.script.ScriptException: java.lang.NullPointerException: Cannot invoke method get() on null object</failureMessage>
+  </assertionResult>
+</sample>
+<sample t="5" it="0" lt="5" ct="0" ts="1574326596332" s="false" lb="test number 3, check that in Orders Table that the required fields are updated" rc="S0001 245" rm="com.microsoft.sqlserver.jdbc.SQLServerException: Conversion failed when converting the varchar value &apos;${OrderId}&apos; to data type int." tn="purchase to friend 1-1" dt="text" by="82" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Orders table Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="5" it="0" lt="5" ct="0" ts="1574326596351" s="true" lb="test number 4, check that in ATRACTIONSOrders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="360" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for AtractionOrders Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="63" it="0" lt="63" ct="0" ts="1574326596370" s="true" lb="test number 5, check that inWebServiceTransaction Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="414" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Webservice Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="7" it="0" lt="7" ct="0" ts="1574326596456" s="true" lb="test number 6, check that in Cards Table the reqested fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="184" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="130" it="0" lt="130" ct="0" ts="1574326596484" s="true" lb="test number 7, check that in CardSkeleton Table the reqested  fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="94" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="10932" it="765" lt="10886" ct="468" ts="1574326584930" s="false" lb="Transaction Controller" rc="" rm="Number of samples in transaction : 17, number of failing samples : 5" tn="purchase to friend 1-1" dt="" by="2594" sby="1472" ng="1" na="1"/>
+<sample t="2" it="0" lt="0" ct="0" ts="1574326596628" s="true" lb="Debug Sampler" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="19757" sby="0" ng="1" na="1"/>
+<sample t="6" it="0" lt="0" ct="0" ts="1574326596659" s="true" lb="JSR223 Sampler" rc="200" rm="OK" tn="tearDown Thread Group 1-1" dt="text" by="562" sby="0" ng="1" na="1"/>
+<sample t="6950" it="0" lt="0" ct="0" ts="1574326596813" s="true" lb="SMTP Sampler" rc="200" rm="Message successfully sent!&#xa;" tn="tearDown Thread Group 1-1" dt="text" by="209" sby="0" ng="1" na="1"/>
+
+<sample t="366" it="0" lt="366" ct="92" ts="1574326610314" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<sample t="3" it="0" lt="3" ct="1" ts="1574326610696" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="21" sby="0" ng="1" na="1"/>
+<httpSample t="161" it="0" lt="161" ct="4" ts="1574326610705" s="false" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="435" sby="415" ng="1" na="1">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>true</error>
+    <failureMessage>javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value</failureMessage>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43216</java.net.URL>
+</httpSample>
+<httpSample t="9" it="0" lt="9" ct="0" ts="1574326610885" s="false" lb="purchase request for friend" rc="400" rm="Bad Request" tn="purchase to friend 1-1" dt="text" by="693" sby="1057" ng="1" na="1">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>true</error>
+    <failureMessage>javax.script.ScriptException: groovy.lang.MissingMethodException: No signature of method: ResponseChecker.getStatusHeader() is applicable for argument types: (java.lang.Integer) values: [400]
+Possible solutions: getStatusHeader(java.lang.Boolean)</failureMessage>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/order/purchase</java.net.URL>
+</httpSample>
+<sample t="41" it="0" lt="41" ct="0" ts="1574326610917" s="true" lb="extract memberid from the gift sender" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="9" sby="0" ng="1" na="1"/>
+<sample t="43" it="0" lt="43" ct="0" ts="1574326610960" s="true" lb="extract memberid from the user the gift reciver" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="9" sby="0" ng="1" na="1"/>
+<sample t="8" it="0" lt="7" ct="0" ts="1574326611312" s="false" lb="test number 1, check that in Payments Table that the sender is charged as required,with the extracted orderConfirmation" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="224" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check in database that the sender is charged with the amount of admition cost</name>
+    <failure>false</failure>
+    <error>true</error>
+    <failureMessage>javax.script.ScriptException: java.lang.NullPointerException: Cannot invoke method trim() on null object</failureMessage>
+  </assertionResult>
+</sample>
+<sample t="5" it="0" lt="5" ct="0" ts="1574326611337" s="false" lb="test number 2 , check that in OrderTransfer Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="59" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check that in OrderTransfer Table that the required fields are updated</name>
+    <failure>false</failure>
+    <error>true</error>
+    <failureMessage>javax.script.ScriptException: java.lang.NullPointerException: Cannot invoke method get() on null object</failureMessage>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="3" ct="0" ts="1574326611353" s="false" lb="test number 3, check that in Orders Table that the required fields are updated" rc="S0001 245" rm="com.microsoft.sqlserver.jdbc.SQLServerException: Conversion failed when converting the varchar value &apos;${OrderId}&apos; to data type int." tn="purchase to friend 1-1" dt="text" by="82" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Orders table Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="4" it="0" lt="4" ct="0" ts="1574326611367" s="true" lb="test number 4, check that in ATRACTIONSOrders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="360" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for AtractionOrders Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="0" ts="1574326611383" s="true" lb="test number 5, check that inWebServiceTransaction Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="414" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Webservice Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="0" ts="1574326611398" s="true" lb="test number 6, check that in Cards Table the reqested fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="184" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="63" it="0" lt="63" ct="0" ts="1574326611413" s="true" lb="test number 7, check that in CardSkeleton Table the reqested  fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="94" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="713" it="550" lt="711" ct="97" ts="1574326610227" s="false" lb="Transaction Controller" rc="" rm="Number of samples in transaction : 16, number of failing samples : 5" tn="purchase to friend 1-1" dt="" by="2594" sby="1472" ng="1" na="1"/>
+<sample t="1" it="0" lt="0" ct="0" ts="1574326611490" s="true" lb="Debug Sampler" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="19752" sby="0" ng="1" na="1"/>
+
+<sample t="316" it="0" lt="316" ct="84" ts="1574326624738" s="true" lb="extracToken" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="10" sby="0" ng="1" na="1"/>
+<sample t="3" it="0" lt="3" ct="0" ts="1574326625067" s="true" lb="get catagory from variant" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="21" sby="0" ng="1" na="1"/>
+<httpSample t="133" it="0" lt="133" ct="4" ts="1574326625075" s="false" lb="getCatagories" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="435" sby="415" ng="1" na="1">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>true</error>
+    <failureMessage>javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value</failureMessage>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/category/GetCategoryPage?categoryId=43216</java.net.URL>
+</httpSample>
+<httpSample t="6" it="0" lt="6" ct="0" ts="1574326625247" s="false" lb="purchase request for friend" rc="400" rm="Bad Request" tn="purchase to friend 1-1" dt="text" by="693" sby="1057" ng="1" na="1">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>true</error>
+    <failureMessage>javax.script.ScriptException: groovy.lang.MissingMethodException: No signature of method: ResponseChecker.getStatusHeader() is applicable for argument types: (java.lang.Integer) values: [400]
+Possible solutions: getStatusHeader(java.lang.Boolean)</failureMessage>
+  </assertionResult>
+  <java.net.URL>http://172.29.90.61/api/order/purchase</java.net.URL>
+</httpSample>
+<sample t="44" it="0" lt="44" ct="0" ts="1574326625271" s="true" lb="extract memberid from the gift sender" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="9" sby="0" ng="1" na="1"/>
+<sample t="42" it="0" lt="42" ct="0" ts="1574326625316" s="true" lb="extract memberid from the user the gift reciver" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="9" sby="0" ng="1" na="1"/>
+<sample t="7" it="0" lt="7" ct="0" ts="1574326625363" s="false" lb="test number 1, check that in Payments Table that the sender is charged as required,with the extracted orderConfirmation" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="224" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check in database that the sender is charged with the amount of admition cost</name>
+    <failure>false</failure>
+    <error>true</error>
+    <failureMessage>javax.script.ScriptException: java.lang.NullPointerException: Cannot invoke method trim() on null object</failureMessage>
+  </assertionResult>
+</sample>
+<sample t="317" it="0" lt="317" ct="0" ts="1574326625388" s="false" lb="test number 2 , check that in OrderTransfer Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="59" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check that in OrderTransfer Table that the required fields are updated</name>
+    <failure>false</failure>
+    <error>true</error>
+    <failureMessage>javax.script.ScriptException: java.lang.NullPointerException: Cannot invoke method get() on null object</failureMessage>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="0" ts="1574326625734" s="false" lb="test number 3, check that in Orders Table that the required fields are updated" rc="S0001 245" rm="com.microsoft.sqlserver.jdbc.SQLServerException: Conversion failed when converting the varchar value &apos;${OrderId}&apos; to data type int." tn="purchase to friend 1-1" dt="text" by="82" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Orders table Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="2" it="0" lt="2" ct="0" ts="1574326625752" s="true" lb="test number 4, check that in ATRACTIONSOrders Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="360" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for AtractionOrders Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="0" ts="1574326625767" s="true" lb="test number 5, check that inWebServiceTransaction Table that the required fields are updated" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="414" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Webservice Requirements</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="3" it="0" lt="3" ct="1" ts="1574326625786" s="true" lb="test number 6, check that in Cards Table the reqested fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="184" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="70" it="0" lt="70" ct="0" ts="1574326625804" s="true" lb="test number 7, check that in CardSkeleton Table the reqested  fective credit card exists" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="94" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>check database for Cards table</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</sample>
+<sample t="949" it="279" lt="949" ct="89" ts="1574326624660" s="false" lb="Transaction Controller" rc="" rm="Number of samples in transaction : 16, number of failing samples : 5" tn="purchase to friend 1-1" dt="" by="2594" sby="1472" ng="1" na="1"/>
+<sample t="0" it="0" lt="0" ct="0" ts="1574326625889" s="true" lb="Debug Sampler" rc="200" rm="OK" tn="purchase to friend 1-1" dt="text" by="20317" sby="0" ng="1" na="1"/>
+
 </testResults>
