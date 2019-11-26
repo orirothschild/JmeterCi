@@ -263,9 +263,12 @@ vars.put(&apos;toEmail&apos;, newEmail);
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="get catagory from variant" enabled="true">
             <stringProp name="dataSource">test</stringProp>
-            <stringProp name="query">SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()
---SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where DisplayName like &apos;%&quot;%&apos; ORDER BY NEWID()
---SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 56469
+            <stringProp name="query">--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()--
+ SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber in (56217,56480,56479,56466,45689) ORDER BY NEWID()
+
+ --SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()--
+--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where DisplayName like &apos;%&quot;%&apos; ORDER BY NEWID()--
+--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber = 45689
 </stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
@@ -277,7 +280,7 @@ vars.put(&apos;toEmail&apos;, newEmail);
             <boolProp name="com.blazemeter.jmeter.debugger.engine.Debugger">true</boolProp>
           </JDBCSampler>
           <hashTree>
-            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor 11" enabled="true">
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="variant postprocessor" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>

@@ -1,575 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testResults version="1.2">
-<sample t="4183" it="0" lt="0" ct="0" ts="1574602208463" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<sample t="2052" it="0" lt="0" ct="0" ts="1574767867118" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="38184" sby="6991" sc="1" ec="0" ng="1" na="1" hn="spare"/>
 
 </testResults>
-1574602558990;10728;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-19;;true;;6949;431;100;100;null;0;2499;0
-1574602561414;107;extracToken;200;OK;שרת רכישה 1-19;text;true;;695;0;100;100;null;107;0;103
-1574602561543;3;get catagory from variant;200;OK;שרת רכישה 1-19;text;true;;21;0;100;100;null;3;0;0
-1574602561560;10618;getCatagories;200;OK;שרת רכישה 1-19;text;true;;6233;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56473;10618;0;26
-1574602559032;18528;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-22;;true;;5417;431;100;100;null;0;2760;0
-1574602561755;86;extracToken;200;OK;שרת רכישה 1-22;text;true;;695;0;100;100;null;86;0;83
-1574602561861;3;get catagory from variant;200;OK;שרת רכישה 1-22;text;true;;21;0;100;100;null;3;0;0
-1574602561879;18439;getCatagories;200;OK;שרת רכישה 1-22;text;true;;4701;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56584;18439;0;25
-1574602558768;22975;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-3;;true;;5418;431;100;100;null;0;448;0
-1574602559160;121;extracToken;200;OK;שרת רכישה 1-3;text;true;;695;0;41;41;null;121;0;117
-1574602559311;5;get catagory from variant;200;OK;שרת רכישה 1-3;text;true;;21;0;43;43;null;5;0;0
-1574602559340;22849;getCatagories;200;OK;שרת רכישה 1-3;text;true;;4702;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56584;22849;0;32
-1574602558914;22263;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-14;;true;;7636;431;100;100;null;0;1967;0
-1574602560828;95;extracToken;200;OK;שרת רכישה 1-14;text;true;;695;0;100;100;null;95;0;92
-1574602560958;5;get catagory from variant;200;OK;שרת רכישה 1-14;text;true;;21;0;100;100;null;5;0;0
-1574602560978;22163;getCatagories;200;OK;שרת רכישה 1-14;text;true;;6920;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56460;22163;0;26
-1574602558754;29635;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-2;;true;;3585;431;100;100;null;0;312;0
-1574602559008;121;extracToken;200;OK;שרת רכישה 1-2;text;true;;695;0;29;29;null;121;0;118
-1574602559160;3;get catagory from variant;200;OK;שרת רכישה 1-2;text;true;;21;0;32;32;null;3;0;0
-1574602559187;29511;getCatagories;200;OK;שרת רכישה 1-2;text;true;;2869;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56606;29511;0;36
-1574602559120;28760;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-29;;true;;4888;431;100;100;null;0;3530;0
-1574602562611;88;extracToken;200;OK;שרת רכישה 1-29;text;true;;695;0;100;100;null;88;0;84
-1574602562718;11;get catagory from variant;200;OK;שרת רכישה 1-29;text;true;;21;0;100;100;null;11;0;0
-1574602559292;27184;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-42;;true;;3272;431;100;100;null;0;4934;0
-1574602562743;28661;getCatagories;200;OK;שרת רכישה 1-29;text;true;;4172;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56603;28661;0;26
-1574602564187;89;extracToken;200;OK;שרת רכישה 1-42;text;true;;695;0;100;100;null;89;0;85
-1574602564296;2;get catagory from variant;200;OK;שרת רכישה 1-42;text;true;;21;0;100;100;null;2;0;0
-1574602564312;27093;getCatagories;200;OK;שרת רכישה 1-42;text;true;;2556;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56493;27093;0;29
-1574602558803;38323;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-6;;true;;14354;431;100;100;null;0;1016;0
-1574602559750;119;extracToken;200;OK;שרת רכישה 1-6;text;true;;695;0;89;89;null;119;0;100
-1574602559897;12;get catagory from variant;200;OK;שרת רכישה 1-6;text;true;;21;0;93;93;null;12;0;0
-1574602559944;38192;getCatagories;200;OK;שרת רכישה 1-6;text;true;;13638;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56332;38192;0;35
-1574602558780;39528;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-4;;true;;14354;431;100;100;null;0;593;0
-1574602559311;121;extracToken;200;OK;שרת רכישה 1-4;text;true;;695;0;53;53;null;121;0;117
-1574602559463;3;get catagory from variant;200;OK;שרת רכישה 1-4;text;true;;21;0;55;55;null;3;0;1
-1574602559494;39404;getCatagories;200;OK;שרת רכישה 1-4;text;true;;13638;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56332;39404;0;33
-1574602558974;37853;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-18;;true;;6036;431;100;100;null;0;2361;0
-1574602561295;97;extracToken;200;OK;שרת רכישה 1-18;text;true;;695;0;100;100;null;97;0;91
-1574602561414;4;get catagory from variant;200;OK;שרת רכישה 1-18;text;true;;21;0;100;100;null;4;0;0
-1574602561434;37752;getCatagories;200;OK;שרת רכישה 1-18;text;true;;5320;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56458;37752;0;27
-1574602559004;37919;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-20;;true;;6949;431;100;100;null;0;2573;0
-1574602561543;87;extracToken;200;OK;שרת רכישה 1-20;text;true;;695;0;100;100;null;87;0;83
-1574602561648;4;get catagory from variant;200;OK;שרת רכישה 1-20;text;true;;21;0;100;100;null;4;0;0
-1574602561666;37828;getCatagories;200;OK;שרת רכישה 1-20;text;true;;6233;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56473;37828;0;33
-1574602558744;41049;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-1;;true;;6184;431;100;100;null;0;144;0
-1574602558817;150;extracToken;200;OK;שרת רכישה 1-1;text;true;;695;0;17;17;null;150;0;146
-1574602559008;6;get catagory from variant;200;OK;שרת רכישה 1-1;text;true;;21;0;20;20;null;6;0;0
-1574602559042;40893;getCatagories;200;OK;שרת רכישה 1-1;text;true;;5468;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56224;40893;0;57
-1574602558860;42114;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-10;;true;;14354;431;100;100;null;0;1486;0
-1574602560307;122;extracToken;200;OK;שרת רכישה 1-10;text;true;;695;0;100;100;null;122;0;119
-1574602560451;5;get catagory from variant;200;OK;שרת רכישה 1-10;text;true;;21;0;100;100;null;5;0;0
-1574602560471;41987;getCatagories;200;OK;שרת רכישה 1-10;text;true;;13638;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56332;41987;0;30
-1574602559020;41442;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-21;;true;;5021;431;100;100;null;0;2667;0
-1574602561649;85;extracToken;200;OK;שרת רכישה 1-21;text;true;;695;0;100;100;null;85;0;81
-1574602561755;5;get catagory from variant;200;OK;שרת רכישה 1-21;text;true;;21;0;100;100;null;4;0;0
-1574602561773;41352;getCatagories;200;OK;שרת רכישה 1-21;text;true;;4305;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56587;41352;0;27
-1574602559432;44979;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-53;;true;;5259;431;100;100;null;0;91;0
-1574602559465;132;extracToken;200;OK;שרת רכישה 1-53;text;true;;695;0;65;65;null;132;0;128
-1574602559625;3;get catagory from variant;200;OK;שרת רכישה 1-53;text;true;;21;0;68;68;null;3;0;0
-1574602559655;44844;getCatagories;200;OK;שרת רכישה 1-53;text;true;;4543;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56593;44844;0;36
-1574602558871;45536;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-11;;true;;13173;431;100;100;null;0;1620;0
-1574602560451;107;extracToken;200;OK;שרת רכישה 1-11;text;true;;695;0;100;100;null;107;0;104
-1574602560579;5;get catagory from variant;200;OK;שרת רכישה 1-11;text;true;;21;0;100;100;null;5;0;0
-1574602560600;45424;getCatagories;200;OK;שרת רכישה 1-11;text;true;;12457;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56451;45424;0;29
-1574602558833;46788;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-8;;true;;6214;431;100;100;null;0;1256;0
-1574602560037;96;extracToken;200;OK;שרת רכישה 1-8;text;true;;695;0;100;100;null;96;0;93
-1574602560162;3;get catagory from variant;200;OK;שרת רכישה 1-8;text;true;;21;0;100;100;null;3;0;0
-1574602560183;46689;getCatagories;200;OK;שרת רכישה 1-8;text;true;;5498;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56222;46689;0;28
-1574602558819;50234;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-7;;true;;6949;431;100;100;null;0;1119;0
-1574602559898;117;extracToken;200;OK;שרת רכישה 1-7;text;true;;695;0;100;100;null;117;0;113
-1574602560037;3;get catagory from variant;200;OK;שרת רכישה 1-7;text;true;;21;0;100;100;null;3;0;0
-1574602560056;50114;getCatagories;200;OK;שרת רכישה 1-7;text;true;;6233;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56473;50114;0;27
-1574602558848;49981;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-9;;true;;6948;431;100;100;null;0;1350;0
-1574602560162;119;extracToken;200;OK;שרת רכישה 1-9;text;true;;695;0;100;100;null;119;0;116
-1574602560302;3;get catagory from variant;200;OK;שרת רכישה 1-9;text;true;;21;0;100;100;null;3;0;0
-1574602560319;49859;getCatagories;200;OK;שרת רכישה 1-9;text;true;;6232;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56473;49859;0;29
-1574602558959;49205;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-17;;true;;17400;431;100;100;null;0;2265;0
-1574602561188;88;extracToken;200;OK;שרת רכישה 1-17;text;true;;695;0;100;100;null;87;0;84
-1574602561295;7;get catagory from variant;200;OK;שרת רכישה 1-17;text;true;;21;0;100;100;null;7;0;0
-1574602561317;49110;getCatagories;200;OK;שרת רכישה 1-17;text;true;;16684;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56479;49110;0;27
-1574602558948;50655;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-16;;true;;9929;431;100;100;null;0;2160;0
-1574602561066;97;extracToken;200;OK;שרת רכישה 1-16;text;true;;695;0;100;100;null;97;0;93
-1574602561188;3;get catagory from variant;200;OK;שרת רכישה 1-16;text;true;;21;0;100;100;null;3;0;0
-1574602561205;50555;getCatagories;200;OK;שרת רכישה 1-16;text;true;;9213;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56217;50555;0;26
-1574602559046;51082;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-23;;true;;3269;431;100;100;null;0;2856;0
-1574602561861;88;extracToken;200;OK;שרת רכישה 1-23;text;true;;695;0;100;100;null;88;0;85
-1574602561973;8;get catagory from variant;200;OK;שרת רכישה 1-23;text;true;;21;0;100;100;null;8;0;0
-1574602561996;50986;getCatagories;200;OK;שרת רכישה 1-23;text;true;;2553;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56492;50986;0;43
-1574602559134;50304;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-30;;true;;7636;431;100;100;null;0;3623;0
-1574602562718;98;extracToken;200;OK;שרת רכישה 1-30;text;true;;695;0;100;100;null;98;0;93
-1574602562839;4;get catagory from variant;200;OK;שרת רכישה 1-30;text;true;;21;0;100;100;null;4;0;0
-1574602562857;50202;getCatagories;200;OK;שרת רכישה 1-30;text;true;;6920;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56460;50202;0;26
-1574602558792;54124;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-5;;true;;6949;431;100;100;null;0;875;0
-1574602559625;100;extracToken;200;OK;שרת רכישה 1-5;text;true;;695;0;76;76;null;100;0;96
-1574602559749;2;get catagory from variant;200;OK;שרת רכישה 1-5;text;true;;21;0;78;78;null;2;0;0
-1574602559767;54022;getCatagories;200;OK;שרת רכישה 1-5;text;true;;6233;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56473;54022;0;30
-1574602558884;53270;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-12;;true;;4350;431;100;100;null;0;1750;0
-1574602560579;92;extracToken;200;OK;שרת רכישה 1-12;text;true;;695;0;100;100;null;92;0;88
-1574602560700;4;get catagory from variant;200;OK;שרת רכישה 1-12;text;true;;21;0;100;100;null;4;0;0
-1574602560728;53174;getCatagories;200;OK;שרת רכישה 1-12;text;true;;3634;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56466;53174;0;30
-1574602559070;52072;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-25;;true;;7523;431;100;100;null;0;3102;0
-1574602562132;102;extracToken;200;OK;שרת רכישה 1-25;text;true;;695;0;100;100;null;102;0;99
-1574602562258;4;get catagory from variant;200;OK;שרת רכישה 1-25;text;true;;21;0;100;100;null;4;0;0
-1574602562276;51966;getCatagories;200;OK;שרת רכישה 1-25;text;true;;6807;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56459;51966;0;24
-1574602559765;44693;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-80;;true;;14354;431;100;100;null;0;10454;0
-1574602570183;406;extracToken;200;OK;שרת רכישה 1-80;text;true;;695;0;100;100;null;406;0;403
-1574602570609;2;get catagory from variant;200;OK;שרת רכישה 1-80;text;true;;21;0;100;100;null;2;0;0
-1574602570625;44285;getCatagories;200;OK;שרת רכישה 1-80;text;true;;13638;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56332;44285;0;26
-1574602559386;49913;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-49;;true;;3269;431;100;100;null;0;5684;0
-1574602565013;87;extracToken;200;OK;שרת רכישה 1-49;text;true;;695;0;100;100;null;86;0;83
-1574602565138;4;get catagory from variant;200;OK;שרת רכישה 1-49;text;true;;21;0;100;100;null;4;0;0
-1574602565156;49822;getCatagories;200;OK;שרת רכישה 1-49;text;true;;2553;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56492;49822;0;29
-1574602558945;54300;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-15;;true;;5356;431;100;100;null;0;2048;0
-1574602560954;94;extracToken;200;OK;שרת רכישה 1-15;text;true;;695;0;100;100;null;93;0;90
-1574602561065;3;get catagory from variant;200;OK;שרת רכישה 1-15;text;true;;21;0;100;100;null;3;0;0
-1574602561083;54203;getCatagories;200;OK;שרת רכישה 1-15;text;true;;4640;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56485;54203;0;29
-1574602559505;49272;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-58;;true;;5178;431;100;100;null;0;6544;0
-1574602566005;88;extracToken;200;OK;שרת רכישה 1-58;text;true;;695;0;100;100;null;88;0;85
-1574602566113;3;get catagory from variant;200;OK;שרת רכישה 1-58;text;true;;21;0;100;100;null;3;0;0
-1574602566132;49181;getCatagories;200;OK;שרת רכישה 1-58;text;true;;4462;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56487;49181;0;27
-1574602559795;44418;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-83;;true;;16099;431;100;100;null;0;11130;0
-1574602570884;91;extracToken;200;OK;שרת רכישה 1-83;text;true;;695;0;100;100;null;91;0;87
-1574602570998;5;get catagory from variant;200;OK;שרת רכישה 1-83;text;true;;21;0;100;100;null;5;0;0
-1574602571018;44322;getCatagories;200;OK;שרת רכישה 1-83;text;true;;15383;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56453;44322;0;25
-1574602559724;45916;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-76;;true;;6523;431;100;100;null;0;9712;0
-1574602569394;396;extracToken;200;OK;שרת רכישה 1-76;text;true;;695;0;100;100;null;396;0;392
-1574602569812;3;get catagory from variant;200;OK;שרת רכישה 1-76;text;true;;21;0;100;100;null;3;0;0
-1574602569832;45517;getCatagories;200;OK;שרת רכישה 1-76;text;true;;5807;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56478;45517;0;28
-1574602559347;51114;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-46;;true;;14354;431;100;100;null;0;5339;0
-1574602564651;108;extracToken;200;OK;שרת רכישה 1-46;text;true;;695;0;100;100;null;108;0;104
-1574602564779;3;get catagory from variant;200;OK;שרת רכישה 1-46;text;true;;21;0;100;100;null;3;0;0
-1574602564795;51003;getCatagories;200;OK;שרת רכישה 1-46;text;true;;13638;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56332;51003;0;26
-1574602559490;50328;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-57;;true;;16099;431;100;100;null;0;6440;0
-1574602565887;98;extracToken;200;OK;שרת רכישה 1-57;text;true;;695;0;100;100;null;97;0;94
-1574602566005;3;get catagory from variant;200;OK;שרת רכישה 1-57;text;true;;21;0;100;100;null;3;0;0
-1574602566023;50227;getCatagories;200;OK;שרת רכישה 1-57;text;true;;15383;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56453;50227;0;28
-1574602559705;47728;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-74;;true;;6184;431;100;100;null;0;9462;0
-1574602569126;127;extracToken;200;OK;שרת רכישה 1-74;text;true;;695;0;100;100;null;127;0;123
-1574602569275;8;get catagory from variant;200;OK;שרת רכישה 1-74;text;true;;21;0;100;100;null;8;0;0
-1574602569297;47593;getCatagories;200;OK;שרת רכישה 1-74;text;true;;5468;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56224;47593;0;29
-1574602559756;47124;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-79;;true;;4888;431;100;100;null;0;10348;0
-1574602570064;99;extracToken;200;OK;שרת רכישה 1-79;text;true;;695;0;100;100;null;99;0;95
-1574602570183;3;get catagory from variant;200;OK;שרת רכישה 1-79;text;true;;21;0;100;100;null;3;0;0
-1574602570201;47022;getCatagories;200;OK;שרת רכישה 1-79;text;true;;4172;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56603;47022;0;28
-1574602559476;51411;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-56;;true;;16099;431;100;100;null;0;6341;0
-1574602565777;90;extracToken;200;OK;שרת רכישה 1-56;text;true;;695;0;100;100;null;90;0;87
-1574602565887;5;get catagory from variant;200;OK;שרת רכישה 1-56;text;true;;21;0;100;100;null;4;0;0
-1574602565907;51316;getCatagories;200;OK;שרת רכישה 1-56;text;true;;15383;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56453;51316;0;26
-1574602558898;56920;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-13;;true;;13191;431;100;100;null;0;1851;0
-1574602560699;102;extracToken;200;OK;שרת רכישה 1-13;text;true;;695;0;100;100;null;102;0;99
-1574602560828;3;get catagory from variant;200;OK;שרת רכישה 1-13;text;true;;21;0;100;100;null;3;0;0
-1574602560848;56815;getCatagories;200;OK;שרת רכישה 1-13;text;true;;12475;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56451;56814;0;48
-1574602559746;47692;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-78;;true;;7635;431;100;100;null;0;10234;0
-1574602569939;105;extracToken;200;OK;שרת רכישה 1-78;text;true;;695;0;100;100;null;105;0;102
-1574602570063;7;get catagory from variant;200;OK;שרת רכישה 1-78;text;true;;21;0;100;100;null;7;0;0
-1574602570087;47580;getCatagories;200;OK;שרת רכישה 1-78;text;true;;6919;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56460;47580;0;26
-1574602559418;52272;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-52;;true;;3938;431;100;100;null;0;6004;0
-1574602565378;105;extracToken;200;OK;שרת רכישה 1-52;text;true;;695;0;100;100;null;105;0;100
-1574602565504;3;get catagory from variant;200;OK;שרת רכישה 1-52;text;true;;21;0;100;100;null;3;0;0
-1574602565522;52164;getCatagories;200;OK;שרת רכישה 1-52;text;true;;3222;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56489;52164;0;29
-1574602559397;52587;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-50;;true;;6430;431;100;100;null;0;5779;0
-1574602565137;109;extracToken;200;OK;שרת רכישה 1-50;text;true;;695;0;100;100;null;109;0;106
-1574602565265;3;get catagory from variant;200;OK;שרת רכישה 1-50;text;true;;21;0;100;100;null;3;0;0
-1574602565282;52475;getCatagories;200;OK;שרת רכישה 1-50;text;true;;5714;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56221;52475;0;27
-1574602559604;50823;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-66;;true;;4903;431;100;100;null;0;7367;0
-1574602566931;90;extracToken;200;OK;שרת רכישה 1-66;text;true;;695;0;100;100;null;90;0;87
-1574602567040;3;get catagory from variant;200;OK;שרת רכישה 1-66;text;true;;21;0;100;100;null;3;0;0
-1574602567057;50730;getCatagories;200;OK;שרת רכישה 1-66;text;true;;4187;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56471;50730;0;38
-1574602559874;46062;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-90;;true;;13865;431;100;100;null;0;11884;0
-1574602571723;88;extracToken;200;OK;שרת רכישה 1-90;text;true;;695;0;100;100;null;88;0;85
-1574602571829;3;get catagory from variant;200;OK;שרת רכישה 1-90;text;true;;21;0;100;100;null;3;0;0
-1574602571846;45971;getCatagories;200;OK;שרת רכישה 1-90;text;true;;13149;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56454;45971;0;26
-1574602559911;45715;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-93;;true;;13173;431;100;100;null;0;12204;0
-1574602572067;100;extracToken;200;OK;שרת רכישה 1-93;text;true;;695;0;100;100;null;100;0;97
-1574602572196;3;get catagory from variant;200;OK;שרת רכישה 1-93;text;true;;21;0;100;100;null;3;0;0
-1574602572217;45612;getCatagories;200;OK;שרת רכישה 1-93;text;true;;12457;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56451;45611;0;31
-1574602559533;51551;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-60;;true;;7523;431;100;100;null;0;6748;0
-1574602566247;88;extracToken;200;OK;שרת רכישה 1-60;text;true;;695;0;100;100;null;88;0;85
-1574602566354;3;get catagory from variant;200;OK;שרת רכישה 1-60;text;true;;21;0;100;100;null;3;0;0
-1574602566371;51460;getCatagories;200;OK;שרת רכישה 1-60;text;true;;6807;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56459;51460;0;28
-1574602559829;46602;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-86;;true;;7636;431;100;100;null;0;11458;0
-1574602571247;97;extracToken;200;OK;שרת רכישה 1-86;text;true;;695;0;100;100;null;97;0;93
-1574602571364;3;get catagory from variant;200;OK;שרת רכישה 1-86;text;true;;21;0;100;100;null;3;0;0
-1574602571382;46502;getCatagories;200;OK;שרת רכישה 1-86;text;true;;6920;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56460;46502;0;25
-1574602559818;47079;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-85;;true;;17400;431;100;100;null;0;11335;0
-1574602571115;113;extracToken;200;OK;שרת רכישה 1-85;text;true;;695;0;100;100;null;113;0;110
-1574602571249;5;get catagory from variant;200;OK;שרת רכישה 1-85;text;true;;21;0;100;100;null;5;0;0
-1574602571269;46961;getCatagories;200;OK;שרת רכישה 1-85;text;true;;16684;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56479;46961;0;27
-1574602559899;48074;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-92;;true;;5005;431;100;100;null;0;12080;0
-1574602571938;105;extracToken;200;OK;שרת רכישה 1-92;text;true;;695;0;100;100;null;105;0;102
-1574602572067;3;get catagory from variant;200;OK;שרת רכישה 1-92;text;true;;21;0;100;100;null;3;0;1
-1574602572085;47966;getCatagories;200;OK;שרת רכישה 1-92;text;true;;4289;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56610;47960;0;27
-1574602559958;47923;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-96;;true;;16117;431;100;100;null;0;12504;0
-1574602572425;94;extracToken;200;OK;שרת רכישה 1-96;text;true;;695;0;100;100;null;94;0;91
-1574602572538;3;get catagory from variant;200;OK;שרת רכישה 1-96;text;true;;21;0;100;100;null;3;0;0
-1574602572554;47826;getCatagories;200;OK;שרת רכישה 1-96;text;true;;15401;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56453;47825;0;27
-1574602559083;58717;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-26;;true;;3969;431;100;100;null;0;3212;0
-1574602562258;92;extracToken;200;OK;שרת רכישה 1-26;text;true;;695;0;100;100;null;92;0;89
-1574602562370;2;get catagory from variant;200;OK;שרת רכישה 1-26;text;true;;21;0;100;100;null;2;0;0
-1574602562387;58623;getCatagories;200;OK;שרת רכישה 1-26;text;true;;3253;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56543;58623;0;27
-1574602559226;57398;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-37;;true;;3969;431;100;100;null;0;4390;0
-1574602563576;106;extracToken;200;OK;שרת רכישה 1-37;text;true;;695;0;100;100;null;106;0;102
-1574602563706;3;get catagory from variant;200;OK;שרת רכישה 1-37;text;true;;21;0;100;100;null;3;0;0
-1574602563724;57289;getCatagories;200;OK;שרת רכישה 1-37;text;true;;3253;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56543;57289;0;31
-1574602559173;57899;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-33;;true;;10778;431;100;100;null;0;3948;0
-1574602563084;103;extracToken;200;OK;שרת רכישה 1-33;text;true;;695;0;100;100;null;103;0;100
-1574602563206;7;get catagory from variant;200;OK;שרת רכישה 1-33;text;true;;21;0;100;100;null;7;0;0
-1574602563229;57789;getCatagories;200;OK;שרת רכישה 1-33;text;true;;10062;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56480;57789;0;25
-1574602559242;57266;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-38;;true;;6522;431;100;100;null;0;4514;0
-1574602563707;90;extracToken;200;OK;שרת רכישה 1-38;text;true;;695;0;100;100;null;90;0;87
-1574602563822;4;get catagory from variant;200;OK;שרת רכישה 1-38;text;true;;21;0;100;100;null;4;0;0
-1574602563848;57172;getCatagories;200;OK;שרת רכישה 1-38;text;true;;5806;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56478;57172;0;31
-1574602559212;57532;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-36;;true;;5258;431;100;100;null;0;4279;0
-1574602563450;102;extracToken;200;OK;שרת רכישה 1-36;text;true;;695;0;100;100;null;102;0;99
-1574602563576;3;get catagory from variant;200;OK;שרת רכישה 1-36;text;true;;21;0;100;100;null;2;0;0
-1574602563594;57427;getCatagories;200;OK;שרת רכישה 1-36;text;true;;4542;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56593;57427;0;26
-1574602559784;50773;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-82;;true;;4888;431;100;100;null;0;11033;0
-1574602570781;84;extracToken;200;OK;שרת רכישה 1-82;text;true;;695;0;100;100;null;84;0;80
-1574602570884;4;get catagory from variant;200;OK;שרת רכישה 1-82;text;true;;21;0;100;100;null;4;0;0
-1574602570903;50685;getCatagories;200;OK;שרת רכישה 1-82;text;true;;4172;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56603;50685;0;28
-1574602559360;58229;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-47;;true;;3715;431;100;100;null;0;5453;0
-1574602564779;99;extracToken;200;OK;שרת רכישה 1-47;text;true;;695;0;100;100;null;99;0;96
-1574602564896;4;get catagory from variant;200;OK;שרת רכישה 1-47;text;true;;21;0;100;100;null;4;0;0
-1574602564914;58126;getCatagories;200;OK;שרת רכישה 1-47;text;true;;2999;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56607;58126;0;29
-1574602559161;60072;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-32;;true;;14354;431;100;100;null;0;3846;0
-1574602562950;94;extracToken;200;OK;שרת רכישה 1-32;text;true;;695;0;100;100;null;94;0;90
-1574602563084;3;get catagory from variant;200;OK;שרת רכישה 1-32;text;true;;21;0;100;100;null;3;0;0
-1574602563101;59975;getCatagories;200;OK;שרת רכישה 1-32;text;true;;13638;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56332;59975;0;26
-1574602559096;60698;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-27;;true;;13191;431;100;100;null;0;3311;0
-1574602562370;107;extracToken;200;OK;שרת רכישה 1-27;text;true;;695;0;100;100;null;107;0;103
-1574602562497;3;get catagory from variant;200;OK;שרת רכישה 1-27;text;true;;21;0;100;100;null;3;0;0
-1574602562514;60588;getCatagories;200;OK;שרת רכישה 1-27;text;true;;12475;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56451;60588;0;31
-1574602559108;60782;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-28;;true;;5321;431;100;100;null;0;3424;0
-1574602562497;95;extracToken;200;OK;שרת רכישה 1-28;text;true;;695;0;100;100;null;95;0;91
-1574602562612;4;get catagory from variant;200;OK;שרת רכישה 1-28;text;true;;21;0;100;100;null;4;0;0
-1574602562629;60683;getCatagories;200;OK;שרת רכישה 1-28;text;true;;4605;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56486;60683;0;27
-1574602559058;61303;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-24;;true;;13172;431;100;100;null;0;2956;0
-1574602561972;135;extracToken;200;OK;שרת רכישה 1-24;text;true;;695;0;100;100;null;135;0;130
-1574602562132;3;get catagory from variant;200;OK;שרת רכישה 1-24;text;true;;21;0;100;100;null;3;0;0
-1574602562150;61165;getCatagories;200;OK;שרת רכישה 1-24;text;true;;12456;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56451;61165;0;27
-1574602559200;59990;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-35;;true;;14354;431;100;100;null;0;4168;0
-1574602563322;103;extracToken;200;OK;שרת רכישה 1-35;text;true;;695;0;100;100;null;103;0;100
-1574602563450;3;get catagory from variant;200;OK;שרת רכישה 1-35;text;true;;21;0;100;100;null;3;0;0
-1574602563472;59884;getCatagories;200;OK;שרת רכישה 1-35;text;true;;13638;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56332;59884;0;30
-1574602559333;58783;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-45;;true;;5005;431;100;100;null;0;5248;0
-1574602564545;87;extracToken;200;OK;שרת רכישה 1-45;text;true;;695;0;100;100;null;87;0;84
-1574602564651;3;get catagory from variant;200;OK;שרת רכישה 1-45;text;true;;21;0;100;100;null;3;0;0
-1574602564669;58693;getCatagories;200;OK;שרת רכישה 1-45;text;true;;4289;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56610;58687;0;38
-1574602559319;59141;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-44;;true;;3585;431;100;100;null;0;5148;0
-1574602564430;95;extracToken;200;OK;שרת רכישה 1-44;text;true;;695;0;100;100;null;95;0;91
-1574602564545;2;get catagory from variant;200;OK;שרת רכישה 1-44;text;true;;21;0;100;100;null;2;0;0
-1574602564562;59044;getCatagories;200;OK;שרת רכישה 1-44;text;true;;2869;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56606;59044;0;27
-1574602559279;59624;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-41;;true;;16099;431;100;100;null;0;4828;0
-1574602564071;96;extracToken;200;OK;שרת רכישה 1-41;text;true;;695;0;100;100;null;96;0;93
-1574602564186;2;get catagory from variant;200;OK;שרת רכישה 1-41;text;true;;21;0;100;100;null;2;0;0
-1574602564202;59526;getCatagories;200;OK;שרת רכישה 1-41;text;true;;15383;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56453;59526;0;30
-1574602559591;56906;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-65;;true;;14372;431;100;100;null;0;7260;0
-1574602566818;94;extracToken;200;OK;שרת רכישה 1-65;text;true;;695;0;100;100;null;94;0;90
-1574602566930;3;get catagory from variant;200;OK;שרת רכישה 1-65;text;true;;21;0;100;100;null;3;0;0
-1574602566946;56809;getCatagories;200;OK;שרת רכישה 1-65;text;true;;13656;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56332;56809;0;28
-1574602559148;60909;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-31;;true;;5005;431;100;100;null;0;3728;0
-1574602562839;90;extracToken;200;OK;שרת רכישה 1-31;text;true;;695;0;100;100;null;90;0;87
-1574602562949;3;get catagory from variant;200;OK;שרת רכישה 1-31;text;true;;21;0;100;100;null;3;0;0
-1574602562967;60816;getCatagories;200;OK;שרת רכישה 1-31;text;true;;4289;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56610;60772;0;25
-1574602559185;60588;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-34;;true;;7654;431;100;100;null;0;4063;0
-1574602563206;92;extracToken;200;OK;שרת רכישה 1-34;text;true;;695;0;100;100;null;92;0;88
-1574602563322;2;get catagory from variant;200;OK;שרת רכישה 1-34;text;true;;21;0;100;100;null;2;0;0
-1574602563340;60494;getCatagories;200;OK;שרת רכישה 1-34;text;true;;6938;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56460;60494;0;45
-1574602559446;58393;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-54;;true;;3620;431;100;100;null;0;6098;0
-1574602565505;96;extracToken;200;OK;שרת רכישה 1-54;text;true;;695;0;100;100;null;96;0;93
-1574602565621;3;get catagory from variant;200;OK;שרת רכישה 1-54;text;true;;21;0;100;100;null;3;0;0
-1574602565641;58294;getCatagories;200;OK;שרת רכישה 1-54;text;true;;2904;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56598;58294;0;26
-1574602559305;60003;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-43;;true;;3594;431;100;100;null;0;5054;0
-1574602564296;88;extracToken;200;OK;שרת רכישה 1-43;text;true;;695;0;100;100;null;88;0;84
-1574602564430;2;get catagory from variant;200;OK;שרת רכישה 1-43;text;true;;21;0;100;100;null;2;0;0
-1574602564447;59913;getCatagories;200;OK;שרת רכישה 1-43;text;true;;2878;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56600;59913;0;35
-1574602559461;58981;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-55;;true;;16099;431;100;100;null;0;6198;0
-1574602565621;135;extracToken;200;OK;שרת רכישה 1-55;text;true;;695;0;100;100;null;135;0;132
-1574602565777;4;get catagory from variant;200;OK;שרת רכישה 1-55;text;true;;21;0;100;100;null;4;0;0
-1574602565796;58842;getCatagories;200;OK;שרת רכישה 1-55;text;true;;15383;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56453;58842;0;26
-1574602559255;61188;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-39;;true;;5356;431;100;100;null;0;4603;0
-1574602559407;59738;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-51;;true;;8498;431;100;100;null;0;5896;0
-1574602565266;92;extracToken;200;OK;שרת רכישה 1-51;text;true;;695;0;100;100;null;92;0;88
-1574602565378;3;get catagory from variant;200;OK;שרת רכישה 1-51;text;true;;21;0;100;100;null;3;0;0
-1574602565396;59643;getCatagories;200;OK;שרת רכישה 1-51;text;true;;7782;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56465;59643;0;27
-1574602559615;57952;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-67;;true;;4987;431;100;100;null;0;7460;0
-1574602567040;88;extracToken;200;OK;שרת רכישה 1-67;text;true;;695;0;100;100;null;88;0;84
-1574602567148;3;get catagory from variant;200;OK;שרת רכישה 1-67;text;true;;21;0;100;100;null;3;0;0
-1574602567164;57861;getCatagories;200;OK;שרת רכישה 1-67;text;true;;4271;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56610;57861;0;26
-1574602563823;116;extracToken;200;OK;שרת רכישה 1-39;text;true;;695;0;100;100;null;116;0;112
-1574602563958;2;get catagory from variant;200;OK;שרת רכישה 1-39;text;true;;21;0;100;100;null;2;0;0
-1574602563975;61070;getCatagories;200;OK;שרת רכישה 1-39;text;true;;4640;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56485;61070;0;29
-1574602559840;56143;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-87;;true;;6949;431;100;100;null;0;11567;0
-1574602571364;84;extracToken;200;OK;שרת רכישה 1-87;text;true;;695;0;100;100;null;84;0;80
-1574602571472;3;get catagory from variant;200;OK;שרת רכישה 1-87;text;true;;21;0;100;100;null;2;0;0
-1574602571489;56056;getCatagories;200;OK;שרת רכישה 1-87;text;true;;6233;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56473;56056;0;29
-1574602559267;64124;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-40;;true;;16176;431;100;100;null;0;4728;0
-1574602563958;91;extracToken;200;OK;שרת רכישה 1-40;text;true;;695;0;100;100;null;91;0;88
-1574602564071;3;get catagory from variant;200;OK;שרת רכישה 1-40;text;true;;21;0;100;100;null;3;0;0
-1574602564087;64030;getCatagories;200;OK;שרת רכישה 1-40;text;true;;15460;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=45689;64030;0;29
-1574602559556;63270;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-62;;true;;7523;431;100;100;null;0;6945;0
-1574602566467;96;extracToken;200;OK;שרת רכישה 1-62;text;true;;695;0;100;100;null;96;0;92
-1574602566582;3;get catagory from variant;200;OK;שרת רכישה 1-62;text;true;;21;0;100;100;null;3;0;0
-1574602566598;63171;getCatagories;200;OK;שרת רכישה 1-62;text;true;;6807;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56459;63171;0;28
-1574602559373;64842;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-48;;true;;13173;431;100;100;null;0;5559;0
-1574602564896;96;extracToken;200;OK;שרת רכישה 1-48;text;true;;695;0;100;100;null;96;0;92
-1574602565013;3;get catagory from variant;200;OK;שרת רכישה 1-48;text;true;;21;0;100;100;null;3;0;0
-1574602565029;64743;getCatagories;200;OK;שרת רכישה 1-48;text;true;;12457;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56451;64743;0;28
-1574602559566;64290;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-63;;true;;13173;431;100;100;null;0;7055;0
-1574602566582;89;extracToken;200;OK;שרת רכישה 1-63;text;true;;695;0;100;100;null;89;0;84
-1574602566690;2;get catagory from variant;200;OK;שרת רכישה 1-63;text;true;;21;0;100;100;null;2;0;0
-1574602566707;64199;getCatagories;200;OK;שרת רכישה 1-63;text;true;;12457;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56451;64199;0;37
-1574602559997;58451;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-100;;true;;5418;431;100;100;null;0;12920;0
-1574602572885;87;extracToken;200;OK;שרת רכישה 1-100;text;true;;695;0;100;100;null;87;0;84
-1574602572985;3;get catagory from variant;200;OK;שרת רכישה 1-100;text;true;;21;0;100;100;null;2;0;0
-1574602573001;58361;getCatagories;200;OK;שרת רכישה 1-100;text;true;;4702;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56584;58361;0;28
-1574602559887;60499;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-91;;true;;8503;431;100;100;null;0;11981;0
-1574602571830;87;extracToken;200;OK;שרת רכישה 1-91;text;true;;695;0;100;100;null;87;0;84
-1574602571938;3;get catagory from variant;200;OK;שרת רכישה 1-91;text;true;;21;0;100;100;null;3;0;0
-1574602571955;60409;getCatagories;200;OK;שרת רכישה 1-91;text;true;;7787;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56589;60409;0;27
-1574602559775;61866;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-81;;true;;17400;431;100;100;null;0;10870;0
-1574602570609;152;extracToken;200;OK;שרת רכישה 1-81;text;true;;695;0;100;100;null;152;0;148
-1574602570781;7;get catagory from variant;200;OK;שרת רכישה 1-81;text;true;;21;0;100;100;null;6;0;0
-1574602570801;61707;getCatagories;200;OK;שרת רכישה 1-81;text;true;;16684;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56479;61707;0;30
-1574602559544;66532;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-61;;true;;17399;431;100;100;null;0;6847;0
-1574602566354;92;extracToken;200;OK;שרת רכישה 1-61;text;true;;695;0;100;100;null;92;0;88
-1574602566467;3;get catagory from variant;200;OK;שרת רכישה 1-61;text;true;;21;0;100;100;null;3;0;0
-1574602566484;66437;getCatagories;200;OK;שרת רכישה 1-61;text;true;;16683;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56479;66437;0;29
-1574602559577;66285;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-64;;true;;7523;431;100;100;null;0;7153;0
-1574602566690;105;extracToken;200;OK;שרת רכישה 1-64;text;true;;695;0;100;100;null;105;0;102
-1574602566818;3;get catagory from variant;200;OK;שרת רכישה 1-64;text;true;;21;0;100;100;null;3;0;0
-1574602566836;66177;getCatagories;200;OK;שרת רכישה 1-64;text;true;;6807;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56459;66177;0;29
-1574602559692;65320;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-73;;true;;3620;431;100;100;null;0;9365;0
-1574602569014;91;extracToken;200;OK;שרת רכישה 1-73;text;true;;695;0;100;100;null;91;0;87
-1574602569126;4;get catagory from variant;200;OK;שרת רכישה 1-73;text;true;;21;0;100;100;null;4;0;0
-1574602569145;65225;getCatagories;200;OK;שרת רכישה 1-73;text;true;;2904;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56598;65225;0;30
-1574602559735;64606;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-77;;true;;9928;431;100;100;null;0;10116;0
-1574602569812;107;extracToken;200;OK;שרת רכישה 1-77;text;true;;695;0;100;100;null;107;0;104
-1574602569939;3;get catagory from variant;200;OK;שרת רכישה 1-77;text;true;;21;0;100;100;null;2;0;0
-1574602569955;64496;getCatagories;200;OK;שרת רכישה 1-77;text;true;;9212;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56217;64496;0;30
-1574602559665;65825;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-71;;true;;3585;431;100;100;null;0;9147;0
-1574602559862;62984;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-89;;true;;5418;431;100;100;null;0;11760;0
-1574602568770;107;extracToken;200;OK;שרת רכישה 1-71;text;true;;695;0;100;100;null;107;0;103
-1574602568901;2;get catagory from variant;200;OK;שרת רכישה 1-71;text;true;;21;0;100;100;null;2;0;0
-1574602571585;117;extracToken;200;OK;שרת רכישה 1-89;text;true;;695;0;100;100;null;117;0;113
-1574602571723;2;get catagory from variant;200;OK;שרת רכישה 1-89;text;true;;21;0;100;100;null;2;0;0
-1574602571739;62865;getCatagories;200;OK;שרת רכישה 1-89;text;true;;4702;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56584;62865;0;34
-1574602568919;65716;getCatagories;200;OK;שרת רכישה 1-71;text;true;;2869;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56606;65716;0;32
-1574602559628;68644;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-68;;true;;5259;431;100;100;null;0;7559;0
-1574602567148;403;extracToken;200;OK;שרת רכישה 1-68;text;true;;695;0;100;100;null;403;0;110
-1574602567572;3;get catagory from variant;200;OK;שרת רכישה 1-68;text;true;;21;0;100;100;null;3;0;0
-1574602567588;68238;getCatagories;200;OK;שרת רכישה 1-68;text;true;;4543;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56593;68238;0;27
-1574602572218;63621;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-19;;false;;350;1106;100;100;null;0;28;0
-1574602572231;63621;purchase request for friend;200;OK;שרת רכישה 1-19;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;350;1106;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;63621;0;20
-1574602559987;63499;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-99;;true;;6968;431;100;100;null;0;12816;0
-1574602559644;68680;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-69;;true;;4729;431;100;100;null;0;7966;0
-1574602567572;1046;extracToken;200;OK;שרת רכישה 1-69;text;true;;695;0;100;100;null;1046;0;1043
-1574602568639;2;get catagory from variant;200;OK;שרת רכישה 1-69;text;true;;21;0;100;100;null;2;0;0
-1574602568656;67632;getCatagories;200;OK;שרת רכישה 1-69;text;true;;4013;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56592;67632;0;38
-1574602572762;98;extracToken;200;OK;שרת רכישה 1-99;text;true;;695;0;100;100;null;98;0;95
-1574602572885;4;get catagory from variant;200;OK;שרת רכישה 1-99;text;true;;21;0;100;100;null;4;0;0
-1574602572904;63397;getCatagories;200;OK;שרת רכישה 1-99;text;true;;6252;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56473;63397;0;26
-1574602559970;63585;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-97;;true;;6523;431;100;100;null;0;12607;0
-1574602572538;86;extracToken;200;OK;שרת רכישה 1-97;text;true;;695;0;100;100;null;86;0;83
-1574602572645;3;get catagory from variant;200;OK;שרת רכישה 1-97;text;true;;21;0;100;100;null;3;0;0
-1574602572663;63496;getCatagories;200;OK;שרת רכישה 1-97;text;true;;5807;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56478;63496;0;26
-1574602559518;70155;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-59;;true;;7882;431;100;100;null;0;6655;0
-1574602566112;89;extracToken;200;OK;שרת רכישה 1-59;text;true;;695;0;100;100;null;89;0;85
-1574602566246;3;get catagory from variant;200;OK;שרת רכישה 1-59;text;true;;21;0;100;100;null;3;0;0
-1574602566263;70063;getCatagories;200;OK;שרת רכישה 1-59;text;true;;7166;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56462;70063;0;32
-1574602559679;67433;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-72;;true;;4987;431;100;100;null;0;9260;0
-1574602568901;92;extracToken;200;OK;שרת רכישה 1-72;text;true;;695;0;100;100;null;92;0;89
-1574602569014;3;get catagory from variant;200;OK;שרת רכישה 1-72;text;true;;21;0;100;100;null;3;0;0
-1574602569031;67338;getCatagories;200;OK;שרת רכישה 1-72;text;true;;4271;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56610;67338;0;25
-1574602559808;65340;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-84;;true;;4888;431;100;100;null;0;11255;0
-1574602570998;94;extracToken;200;OK;שרת רכישה 1-84;text;true;;695;0;100;100;null;94;0;90
-1574602571115;4;get catagory from variant;200;OK;שרת רכישה 1-84;text;true;;21;0;100;100;null;4;0;0
-1574602571159;65242;getCatagories;200;OK;שרת רכישה 1-84;text;true;;4172;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56603;65242;0;34
-1574602559715;67102;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-75;;true;;5437;431;100;100;null;0;9594;0
-1574602569275;101;extracToken;200;OK;שרת רכישה 1-75;text;true;;695;0;100;100;null;101;0;96
-1574602569394;3;get catagory from variant;200;OK;שרת רכישה 1-75;text;true;;21;0;100;100;null;3;0;0
-1574602569411;66998;getCatagories;200;OK;שרת רכישה 1-75;text;true;;4721;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56584;66998;0;30
-1574602559925;64264;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-94;;true;;5197;431;100;100;null;0;12306;0
-1574602572196;97;extracToken;200;OK;שרת רכישה 1-94;text;true;;695;0;100;100;null;97;0;94
-1574602572313;3;get catagory from variant;200;OK;שרת רכישה 1-94;text;true;;21;0;100;100;null;3;0;0
-1574602572329;64164;getCatagories;200;OK;שרת רכישה 1-94;text;true;;4481;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56487;64164;0;27
-1574602559979;64125;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-98;;true;;16099;431;100;100;null;0;12707;0
-1574602572645;94;extracToken;200;OK;שרת רכישה 1-98;text;true;;695;0;100;100;null;94;0;91
-1574602572762;2;get catagory from variant;200;OK;שרת רכישה 1-98;text;true;;21;0;100;100;null;2;0;0
-1574602572779;64029;getCatagories;200;OK;שרת רכישה 1-98;text;true;;15383;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56453;64029;0;27
-1574602559950;64755;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-95;;true;;17418;431;100;100;null;0;12398;0
-1574602559654;68475;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-70;;true;;17417;431;100;100;null;0;9026;0
-1574602572313;92;extracToken;200;OK;שרת רכישה 1-95;text;true;;695;0;100;100;null;91;0;88
-1574602568639;107;extracToken;200;OK;שרת רכישה 1-70;text;true;;695;0;100;100;null;107;0;93
-1574602568770;7;get catagory from variant;200;OK;שרת רכישה 1-70;text;true;;21;0;100;100;null;7;0;0
-1574602572424;3;get catagory from variant;200;OK;שרת רכישה 1-95;text;true;;21;0;100;100;null;3;0;0
-1574602572441;64660;getCatagories;200;OK;שרת רכישה 1-95;text;true;;16702;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56479;64660;0;26
-1574602568792;68361;getCatagories;200;OK;שרת רכישה 1-70;text;true;;16701;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56479;68361;0;30
-1574602559850;65928;הכנה לרכישה;200;Number of samples in transaction : 3, number of failing samples : 0;שרת רכישה 1-88;;true;;15709;431;100;100;null;0;11664;0
-1574602571472;89;extracToken;200;OK;שרת רכישה 1-88;text;true;;695;0;100;100;null;89;0;86
-1574602571585;3;get catagory from variant;200;OK;שרת רכישה 1-88;text;true;;21;0;100;100;null;3;0;1
-1574602571604;65836;getCatagories;200;OK;שרת רכישה 1-88;text;true;;14993;431;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/category/GetCategoryPage?categoryId=56586;65836;0;32
-1574602580323;15003;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-22;;false;;368;1088;100;100;null;0;55564;0
-1574602635885;15003;purchase request for friend;200;OK;שרת רכישה 1-22;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;368;1088;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;14957;0;14
-1574602582191;12867;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-3;;false;;368;1088;100;100;null;0;68717;0
-1574602650903;12867;purchase request for friend;200;OK;שרת רכישה 1-3;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;368;1088;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;12819;0;14
-1574602583144;8251;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-14;;false;;466;1078;100;100;null;0;80646;0
-1574602663788;8251;purchase request for friend;200;OK;שרת רכישה 1-14;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1078;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8206;0;13
-1574602588701;15385;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-2;;false;;466;1072;100;100;null;0;83355;0
-1574602672055;15385;purchase request for friend;200;OK;שרת רכישה 1-2;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1072;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;15340;0;15
-1574602591410;9093;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-29;;false;;466;1076;100;100;null;0;96046;0
-1574602687454;9093;purchase request for friend;200;OK;שרת רכישה 1-29;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1076;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9048;0;15
-1574602591410;11450;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-42;;true;;1210;1075;100;100;null;0;105154;0
-1574602696561;11450;purchase request for friend;200;OK;שרת רכישה 1-42;text;true;;1210;1075;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;11404;0;14
-1574602598142;9947;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-6;;false;;448;1071;100;100;null;0;109919;0
-1574602708059;9947;purchase request for friend;200;OK;שרת רכישה 1-6;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;448;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9947;0;15
-1574602598901;8939;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-4;;false;;466;1071;100;100;null;0;119121;0
-1574602718021;8939;purchase request for friend;200;OK;שרת רכישה 1-4;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8893;0;14
-1574602599188;9217;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-18;;false;;466;1113;100;100;null;0;127789;0
-1574602726974;9217;purchase request for friend;200;OK;שרת רכישה 1-18;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1113;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9172;0;14
-1574602599497;8512;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-20;;false;;368;1106;100;100;null;0;136712;0
-1574602736206;8512;purchase request for friend;200;OK;שרת רכישה 1-20;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;368;1106;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8466;0;15
-1574602599937;9436;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-1;;false;;466;1089;100;100;null;0;144809;0
-1574602744743;9436;purchase request for friend;200;OK;שרת רכישה 1-1;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1089;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9391;0;14
-1574602602460;9046;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-10;;false;;466;1071;100;100;null;0;151749;0
-1574602754204;9046;purchase request for friend;200;OK;שרת רכישה 1-10;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9002;0;14
-1574602603129;10145;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-21;;false;;466;1102;100;100;null;0;160144;0
-1574602763267;10145;purchase request for friend;200;OK;שרת רכישה 1-21;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1102;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10098;0;15
-1574602604502;10010;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-53;;false;;466;1086;100;100;null;0;168935;0
-1574602773430;10010;purchase request for friend;200;OK;שרת רכישה 1-53;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1086;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9963;0;14
-1574602606027;9491;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-11;;false;;466;1075;100;100;null;0;177458;0
-1574602783478;9491;purchase request for friend;200;OK;שרת רכישה 1-11;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1075;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9445;0;14
-1574602606878;10404;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-8;;false;;448;1089;100;100;null;0;186116;0
-1574602792988;10404;purchase request for friend;200;OK;שרת רכישה 1-8;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;448;1089;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10404;0;13
-1574602610173;9654;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-7;;false;;368;1106;100;100;null;0;193242;0
-1574602803410;9654;purchase request for friend;200;OK;שרת רכישה 1-7;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;368;1106;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9607;0;15
-1574602610179;12851;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-9;;false;;368;1106;100;100;null;0;202907;0
-1574602813084;12851;purchase request for friend;200;OK;שרת רכישה 1-9;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;368;1106;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;12806;0;14
-1574602610430;9047;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-17;;true;;1316;1080;100;100;null;0;215524;0
-1574602825952;9047;purchase request for friend;200;OK;שרת רכישה 1-17;text;true;;1316;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9002;0;17
-1574602611763;8925;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-16;;true;;1218;1071;100;100;null;0;223256;0
-1574602835016;8925;purchase request for friend;200;OK;שרת רכישה 1-16;text;true;;1218;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8879;0;14
-1574602612985;10308;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-23;;true;;1206;1069;100;100;null;0;230976;0
-1574602843958;10308;purchase request for friend;200;OK;שרת רכישה 1-23;text;true;;1206;1069;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10263;0;13
-1574602613061;9531;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-30;;false;;466;1078;100;100;null;0;241228;0
-1574602854283;9531;purchase request for friend;200;OK;שרת רכישה 1-30;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1078;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9483;0;16
-1574602613791;10012;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-5;;false;;350;1106;100;100;null;0;250047;0
-1574602863834;10012;purchase request for friend;200;OK;שרת רכישה 1-5;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;350;1106;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10012;0;14
-1574602613904;7026;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-12;;true;;1128;1073;100;100;null;0;259967;0
-1574602873867;7026;purchase request for friend;200;OK;שרת רכישה 1-12;text;true;;1128;1073;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6982;0;34
-1574602614244;8737;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-25;;false;;466;1070;100;100;null;0;266670;0
-1574602880910;8737;purchase request for friend;200;OK;שרת רכישה 1-25;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1070;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8691;0;15
-1574602614912;11208;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-80;;false;;466;1071;100;100;null;0;274754;0
-1574602889664;11208;purchase request for friend;200;OK;שרת רכישה 1-80;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;11160;0;15
-1574602615056;12999;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-49;;true;;1206;1069;100;100;null;0;285836;0
-1574602900889;12999;purchase request for friend;200;OK;שרת רכישה 1-49;text;true;;1206;1069;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;12952;0;15
-1574602615294;9355;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-15;;false;;448;1080;100;100;null;0;298619;0
-1574602913910;9355;purchase request for friend;200;OK;שרת רכישה 1-15;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;448;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9355;0;18
-1574602615322;9667;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-58;;false;;466;1083;100;100;null;0;307973;0
-1574602923286;9667;purchase request for friend;200;OK;שרת רכישה 1-58;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1083;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9620;0;20
-1574602615343;10026;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-83;;false;;466;1077;100;100;null;0;317643;0
-1574602932980;10026;purchase request for friend;200;OK;שרת רכישה 1-83;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1077;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9981;0;17
-1574602615352;10848;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-76;;false;;368;1106;100;100;null;0;327675;0
-1574602943024;10848;purchase request for friend;200;OK;שרת רכישה 1-76;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;368;1106;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10803;0;13
-1574602615800;9449;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-46;;false;;466;1071;100;100;null;0;338091;0
-1574602953889;9449;purchase request for friend;200;OK;שרת רכישה 1-46;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9406;0;13
-1574602616258;9433;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-57;;false;;466;1077;100;100;null;0;347105;0
-1574602963355;9433;purchase request for friend;200;OK;שרת רכישה 1-57;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1077;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9389;0;14
-1574602616895;9000;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-74;;false;;466;1089;100;100;null;0;355920;0
-1574602972809;9000;purchase request for friend;200;OK;שרת רכישה 1-74;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1089;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8956;0;13
-1574602617228;9342;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-79;;false;;466;1076;100;100;null;0;364602;0
-1574602981828;9342;purchase request for friend;200;OK;שרת רכישה 1-79;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1076;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9296;0;14
-1574602617228;8930;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-56;;false;;448;1077;100;100;null;0;373963;0
-1574602991185;8930;purchase request for friend;200;OK;שרת רכישה 1-56;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;448;1077;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8930;0;16
-1574602617669;9472;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-13;;false;;448;1075;100;100;null;0;382471;0
-1574603000134;9472;purchase request for friend;200;OK;שרת רכישה 1-13;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;448;1075;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9472;0;14
-1574602617672;9019;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-78;;false;;466;1078;100;100;null;0;391958;0
-1574603009624;9019;purchase request for friend;200;OK;שרת רכישה 1-78;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1078;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8975;0;16
-1574602617694;11148;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-52;;true;;1241;1084;100;100;null;0;400971;0
-1574603018663;11148;purchase request for friend;200;OK;שרת רכישה 1-52;text;true;;1241;1084;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;11104;0;13
-1574602617764;9958;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-50;;false;;466;1089;100;100;null;0;412068;0
-1574603029826;9958;purchase request for friend;200;OK;שרת רכישה 1-50;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1089;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9913;0;15
-1574602617794;4662;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-66;;true;;1330;1090;100;100;null;0;422017;0
-1574603039805;4662;purchase request for friend;200;OK;שרת רכישה 1-66;text;true;;1330;1090;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;4614;0;16
-1574602617820;9625;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-90;;false;;466;1078;100;100;null;0;426669;0
-1574603044486;9625;purchase request for friend;200;OK;שרת רכישה 1-90;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1078;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9579;0;15
-1574602617831;9057;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-93;;false;;448;1075;100;100;null;0;436306;0
-1574603054129;9057;purchase request for friend;200;OK;שרת רכישה 1-93;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;448;1075;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9057;0;15
-1574602617832;11102;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-60;;false;;466;1070;100;100;null;0;445381;0
-1574603063211;11102;purchase request for friend;200;OK;שרת רכישה 1-60;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1070;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;11057;0;18
-1574602617889;9980;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-86;;false;;466;1078;100;100;null;0;456445;0
-1574603074328;9980;purchase request for friend;200;OK;שרת רכישה 1-86;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1078;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9933;0;15
-1574602618232;17851;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-85;;true;;1298;1080;100;100;null;0;466098;0
-1574603084328;17851;purchase request for friend;200;OK;שרת רכישה 1-85;text;true;;1298;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;17851;0;14
-1574602620053;9942;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-92;;false;;466;1090;100;100;null;0;482148;0
-1574603102195;9942;purchase request for friend;200;OK;שרת רכישה 1-92;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1090;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9894;0;14
-1574602620385;10528;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-96;;false;;466;1077;100;100;null;0;491777;0
-1574603112156;10528;purchase request for friend;200;OK;שרת רכישה 1-96;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1077;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10483;0;16
-1574602621012;9525;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-26;;false;;462;1103;100;100;null;0;501699;0
-1574603122703;9525;purchase request for friend;200;OK;שרת רכישה 1-26;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;462;1103;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9481;0;14
-1574602621014;9730;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-37;;false;;444;1103;100;100;null;0;511259;0
-1574603132267;9730;purchase request for friend;200;OK;שרת רכישה 1-37;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;444;1103;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9730;0;14
-1574602621020;12942;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-33;;true;;1318;1081;100;100;null;0;521001;0
-1574603142015;12942;purchase request for friend;200;OK;שרת רכישה 1-33;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;12896;0;15
-1574602621022;9985;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-38;;false;;368;1106;100;100;null;0;533958;0
-1574603154977;9985;purchase request for friend;200;OK;שרת רכישה 1-38;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;368;1106;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9939;0;14
-1574602621023;9288;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-36;;false;;466;1086;100;100;null;0;543963;0
-1574603164980;9288;purchase request for friend;200;OK;שרת רכישה 1-36;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1086;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9244;0;14
-1574602621642;9052;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-82;;false;;466;1076;100;100;null;0;552648;0
-1574603174286;9052;purchase request for friend;200;OK;שרת רכישה 1-82;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1076;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9006;0;14
-1574602623043;15391;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-47;;false;;466;1080;100;100;null;0;560318;0
-1574603183358;15391;purchase request for friend;200;OK;שרת רכישה 1-47;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;15345;0;15
-1574602623079;10440;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-32;;false;;466;1071;100;100;null;0;575690;0
-1574603198767;10440;purchase request for friend;200;OK;שרת רכישה 1-32;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10395;0;15
-1574602623105;8814;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-27;;false;;466;1075;100;100;null;0;586122;0
-1574603209222;8814;purchase request for friend;200;OK;שרת רכישה 1-27;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1075;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8768;0;14
-1574602623314;9403;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-28;;false;;466;1088;100;100;null;0;594743;0
-1574603218054;9403;purchase request for friend;200;OK;שרת רכישה 1-28;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1088;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9355;0;14
-1574602623317;16892;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-24;;false;;466;1075;100;100;null;0;604161;0
-1574603227473;16892;purchase request for friend;200;OK;שרת רכישה 1-24;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1075;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;16843;0;18
-1574602623358;10674;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-35;;false;;466;1071;100;100;null;0;621030;0
-1574603244383;10674;purchase request for friend;200;OK;שרת רכישה 1-35;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10629;0;14
-1574602623364;10638;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-45;;false;;466;1090;100;100;null;0;631713;0
-1574603255075;10638;purchase request for friend;200;OK;שרת רכישה 1-45;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1090;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10592;0;12
-1574602623689;9831;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-44;;false;;466;1072;100;100;null;0;642041;0
-1574603265727;9831;purchase request for friend;200;OK;שרת רכישה 1-44;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1072;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9786;0;15
-1574602623731;11194;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-41;;false;;448;1077;100;100;null;0;651853;0
-1574603275576;11194;purchase request for friend;200;OK;שרת רכישה 1-41;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;448;1077;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;11194;0;14
-1574602623757;10444;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-65;;false;;466;1071;100;100;null;0;663046;0
-1574603286795;10444;purchase request for friend;200;OK;שרת רכישה 1-65;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10401;0;13
-1574602623785;9921;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-31;;false;;466;1090;100;100;null;0;673482;0
-1574603297264;9921;purchase request for friend;200;OK;שרת רכישה 1-31;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1090;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9873;0;13
-1574602623836;15641;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-34;;false;;466;1078;100;100;null;0;683371;0
-1574603307202;15641;purchase request for friend;200;OK;שרת רכישה 1-34;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1078;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;15594;0;16
-1574602623937;9451;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-54;;false;;466;1080;100;100;null;0;698929;0
-1574603322862;9451;purchase request for friend;200;OK;שרת רכישה 1-54;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9403;0;15
-1574602624363;10820;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-43;;false;;466;1082;100;100;null;0;707973;0
-1574603332331;10820;purchase request for friend;200;OK;שרת רכישה 1-43;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1082;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10776;0;13
-1574602624721;9500;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-55;;false;;466;1077;100;100;null;0;718457;0
-1574603343171;9500;purchase request for friend;200;OK;שרת רכישה 1-55;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1077;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9452;0;14
-1574602625189;10017;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-51;;false;;448;1094;100;100;null;0;727514;0
-1574603352696;10017;purchase request for friend;200;OK;שרת רכישה 1-51;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;448;1094;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10017;0;14
-1574602625189;10618;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-67;;false;;466;1090;100;100;null;0;737554;0
-1574603362738;10618;purchase request for friend;200;OK;שרת רכישה 1-67;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1090;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10573;0;14
-1574602625189;9718;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-39;;false;;466;1080;100;100;null;0;748191;0
-1574603373375;9718;purchase request for friend;200;OK;שרת רכישה 1-39;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9673;0;14
-1574602627550;13040;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-87;;false;;368;1106;100;100;null;0;755563;0
-1574603383112;13040;purchase request for friend;200;OK;שרת רכישה 1-87;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;368;1106;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;12992;0;15
-1574602628218;8522;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-40;;true;;1314;1079;100;100;null;0;767958;0
-1574603396174;8522;purchase request for friend;200;OK;שרת רכישה 1-40;text;true;;1314;1079;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8477;0;15
-1574602629771;9703;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-62;;false;;466;1070;100;100;null;0;774947;0
-1574603404718;9703;purchase request for friend;200;OK;שרת רכישה 1-62;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1070;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9656;0;16
-1574602629774;9848;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-48;;false;;466;1075;100;100;null;0;784668;0
-1574603414435;9848;purchase request for friend;200;OK;שרת רכישה 1-48;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1075;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9803;0;15
-1574602630911;8782;רק רכישה;200;Number of samples in transaction : 1, number of failing samples : 1;שרת רכישה 1-63;;false;;466;1075;100;100;null;0;793398;0
-1574603424309;8782;purchase request for friend;200;OK;שרת רכישה 1-63;text;false;javax.script.ScriptException: java.lang.NullPointerException: jsonData returned with null value;466;1075;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8737;0;15
-1574602631368;814417;רק רכישה;Non HTTP response code: java.net.SocketException;;שרת רכישה 1-100;;false;;2859;0;100;100;null;0;0;0
-1574603433106;12681;purchase request for friend;Non HTTP response code: java.net.SocketException;Non HTTP response message: Socket closed;שרת רכישה 1-100;text;false;javax.script.ScriptException: java.lang.NullPointerException: Cannot invoke method get() on null object;2859;0;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;0;0;15
-1574603448137;1224;Transaction Controller;200;Number of samples in transaction : 4, number of failing samples : 0;בדידה הרשמה + ולידציה 1-1;;true;;1227;635;1;1;null;1161;101;110
-1574603449463;924;Transaction Controller;200;Number of samples in transaction : 7, number of failing samples : 0;בדידה הרשמה + ולידציה 1-1;;true;;5052;2176;1;1;null;912;147;0
-1574603448137;2148;הרשמה שלט;200;Number of samples in transaction : 9, number of failing samples : 0;בדידה הרשמה + ולידציה 1-1;;true;;6279;2811;1;1;null;0;249;0
-1574603448191;17;replace old email in csv files;200;OK;בדידה הרשמה + ולידציה 1-1;text;true;;0;0;1;1;null;0;0;0
-1574603448222;985;Register;200;OK;בדידה הרשמה + ולידציה 1-1;text;true;;1185;635;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Register;940;0;27
-1574603449233;222;extractLastSignIn;200;OK;בדידה הרשמה + ולידציה 1-1;text;true;;42;0;1;1;null;221;0;83
-1574603449488;366;extractValidateToken;200;OK;בדידה הרשמה + ולידציה 1-1;text;true;;1410;0;1;1;null;366;0;0
-1574603449878;185;ValidateUser;200;OK;בדידה הרשמה + ולידציה 1-1;text;true;;1794;1624;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/ValidateToken;185;0;0
-1574603450088;230;ValidateEmail;200;OK;בדידה הרשמה + ולידציה 1-1;text;true;;1806;552;1;1;https://performancenofshonitbackapihist04.hist.org.il/api/users/Authenticate;226;0;0
-1574603450357;2;replace old email in csv files;200;OK;בדידה הרשמה + ולידציה 1-1;text;true;;0;0;1;1;null;0;0;0
-1574603450372;135;validate that user sign in was sucsessful;200;OK;בדידה הרשמה + ולידציה 1-1;text;true;;42;0;1;1;null;135;0;0
-1574603450527;6;replace old id in csv files;200;OK;בדידה הרשמה + ולידציה 1-1;text;true;;0;0;1;1;null;0;0;0
+tps://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6631;0;11
+1574767585923;4680;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-87;;true;;1314;1079;100;100;null;0;280910;0
+1574767866831;4680;purchase request for friend;200;OK;שרת רכישה 1-87;text;true;;1314;1079;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;4626;0;11
+1574767586211;6910;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-84;;true;;1318;1081;100;100;null;0;285325;0
+1574767871530;6910;purchase request for friend;200;OK;שרת רכישה 1-84;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6865;0;12
+1574767586227;6579;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-90;;true;;1316;1080;100;100;null;0;292248;0
+1574767878475;6579;purchase request for friend;200;OK;שרת רכישה 1-90;text;true;;1316;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6533;0;12
+1574767586466;6350;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-39;;true;;1199;1071;100;100;null;0;298613;0
+1574767885073;6350;purchase request for friend;200;OK;שרת רכישה 1-39;text;true;;1199;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6350;0;12
+1574767586472;6165;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-22;;true;;1318;1081;100;100;null;0;304996;0
+1574767891465;6165;purchase request for friend;200;OK;שרת רכישה 1-22;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6116;0;12
+1574767586579;6157;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-55;;true;;1218;1071;100;100;null;0;311071;0
+1574767897649;6157;purchase request for friend;200;OK;שרת רכישה 1-55;text;true;;1218;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6112;0;18
+1574767586634;10008;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-14;;true;;1318;1081;100;100;null;0;317192;0
+1574767903826;10008;purchase request for friend;200;OK;שרת רכישה 1-14;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9964;0;11
+1574767586753;6561;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-46;;true;;1318;1081;100;100;null;0;327100;0
+1574767913849;6561;purchase request for friend;200;OK;שרת רכישה 1-46;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6517;0;11
+1574767586966;7421;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-24;;true;;1316;1080;100;100;null;0;333464;0
+1574767920429;7421;purchase request for friend;200;OK;שרת רכישה 1-24;text;true;;1316;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;7377;0;12
+1574767586983;8872;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-36;;true;;1218;1071;100;100;null;0;340889;0
+1574767927866;8872;purchase request for friend;200;OK;שרת רכישה 1-36;text;true;;1218;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8826;0;11
+1574767587480;10926;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-94;;true;;1300;1081;100;100;null;0;349298;0
+1574767936772;10926;purchase request for friend;200;OK;שרת רכישה 1-94;text;true;;1300;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10926;0;13
+1574767587698;10274;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-85;;true;;1199;1071;100;100;null;0;360045;0
+1574767947737;10274;purchase request for friend;200;OK;שרת רכישה 1-85;text;true;;1199;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;10274;0;12
+1574767587716;9826;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-91;;true;;1318;1081;100;100;null;0;370342;0
+1574767958052;9826;purchase request for friend;200;OK;שרת רכישה 1-91;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;9781;0;12
+1574767587737;6461;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-34;;true;;1316;1080;100;100;null;0;380185;0
+1574767967917;6461;purchase request for friend;200;OK;שרת רכישה 1-34;text;true;;1316;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6417;0;10
+1574767588251;7056;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-88;;true;;1318;1081;100;100;null;0;386157;0
+1574767974402;7056;purchase request for friend;200;OK;שרת רכישה 1-88;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;7011;0;11
+1574767588613;6480;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-21;;true;;1318;1081;100;100;null;0;392875;0
+1574767981482;6480;purchase request for friend;200;OK;שרת רכישה 1-21;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6435;0;12
+1574767588613;6885;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-33;;true;;1316;1080;100;100;null;0;399371;0
+1574767987984;6885;purchase request for friend;200;OK;שרת רכישה 1-33;text;true;;1316;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6840;0;12
+1574767588738;4822;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-11;;true;;1314;1079;100;100;null;0;406187;0
+1574767994922;4822;purchase request for friend;200;OK;שרת רכישה 1-11;text;true;;1314;1079;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;4777;0;12
+1574767588745;6562;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-83;;true;;1199;1071;100;100;null;0;411021;0
+1574767999763;6562;purchase request for friend;200;OK;שרת רכישה 1-83;text;true;;1199;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6562;0;12
+1574767589036;6687;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-29;;true;;1318;1081;100;100;null;0;417309;0
+1574768006344;6687;purchase request for friend;200;OK;שרת רכישה 1-29;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6642;0;12
+1574767589567;4470;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-96;;true;;1298;1080;100;100;null;0;423484;0
+1574768013049;4470;purchase request for friend;200;OK;שרת רכישה 1-96;text;true;;1298;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;4470;0;13
+1574767589594;6191;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-23;;true;;1318;1081;100;100;null;0;427946;0
+1574768017537;6191;purchase request for friend;200;OK;שרת רכישה 1-23;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6146;0;12
+1574767590086;6026;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-95;;true;;1218;1071;100;100;null;0;433664;0
+1574768023748;6026;purchase request for friend;200;OK;שרת רכישה 1-95;text;true;;1218;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;5980;0;11
+1574767590153;6540;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-92;;true;;1316;1080;100;100;null;0;439644;0
+1574768029794;6540;purchase request for friend;200;OK;שרת רכישה 1-92;text;true;;1316;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6495;0;12
+1574767590545;7048;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-35;;true;;1218;1071;100;100;null;0;445815;0
+1574768036358;7048;purchase request for friend;200;OK;שרת רכישה 1-35;text;true;;1218;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;7003;0;10
+1574767591482;4502;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-80;;true;;1314;1079;100;100;null;0;451948;0
+1574768043426;4502;purchase request for friend;200;OK;שרת רכישה 1-80;text;true;;1314;1079;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;4456;0;12
+1574767591664;6635;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-43;;true;;1316;1080;100;100;null;0;456290;0
+1574768047954;6635;purchase request for friend;200;OK;שרת רכישה 1-43;text;true;;1316;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6590;0;11
+1574767591687;6323;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-98;;true;;1316;1080;100;100;null;0;462922;0
+1574768054608;6323;purchase request for friend;200;OK;שרת רכישה 1-98;text;true;;1316;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6277;0;12
+1574767592046;7031;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-52;;true;;1318;1081;100;100;null;0;468909;0
+1574768060955;7031;purchase request for friend;200;OK;שרת רכישה 1-52;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6987;0;12
+1574767592064;6464;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-57;;true;;1318;1081;100;100;null;0;475940;0
+1574768068005;6464;purchase request for friend;200;OK;שרת רכישה 1-57;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6419;0;11
+1574767592521;6661;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-25;;true;;1318;1081;100;100;null;0;481968;0
+1574768074488;6661;purchase request for friend;200;OK;שרת רכישה 1-25;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6615;0;12
+1574767592621;3503;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-47;;true;;1128;1073;100;100;null;0;488550;0
+1574768081173;3503;purchase request for friend;200;OK;שרת רכישה 1-47;text;true;;1128;1073;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;3458;0;10
+1574767592790;6550;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-48;;true;;1316;1080;100;100;null;0;491903;0
+1574768084695;6550;purchase request for friend;200;OK;שרת רכישה 1-48;text;true;;1316;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6504;0;12
+1574767593455;6513;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-50;;true;;1218;1071;100;100;null;0;497807;0
+1574768091263;6513;purchase request for friend;200;OK;שרת רכישה 1-50;text;true;;1218;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6469;0;12
+1574767593460;6953;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-42;;true;;1298;1080;100;100;null;0;504330;0
+1574768097796;6953;purchase request for friend;200;OK;שרת רכישה 1-42;text;true;;1298;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6953;0;11
+1574767593555;4830;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-79;;true;;1316;1080;100;100;null;0;511208;0
+1574768104769;4830;purchase request for friend;200;OK;שרת רכישה 1-79;text;true;;1316;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;4783;0;14
+1574767593816;6669;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-27;;true;;1218;1071;100;100;null;0;515799;0
+1574768109618;6669;purchase request for friend;200;OK;שרת רכישה 1-27;text;true;;1218;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6625;0;11
+1574767594049;4883;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-65;;true;;1314;1079;100;100;null;0;522256;0
+1574768116306;4883;purchase request for friend;200;OK;שרת רכישה 1-65;text;true;;1314;1079;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;4838;0;12
+1574767594322;6541;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-49;;true;;1318;1081;100;100;null;0;526889;0
+1574768121214;6541;purchase request for friend;200;OK;שרת רכישה 1-49;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6498;0;10
+1574767594587;7231;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-61;;true;;1318;1081;100;100;null;0;533180;0
+1574768127774;7231;purchase request for friend;200;OK;שרת רכישה 1-61;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;7186;0;12
+1574767594813;6510;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-97;;true;;1199;1071;100;100;null;0;540204;0
+1574768135021;6510;purchase request for friend;200;OK;שרת רכישה 1-97;text;true;;1199;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6510;0;11
+1574767595067;4543;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-71;;true;;1314;1079;100;100;null;0;546475;0
+1574768141551;4543;purchase request for friend;200;OK;שרת רכישה 1-71;text;true;;1314;1079;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;4499;0;11
+1574767596795;3248;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-75;;true;;1109;1073;100;100;null;0;549309;0
+1574768146109;3248;purchase request for friend;200;OK;שרת רכישה 1-75;text;true;;1109;1073;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;3248;0;13
+1574767597272;8444;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-99;;true;;1298;1080;100;100;null;0;552099;0
+1574768149376;8444;purchase request for friend;200;OK;שרת רכישה 1-99;text;true;;1298;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8444;0;11
+1574767597288;7723;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-30;;true;;1298;1080;100;100;null;0;560546;0
+1574768157840;7723;purchase request for friend;200;OK;שרת רכישה 1-30;text;true;;1298;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;7723;0;11
+1574767599618;6794;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-62;;true;;1318;1081;100;100;null;0;565959;0
+1574768165582;6794;purchase request for friend;200;OK;שרת רכישה 1-62;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6749;0;12
+1574767599626;6440;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-59;;true;;1218;1071;100;100;null;0;572767;0
+1574768172400;6440;purchase request for friend;200;OK;שרת רכישה 1-59;text;true;;1218;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6396;0;11
+1574767600062;4623;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-74;;true;;1314;1079;100;100;null;0;578791;0
+1574768178858;4623;purchase request for friend;200;OK;שרת רכישה 1-74;text;true;;1314;1079;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;4577;0;11
+1574767600062;6916;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-40;;true;;1316;1080;100;100;null;0;583432;0
+1574768183505;6916;purchase request for friend;200;OK;שרת רכישה 1-40;text;true;;1316;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6872;0;10
+1574767600235;5993;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-38;;true;;1300;1081;100;100;null;0;590199;0
+1574768190439;5993;purchase request for friend;200;OK;שרת רכישה 1-38;text;true;;1300;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;5993;0;13
+1574767600275;4982;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-64;;true;;1296;1079;100;100;null;0;596185;0
+1574768196466;4982;purchase request for friend;200;OK;שרת רכישה 1-64;text;true;;1296;1079;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;4982;0;12
+1574767600581;4477;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-77;;true;;1128;1073;100;100;null;0;600904;0
+1574768201492;4477;purchase request for friend;200;OK;שרת רכישה 1-77;text;true;;1128;1073;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;4432;0;12
+1574767600581;6754;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-53;;true;;1300;1081;100;100;null;0;605402;0
+1574768205993;6754;purchase request for friend;200;OK;שרת רכישה 1-53;text;true;;1300;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6754;0;11
+1574767600581;4793;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-70;;true;;1314;1079;100;100;null;0;612174;0
+1574768212764;4793;purchase request for friend;200;OK;שרת רכישה 1-70;text;true;;1314;1079;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;4748;0;12
+1574767600729;8881;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-68;;true;;1318;1081;100;100;null;0;616837;0
+1574768217575;8881;purchase request for friend;200;OK;שרת רכישה 1-68;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8837;0;11
+1574767601084;6493;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-67;;true;;1199;1071;100;100;null;0;625382;0
+1574768226475;6493;purchase request for friend;200;OK;שרת רכישה 1-67;text;true;;1199;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6493;0;11
+1574767601084;6939;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-93;;true;;1316;1080;100;100;null;0;631895;0
+1574768232987;6939;purchase request for friend;200;OK;שרת רכישה 1-93;text;true;;1316;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6894;0;12
+1574767601084;6710;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-86;;true;;1218;1071;100;100;null;0;638872;0
+1574768239967;6710;purchase request for friend;200;OK;שרת רכישה 1-86;text;true;;1218;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6665;0;11
+1574767601136;7657;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-81;;true;;1218;1071;100;100;null;0;645548;0
+1574768246695;7657;purchase request for friend;200;OK;שרת רכישה 1-81;text;true;;1218;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;7612;0;11
+1574767601148;7286;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-56;;true;;1300;1081;100;100;null;0;653212;0
+1574768254371;7286;purchase request for friend;200;OK;שרת רכישה 1-56;text;true;;1300;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;7286;0;10
+1574767601796;6838;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-1;;true;;1316;1080;100;100;null;0;659869;0
+1574768261677;6838;purchase request for friend;200;OK;שרת רכישה 1-1;text;true;;1316;1080;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6794;0;19
+1574767610302;8384;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-17;;true;;1300;1081;100;100;null;0;658220;0
+1574768268533;8384;purchase request for friend;200;OK;שרת רכישה 1-17;text;true;;1300;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;8384;0;20
+1574767616838;6888;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-7;;true;;1300;1081;100;100;null;0;660091;0
+1574768276941;6888;purchase request for friend;200;OK;שרת רכישה 1-7;text;true;;1300;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6888;0;23
+1574767623867;7302;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-2;;true;;1318;1081;100;100;null;0;659970;0
+1574768283848;7302;purchase request for friend;200;OK;שרת רכישה 1-2;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;7258;0;23
+1574767632782;7242;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-4;;true;;1296;1079;100;100;null;0;658378;0
+1574768291173;7242;purchase request for friend;200;OK;שרת רכישה 1-4;text;true;;1296;1079;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;7242;0;24
+1574767639487;6812;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-3;;true;;1199;1071;100;100;null;0;658935;0
+1574768298435;6812;purchase request for friend;200;OK;שרת רכישה 1-3;text;true;;1199;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6812;0;25
+1574767646345;7289;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-9;;true;;1199;1071;100;100;null;0;658904;0
+1574768305264;7289;purchase request for friend;200;OK;שרת רכישה 1-9;text;true;;1199;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;7289;0;24
+1574767653887;6874;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-41;;true;;1218;1071;100;100;null;0;658675;0
+1574768312580;6874;purchase request for friend;200;OK;שרת רכישה 1-41;text;true;;1218;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6830;0;27
+1574767660471;6746;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-63;;true;;1300;1081;100;100;null;0;658990;0
+1574768319471;6746;purchase request for friend;200;OK;שרת רכישה 1-63;text;true;;1300;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;6746;0;26
+1574767666675;7185;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-10;;true;;1218;1071;100;100;null;0;659571;0
+1574768326259;7185;purchase request for friend;200;OK;שרת רכישה 1-10;text;true;;1218;1071;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;7141;0;24
+1574767672972;7797;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-51;;true;;1318;1081;100;100;null;0;660474;0
+1574768333463;7797;purchase request for friend;200;OK;שרת רכישה 1-51;text;true;;1318;1081;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;7752;0;26
+1574767679464;5315;ביצוע הרכישה;200;Number of samples in transaction : 1, number of failing samples : 0;שרת רכישה 1-20;;true;;1314;1079;100;100;null;0;661798;0
+1574768341280;5315;purchase request for friend;200;OK;שרת רכישה 1-20;text;true;;1314;1079;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;5271;0;26
+1574767686275;665969;ביצוע הרכישה;Non HTTP response code: java.net.SocketException;;שרת רכישה 1-19;;false;;2859;0;100;100;null;0;0;0
+1574768346609;5653;purchase request for friend;Non HTTP response code: java.net.SocketException;Non HTTP response message: Socket closed;שרת רכישה 1-19;text;false;javax.script.ScriptException: java.lang.NullPointerException: Cannot invoke method get() on null object;2859;0;100;100;https://performancenofshonitbackapihist04.hist.org.il/api/order/purchase;0;0;27
