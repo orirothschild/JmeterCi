@@ -36,12 +36,12 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="pathToCSV" elementType="Argument">
             <stringProp name="Argument.name">pathToCSV</stringProp>
-            <stringProp name="Argument.value">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files</stringProp>
+            <stringProp name="Argument.value">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/CSV Files</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="finalCSV" elementType="Argument">
             <stringProp name="Argument.name">finalCSV</stringProp>
-            <stringProp name="Argument.value">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/toEmail.csv</stringProp>
+            <stringProp name="Argument.value">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/CSV Files/toEmail.csv</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="destination" elementType="Argument">
@@ -52,7 +52,7 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="false">
         <boolProp name="autocommit">true</boolProp>
         <stringProp name="checkQuery"></stringProp>
         <stringProp name="connectionAge">5000</stringProp>
@@ -379,7 +379,7 @@ public void databaseEquals(long oldValue,String newValue, String msg){
       </HeaderManager>
       <hashTree/>
       <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data getcurrentPassword" enabled="true">
-        <stringProp name="filename">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/currentPassword.csv</stringProp>
+        <stringProp name="filename">/tmp/meterdata/nofshonitjmeterci/nofshonit/CSV Files/currentPassword.csv</stringProp>
         <stringProp name="fileEncoding"></stringProp>
         <stringProp name="variableNames"></stringProp>
         <boolProp name="ignoreFirstLine">false</boolProp>
@@ -591,7 +591,7 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">10</stringProp>
+          <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -657,7 +657,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         </TransactionController>
         <hashTree>
           <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="הרשמה של שולח המתנה" enabled="true">
-            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\register+validate.jmx</stringProp>
+            <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/load/register+validate.jmx</stringProp>
           </IncludeController>
           <hashTree/>
         </hashTree>
@@ -690,7 +690,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           </TransactionController>
           <hashTree>
             <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="ביצוע רכישה ושליחת מתנה" enabled="true">
-              <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\purchase\modules\purchase_to_friend_Control.jmx</stringProp>
+              <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/purchase/modules/purchase_to_friend_Control.jmx</stringProp>
             </IncludeController>
             <hashTree/>
           </hashTree>
@@ -700,7 +700,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">10</stringProp>
+          <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -729,7 +729,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="הכנה לרכישה  עבור מוצר אחד בלבד" enabled="true"/>
           <hashTree>
             <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="הכנה" enabled="true">
-              <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\purchase\modules\purchase_to_friend_Control.jmx</stringProp>
+              <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/purchase/modules/purchase_to_friend_Control.jmx</stringProp>
             </IncludeController>
             <hashTree/>
           </hashTree>
@@ -739,7 +739,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           </TransactionController>
           <hashTree>
             <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="ביצוע רכישה ושליחת מתנה" enabled="true">
-              <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\just_purchase.jmx</stringProp>
+              <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/load/load_test_modules/just_purchase.jmx</stringProp>
             </IncludeController>
             <hashTree/>
           </hashTree>
@@ -749,10 +749,10 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           <hashTree/>
         </hashTree>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת הרשמה + רכישה" enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת הרשמה + רכישה" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="888915446">
-            <stringProp name="49">1</stringProp>
+          <collectionProp name="372462822">
+            <stringProp name="48625">100</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="49">1</stringProp>
             <stringProp name="48625">100</stringProp>
@@ -835,7 +835,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
             <hashTree/>
           </hashTree>
           <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="הרשמה של שולח המתנה" enabled="true">
-            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\register+validate.jmx</stringProp>
+            <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/load/load_test_modules/register+validate.jmx</stringProp>
           </IncludeController>
           <hashTree/>
         </hashTree>
@@ -856,17 +856,17 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           </TransactionController>
           <hashTree>
             <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="ביצוע רכישה ושליחת מתנה" enabled="true">
-              <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\purchase\modules\purchase_to_friend_Control.jmx</stringProp>
+              <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/purchase/modules/purchase_to_friend_Control.jmx</stringProp>
             </IncludeController>
             <hashTree/>
           </hashTree>
         </hashTree>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה לפולסים" enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה לפולסים" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="388369010">
-            <stringProp name="1567">10</stringProp>
-            <stringProp name="48">0</stringProp>
+          <collectionProp name="-280982082">
+            <stringProp name="1691">50</stringProp>
+            <stringProp name="1507423">1000</stringProp>
             <stringProp name="48625">100</stringProp>
             <stringProp name="51508">400</stringProp>
             <stringProp name="48625">100</stringProp>
@@ -892,11 +892,11 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           <hashTree/>
         </hashTree>
         <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Include Controller" enabled="true">
-          <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\pulsim-signup.jmx</stringProp>
+          <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/load/load_test_modules/pulsim-signup.jmx</stringProp>
         </IncludeController>
         <hashTree/>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת רכישה" enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="שרת רכישה" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
           <collectionProp name="-735038697">
             <stringProp name="49">1</stringProp>
@@ -933,7 +933,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="הכנה לרכישה  עבור מוצר אחד בלבד" enabled="true"/>
           <hashTree>
             <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="הכנה" enabled="true">
-              <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\purchase\modules\purchase_to_friend_Control.jmx</stringProp>
+              <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/purchase/modules/purchase_to_friend_Control.jmx</stringProp>
             </IncludeController>
             <hashTree/>
           </hashTree>
@@ -943,20 +943,20 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           </TransactionController>
           <hashTree>
             <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="ביצוע רכישה ושליחת מתנה" enabled="true">
-              <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\just_purchase.jmx</stringProp>
+              <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/purchase/modules/purchase_to_friend_Control.jmx</stringProp>
             </IncludeController>
             <hashTree/>
           </hashTree>
           <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="הכנה עבור מספר מוצרים משתנים" enabled="false">
-            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\purchase\modules\purchase_to_friend_Control.jmx</stringProp>
+            <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/load/load_test_modules/just_purchase.jmx</stringProp>
           </IncludeController>
           <hashTree/>
         </hashTree>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה של מקבל מתנה חדש(דינמי) " enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="הרשמה של מקבל מתנה חדש(דינמי) " enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-1347461540">
-            <stringProp name="1567">10</stringProp>
+          <collectionProp name="-2051933824">
+            <stringProp name="48625">100</stringProp>
             <stringProp name="48625">100</stringProp>
             <stringProp name="1567">10</stringProp>
             <stringProp name="48625">100</stringProp>
@@ -974,12 +974,12 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           <collectionProp name="Arguments.arguments">
             <elementProp name="pathToCSV" elementType="Argument">
               <stringProp name="Argument.name">pathToCSV</stringProp>
-              <stringProp name="Argument.value">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files</stringProp>
+              <stringProp name="Argument.value">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/CSV Files</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="finalCSV" elementType="Argument">
               <stringProp name="Argument.name">finalCSV</stringProp>
-              <stringProp name="Argument.value">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/toEmail.csv</stringProp>
+              <stringProp name="Argument.value">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/CSV Files/toEmail.csv</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="destination" elementType="Argument">
@@ -1047,7 +1047,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         </TransactionController>
         <hashTree>
           <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="הרשמה של מקבל המתנה" enabled="true">
-            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\register+validateforReciver.jmx</stringProp>
+            <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonitjmeterci\nofshonit\load\load_test_modules\register+validateforReciver.jmx</stringProp>
           </IncludeController>
           <hashTree/>
           <CriticalSectionController guiclass="CriticalSectionControllerGui" testclass="CriticalSectionController" testname="Critical Section Controller" enabled="true">
@@ -1072,7 +1072,7 @@ vars.put(&apos;toEmail&apos;, toEmail);
           </hashTree>
         </hashTree>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="מתנות שקיבלתי\נתתי" enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="מתנות שקיבלתי\נתתי" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
           <collectionProp name="573120208">
             <stringProp name="1567">10</stringProp>
@@ -1132,11 +1132,11 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         </JSR223PreProcessor>
         <hashTree/>
         <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="צפיה במתנה שהתקבלה" enabled="true">
-          <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\watchgift.jmx</stringProp>
+          <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonit\load\load_test_modules\watchgift.jmx</stringProp>
         </IncludeController>
         <hashTree/>
         <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="צפיה במתנה שנשלחה" enabled="true">
-          <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\watch_sent_gift.jmx</stringProp>
+          <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonit\load\load_test_modules\watch_sent_gift.jmx</stringProp>
         </IncludeController>
         <hashTree/>
         <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
@@ -1148,11 +1148,11 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         </JSR223PostProcessor>
         <hashTree/>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="חיפוש עם סינונים" enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="חיפוש עם סינונים" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="288302942">
+          <collectionProp name="1344423683">
             <stringProp name="49">1</stringProp>
-            <stringProp name="49586">200</stringProp>
+            <stringProp name="48">0</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="1629">30</stringProp>
             <stringProp name="49">1</stringProp>
@@ -1171,15 +1171,15 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         </TransactionController>
         <hashTree>
           <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Include Controller" enabled="true">
-            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\filters\modules\search_filters.jmx</stringProp>
+            <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonit\filters\modules\search_filters.jmx</stringProp>
           </IncludeController>
           <hashTree/>
         </hashTree>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="מתנה למקבל - של שבטאי" enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="מתנה למקבל - של שבטאי" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="62471654">
-            <stringProp name="1567">10</stringProp>
+          <collectionProp name="836693768">
+            <stringProp name="48625">100</stringProp>
             <stringProp name="50702">350</stringProp>
             <stringProp name="1567">10</stringProp>
             <stringProp name="49586">200</stringProp>
@@ -1256,7 +1256,7 @@ failureMessage += checker.getFailureMassage();
         </TransactionController>
         <hashTree>
           <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="בדיקת מוצר ללקוח" enabled="true">
-            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\productToMember.jmx</stringProp>
+            <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonit\load\load_test_modules\productToMember.jmx</stringProp>
           </IncludeController>
           <hashTree/>
         </hashTree>
@@ -1320,12 +1320,12 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           <collectionProp name="Arguments.arguments">
             <elementProp name="pathToCSV" elementType="Argument">
               <stringProp name="Argument.name">pathToCSV</stringProp>
-              <stringProp name="Argument.value">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files</stringProp>
+              <stringProp name="Argument.value">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/CSV Files</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="finalCSV" elementType="Argument">
               <stringProp name="Argument.name">finalCSV</stringProp>
-              <stringProp name="Argument.value">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/toEmail.csv</stringProp>
+              <stringProp name="Argument.value">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/CSV Files/toEmail.csv</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="destination" elementType="Argument">
@@ -1337,7 +1337,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         </Arguments>
         <hashTree/>
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="משיכת המייל של מקבל המתנה" enabled="true">
-          <stringProp name="filename">C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files/toEmail.csv</stringProp>
+          <stringProp name="filename">/tmp/jmeterdata/nofshonitjmeterci/nofshonit/CSV Files/toEmail.csv</stringProp>
           <stringProp name="fileEncoding"></stringProp>
           <stringProp name="variableNames"></stringProp>
           <boolProp name="ignoreFirstLine">false</boolProp>
@@ -1354,12 +1354,12 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
         </TransactionController>
         <hashTree>
           <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="הרשמה של מקבל המתנה" enabled="true">
-            <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\register+validateforReciver.jmx</stringProp>
+            <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonitjmeterci\nofshonit\load\load_test_modules\register+validateforReciver.jmx</stringProp>
           </IncludeController>
           <hashTree/>
         </hashTree>
         <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="צפיה במתנה" enabled="true">
-          <stringProp name="IncludeController.includepath">C:\GitHub\nofshonitjmeterci\nofshonit\load\load_test_modules\watchgift.jmx</stringProp>
+          <stringProp name="IncludeController.includepath">/tmp/jmeterdata/nofshonitjmeterci\nofshonit\load\load_test_modules\watchgift.jmx</stringProp>
         </IncludeController>
         <hashTree/>
       </hashTree>

@@ -9,7 +9,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="site" elementType="Argument">
             <stringProp name="Argument.name">site</stringProp>
-            <stringProp name="Argument.value">performancenofshonitbackapihist04.hist.org.il/</stringProp>
+            <stringProp name="Argument.value">performancenofshonitbackapihist04.hist.org.il</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="port" elementType="Argument">
@@ -587,7 +587,7 @@ props.put(&apos;assertionResults&apos;, resultBuilder.toString())
           </hashTree>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="בדידה הרשמה + ולידציה" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="בדידה הרשמה + ולידציה" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -696,7 +696,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           </hashTree>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="בדידה רכישה" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="בדידה רכישה" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -1129,7 +1129,7 @@ vars.put(&apos;toEmail&apos;, toEmail);
           </hashTree>
         </hashTree>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="מתנות שקיבלתי\נתתי" enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="מתנות שקיבלתי\נתתי" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
           <collectionProp name="573120208">
             <stringProp name="1567">10</stringProp>
