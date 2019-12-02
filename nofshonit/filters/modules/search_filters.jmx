@@ -165,20 +165,23 @@ def checker = vars.getObject(&apos;JsonChecker&apos;);
 	    AssertionResult.setFailureMessage(failureMessage);
 	    AssertionResult.setFailure(true);  
 	}
-	//jsonResponse = checker.getJsonResponse(prev);
+	
 	checker.getStatusCode(prev,&quot;200&quot;);
 	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
 	checker.ConfigStatusAndData(jsonResponse);
 	catagoryLevel = jsonResponse.get(&apos;data&apos;);
 	Objects.requireNonNull(catagoryLevel, &quot;jsonData returned with null value&quot;);
-	//log.info(catagoryLevel[0].toString());
-	//checker.dataIsLazyMapArray(catagoryLevel,&quot;tagName tagId tagCategoryInfo&quot;, &quot;the top catagory has a wrong response properties&quot;);
-//	catagoryLevel = catagoryLevel.first().get(&apos;categories&apos;);
 	catagoryLevel = catagoryLevel.get(&apos;filterDataDTOs&apos;);
-     checker.ArrayRequiredFields(catagoryLevel,[&quot;categoriesCount&quot;,&quot;categories&quot;,&quot;isFavorite&quot;,&quot;businessesCount&quot;,&quot;stripName&quot;],&quot;the catagories filter dosent contain the required key values\n\n&quot;);
-	catagoryLevel = catagoryLevel[0].get(&apos;categories&apos;)[0];
+	//log.info(catagoryLevel[0]);
+	//checker.dataIsLazyMap(catagoryLevel,&quot;categoriesCount stripName&quot;,&quot;the catagories filter dosent contain the required key values\n\n&quot;);
+  checker.ArrayRequiredFields(catagoryLevel,[&quot;categoriesCount&quot;,&quot;stripName&quot;],&quot;the catagories filter dosent contain the required key values\n\n&quot;);
+	//catagoryLevel = catagoryLevel.get(&apos;innerFilterData&apos;);
+	catagoryLevel = catagoryLevel[0];
+	catagoryLevel = catagoryLevel.get(&apos;innerFilterData&apos;);
+	catagoryLevel = catagoryLevel.get(&apos;categories&apos;)[0];
 
-     checker.dataIsLazyMap(catagoryLevel,&quot; categoryId category images minPrice maxPrice businessesCount&quot;,&quot;displayed catagories fail to contain the following values\n\n&quot;);
+
+   checker.dataIsLazyMap(catagoryLevel,&quot; categoryId category images minPrice maxPrice businessesCount&quot;,&quot;displayed catagories fail to contain the following values\n\n&quot;);
      checker.dataIsLazyMap(catagoryLevel.get(&apos;category&apos;),&quot; categoryId categoryName images&quot;,&quot;displayed catagories fail to contain the following values\n\n&quot;);
 
 	failureMessage = checker.getFailureMassage();	
