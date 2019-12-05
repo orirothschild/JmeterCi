@@ -28,10 +28,10 @@
 	&quot;numOfPayments&quot;:1,&#xd;
 	&quot;pinCode&quot;:&quot;&quot;,&#xd;
 	&quot;email&quot;:&quot;${Email}&quot;,&#xd;
-	&quot;creditCard16Digits&quot;:&quot;${cardNumber}&quot;,&#xd;
+	&quot;creditCard16Digits&quot;:&quot;${creditCard16Digits}&quot;,&#xd;
 	&quot;creditCardExpirey&quot;:&quot;${creditCardExpirey}&quot;,&#xd;
-	&quot;cvv&quot;:&quot;${cardCvv}&quot;,&#xd;
-	&quot;identity&quot;:&quot;${cardId}&quot;,&#xd;
+	&quot;cvv&quot;:&quot;${cvv}&quot;,&#xd;
+	&quot;identity&quot;:&quot;${identity}&quot;,&#xd;
 	&quot;cart&quot;:[&#xd;
 		{&#xd;
 		&quot;categoryId&quot;:&quot;${catagoryId}&quot;,&#xd;

@@ -4,10 +4,10 @@
 JENKINS="http://localhost:8080"
 
 JENKINS_USER="orirothschild"
-JENKINS_USER_TOKEN="11e0d5591f3058ff250a15074c7006f66e"
+JENKINS_USER_TOKEN="1193b8617462894da4de8cc1a3a96d3657"
 
 # nested path to job
-JOB="purchase"
+JOB="unit-tests"
 cardNumber="4580458045804580"	
 cardCvv="123"
 cardId="311321590"
