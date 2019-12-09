@@ -33,7 +33,7 @@ def builder = new groovy.json.JsonBuilder();
 vars.put(&quot;builder&quot;,builder.toPrettyString());</stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת טווח מחירים" enabled="true">
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת טווח מחירים" enabled="false">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
@@ -57,7 +57,7 @@ vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
 </stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת כשרות" enabled="false">
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת כשרות" enabled="true">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
@@ -68,7 +68,7 @@ import groovy.json.JsonSlurper;
 int areas = (Math.abs(new Random().nextInt() % 3));
 if(areas == 0){return;}
 ArrayList&lt;Integer&gt; a = new ArrayList&lt;&gt;(areas);
-for (int i = 0; i &lt;= areas; ++i){ //to generate from 0-10 inclusive. 
+for (int i = 1; i &lt;= areas; ++i){ //to generate from 0-10 inclusive. 
                                //For 0-9 inclusive, remove the = on the &lt;=
     a.add(i);
 }
@@ -81,7 +81,7 @@ vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
 </stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת אזור" enabled="false">
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת אזור" enabled="true">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
@@ -100,7 +100,7 @@ Collections.shuffle(a);
 
 def json = new JsonSlurper().parseText(vars.get(&apos;builder&apos;));
 json &lt;&lt; [regions:a] 
-log.info(JsonOutput.toJson(json))
+//log.info(JsonOutput.toJson(json))
 vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
 </stringProp>
         </JSR223PreProcessor>
