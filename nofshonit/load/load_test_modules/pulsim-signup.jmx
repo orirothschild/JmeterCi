@@ -72,7 +72,7 @@ String message = null;
 def catagoryLevel = null;
 
 JsonSlurper JSON = new JsonSlurper ();
-def checker = props.get(&apos;JsonChecker&apos;);
+def checker = vars.getObject(&apos;JsonChecker&apos;);
 	try {
       jsonResponse = JSON.parseText(prev.getResponseDataAsString());
       } catch (Exception e) {
@@ -80,13 +80,14 @@ def checker = props.get(&apos;JsonChecker&apos;);
 	    AssertionResult.setFailureMessage(failureMessage);
 	    AssertionResult.setFailure(true);  
 	}
-	log.info(prev.getResponseDataAsString());
+	//log.info(prev.getResponseDataAsString());
 	//checker.getStatusCode(prev,&quot;200&quot;);
 	//checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
 	//checker.ConfigStatusAndData(jsonResponse);
-	boolean isSuccsess = jsonResponse.get(&apos;data&apos;);
+	//boolean isSuccsess = jsonResponse.get(&apos;data&apos;);
+	//log.info(jsonResponse.get(&apos;data&apos;).toString())
 
-     checker.databaseEquals(isSuccsess.toString(),&quot;true&quot;,&quot;the user ${Email}&apos;&quot; + &quot;failed to sign up to pulsim\n\n&quot;);
+     checker.databaseEquals(jsonResponse.get(&apos;data&apos;).toString(),&quot;true&quot;,&quot;the user ${Email}&apos;&quot; + &quot;failed to sign up to pulsim\n\n&quot;);
 	failureMessage = checker.getFailureMassage();	
 	// Print error messages if any
 		if (failureMessage?.trim()) {

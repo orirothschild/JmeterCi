@@ -33,7 +33,7 @@ def builder = new groovy.json.JsonBuilder();
 vars.put(&quot;builder&quot;,builder.toPrettyString());</stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת טווח מחירים" enabled="false">
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת טווח מחירים" enabled="true">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
@@ -66,11 +66,13 @@ vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
 import groovy.json.JsonBuilder;
 import groovy.json.JsonSlurper;
 int areas = (Math.abs(new Random().nextInt() % 3));
+int addition = Math.abs(new Random().nextInt() % 2) +1;
 if(areas == 0){return;}
 ArrayList&lt;Integer&gt; a = new ArrayList&lt;&gt;(areas);
 for (int i = 1; i &lt;= areas; ++i){ //to generate from 0-10 inclusive. 
                                //For 0-9 inclusive, remove the = on the &lt;=
-    a.add(i);
+    a.add(addition);
+    addition = addition == 1 ? 2: 1;
 }
 Collections.shuffle(a);
 
@@ -78,10 +80,11 @@ def json = new JsonSlurper().parseText(vars.get(&apos;builder&apos;));
 json &lt;&lt; [kosherTypes:a] 
 log.info(JsonOutput.toJson(json))
 vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
+
 </stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת אזור" enabled="true">
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת אזור" enabled="false">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
@@ -105,7 +108,44 @@ vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
 </stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="הוספת תגית" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import groovy.json.*
+import groovy.json.JsonBuilder;
+import groovy.json.JsonSlurper;
+int [] arr = [0,25,27];
+int areas = (Math.abs(new Random().nextInt() % 3));
+int addition = Math.abs(new Random().nextInt() % 2) +1;
+ArrayList&lt;Integer&gt; a = new ArrayList&lt;&gt;(areas);
+
+if(areas == 0){
+	a.add(0);
+	def json = new JsonSlurper().parseText(vars.get(&apos;builder&apos;));
+	json &lt;&lt; [categoryTagIDs:a] 
+	vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
+	
+}
+
+else{
+	for (int i = 1; i &lt;= areas; ++i){ //to generate from 0-10 inclusive. 
+	                               //For 0-9 inclusive, remove the = on the &lt;=
+	    a.add(arr[addition]);
+	    addition = addition == 1 ? 2: 1;
+	}
+	Collections.shuffle(a);
+	
+	def json = new JsonSlurper().parseText(vars.get(&apos;builder&apos;));
+	json &lt;&lt; [categoryTagIDs:a] 
+	//log.info(JsonOutput.toJson(json))
+	vars.put(&apos;builder&apos;,new JsonBuilder(json).toPrettyString());
+}
+</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
           <intProp name="ActionProcessor.action">1</intProp>
           <intProp name="ActionProcessor.target">0</intProp>
           <stringProp name="ActionProcessor.duration">4000</stringProp>

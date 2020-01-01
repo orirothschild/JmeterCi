@@ -259,8 +259,8 @@ vars.put(&apos;toEmail&apos;, newEmail);
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="get catagory from variant" enabled="true">
             <stringProp name="dataSource">test</stringProp>
-            <stringProp name="query">--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()
-SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber in (56217) ORDER BY NEWID()
+            <stringProp name="query">SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()
+--SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where CategoryNumber in (56217) ORDER BY NEWID()
 
  --SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory ORDER BY NEWID()--
 --SELECT top 1 CategoryNumber from NofshonitClub..Flat_SearchCategory where DisplayName like &apos;%&quot;%&apos; ORDER BY NEWID()--
