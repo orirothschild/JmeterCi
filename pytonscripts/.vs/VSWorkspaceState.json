@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Distrabute",
+    "\\Excel",
+    "\\reports",
+    "\\UsefulClasses"
   ],
-  "SelectedNode": "\\suite.py",
+  "SelectedNode": "\\UsefulClasses",
   "PreviewInSolutionExplorer": false
 }

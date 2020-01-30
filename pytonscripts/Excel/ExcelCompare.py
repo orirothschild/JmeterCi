@@ -19,15 +19,15 @@ def main():
     changepath = sortedlist[0]
     changepath2= sortedlist[1]
 
-    out_path1 = r"C:\Users\orir\Downloads\test2.xlsx12020.xlsx"
-    out_path2 = r"C:\Users\orir\Downloads\test.xlsx142020.xlsx"
+  #  out_path1 = r"C:\Users\orir\Downloads\test2.xlsx12020.xlsx"
+   # out_path2 = r"C:\Users\orir\Downloads\test.xlsx142020.xlsx"
 
-    if path.exists(changepath) and path.exists(changepath2):
-        os.rename(changepath,out_path1)
-        os.rename(changepath2,out_path2)
+#    if path.exists(changepath) and path.exists(changepath2):
+ #       os.rename(changepath,out_path1)
+  #      os.rename(changepath2,out_path2)
 
-    path_old=Path(out_path1)
-    path_new=Path(out_path2)
+    path_old=Path(changepath)
+    path_new=Path(changepath2)
 
     # Read in the two excel files and fill NA
     template = pd.read_excel(path_old,na_values=np.nan,header=None)

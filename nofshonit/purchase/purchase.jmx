@@ -172,7 +172,7 @@ vars.putObject(&apos;body&apos;,&apos;&apos;);</stringProp>
       <hashTree/>
       <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="create new  Email" enabled="true">
         <stringProp name="variableName">newEmail</stringProp>
-        <stringProp name="outputFormat">talll_0000@dts-4u</stringProp>
+        <stringProp name="outputFormat">taltul_0000@gmail.com</stringProp>
         <stringProp name="minimumValue">1</stringProp>
         <stringProp name="maximumValue">9999</stringProp>
         <stringProp name="randomSeed"></stringProp>
