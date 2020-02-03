@@ -51,13 +51,13 @@ class REPORTS(unittest.TestCase):
         driver = self.driver
         driver.get("http://172.29.46.11/Reports/ReportsHistory")
         driver.find_element_by_id("FieldFilter").clear()
-        while(not driver.find_elements_by_class_name("k-dropdown-wrap k-state-default k-state-focused k-state-active k-state-border-down")):
-            element =driver.find_element_by_class_name("k-input")
+        element =driver.find_element_by_class_name("k-input")
+        driver.execute_script("arguments[0].click();", element)
+        while(len(driver.find_elements_by_class_name("k-state-border-down"))==0):
             driver.execute_script("arguments[0].click();", element)
-            driver.execute_script("arguments[0].click();", element)
+          #  driver.execute_script("arguments[0].click();", element)
        
-            
-            driver.execute_script("arguments[0].click();", element)
+        element.send_keys(Keys.DOWN) 
         driver.find_element_by_class_name("form-control").send_keys("0542255135")
         driver.find_element_by_class_name("//div[@id='grid']/div/div/div/div/span/span/span[2]/span").click()
         driver.find_element_by_link_text(u"יצוא לאקסל").click()

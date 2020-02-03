@@ -129,11 +129,11 @@
       <hashTree/>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="leumiapp" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="1344628933">
+          <collectionProp name="1204097912">
+            <stringProp name="48625">100</stringProp>
             <stringProp name="49">1</stringProp>
             <stringProp name="49">1</stringProp>
-            <stringProp name="49">1</stringProp>
-            <stringProp name="1567">10</stringProp>
+            <stringProp name="53430">600</stringProp>
             <stringProp name="53">5</stringProp>
           </collectionProp>
         </collectionProp>
@@ -144,7 +144,7 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
       </kg.apc.jmeter.threads.UltimateThreadGroup>
       <hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="פתיחת שדר  yxy4" enabled="false">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="פתיחת שדר 4 " enabled="false">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
@@ -182,7 +182,7 @@
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="שדר 4 " enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="שדר 4 " enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -230,8 +230,105 @@
               <stringProp name="filename"></stringProp>
               <stringProp name="cacheKey">true</stringProp>
               <stringProp name="script">def response = new XmlParser().parseText(prev.getResponseDataAsString()) 
-def  failureMessage = null
-if( !prev.getResponseDataAsString().contains(&quot;OrderLimit&gt;2&lt;&quot;)){
+def  failureMessage = &quot;&quot;
+if( !(prev.getResponseDataAsString().contains(&quot;OrderLimit&gt;2&lt;&quot;)||prev.getResponseDataAsString().contains(&quot;OrderLimit&gt;0&lt;&quot;)||prev.getResponseDataAsString().contains(&quot;OrderLimit&gt;&quot;))){
+	 failureMessage += &quot;test faailed&quot;
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);  
+}
+</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="שדר 4.1 איוונטים" enabled="false">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header adds UserToken" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip,deflate</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="SOAPAction" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">&quot;http://tempuri.org/GetEventsByBenefitId&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">619</stringProp>
+              </elementProp>
+              <elementProp name="Host" elementType="Header">
+                <stringProp name="Header.name">Host</stringProp>
+                <stringProp name="Header.value">172.29.90.16</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">Keep-Alive</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Apache-HttpClient/4.1.1 (java 1.5)</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="שדר 4 " enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:tem=&quot;http://tempuri.org/&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;tem:GetEventsByBenefitId&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;tem:request&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:UniqueId&gt;5BB4DC4E-2748-47B0-BA94-7790F12CE6D6&lt;/tem:UniqueId&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:MemberId&gt;f572dbaf-1bf4-47f8-8aec-f394167b2121&lt;/tem:MemberId&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:BenefitId&gt;43209&lt;/tem:BenefitId&gt;&#xd;
+         &lt;/tem:request&gt;&#xd;
+      &lt;/tem:GetEventsByBenefitId&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;&#xd;
+</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${site}</stringProp>
+            <stringProp name="HTTPSampler.port">${port}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/LeumiAppServices/services.asmx</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">def response = new XmlParser().parseText(prev.getResponseDataAsString()) 
+def  failureMessage = &quot;&quot;
+if( !(prev.getResponseDataAsString().contains(&quot;&lt;Status&gt;1&lt;&quot;)||prev.getResponseDataAsString().contains(&quot;OrderLimit&gt;0&lt;&quot;))){
 	 failureMessage += &quot;test faailed&quot;
 	    AssertionResult.setFailureMessage(failureMessage);
 	    AssertionResult.setFailure(true);  
@@ -243,7 +340,7 @@ if( !prev.getResponseDataAsString().contains(&quot;OrderLimit&gt;2&lt;&quot;)){
         </hashTree>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="שדר  5 הרצה " enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
           <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller" enabled="true"/>
@@ -262,7 +359,7 @@ if( !prev.getResponseDataAsString().contains(&quot;OrderLimit&gt;2&lt;&quot;)){
               <boolProp name="com.blazemeter.jmeter.debugger.engine.Debugger">true</boolProp>
             </JDBCSampler>
             <hashTree>
-              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="variant postprocessor" enabled="true">
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="variant postprocessor" enabled="false">
                 <stringProp name="scriptLanguage">groovy</stringProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
@@ -273,59 +370,13 @@ vars.put(&apos;catagoryId&apos;,vars.get(&apos;catagoryId_1&apos;));</stringProp
               <hashTree/>
             </hashTree>
           </hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header adds UserToken" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Accept-Encoding" elementType="Header">
-                <stringProp name="Header.name">Accept-Encoding</stringProp>
-                <stringProp name="Header.value">gzip,deflate</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">text/xml;charset=UTF-8</stringProp>
-              </elementProp>
-              <elementProp name="SOAPAction" elementType="Header">
-                <stringProp name="Header.name">SOAPAction</stringProp>
-                <stringProp name="Header.value">&quot;http://tempuri.org/CreateOrder&quot;</stringProp>
-              </elementProp>
-              <elementProp name="Content-Length" elementType="Header">
-                <stringProp name="Header.name">Content-Length</stringProp>
-                <stringProp name="Header.value">2209</stringProp>
-              </elementProp>
-              <elementProp name="Host" elementType="Header">
-                <stringProp name="Header.name">Host</stringProp>
-                <stringProp name="Header.value">172.29.90.16</stringProp>
-              </elementProp>
-              <elementProp name="Connection" elementType="Header">
-                <stringProp name="Header.name">Connection</stringProp>
-                <stringProp name="Header.value">Keep-Alive</stringProp>
-              </elementProp>
-              <elementProp name="User-Agent" elementType="Header">
-                <stringProp name="Header.name">User-Agent</stringProp>
-                <stringProp name="Header.value">Apache-HttpClient/4.1.1 (java 1.5)</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
-            <stringProp name="scriptLanguage">groovy</stringProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="cacheKey">true</stringProp>
-            <stringProp name="script">
-vars.putObject(&quot;UUID&quot;,java.util.UUID.randomUUID());</stringProp>
-          </JSR223Sampler>
-          <hashTree/>
-          <CriticalSectionController guiclass="CriticalSectionControllerGui" testclass="CriticalSectionController" testname="שדר 5 " enabled="true">
-            <stringProp name="CriticalSectionController.lockName">global_lock</stringProp>
-          </CriticalSectionController>
-          <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="שדר 5  " enabled="true">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:tem=&quot;http://tempuri.org/&quot;&gt;&#xd;
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="שדר 5  " enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:tem=&quot;http://tempuri.org/&quot;&gt;&#xd;
    &lt;soapenv:Header/&gt;&#xd;
    &lt;soapenv:Body&gt;&#xd;
       &lt;tem:CreateOrder&gt;&#xd;
@@ -342,7 +393,144 @@ vars.putObject(&quot;UUID&quot;,java.util.UUID.randomUUID());</stringProp>
             &lt;!--Optional:--&gt;&#xd;
             &lt;tem:LastName&gt;קוסיק&lt;/tem:LastName&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
-            &lt;tem:Mobile&gt;0549719898&lt;/tem:Mobile&gt;&#xd;
+            &lt;tem:Mobile&gt;&lt;/tem:Mobile&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:CreditCardToken&gt;&lt;/tem:CreditCardToken&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:CreditCardExpirey&gt;0420&lt;/tem:CreditCardExpirey&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:CreditCard16Digits&gt;KzwXXKNEsXwM8/Sw9angEg==&lt;/tem:CreditCard16Digits&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:OrderGuid&gt;${UUID}&lt;/tem:OrderGuid&gt;&#xd;
+            &lt;tem:IsRetry&gt;0&lt;/tem:IsRetry&gt;&#xd;
+            &lt;tem:TotalPayment&gt;150&lt;/tem:TotalPayment&gt;&#xd;
+            &lt;tem:TotalCoins&gt;0&lt;/tem:TotalCoins&gt;&#xd;
+            &lt;tem:IsSendToFriend&gt;0&lt;/tem:IsSendToFriend&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:FriendName&gt;&lt;/tem:FriendName&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:FriendMobile&gt;&lt;/tem:FriendMobile&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:EventsGuid&gt;&lt;/tem:EventsGuid&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:Variants&gt;&#xd;
+               &lt;!--Zero or more repetitions:--&gt;&#xd;
+               &lt;tem:CreateOrderVariant&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;tem:VariantName&gt;&lt;/tem:VariantName&gt;&#xd;
+                  &lt;tem:Qty&gt;1&lt;/tem:Qty&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;tem:VariantBarCode&gt;100144-183&lt;/tem:VariantBarCode&gt;&#xd;
+                  &lt;tem:MoneyPay&gt;150&lt;/tem:MoneyPay&gt;&#xd;
+                  &lt;tem:CoinsPay&gt;0&lt;/tem:CoinsPay&gt;&#xd;
+               &lt;/tem:CreateOrderVariant&gt;&#xd;
+            &lt;/tem:Variants&gt;&#xd;
+         &lt;/tem:request&gt;&#xd;
+      &lt;/tem:CreateOrder&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;&#xd;
+</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${site}</stringProp>
+            <stringProp name="HTTPSampler.port">${port}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/LeumiAppServices/services.asmx</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">
+vars.putObject(&quot;UUID&quot;,java.util.UUID.randomUUID());</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header adds UserToken" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip,deflate</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">text/xml;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="SOAPAction" elementType="Header">
+                  <stringProp name="Header.name">SOAPAction</stringProp>
+                  <stringProp name="Header.value">&quot;http://tempuri.org/CreateOrder&quot;</stringProp>
+                </elementProp>
+                <elementProp name="Content-Length" elementType="Header">
+                  <stringProp name="Header.name">Content-Length</stringProp>
+                  <stringProp name="Header.value">2209</stringProp>
+                </elementProp>
+                <elementProp name="Host" elementType="Header">
+                  <stringProp name="Header.name">Host</stringProp>
+                  <stringProp name="Header.value">172.29.90.16</stringProp>
+                </elementProp>
+                <elementProp name="Connection" elementType="Header">
+                  <stringProp name="Header.name">Connection</stringProp>
+                  <stringProp name="Header.value">Keep-Alive</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Apache-HttpClient/4.1.1 (java 1.5)</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">
+def  failureMessage = null
+if( !prev.getResponseDataAsString().contains(&quot;Status&gt;1&lt;&quot;)){
+	 failureMessage += &quot;test faailed&quot;
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);  
+}
+</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="שדר 5  " enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:tem=&quot;http://tempuri.org/&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;tem:CreateOrder&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;tem:request&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:UniqueId&gt;5BB4DC4E-2748-47B0-BA94-7790F12CE6D6&lt;/tem:UniqueId&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:BenefitId&gt;215&lt;/tem:BenefitId&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:MemberId&gt;${id_1}&lt;/tem:MemberId&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:FirstName&gt;אלכס&lt;/tem:FirstName&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:LastName&gt;קוסיק&lt;/tem:LastName&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;tem:Mobile&gt;0548769458&lt;/tem:Mobile&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
             &lt;tem:CreditCardToken&gt;&lt;/tem:CreditCardToken&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
@@ -379,37 +567,66 @@ vars.putObject(&quot;UUID&quot;,java.util.UUID.randomUUID());</stringProp>
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;&#xd;
 </stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${site}</stringProp>
-              <stringProp name="HTTPSampler.port">${port}</stringProp>
-              <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/LeumiAppServices/services.asmx</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.proxyHost">127.0.0.1</stringProp>
-              <stringProp name="HTTPSampler.proxyPort">8888</stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${site}</stringProp>
+            <stringProp name="HTTPSampler.port">${port}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/LeumiAppServices/services.asmx</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">
+vars.putObject(&quot;UUID&quot;,java.util.UUID.randomUUID());</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223PreProcessor>
             <hashTree/>
-            <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="false">
-              <stringProp name="XPathExtractor.default">2</stringProp>
-              <stringProp name="XPathExtractor.refname">errno </stringProp>
-              <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
-              <stringProp name="XPathExtractor.xpathQuery">(//*[name() =&apos;soap:Envelope/soap:Body/*/*/*[1]&apos;])/text()</stringProp>
-              <boolProp name="XPathExtractor.validate">true</boolProp>
-              <boolProp name="XPathExtractor.tolerant">false</boolProp>
-              <boolProp name="XPathExtractor.namespace">false</boolProp>
-              <boolProp name="XPathExtractor.fragment">true</boolProp>
-            </XPathExtractor>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header adds UserToken" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip,deflate</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">text/xml;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="SOAPAction" elementType="Header">
+                  <stringProp name="Header.name">SOAPAction</stringProp>
+                  <stringProp name="Header.value">&quot;http://tempuri.org/CreateOrder&quot;</stringProp>
+                </elementProp>
+                <elementProp name="Content-Length" elementType="Header">
+                  <stringProp name="Header.name">Content-Length</stringProp>
+                  <stringProp name="Header.value">2209</stringProp>
+                </elementProp>
+                <elementProp name="Host" elementType="Header">
+                  <stringProp name="Header.name">Host</stringProp>
+                  <stringProp name="Header.value">172.29.90.16</stringProp>
+                </elementProp>
+                <elementProp name="Connection" elementType="Header">
+                  <stringProp name="Header.name">Connection</stringProp>
+                  <stringProp name="Header.value">Keep-Alive</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Apache-HttpClient/4.1.1 (java 1.5)</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
             <hashTree/>
             <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
               <stringProp name="cacheKey">true</stringProp>
@@ -425,11 +642,6 @@ if( !prev.getResponseDataAsString().contains(&quot;Status&gt;1&lt;&quot;)){
 </stringProp>
               <stringProp name="scriptLanguage">groovy</stringProp>
             </JSR223Assertion>
-            <hashTree/>
-            <SyncTimer guiclass="TestBeanGUI" testclass="SyncTimer" testname="Synchronizing Timer" enabled="true">
-              <intProp name="groupSize">30</intProp>
-              <longProp name="timeoutInMs">10</longProp>
-            </SyncTimer>
             <hashTree/>
           </hashTree>
         </hashTree>
