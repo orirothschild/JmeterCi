@@ -3,9 +3,12 @@
     "",
     "\\Distrabute",
     "\\Excel",
+    "\\Excel\\Pre_Prod",
+    "\\Excel\\Prod",
+    "\\Excel\\Suite",
     "\\reports",
     "\\UsefulClasses"
   ],
-  "SelectedNode": "\\reports\\reports.py",
+  "SelectedNode": "\\conftest.py",
   "PreviewInSolutionExplorer": false
 }

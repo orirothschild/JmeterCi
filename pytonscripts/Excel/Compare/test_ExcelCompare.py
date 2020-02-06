@@ -4,6 +4,7 @@ Created on Tue Jan 14 14:04:07 2020
 
 @author: orir
 """
+from pytest import mark
 import sys
 import pandas as pd
 import os.path
@@ -12,8 +13,9 @@ from pathlib import Path
 import numpy as np
 import glob
 from xlsxwriter.utility import xl_rowcol_to_cell
-
-def main():
+@mark.orderdiff
+@mark.ordergen
+def test_excelCompare():
     list_of_files = glob.glob('/Users/orir/Downloads/*') # * means all if need specific format then *.csv
     sortedlist = sorted(filter(os.path.isfile, list_of_files), key=os.path.getmtime)[::-1]
     changepath = sortedlist[0]
@@ -61,6 +63,4 @@ def main():
    
     print(df)
     export_csv = df.to_csv(r'C:\Users\orir\Downloads\export_dataframe.csv', index = None, header=True) #Don't forget to add '.csv' at the end of the path
-
-if __name__ == '__main__':
-    main()
+    assert True

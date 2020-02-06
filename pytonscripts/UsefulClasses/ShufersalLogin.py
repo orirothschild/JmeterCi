@@ -1,4 +1,4 @@
-from drivers import mydriver
+
 from drivers import mydriver
 currentdriver=mydriver() #connect to webdriver 
 chromepath = currentdriver.chrome
@@ -21,7 +21,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 
 
-class ShufersalLogin:
+class ShufersalLogin_Tests:
     def __init__(self):
          self.name = "אורי"
          self.Pass = "א.ב"

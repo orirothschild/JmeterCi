@@ -9,12 +9,12 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="site" elementType="Argument">
             <stringProp name="Argument.name">site</stringProp>
-            <stringProp name="Argument.value">172.29.90.16</stringProp>
+            <stringProp name="Argument.value">172.29.46.10</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="port" elementType="Argument">
             <stringProp name="Argument.name">port</stringProp>
-            <stringProp name="Argument.value">80</stringProp>
+            <stringProp name="Argument.value">58</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="protocol" elementType="Argument">
@@ -115,7 +115,7 @@
         <stringProp name="checkQuery"></stringProp>
         <stringProp name="connectionAge">5000</stringProp>
         <stringProp name="dataSource">test</stringProp>
-        <stringProp name="dbUrl">jdbc:sqlserver://172.29.45.45\sql2005;DatabaseName=LeumiApp</stringProp>
+        <stringProp name="dbUrl">jdbc:sqlserver://172.29.92.20\sql2005;DatabaseName=LeumiApp</stringProp>
         <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
         <stringProp name="initQuery"></stringProp>
         <boolProp name="keepAlive">true</boolProp>
@@ -129,8 +129,8 @@
       <hashTree/>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="leumiapp" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="1204097912">
-            <stringProp name="48625">100</stringProp>
+          <collectionProp name="1720550536">
+            <stringProp name="49">1</stringProp>
             <stringProp name="49">1</stringProp>
             <stringProp name="49">1</stringProp>
             <stringProp name="53430">600</stringProp>
@@ -144,7 +144,7 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
       </kg.apc.jmeter.threads.UltimateThreadGroup>
       <hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="פתיחת שדר 4 " enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="פתיחת שדר 4 " enabled="false">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
@@ -213,7 +213,7 @@
             <stringProp name="HTTPSampler.port">${port}</stringProp>
             <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/LeumiAppServices/services.asmx</stringProp>
+            <stringProp name="HTTPSampler.path">/services.asmx</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -338,7 +338,7 @@ if( !(prev.getResponseDataAsString().contains(&quot;&lt;Status&gt;1&lt;&quot;)||
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="שדר  5 הרצה " enabled="false">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="שדר  5 הרצה " enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
@@ -530,7 +530,7 @@ if( !prev.getResponseDataAsString().contains(&quot;Status&gt;1&lt;&quot;)){
             &lt;!--Optional:--&gt;&#xd;
             &lt;tem:LastName&gt;קוסיק&lt;/tem:LastName&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
-            &lt;tem:Mobile&gt;0548769458&lt;/tem:Mobile&gt;&#xd;
+            &lt;tem:Mobile&gt;0511111111&lt;/tem:Mobile&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
             &lt;tem:CreditCardToken&gt;&lt;/tem:CreditCardToken&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
@@ -575,7 +575,7 @@ if( !prev.getResponseDataAsString().contains(&quot;Status&gt;1&lt;&quot;)){
             <stringProp name="HTTPSampler.port">${port}</stringProp>
             <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/LeumiAppServices/services.asmx</stringProp>
+            <stringProp name="HTTPSampler.path">/services.asmx</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -645,7 +645,7 @@ if( !prev.getResponseDataAsString().contains(&quot;Status&gt;1&lt;&quot;)){
             <hashTree/>
           </hashTree>
         </hashTree>
-        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
           <boolProp name="displayJMeterProperties">false</boolProp>
           <boolProp name="displayJMeterVariables">true</boolProp>
           <boolProp name="displaySystemProperties">false</boolProp>
