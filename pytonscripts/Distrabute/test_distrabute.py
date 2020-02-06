@@ -1,7 +1,15 @@
 ﻿# -*- coding: utf-8 -*-
 from pytest import mark
 import pytest
-import unittest, time
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
+from selenium.webdriver.common.action_chains import ActionChains
+import unittest, time, re
+
+
 @mark.distrabute
 @pytest.mark.usefixtures("shufersal_chrome_login")
 class DISTRABUTE_Tests:
@@ -10,7 +18,7 @@ class DISTRABUTE_Tests:
         self.verificationErrors =shufersal_chrome_login[1]
         self.accept_next_alert =shufersal_chrome_login[2]
         driver = self.driver
-        driver.get("http://172.29.46.11/Orders/OrdersUpdate")
+        driver.get(shufersal_chrome_login[3])
         element = WebDriverWait(driver,7).until(
         EC.invisibility_of_element_located((By.CLASS_NAME,"k-loading-mask")))
         driver.find_element_by_xpath("//div[@id='grid']/div/div/div[2]/div/span/span/span").click()
@@ -63,7 +71,7 @@ class DISTRABUTE_Tests:
         driver.find_element_by_id("Wizard_Next").click()
         driver.find_element_by_xpath("(//button[@type='button'])[2]").click()
         
-   
+    @mark.skip
     def test_sql_data_to_be_true():
         conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server}; Server=172.29.45.45\sql2005;Database=ShufersalTavim;UID=sqladmin;PWD=Erg0110$;Trusted_Connection=no;')
         cursor = conn.cursor()

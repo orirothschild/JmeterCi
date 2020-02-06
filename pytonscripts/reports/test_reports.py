@@ -1,8 +1,15 @@
 ﻿
 from pytest import mark
 import pytest
-import unittest, time
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
 from selenium.webdriver.common.action_chains import ActionChains
+import unittest, time, re
+
+
 
 @mark.reports
 @pytest.mark.usefixtures("shufersal_chrome_login")
@@ -12,7 +19,7 @@ class Reports_Tests:
         self.verificationErrors =shufersal_chrome_login[1]
         self.accept_next_alert =shufersal_chrome_login[2]
         driver = self.driver
-        driver.get("http://172.29.46.11/Reports/ReportsHistory")
+        driver.get(shufersal_chrome_login[3])
         driver.find_element_by_id("FieldFilter").clear()
         element =driver.find_element_by_class_name("k-input")
         driver.execute_script("arguments[0].click();", element)

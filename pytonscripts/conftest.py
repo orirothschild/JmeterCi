@@ -41,7 +41,7 @@ def env(request):
 def web_config(env):
     return Config(env)
 
-@fixture() 
+@fixture() # this is if we have a test can should only run in a preticular env
 def shufersal_chrome_login(web_config):
     driver = chrome()
     verificationErrors = []
@@ -60,28 +60,9 @@ def shufersal_chrome_login(web_config):
   
     yield (driver,verificationErrors,accept_next_alert)
     driver.quit() 
-    
-@fixture()
-def shufersal_chrome_login_prod():
-    driver = chrome()
-    verificationerrors = []
-    accept_next_alert = True
-    driver.maximize_window()
-    driver.get("https://shufersal.verifone.co.il/")
-    driver.find_element_by_id("Email").clear()
-    driver.find_element_by_id("Email").send_keys("omri@dts-4u.com")
-    driver.find_element_by_id("password").click()
-    driver.find_element_by_id("password").clear()
-    driver.find_element_by_id("password").send_keys("1234567")
-    driver.find_element_by_id("loginsystem").click()
-    chrome_essentials=[driver,verificationerrors,accept_next_alert]
-   
-    yield (driver,verificationerrors,accept_next_alert)
-    driver.quit()
-  
  
 @fixture(params=[('https://shufersal.verifone.co.il/Orders/OrdersUpdate'),('http://172.29.46.11/Orders/OrdersUpdate')]) # run once per each site in chrome
-def shufersal_chrome_login_generic(request):
+def shufersal_chrome_login(request):
    #connect to webdriver 
     driver = chrome()
     verificationerrors = []

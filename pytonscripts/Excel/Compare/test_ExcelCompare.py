@@ -14,7 +14,6 @@ import numpy as np
 import glob
 from xlsxwriter.utility import xl_rowcol_to_cell
 @mark.orderdiff
-@mark.ordergen
 def test_excelCompare():
     list_of_files = glob.glob('/Users/orir/Downloads/*') # * means all if need specific format then *.csv
     sortedlist = sorted(filter(os.path.isfile, list_of_files), key=os.path.getmtime)[::-1]
