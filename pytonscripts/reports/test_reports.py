@@ -32,20 +32,24 @@ class Reports_Tests:
         driver.execute_script("arguments[0].click();", element)
         element = WebDriverWait(driver, 30).until(
             EC.element_to_be_clickable((By.XPATH, "/html/body/div[2]/nav/div/ul/li[3]/ul/li[1]/a")))
-        time.sleep(1.5)
+        time.sleep(2.5)
         element = driver.find_element_by_xpath("/html/body/div[2]/nav/div/ul/li[3]/ul/li[1]/a").click()
         element = WebDriverWait(driver, 30).until(
             EC.invisibility_of_element_located((By.CLASS_NAME, "k-loading-image")))
-        time.sleep(1.5)
+        time.sleep(2.5)
         element = driver.find_element_by_xpath('/html/body/div[2]/div/div/div/div/div[4]/div[1]/div/div/div['
                                                '1]/span/span/span[1]')
-        driver.execute_script("arguments[0].click();", element)
+        # driver.execute_script("arguments[0].click();", element)
         while len(driver.find_elements_by_class_name("k-state-border-down")) == 0:
             driver.execute_script("arguments[0].click();", element)
-
-        driver.find_element_by_xpath("/html/body/div[3]/div/span/input").send_keys("א.ב")
-        actions = ActionChains(driver)
-        actions.send_keys(Keys.DOWN).perform()
+            if len(driver.find_elements_by_class_name("k-state-border-down")) != 0:
+                driver.find_element_by_xpath("/html/body/div[3]/div/span/input").clear()
+                driver.find_element_by_xpath("/html/body/div[3]/div/span/input").send_keys("א.ב")
+                time.sleep(1)
+                actions = ActionChains(driver)
+                actions.send_keys(Keys.ENTER).perform()
+                #text = driver.find_element_by_xpath("/html/body/div[3]/div/div[3]/ul/li[1]").text
+                # if len(driver.find_elements_by_class_name("k-state-border-down")) != 0:
         driver.find_element_by_class_name("form-control").send_keys("050740239")
         driver.find_element_by_xpath('/html/body/div[2]/div/div/div/div/div[4]/div[1]/div/div/div[2]/div/span['
                                      '2]/button').click()

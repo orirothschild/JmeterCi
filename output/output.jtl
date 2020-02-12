@@ -18,4 +18,10 @@
 
 <sample t="4071" it="0" lt="0" ct="0" ts="1581496266380" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
 
+<sample t="2027" it="0" lt="0" ct="0" ts="1581499869679" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="61317" sby="9295" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="3473" it="0" lt="0" ct="0" ts="1581503466048" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="3464" it="0" lt="0" ct="0" ts="1581507066050" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
 </testResults>
