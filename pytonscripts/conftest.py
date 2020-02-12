@@ -17,6 +17,8 @@ import unittest, time, re
 from config import Config
 import argparse
 
+driver = chrome()
+
 
 def pytest_addoption(parser):
     parser.addoption(
@@ -75,23 +77,37 @@ def shufersal_chrome_login(web_config):
     driver.quit()
 
 
+#
+# class chrome_driver:
+#     def __init__(self):
+#         self.driver = chrome()
+#
+#     def make_chrome_driver(self):
+#         yield self.driver
+
+
+@fixture(scope="module")
+def get_chrome():
+    yield driver
+    driver.quit()
+
+
 @fixture(params=['https://shufersal.verifone.co.il/Orders/OrdersUpdate',
                  'http://172.29.46.11/Orders/OrdersUpdate'])  # run once per each site in chrome
-def shufersal_chrome_login(request):
+def shufersal_chrome_login(get_chrome, request):
     # connect to webdrsiver
     con = '172.29.25.20\sql2005' if request.param == 'https://shufersal.verifone.co.il/Orders/OrdersUpdate' else '172.29.92.20\sql2005'
     dbc = create_db_conn(con)
-    driver = chrome()
-    verificationerrors = []
+    driver_shufersal = get_chrome
+    errors = []
     accept_next_alert = True
-    driver.get(request.param)
-    driver.find_element_by_id("Email").clear()
-    driver.find_element_by_id("Email").send_keys("omri@dts-4u.com")
-    driver.find_element_by_id("password").click()
-    driver.find_element_by_id("password").clear()
-    driver.find_element_by_id("password").send_keys("1234567")
-    driver.find_element_by_id("loginsystem").click()
-    chrome_essentials = [driver, verificationerrors, accept_next_alert]
+    driver_shufersal.get(request.param)
+    driver_shufersal.find_element_by_id("Email").clear()
+    driver_shufersal.find_element_by_id("Email").send_keys("omri@dts-4u.com")
+    driver_shufersal.find_element_by_id("password").click()
+    driver_shufersal.find_element_by_id("password").clear()
+    driver_shufersal.find_element_by_id("password").send_keys("1234567")
+    driver_shufersal.find_element_by_id("loginsystem").click()
+    chrome_essentials = [driver_shufersal, errors, accept_next_alert]
 
-    yield driver, verificationerrors, accept_next_alert, dbc, request.param
-    driver.quit()
+    yield driver_shufersal, errors, accept_next_alert, dbc, request.param
