@@ -64,3 +64,15 @@
 [0212/114554.855:ERROR:exception_snapshot_win.cc(98)] thread ID 17156 not found in process
 [0212/114554.857:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
 [0212/114554.857:ERROR:exception_snapshot_win.cc(98)] thread ID 17932 not found in process
+[0212/182654.283:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0212/182654.283:ERROR:exception_snapshot_win.cc(98)] thread ID 19304 not found in process
+[0212/182654.419:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0212/182654.419:ERROR:exception_snapshot_win.cc(98)] thread ID 14128 not found in process
+[0212/182654.558:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0212/182654.558:ERROR:exception_snapshot_win.cc(98)] thread ID 3644 not found in process
+[0212/182654.698:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0212/182654.698:ERROR:exception_snapshot_win.cc(98)] thread ID 6336 not found in process
+[0212/182654.835:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0212/182654.836:ERROR:exception_snapshot_win.cc(98)] thread ID 6228 not found in process
+[0212/182654.969:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0212/182654.969:ERROR:exception_snapshot_win.cc(98)] thread ID 10304 not found in process

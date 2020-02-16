@@ -13,7 +13,7 @@ def chrome():
     options = webdriver.ChromeOptions()
     options.add_argument('--ignore-certificate-errors')
     chrome_drive = webdriver.Chrome(executable_path="D:\drivers\chrome\chromedriver.exe", chrome_options=options)
-    chrome_drive.implicitly_wait(5)
+    chrome_drive.implicitly_wait(3)
     chrome_drive.maximize_window()
     return chrome_drive
 

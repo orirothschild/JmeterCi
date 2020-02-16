@@ -1,5 +1,5 @@
 
-from drivers import mydriver
+from drivers.drivers import mydriver
 currentdriver=mydriver() #connect to webdriver 
 chromepath = currentdriver.chrome
 downloads_path ='/c/Users/orir/Downloads/'
@@ -10,15 +10,6 @@ conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server}; Server=172.29.45.
 
 cursor = conn.cursor()
 element = cursor.execute('SELECT * FROM Orders')
-import sys
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-import selenium.webdriver.support.ui 
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
 
 
 class ShufersalLogin_Tests:

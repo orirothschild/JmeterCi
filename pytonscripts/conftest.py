@@ -1,21 +1,8 @@
-﻿import pytest
+﻿import pyodbc
 from pytest import fixture
-import sys
-from drivers import chrome
-import pyodbc
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-import selenium.webdriver.support.ui
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
-import os.path
-import unittest, time, re
+
 from config import Config
-import argparse
+from drivers.drivers import chrome
 
 driver = chrome()
 
@@ -28,15 +15,6 @@ def pytest_addoption(parser):
     )
 
 
-# conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server}; Server=172.29.45.45\sql2005;Database=ShufersalTavim;UID=sqladmin;PWD=Erg0110$;Trusted_Connection=no;')
-
-# currentdriver=mydriver() #connect to webdriver
-# chromepath = currentdriver.chrome
-# from selenium import webdriver
-# import pyodbc
-
-# cursor = conn.cursor()
-# element = cursor.execute('SELECT * FROM Orders')
 @fixture()
 def env(request):
     return request.config.getoption("--env")
@@ -49,7 +27,7 @@ def web_config(env):
 
 def create_db_conn(servername):
     yield pyodbc.connect(driver='{ODBC Driver 17 for SQL Server}',
-                         server='172.29.45.45\sql2005',
+                         server=servername,
                          database='ShufersalTavim',
                          uid='sqladmin',
                          pwd='Erg0110$',
@@ -75,15 +53,6 @@ def shufersal_chrome_login(web_config):
 
     yield driver, verificationErrors, accept_next_alert
     driver.quit()
-
-
-#
-# class chrome_driver:
-#     def __init__(self):
-#         self.driver = chrome()
-#
-#     def make_chrome_driver(self):
-#         yield self.driver
 
 
 @fixture(scope="module")

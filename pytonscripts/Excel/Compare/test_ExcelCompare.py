@@ -14,7 +14,6 @@ import numpy as np
 import glob
 from xlsxwriter.utility import xl_rowcol_to_cell
 
-
 @mark.orderdiff
 def test_excelCompare(download_information):
     list_of_files = glob.glob('/Users/orir/Downloads/*')  # * means all if need specific format then *.csv
@@ -56,6 +55,6 @@ def test_excelCompare(download_information):
                 df = df.append(dfTemp)
 
     print(df)
-    export_csv = df.to_csv(r'C:\Users\orir\Downloads\%s.csv' % download_information, index=None,
+    export_csv = df.to_csv(r'C:\Users\orir\Downloads\%s.csv' % download_information, encoding='utf-8-sig', index=None,
                            header=True)  # Don't forget to add '.csv' at the end of the path
     assert True
