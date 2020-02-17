@@ -35,24 +35,26 @@ def create_db_conn(servername):
 
 
 @fixture()  # this is if we have a test can should only run in a preticular env
-def shufersal_chrome_login(web_config):
-    driver = chrome()
+def shufersal_chrome_login_config(web_config):
+    local_driver = chrome()
     verificationErrors = []
     accept_next_alert = True
-    driver.maximize_window()
+    local_driver.maximize_window()
     base_url = web_config.base_url
     port = web_config.web_port
-    driver.get(base_url + ":" + port)
-    driver.find_element_by_id("Email").clear()
-    driver.find_element_by_id("Email").send_keys("omri@dts-4u.com")
-    driver.find_element_by_id("password").click()
-    driver.find_element_by_id("password").clear()
-    driver.find_element_by_id("password").send_keys("1234567")
-    driver.find_element_by_id("loginsystem").click()
-    chrome_essentials = [driver, verificationErrors, accept_next_alert]
+    local_driver.get(base_url + ":" + port)
+    local_driver.find_element_by_xpath('//span/input').clear()
+    local_driver.find_element_by_xpath('//span/input').send_keys("omri@dts-4u.com")
+    # driver.find_element_by_id("Email").clear()
+    # driver.find_element_by_id("Email").send_keys("omri@dts-4u.com")
+    local_driver.find_element_by_id("password").click()
+    local_driver.find_element_by_id("password").clear()
+    local_driver.find_element_by_id("password").send_keys("1234567")
+    local_driver.find_element_by_id("loginsystem").click()
+    chrome_essentials = [local_driver, verificationErrors, accept_next_alert]
 
-    yield driver, verificationErrors, accept_next_alert
-    driver.quit()
+    yield local_driver, verificationErrors, accept_next_alert
+    local_driver.quit()
 
 
 @fixture(scope="module")
@@ -61,8 +63,7 @@ def get_chrome():
     driver.quit()
 
 
-@fixture(params=['https://shufersal.verifone.co.il/Orders/OrdersUpdate',
-                 'http://172.29.46.11/Orders/OrdersUpdate'])  # run once per each site in chrome
+@fixture(params=['https://shufersal.verifone.co.il/Orders/OrdersUpdate','http://172.29.46.11//Orders/OrdersUpdate'])  # run once per each site in chrome
 def shufersal_chrome_login(get_chrome, request):
     # connect to webdrsiver
     con = '172.29.25.20\sql2005' if request.param == 'https://shufersal.verifone.co.il/Orders/OrdersUpdate' else '172.29.92.20\sql2005'
