@@ -8,24 +8,51 @@ from selenium.webdriver.support.ui import WebDriverWait
 from Excel.Compare.test_ExcelCompare import excelCompare
 from selenium.webdriver.common.keys import Keys
 
+relevant_report = ['דוח היסטוריית מסגרת הזמנה']
+counter = 0
+
+
+def instances(name, params):
+    def vstr(val):
+        if isinstance(val, (list, tuple)):
+            return "-".join([str(v) for v in val])
+        else:
+            return str(val)
+
+    return ["%s[%s]" % (name, vstr(v)) for v in params]
+
 
 # this class oprates all the reports for shufersal from the reports dropdown bar
+def check_for_diffrence_in_reports_from_excel_file(report_name, sum_of_all_envs):
+    global counter
+    if counter == sum_of_all_envs:
+        excelCompare(f"{report_name}")
+        counter = 0
+        assert True
+    return
+
+
 @mark.smoke
 @mark.reports
+@pytest.mark.usefixtures("shufersal_chrome_login")
 class Reports_Tests:
     def execute_reports_by_parameter(self, driver,
-                                     drop_down):  # # קוד המריץ דוח, ממודה שהדוח לוחץ על ה קנדו ובודק את כול הרשומות עבור חברה גנרית, למשל א.ב הובלות בעמ
+                                     relevant_report):
+
+        # # הערכים DROPDOWN,DRIVER מייצגים את הדרייבר המריץ את סלניום ואת הערך של הדוח הרלוונטי
+        # # קוד המריץ דוח, ממודה שהדוח לוחץ על ה קנדו ובודק את כול הרשומות עבור חברה גנרית, למשל א.ב הובלות בעמ
         element = driver.find_element_by_xpath("/html/body/div[2]/nav/div/ul/li[3]/span")
         driver.execute_script("arguments[0].click();", element)
         element = WebDriverWait(driver, 30).until(
-            EC.element_to_be_clickable((By.LINK_TEXT, f'{drop_down}')))
-        time.sleep(3)
-        driver.find_element_by_link_text(f'{drop_down}').click()
+            EC.element_to_be_clickable((By.LINK_TEXT, f'{relevant_report}')))
         element = WebDriverWait(driver, 30).until(
             EC.invisibility_of_element_located((By.CLASS_NAME, "k-loading-image")))
-        time.sleep(3)
+        time.sleep(2)
+        driver.find_element_by_link_text(f'{relevant_report}').click()
+        element = WebDriverWait(driver, 30).until(
+            EC.invisibility_of_element_located((By.CLASS_NAME, "k-loading-image")))
+        time.sleep(2)
         element = driver.find_element_by_class_name('k-input')
-        # driver.execute_script("arguments[0].click();", element)
         sent_keys_flag = True
         while len(driver.find_elements_by_class_name("k-state-border-down")) == 0 and sent_keys_flag:
             driver.execute_script("arguments[0].click();", element)
@@ -48,23 +75,30 @@ class Reports_Tests:
                                      '2]/button').click()
         driver.find_element_by_link_text(u"יצוא לאקסל").click()
         time.sleep(2)
+        global counter
+        counter += 1
         return True
 
-    @pytest.mark.dependency(name="a")
     @pytest.mark.usefixtures("shufersal_chrome_login")
-    @mark.parametrize('drop_down', ['דוח היסטוריית מסגרת הזמנה'])
+    @mark.parametrize('relevant_report', relevant_report)
+    # הטסט הראשון שרץ, קורה לפונקצית הניהול של התחברות לשופרסל ולאחר מכן מושף ממנו את הדרייבר,חיבור דאטאבייס ומעביר
+    # את חיפוש הדוחות לפונקציה הבאה
+    @pytest.mark.dependency(name="a")
     def test_tavim_reports_as_excpected(self, shufersal_chrome_login,
-                                        drop_down):  # הטסט הראשון שרץ, מוודה את לקיחת הדרייבר מתוך הפקיטיור שנמצא בCONFTEST ולאחר מכן קורא לפונקציה reports by parameter
+                                        relevant_report):
         driver = shufersal_chrome_login[0]
         verificationErrors = shufersal_chrome_login[1]
         accept_next_alert = shufersal_chrome_login[2]
         dbc = shufersal_chrome_login[3]
         driver.get(shufersal_chrome_login[4])
         driver.find_element_by_id("FieldFilter").clear()
-        self.execute_reports_by_parameter(driver, drop_down)
+        self.execute_reports_by_parameter(driver, relevant_report)
+        check_for_diffrence_in_reports_from_excel_file(relevant_report, shufersal_chrome_login[5])
 
-    #
-    @pytest.mark.dependency(depends=["a"])
-    @mark.parametrize('rep', ['דוח פירוט הפצות להזמנה'])
-    def test_tevim_excel_as_expected(self, rep):
-        excelCompare(f"{rep}")
+    # @mark.parametrize('report_name', ['דוח פירוט הפצות להזמנה'])
+    # def test_tevim_excel_as_expected(self, report_name, shufersal_chrome_login):
+    #     global counter
+    #     if counter == shufersal_chrome_login[5]:
+    #         excelCompare(f"{report_name}")
+    #         counter = 0
+    #     assert True
