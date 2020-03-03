@@ -1,0 +1,4 @@
+Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
+get token,6844,560,55,6015,686.23,0.000%,9.04148,6.14,0.00,695.0
+Transaction Controller,6841,11559,167,49017,7917.75,0.614%,9.03628,15.79,23.87,1789.2
+TOTAL,13685,6059,55,49017,7862.50,0.307%,18.07340,21.92,23.87,1242.0

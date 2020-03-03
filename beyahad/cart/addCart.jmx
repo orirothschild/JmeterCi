@@ -1,0 +1,1136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="purchase and sell" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="site" elementType="Argument">
+            <stringProp name="Argument.name">site</stringProp>
+            <stringProp name="Argument.value">172.29.46.10</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="port" elementType="Argument">
+            <stringProp name="Argument.name">port</stringProp>
+            <stringProp name="Argument.value">3005</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="organizationId" elementType="Argument">
+            <stringProp name="Argument.name">organizationId</stringProp>
+            <stringProp name="Argument.value">48</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="protocol" elementType="Argument">
+            <stringProp name="Argument.name">protocol</stringProp>
+            <stringProp name="Argument.value">http</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery"></stringProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="dataSource">test</stringProp>
+        <stringProp name="dbUrl">jdbc:sqlserver://172.29.92.20\sql2005;DatabaseName=Histadrut</stringProp>
+        <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
+        <stringProp name="initQuery"></stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">Erg0110$</stringProp>
+        <stringProp name="poolMax">0</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">sqladmin</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="link checker" enabled="false">
+        <stringProp name="scriptLanguage">groovy</stringProp>
+        <stringProp name="parameters"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="cacheKey">true</stringProp>
+        <stringProp name="script">import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.io.FileWriter;
+import java.util.Arrays;
+import java.io.Writer;
+import java.util.List;
+import java.nio.charset.StandardCharsets;
+import java.io.*; 
+class LineChanger{
+	String pathToFile;
+	String CSVFile;
+	
+	LineChanger(String pathToFile, String CSVFile){
+		this.pathToFile = pathToFile;
+		this.CSVFile = CSVFile;
+	}
+	public void changeLine(int lineNumber, String data) throws IOException {
+    Path path = Paths.get(pathToFile,CSVFile);
+    List&lt;String&gt; lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+    lines.set(lineNumber - 1, data);
+    Files.write(path, lines, StandardCharsets.UTF_8);
+		}
+	}
+
+LineChanger LineChangerId = new LineChanger(&quot;C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files&quot;, &quot;id.csv&quot;);
+LineChanger LineChangerEmail = new LineChanger(&quot;C:/GitHub/nofshonitjmeterci/nofshonit/CSV Files&quot;,&quot;toEmail.csv&quot;);;
+vars.putObject(&apos;LineChangerId&apos;,LineChangerId);
+props.put(&apos;LineChangerEmail&apos;,LineChangerEmail);
+
+vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
+props.put(&apos;LineChangerId&apos;,LineChangerId);
+
+
+</stringProp>
+      </JSR223PreProcessor>
+      <hashTree/>
+      <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="utility class" enabled="true">
+        <stringProp name="scriptLanguage">groovy</stringProp>
+        <stringProp name="parameters"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="cacheKey">true</stringProp>
+        <stringProp name="script">import groovy.json.JsonSlurper;
+import org.apache.jmeter.assertions.AssertionResult;
+class ResponseChecker{
+	String failureMessage = &apos;&apos;;
+	JsonSlurper JSON = new JsonSlurper();
+
+
+	public def getJsonResponse(org.apache.jmeter.protocol.http.sampler.HTTPSampleResult prev){
+		def jsonResponse = null;
+		try {
+	    jsonResponse = this.JSON.parseText(prev.getResponseDataAsString());
+	    org.apache.log4j.Logger.error(jsonResponse);
+	    } catch (Exception e) {
+	    this.failureMessage += &quot; Invalid JSON.\n&quot;   
+	}
+	
+	return this.failureMessage == &apos;&apos;? jsonResponse: failureMessage;
+	}
+	
+	public void getStatusCode(org.apache.jmeter.protocol.http.sampler.HTTPSampleResult prev, String requiredStatus){
+		 if(prev == null || requiredStatus == null) {
+		 	this.failureMessage += &quot; jsonConfig got null collection\n&quot;;
+		 	return;
+		 }
+		if(!requiredStatus.equals(prev.getResponseCode())){
+			this.failureMessage = &quot; Expected &lt;response code&gt; &quot;+ requiredStatus+&quot; but we got instead [&quot; + prev.getResponseCode() + &quot;]\n\n&quot; ;
+	    }
+	}
+
+	public void jsonConfig(AbstractCollection collection){
+		 if(collection == null){
+		 	this.failureMessage += &quot; jsonConfig got null collection\n&quot;;
+		 	return;
+		 }
+		if (!collection.keyset().containsAll([&quot;data&quot;,&quot;status&quot;] )) {
+	          this.failureMessage += &quot; the response Json dosnet contain the right structure.\n\n&quot;;
+		}
+	}
+
+	public void ConfigStatusAndData(groovy.json.internal.LazyMap jsonResponse){
+		     if(jsonResponse == null){
+		 	this.failureMessage += &quot;jsonConfigMap got null map\n&quot;;
+		 	return;
+		 }
+		if (!jsonResponse.keySet().containsAll([&quot;data&quot;,&quot;status&quot;] )) {
+	          this.failureMessage += &quot; the response Json returned without status and data key fields(expecting data and status fields to return from a request.\n\n&quot;;
+	     }
+	}
+
+	public void getStatusHeader(Boolean status){
+		if(status== null){
+		 	this.failureMessage += &quot; statusHeader got null status\n&quot;;
+		 	return;
+		 }
+		if(status.equals(false)){
+			this.failureMessage += &quot; The request returned with a false status \n\n&quot;;
+		}
+	}
+
+	public void dataIsCollection(AbstractCollection map, String fields, String returnedMessage){
+		if(map == null || fields == null || returnedMessage == null){
+		 	this.failureMessage += &quot; data Collection got null values\n&quot;;
+		 	return;
+		 }
+		if(!map.containsAll(fields.split())){
+			 this.failureMessage += returnedMessage;
+		}
+		//org.apache.log4j.Logger.error(map.containsAll(fields.split()))
+	}
+	
+
+	public void dataIsLazyMap(groovy.json.internal.LazyMap map, String fields, String returnedMessage){
+		if(map == null || fields == null || returnedMessage == null){
+		 	this.failureMessage += &quot; dataIsLazyMap got null values\n&quot;;
+		 	return;
+		 }
+		if(!map.keySet().containsAll(fields.split())){
+			 this.failureMessage += returnedMessage;
+		}
+	}
+	public void dataIsLazyMapArray(List Arr, String fields, String returnedMessage){
+		if(Arr == null || fields == null || returnedMessage == null){
+		 	this.failureMessage += &quot; dataIsLazyMapArray got null values\n&quot;;
+		 	return;
+		 }
+		String [] ary = fields.split();
+		
+		for(String field : ary){
+			if(!Arr.every{it.containsKey(field)}){
+				this.failureMessage +=  returnedMessage;
+			}
+		}
+	}
+
+	public void dataIsLazyKeySet(groovy.json.internal.LazyMap map, String fields, String returnedMessage){
+		if(map == null || fields == null || returnedMessage == null){
+		 	this.failureMessage += &quot; dataIsLazyKeySet got null values\n&quot;;
+		 	return;
+		 }
+		String fieldsToCheck = fields.split(&quot;/&quot;);
+		if(!map.containsAll(fieldsToCheck)){
+			 this.failureMessage += returnedMessage;
+		}
+	}
+
+	public void dataIsString(String data, String fields, String msg){
+		if(data == null || fields == null || msg == null){
+		 	this.failureMessage += &quot; dataIsString got null values\n&quot;;
+		 	return;
+		 }
+		String [] ary = fields.split();
+		for(String field : ary){
+			if(!data.contains(field)){
+		 	this.failureMessage += msg +&quot;\n\n&quot;;
+			}
+		}
+		
+//		if(!data.contains(toCheck)){
+//		 	this.failureMessage += &quot;The request returned without a valid fields (String data) \n\n&quot;;
+//		}
+	}
+
+
+	//				DB methods
+	
+	public void databaseNotEquals(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(oldValue.equals(newValue)){
+			this.failureMessage += msg;
+		}
+	}
+
+	public void databaseEquals(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!oldValue.equals(newValue)){
+			this.failureMessage += msg;
+		}
+	}
+
+	public void databaseEqualsWithResultArray(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!oldValue.equals(newValue)){
+			this.failureMessage += msg;
+		}
+	}
+
+	public String getFailureMassage(){
+		return this.failureMessage;
+	}
+
+	}
+
+	ResponseChecker JsonChecker = new ResponseChecker();
+	vars.putObject(&apos;JsonChecker&apos;,JsonChecker);
+	props.put(&apos;JsonChecker&apos;,JsonChecker);
+
+</stringProp>
+      </JSR223PreProcessor>
+      <hashTree/>
+      <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="DB checker" enabled="true">
+        <stringProp name="scriptLanguage">groovy</stringProp>
+        <stringProp name="parameters"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="cacheKey">true</stringProp>
+        <stringProp name="script">import groovy.json.JsonSlurper;
+import org.apache.jmeter.assertions.AssertionResult;
+import groovy.util.logging.Log;
+class DBChecker{
+	String failureMessage = &apos;&apos;;
+
+	public void DBContainsRequiredFields(ArrayList results,List variantNames,String msg){
+	String resultmsg;
+	results.each{resultArray -&gt; 
+			variantNames.each{var -&gt;
+				if(!(resultArray.keySet().contains(var))){
+					this.failureMessage+=&quot; - ${var} - &quot;
+				}
+
+			}
+		}
+		if(failureMessage?.trim()){
+			this.failureMessage = msg + failureMessage;
+		}
+			
+	}
+	//*****************************************DB methods**********************************************
+	
+	public void databaseNotEqualsStrings(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(oldValue.equals(newValue)){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public void databaseEqualsStrings(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!(oldValue.equals(newValue))){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public void databaseEquals(long oldValue,long newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!(oldValue==newValue)){
+	//	 groovy.util.logging.Log.info(oldValue);
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public void databaseNotEquals(long oldValue,long newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(oldValue==newValue){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+public void databaseEquals(long oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+ 			return;
+	 }
+		if(!(oldValue==newValue)){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	
+	public void databaseEqualsWithResultArray(String oldValue,String newValue, String msg){
+		if(msg == null || oldValue == null || newValue == null){
+		 	this.failureMessage += &quot; databaseNotEquals got null values\n&quot;;
+		 	return;
+		 }
+		if(!(oldValue.equals(newValue))){
+			this.failureMessage += msg + &quot;\n\n&quot;;
+		}
+	}
+
+	public String getFailureMassage(){
+		//groovy.util.logging.Log.info(failureMessage);
+		return this.failureMessage;
+	}
+
+	}
+
+	DBChecker Checker = new DBChecker();
+	vars.putObject(&apos;DBChecker&apos;,Checker);
+	props.put(&apos;DBChecker&apos;,Checker);
+
+</stringProp>
+      </JSR223PreProcessor>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>false</message>
+            <threadName>true</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="הוספה לסל" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="get token" enabled="true">
+          <stringProp name="dataSource">test</stringProp>
+          <stringProp name="query">select top 1 userToken from allMembers where UserToken is not null and DateCreated &gt;= dateadd(day,-10,GETDATE()) and PremiumType =1  order by NEWID()
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames">UserToken</stringProp>
+          <boolProp name="com.blazemeter.jmeter.debugger.engine.Debugger">true</boolProp>
+        </JDBCSampler>
+        <hashTree>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="variant postprocessor" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">
+vars.put(&apos;UserToken&apos;,vars.get(&apos;UserToken_1&apos;));</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Transaction Controller" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header adds UserToken" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">746</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Cookie" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">_ga=GA1.1.906057895.1572957057; seevolution.hasVisited=true; glassix-visitor-id-30a9ea05-a63d-4c83-9d61-5e35b883c3de=83d178e2-e4e5-45ac-bf96-aef611d44407; SL_C_23361dd035530_KEY=e043cb43a91ea8b92785cdc15ca17086607ef1de; pass=LaMuAatbtcMzE7rVr2wQaw==&amp;encrypted=1; User=muzchild; _gcl_au=1.1.256602578.1583227635; _gid=GA1.1.1312678490.1583227635; _hjid=edc5599a-9faa-4619-ad0c-d17785987e99; userId=2010281368131660; _dc_gtm_UA-16603491-16=1</stringProp>
+              </elementProp>
+              <elementProp name="Host" elementType="Header">
+                <stringProp name="Header.name">Host</stringProp>
+                <stringProp name="Header.value">172.29.46.10:3005</stringProp>
+              </elementProp>
+              <elementProp name="OrganizationId" elementType="Header">
+                <stringProp name="Header.name">OrganizationId</stringProp>
+                <stringProp name="Header.value">48</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">http://172.29.46.10:3004</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Proxy-Connection" elementType="Header">
+                <stringProp name="Header.name">Proxy-Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">http://172.29.46.10:3004/category/productPage/58178</stringProp>
+              </elementProp>
+              <elementProp name="token" elementType="Header">
+                <stringProp name="Header.name">token</stringProp>
+                <stringProp name="Header.value">${UserToken}</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="פעולת הוספה לסל" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;categoryNumber&quot;: 58181,&#xd;
+  &quot;categoryName&quot;: &quot;תיאטרון אורנה פורת לילדים ונוער - זוג כרטיסים&quot;,&#xd;
+  &quot;variants&quot;: [&#xd;
+    {&#xd;
+      &quot;monthlyLimit&quot;: &quot;${}&quot;,&#xd;
+      &quot;generalLimit&quot;: -1,&#xd;
+      &quot;yearlyLimit&quot;: -1,&#xd;
+      &quot;name&quot;: &quot;זוג כרטיסים&quot;,&#xd;
+      &quot;barCode&quot;: &quot;1001082-6&quot;,&#xd;
+      &quot;isEmpty&quot;: false,&#xd;
+      &quot;price&quot;: 100,&#xd;
+      &quot;quantity&quot;: 1,&#xd;
+      &quot;discount&quot;: null,&#xd;
+      &quot;orderLimit&quot;: 2,&#xd;
+      &quot;expireDate&quot;: &quot;2021-03-03T14:22:42.8757408+02:00&quot;,&#xd;
+      &quot;description&quot;: &quot;&quot;,&#xd;
+      &quot;supplierName&quot;: &quot;&quot;,&#xd;
+      &quot;sale&quot;: false,&#xd;
+      &quot;outofStock&quot;: false,&#xd;
+      &quot;isSendToFriend&quot;: false,&#xd;
+      &quot;benefitTypeId&quot;: 2,&#xd;
+      &quot;giftCardValue&quot;: 0,&#xd;
+      &quot;redimTypeId&quot;: 107,&#xd;
+      &quot;redimTypeName&quot;: &quot;מימוש המנוי כפי שמצוין בתנאי ההטבה ומגבלות&quot;,&#xd;
+      &quot;tickets&quot;: null,&#xd;
+      &quot;kupaPrice&quot;: 150,&#xd;
+      &quot;irgunPrice&quot;: 115,&#xd;
+      &quot;purchaseDate&quot;: &quot;&quot;,&#xd;
+      &quot;categoryName&quot;: &quot;&quot;,&#xd;
+      &quot;totalPurchase&quot;: 0,&#xd;
+      &quot;status&quot;: &quot;&quot;,&#xd;
+      &quot;businessSubTypeId&quot;: 22,&#xd;
+      &quot;isCampaign&quot;: true&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">172.29.46.10</stringProp>
+            <stringProp name="HTTPSampler.port">3005</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/shoppingBasket/add</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonSlurper;
+def jsonResponse = null;
+String message = null;
+def catagoryLevel = null;
+String failureMessage = null;
+
+JsonSlurper JSON = new JsonSlurper();
+def checker = vars.getObject(&apos;JsonChecker&apos;);
+//def checker = props.get(&apos;JsonChecker&apos;);
+	try {
+      jsonResponse = JSON.parseText(prev.getResponseDataAsString());
+      } catch (Exception e) {
+	    failureMessage += &quot;Invalid JSON.\n&quot;
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);  
+	}
+	//jsonResponse = checker.getJsonResponse(prev);
+	checker.getStatusCode(prev,&quot;200&quot;);
+	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
+	checker.ConfigStatusAndData(jsonResponse);
+	catagoryLevel = jsonResponse.get(&apos;data&apos;);
+	Objects.requireNonNull(catagoryLevel, &quot;jsonData returned with null value&quot;);
+	catagoryLevel = catagoryLevel.first();
+	failureMessage = checker.getFailureMassage();	
+	boolean responseStatus = jsonResponse.get(&apos;status&apos;);
+	log.info(catagoryLevel.getAt(&apos;categoryId&apos;));
+	if(!(responseStatus)){
+		failureMessage += &quot;status returned as false\n\n\n\n&quot;;
+	}
+	// Print error messages if any
+		if (failureMessage?.trim()) {
+	    failureMessage += &quot;at URL \n: &quot; + SampleResult.getURL() + &quot;\n\n&quot;;     
+	    //failureMessage += &quot;JSON RESPONSE: &quot; + jsonResponse + &quot;\n\n&quot;;
+	    failureMessage += &quot;REQUEST HEADERS \n: &quot; + SampleResult.getRequestHeaders() + &quot;\n\n&quot;;
+	    failureMessage += &quot;THE SENT REQUEST \n&quot; + (sampler.getArguments().getArgument(0));
+	    vars.putObject(&apos;error&apos;,true);
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);    
+	}
+	else{
+		vars.putObject(&quot;catagoryNumber&quot;,catagoryLevel.get(&quot;categoryId&quot;))
+	}
+	
+</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
+          <boolProp name="displayJMeterProperties">true</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">true</boolProp>
+        </DebugSampler>
+        <hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>true</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="הסרה מהסל" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">true</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">true</boolProp>
+        </DebugSampler>
+        <hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>true</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Transaction Controller" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header adds UserToken" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">746</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Cookie" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">_ga=GA1.1.906057895.1572957057; seevolution.hasVisited=true; glassix-visitor-id-30a9ea05-a63d-4c83-9d61-5e35b883c3de=83d178e2-e4e5-45ac-bf96-aef611d44407; SL_C_23361dd035530_KEY=e043cb43a91ea8b92785cdc15ca17086607ef1de; pass=LaMuAatbtcMzE7rVr2wQaw==&amp;encrypted=1; User=muzchild; _gcl_au=1.1.256602578.1583227635; _gid=GA1.1.1312678490.1583227635; _hjid=edc5599a-9faa-4619-ad0c-d17785987e99; userId=2010281368131660; _dc_gtm_UA-16603491-16=1</stringProp>
+              </elementProp>
+              <elementProp name="Host" elementType="Header">
+                <stringProp name="Header.name">Host</stringProp>
+                <stringProp name="Header.value">172.29.46.10:3005</stringProp>
+              </elementProp>
+              <elementProp name="OrganizationId" elementType="Header">
+                <stringProp name="Header.name">OrganizationId</stringProp>
+                <stringProp name="Header.value">48</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">http://172.29.46.10:3004</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Proxy-Connection" elementType="Header">
+                <stringProp name="Header.name">Proxy-Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">http://172.29.46.10:3004/category/productPage/58178</stringProp>
+              </elementProp>
+              <elementProp name="token" elementType="Header">
+                <stringProp name="Header.name">token</stringProp>
+                <stringProp name="Header.value">elUWUr6cin9svwE4fDLSkyAiemcvJ72LOn0QHCbbPygCItzTQoxhnnaGzipwvlJbAmrMIROtOt3dJwVL1fLhViu/9AiW3WTddkhvFCMD+ffn27p60j7OrPHbnBFInaD6OjZ9JI51z6vJXhb6dFH2oKdgWwk930lQimFUwkwwSClrQX+xxaci+mV0G0N0lD7B6rVzYca7wVykmvYiiNciVFyUy4lfiMc97rkIh2LMD3nhB+9E9dD2OhublVmwZFb/R4Aap2JXw92oXh0I8i4JkQMkYs3YsRYtCp2jTd43/EjCMrc5HtAXEarjGIbKq16TuULUCQLuyc9UwcLeSyWKVZ6bePobsz0auD+onxsaBDpL9MdPXHH/KHxe+WC7JwWnWvJzYiyRZ8jXBE0OfzeTvR6WrDKlqhFwHaFk5TjMrI+4576+XUEjoF6ZIkljoTvPn2OAtjFpqHyUc/TQGzgAHu9ySy4bf+jS/IQsavyKfZw9e1OyOGDtrAyz+ME27eqZx3fTU2chvSbosyzxDpzkbiElnsJQLrMsBaS93K8kksQ1hsz6WUjrGaLLEdV6RIunjXDyBZo32IMSCAaCpyD8NVSG+sk9chiGGvENKs8Omf72Qov/4aylIWrED4O2ZYnXFsdhmgDZy/E2e2rOZ/eEyC3pmTDENZMoRMecskCQDm8=</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="פעולת הסרה מהסל" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">172.29.46.10</stringProp>
+            <stringProp name="HTTPSampler.port">3005</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/shoppingBasket/removeByCategory?categoryNumber=58181</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonSlurper;
+def jsonResponse = null;
+String message = null;
+def catagoryLevel = null;
+String failureMessage = null;
+
+JsonSlurper JSON = new JsonSlurper();
+def checker = vars.getObject(&apos;JsonChecker&apos;);
+//def checker = props.get(&apos;JsonChecker&apos;);
+	try {
+      jsonResponse = JSON.parseText(prev.getResponseDataAsString());
+      } catch (Exception e) {
+	    failureMessage += &quot;Invalid JSON.\n&quot;
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);  
+	}
+	//jsonResponse = checker.getJsonResponse(prev);
+	checker.getStatusCode(prev,&quot;200&quot;);
+	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
+	checker.ConfigStatusAndData(jsonResponse);
+	catagoryLevel = jsonResponse.get(&apos;data&apos;);
+	Objects.requireNonNull(catagoryLevel, &quot;jsonData returned with null value&quot;);
+	failureMessage = checker.getFailureMassage();	
+	boolean responseStatus = jsonResponse.get(&apos;status&apos;);
+	// Print error messages if any
+		if (failureMessage?.trim()) {
+	    failureMessage += &quot;at URL \n: &quot; + SampleResult.getURL() + &quot;\n\n&quot;;     
+	    //failureMessage += &quot;JSON RESPONSE: &quot; + jsonResponse + &quot;\n\n&quot;;
+	    failureMessage += &quot;REQUEST HEADERS \n: &quot; + SampleResult.getRequestHeaders() + &quot;\n\n&quot;;
+	    failureMessage += &quot;THE SENT REQUEST \n&quot; + (sampler.getArguments().getArgument(0));
+	    vars.putObject(&apos;error&apos;,true);
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);    
+	}
+	</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="true">
+        <collectionProp name="ultimatethreadgroupdata">
+          <collectionProp name="1816194658">
+            <stringProp name="49586">200</stringProp>
+            <stringProp name="0">0</stringProp>
+            <stringProp name="1509345">1200</stringProp>
+            <stringProp name="60">60</stringProp>
+            <stringProp name="48625">100</stringProp>
+          </collectionProp>
+        </collectionProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      </kg.apc.jmeter.threads.UltimateThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="get token" enabled="true">
+          <stringProp name="dataSource">test</stringProp>
+          <stringProp name="query">select top 1 userToken from allMembers where UserToken is not null and DateCreated &gt;= dateadd(day,-10,GETDATE()) and PremiumType =1  order by NEWID()
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames">UserToken</stringProp>
+          <boolProp name="com.blazemeter.jmeter.debugger.engine.Debugger">true</boolProp>
+        </JDBCSampler>
+        <hashTree>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="variant postprocessor" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">
+vars.put(&apos;UserToken&apos;,vars.get(&apos;UserToken_1&apos;));</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Transaction Controller" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header adds UserToken" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">809</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Cookie" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">_ga=GA1.1.906057895.1572957057; seevolution.hasVisited=true; glassix-visitor-id-30a9ea05-a63d-4c83-9d61-5e35b883c3de=83d178e2-e4e5-45ac-bf96-aef611d44407; SL_C_23361dd035530_KEY=e043cb43a91ea8b92785cdc15ca17086607ef1de; pass=LaMuAatbtcMzE7rVr2wQaw==&amp;encrypted=1; User=muzchild; _gcl_au=1.1.256602578.1583227635; _gid=GA1.1.1312678490.1583227635; _hjid=edc5599a-9faa-4619-ad0c-d17785987e99; userId=2010285114885461</stringProp>
+              </elementProp>
+              <elementProp name="Host" elementType="Header">
+                <stringProp name="Header.name">Host</stringProp>
+                <stringProp name="Header.value">172.29.46.10:3005</stringProp>
+              </elementProp>
+              <elementProp name="OrganizationId" elementType="Header">
+                <stringProp name="Header.name">OrganizationId</stringProp>
+                <stringProp name="Header.value">48</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">http://172.29.46.10:3004</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">http://172.29.46.10:3004/category/productPage/227</stringProp>
+              </elementProp>
+              <elementProp name="token" elementType="Header">
+                <stringProp name="Header.name">token</stringProp>
+                <stringProp name="Header.value">${UserToken}</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="פעולת הוספה לסל" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;categoryNumber&quot;: 227,&#xd;
+  &quot;categoryName&quot;: &quot;גן גורו&quot;,&#xd;
+  &quot;variants&quot;: [&#xd;
+    {&#xd;
+      &quot;monthlyLimit&quot;: 4,&#xd;
+      &quot;generalLimit&quot;: -1,&#xd;
+      &quot;yearlyLimit&quot;: -1,&#xd;
+      &quot;name&quot;: &quot;כניסה&quot;,&#xd;
+      &quot;barCode&quot;: &quot;100157-53&quot;,&#xd;
+      &quot;isEmpty&quot;: false,&#xd;
+      &quot;price&quot;: 36,&#xd;
+      &quot;quantity&quot;: 1,&#xd;
+      &quot;discount&quot;: null,&#xd;
+      &quot;orderLimit&quot;: 4,&#xd;
+      &quot;expireDate&quot;: &quot;2021-03-31T23:59:59&quot;,&#xd;
+      &quot;description&quot;: &quot;&quot;,&#xd;
+      &quot;supplierName&quot;: &quot;&quot;,&#xd;
+      &quot;sale&quot;: false,&#xd;
+      &quot;outofStock&quot;: false,&#xd;
+      &quot;isSendToFriend&quot;: false,&#xd;
+      &quot;benefitTypeId&quot;: 2,&#xd;
+      &quot;giftCardValue&quot;: 0,&#xd;
+      &quot;redimTypeId&quot;: 103,&#xd;
+      &quot;redimTypeName&quot;: &quot;לאחר הרכישה באתר, הזמנתך תיטען בכרטיס המועדון ואישור הזמנה ישלח במייל.  עם הגעתך לבית העסק, יש להציג בקופה את כרטיס המועדון&quot;,&#xd;
+      &quot;tickets&quot;: null,&#xd;
+      &quot;kupaPrice&quot;: 59,&#xd;
+      &quot;irgunPrice&quot;: 42.92,&#xd;
+      &quot;purchaseDate&quot;: &quot;&quot;,&#xd;
+      &quot;categoryName&quot;: &quot;&quot;,&#xd;
+      &quot;totalPurchase&quot;: 0,&#xd;
+      &quot;status&quot;: &quot;&quot;,&#xd;
+      &quot;businessSubTypeId&quot;: 3,&#xd;
+      &quot;isCampaign&quot;: false&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">172.29.46.10</stringProp>
+            <stringProp name="HTTPSampler.port">3005</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/shoppingBasket/add</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonSlurper;
+def jsonResponse = null;
+String message = null;
+def catagoryLevel = null;
+String failureMessage = null;
+
+JsonSlurper JSON = new JsonSlurper();
+def checker = vars.getObject(&apos;JsonChecker&apos;);
+//def checker = props.get(&apos;JsonChecker&apos;);
+	try {
+      jsonResponse = JSON.parseText(prev.getResponseDataAsString());
+      } catch (Exception e) {
+	    failureMessage += &quot;Invalid JSON.\n&quot;
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);  
+	}
+	//jsonResponse = checker.getJsonResponse(prev);
+	checker.getStatusCode(prev,&quot;200&quot;);
+	checker.getStatusHeader(jsonResponse.get(&apos;status&apos;));
+	checker.ConfigStatusAndData(jsonResponse);
+	catagoryLevel = jsonResponse.get(&apos;data&apos;);
+	Objects.requireNonNull(catagoryLevel, &quot;jsonData returned with null value&quot;);
+	catagoryLevel = catagoryLevel.first();
+	failureMessage = checker.getFailureMassage();	
+	boolean responseStatus = jsonResponse.get(&apos;status&apos;);
+	log.info(catagoryLevel.getAt(&apos;categoryId&apos;));
+	if(!(responseStatus)){
+		failureMessage += &quot;status returned as false\n\n\n\n&quot;;
+	}
+	// Print error messages if any
+		if (failureMessage?.trim()) {
+	    failureMessage += &quot;at URL \n: &quot; + SampleResult.getURL() + &quot;\n\n&quot;;     
+	    //failureMessage += &quot;JSON RESPONSE: &quot; + jsonResponse + &quot;\n\n&quot;;
+	    failureMessage += &quot;REQUEST HEADERS \n: &quot; + SampleResult.getRequestHeaders() + &quot;\n\n&quot;;
+	    failureMessage += &quot;THE SENT REQUEST \n&quot; + (sampler.getArguments().getArgument(0));
+	    vars.putObject(&apos;error&apos;,true);
+	    AssertionResult.setFailureMessage(failureMessage);
+	    AssertionResult.setFailure(true);    
+	}
+	else{
+		vars.putObject(&quot;catagoryNumber&quot;,catagoryLevel.get(&quot;categoryId&quot;))
+	}
+	
+</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
