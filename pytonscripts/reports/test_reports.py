@@ -8,7 +8,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from Excel.Compare.test_ExcelCompare import excelCompare
 from selenium.webdriver.common.keys import Keys
 
+#מציינים כמה דוחות שונים אנחנו חשוקים לבדוק
 relevant_report = [('דוח היסטוריית מסגרת הזמנה', False), ('דוח פירוט הפצות להזמנה', True)]
+
 counter = 0
 
 
@@ -26,6 +28,7 @@ def check_for_diffrence_in_reports_from_excel_file(report_name, sum_of_all_envs)
 @mark.reports
 @pytest.mark.usefixtures("shufersal_chrome_login")
 class Reports_Tests:
+    #פעולה המבצעת את כול התהליכים הקשורים ללחיצה על הקנדו בתהליך דרופדאון
     def execute_drop_down(self, driver, dbc, additional_information_required):
         # מבצע פעולות שקשורות לקנדו המסריח שלא מקליק כמו שצריך
         element = driver.find_element_by_class_name('k-input')
@@ -76,6 +79,7 @@ class Reports_Tests:
         counter += 1
         return True
 
+    #פעולה שקוראת כאשר דוח מסוים זקוק למידה נוסף לארגון בלבד, כמו מסםר הזמנה
     def additional_information_is_required(self, driver, additional_information_required, dbc):
         if additional_information_required:
             element = driver.find_elements_by_xpath("//div[""2]/div/input")
