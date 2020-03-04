@@ -10,13 +10,13 @@ class MyHandler(FileSystemEventHandler):
     i = 1
 
     def on_modified(self, event):
-        new_name = f"exported_file_{str(self.i)}.xlsx"
         for index, filename in enumerate(os.listdir(folder_to_track), 1):
             if filename.endswith('xlsx'):
+                self.i = index
+                new_name = f"{filename}_{str(self.i)}.xlsx"
                 file_exists = os.path.isfile(f"{folder_destination}/{new_name}")
                 while file_exists:
-                    self.i = index
-                    new_name = f"exported_file_{str(self.i)}.xlsx"
+                    new_name = f"{filename}_{str(self.i)}.xlsx"
                     file_exists = os.path.isfile(f"{folder_destination}/{new_name}")
                 src = f"{folder_to_track}/{filename}"
                 new_dest = f"{folder_destination}/{new_name}"
