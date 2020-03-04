@@ -37,4 +37,6 @@
 
 <sample t="2782" it="0" lt="0" ct="0" ts="1583332203382" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="98442" sby="6991" sc="1" ec="0" ng="1" na="1" hn="spare"/>
 
+<sample t="3440" it="0" lt="0" ct="0" ts="1583335802824" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
 </testResults>
