@@ -20,4 +20,21 @@
 
 <sample t="3479" it="0" lt="0" ct="0" ts="1583310602673" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
 
+<sample t="1253" it="89" lt="0" ct="0" ts="1583314202875" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="65052" sby="10131" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<sample t="148" it="7" lt="0" ct="0" ts="1583314204232" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="23678" sby="4544" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<sample t="486" it="0" lt="0" ct="0" ts="1583314204388" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="65070" sby="10131" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="1202" it="100" lt="0" ct="0" ts="1583317803003" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="65033" sby="10131" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<sample t="138" it="6" lt="0" ct="0" ts="1583317804309" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="23678" sby="4544" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<sample t="448" it="9" lt="0" ct="0" ts="1583317804453" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="65033" sby="10131" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<sample t="130" it="0" lt="0" ct="0" ts="1583317804910" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="23659" sby="4544" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="4996" it="0" lt="0" ct="0" ts="1583321402843" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="392" sby="405" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="2308" it="0" lt="0" ct="0" ts="1583325003147" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="54215" sby="7793" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="3142" it="0" lt="0" ct="0" ts="1583328603110" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="4263" sby="4544" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="2782" it="0" lt="0" ct="0" ts="1583332203382" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="98442" sby="6991" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
 </testResults>

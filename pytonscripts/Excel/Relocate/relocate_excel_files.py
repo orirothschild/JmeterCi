@@ -1,12 +1,32 @@
+from pytest import mark
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-import watchdog
 import os
-import json
 import time
 
+folder_to_track = "/Users/orir/Downloads/"
+folder_destination = "/Users/orir/Downloads/ExcelDownloads"
+
+
 # הנדלר שנועד לדגום תקיית הורדות עבור קבצי אקסל, אשר לוקח הורדות אקסל חדשות ומעביר אותן לתקיה נגררת של הרודות לקבצי אקסל
-class MyHandler(FileSystemEventHandler):
+def test_relocate_excel_files_from_downloads_folder():
+    event_handler = MyHandlerTests()
+    observer = Observer()
+    observer.schedule(event_handler, folder_to_track, recursive=True)
+    observer.start()
+    return observer
+
+
+# try:
+#    while True:
+#       time.sleep(10)
+# except KeyboardInterrupt:
+#    observer.stop()
+
+
+@mark.smoke
+@mark.orderdiff
+class MyHandlerTests(FileSystemEventHandler):
     i = 1
 
     def on_modified(self, event):
@@ -21,16 +41,3 @@ class MyHandler(FileSystemEventHandler):
                 src = f"{folder_to_track}/{filename}"
                 new_dest = f"{folder_destination}/{new_name}"
                 os.rename(src, new_dest)
-
-
-folder_to_track = "/Users/orir/Downloads/"
-folder_destination = "/Users/orir/Downloads/ExcelDownloads"
-event_handler = MyHandler()
-observer = Observer()
-observer.schedule(event_handler, folder_to_track, recursive=True)
-observer.start()
-try:
-    while True:
-        time.sleep(10)
-except KeyboardInterrupt:
-    observer.stop()

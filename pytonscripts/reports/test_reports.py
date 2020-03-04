@@ -9,7 +9,12 @@ from Excel.Compare.test_ExcelCompare import excelCompare
 from selenium.webdriver.common.keys import Keys
 
 #מציינים כמה דוחות שונים אנחנו חשוקים לבדוק
-relevant_report = [('דוח היסטוריית מסגרת הזמנה', False), ('דוח פירוט הפצות להזמנה', True)]
+relevant_report = [('דוח היסטוריית מסגרת הזמנה', False)
+    # ,
+    #                ('דוח פירוט הפצות להזמנה', True),
+    #                ('דוח הזמנה', True),
+    #                ('דוח פעילות תווים', True)
+                   ]
 
 counter = 0
 
@@ -60,13 +65,13 @@ class Reports_Tests:
         # # קוד המריץ דוח, ממודה שהדוח לוחץ על ה קנדו ובודק את כול הרשומות עבור חברה גנרית, למשל א.ב הובלות בעמ
         element = driver.find_element_by_xpath("//ul/li[3]/span")
         driver.execute_script("arguments[0].click();", element)
-        WebDriverWait(driver, 30).until(
+        WebDriverWait(driver, 50).until(
             EC.element_to_be_clickable((By.LINK_TEXT, f'{relevant_report}')))
-        WebDriverWait(driver, 30).until(
+        WebDriverWait(driver, 50).until(
             EC.invisibility_of_element_located((By.CLASS_NAME, "k-loading-image")))
         time.sleep(2)
         driver.find_element_by_link_text(f'{relevant_report}').click()
-        WebDriverWait(driver, 30).until(
+        WebDriverWait(driver, 50).until(
             EC.invisibility_of_element_located((By.CLASS_NAME, "k-loading-image")))
         time.sleep(2)
         driver.find_element_by_class_name('k-input')
@@ -87,7 +92,7 @@ class Reports_Tests:
                 element = driver.find_element_by_xpath("//div[2]/span/span/span[1]")
                 driver.execute_script("arguments[0].click();", element)
                 time.sleep(0.2)
-                WebDriverWait(driver, 30).until(
+                WebDriverWait(driver, 100).until(
                     EC.presence_of_element_located((By.XPATH, "/html/body/div[4]/div/div[3]")))
                 dbc.execute(
                     f'select top 1 ShufersalOrderId FROM Orders where CustomerId = 32002 and ShufersalOrderId is not '
@@ -97,7 +102,7 @@ class Reports_Tests:
                 driver.find_element_by_xpath("//div[4]/div/span/input").send_keys(shufersal_order)
                 actions = ActionChains(driver)
                 actions.send_keys(Keys.DOWN).perform()
-                WebDriverWait(driver, 30).until(
+                WebDriverWait(driver, 100).until(
                     EC.invisibility_of_element_located((By.CLASS_NAME, "k-loading-mask")))
         return
 

@@ -6,6 +6,7 @@ from pytest import fixture
 from pytest import mark
 
 from Excel.Compare.test_ExcelCompare import excelCompare
+from Excel.Relocate.relocate_excel_files import test_relocate_excel_files_from_downloads_folder
 from config import Config
 from drivers.drivers import chrome
 
@@ -75,12 +76,23 @@ def shufersal_chrome_login_config(web_config):
     local_driver.quit()
 
 
+# @fixture(scope="session")
+# def relocate_excel_files():
+#     global observer
+#     observer = test_relocate_excel_files_from_downloads_folder()
+#     yield observer
+#     observer.stop()
+
+
 @fixture(scope="session")
 def get_chrome():
     global driver
     driver = driver if driver is not None else chrome()
+    observer = test_relocate_excel_files_from_downloads_folder()
     yield driver
     driver.quit()
+  #  observer.stop()
+    driver = None
 
 
 @contextlib.contextmanager
@@ -112,6 +124,7 @@ def shufersal_chrome_login(get_chrome, request):
 
 
 @pytest.fixture(scope='session', autouse=True)
+# קריאה
 def last_call():
     yield "hello"
     excelCompare(f'hello')
