@@ -6,7 +6,8 @@ from pytest import fixture
 from pytest import mark
 
 from Excel.Compare.test_ExcelCompare import excelCompare
-from Excel.Relocate.relocate_excel_files import test_relocate_excel_files_from_downloads_folder
+from Excel.Relocate.relocate_excel_files import test_relocate_excel_files_from_downloads_folder, MyHandlerTests, \
+    run_excel_relocate_in_thread
 from config import Config
 from drivers.drivers import chrome
 
@@ -88,7 +89,7 @@ def shufersal_chrome_login_config(web_config):
 def get_chrome():
     global driver
     driver = driver if driver is not None else chrome()
-    observer = test_relocate_excel_files_from_downloads_folder()
+    run_excel_relocate_in_thread()
     yield driver
     driver.quit()
   #  observer.stop()

@@ -2,6 +2,7 @@ from pytest import mark
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 import os
+from threading import Thread
 import time
 
 folder_to_track = "/Users/orir/Downloads/"
@@ -14,18 +15,20 @@ def test_relocate_excel_files_from_downloads_folder():
     observer = Observer()
     observer.schedule(event_handler, folder_to_track, recursive=True)
     observer.start()
-    return observer
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        observer.stop()
+    observer.join()
 
 
-# try:
-#    while True:
-#       time.sleep(10)
-# except KeyboardInterrupt:
-#    observer.stop()
+def run_excel_relocate_in_thread():
+    thread = Thread(target=test_relocate_excel_files_from_downloads_folder, args=())
+    thread.start()
+    # thread.join()
 
 
-@mark.smoke
-@mark.orderdiff
 class MyHandlerTests(FileSystemEventHandler):
     i = 1
 
