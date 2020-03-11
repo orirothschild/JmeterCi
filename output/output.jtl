@@ -34,4 +34,10 @@
 <sample t="482" it="9" lt="0" ct="0" ts="1583929804529" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="66851" sby="10131" sc="1" ec="0" ng="1" na="1" hn="spare"/>
 <sample t="215" it="0" lt="0" ct="0" ts="1583929805021" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="30741" sby="6060" sc="1" ec="0" ng="1" na="1" hn="spare"/>
 
+<sample t="2597" it="0" lt="0" ct="0" ts="1583933403354" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="56045" sby="7793" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
+<sample t="1275" it="83" lt="0" ct="0" ts="1583937003372" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="66832" sby="10131" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<sample t="167" it="3" lt="0" ct="0" ts="1583937004734" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="24567" sby="4544" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+<sample t="466" it="0" lt="0" ct="0" ts="1583937004905" s="true" lb="Transaction Controller" rc="200" tn="jp@gc - Ultimate Thread Group 1-1" by="56332" sby="8189" sc="1" ec="0" ng="1" na="1" hn="spare"/>
+
 </testResults>
