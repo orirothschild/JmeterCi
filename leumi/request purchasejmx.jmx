@@ -127,10 +127,10 @@
         <stringProp name="username">sqladmin</stringProp>
       </JDBCDataSource>
       <hashTree/>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="לאומי עומס שדר 4 " enabled="true">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="לאומי עומס שדר 4 " enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-1875916606">
-            <stringProp name="49586">200</stringProp>
+          <collectionProp name="-988412925">
+            <stringProp name="50547">300</stringProp>
             <stringProp name="49">1</stringProp>
             <stringProp name="49">1</stringProp>
             <stringProp name="48625">100</stringProp>
@@ -334,13 +334,13 @@ if( !(prev.getResponseDataAsString().contains(&quot;OrderLimit&gt;5&lt;&quot;)))
         </ResultCollector>
         <hashTree/>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="לאומי עומס שדר 5 " enabled="false">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="לאומי עומס שדר 5 " enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-909873057">
-            <stringProp name="50547">300</stringProp>
+          <collectionProp name="1473083926">
+            <stringProp name="49586">200</stringProp>
             <stringProp name="49">1</stringProp>
             <stringProp name="49">1</stringProp>
-            <stringProp name="1567">10</stringProp>
+            <stringProp name="53430">600</stringProp>
             <stringProp name="53">5</stringProp>
           </collectionProp>
         </collectionProp>

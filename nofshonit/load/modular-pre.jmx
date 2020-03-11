@@ -1301,7 +1301,7 @@ vars.putObject(&apos;LineChangerEmail&apos;,LineChangerEmail);
           <hashTree/>
         </hashTree>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="מתנה למקבל - של שבטאי" enabled="false">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="מתנה למקבל" enabled="false">
         <collectionProp name="ultimatethreadgroupdata">
           <collectionProp name="836693768">
             <stringProp name="48625">100</stringProp>
